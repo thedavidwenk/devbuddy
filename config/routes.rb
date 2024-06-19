@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index] do
+    member do
+      get 'profile', to: 'users#show'
+    end
     resources :bookings, only: [:create]
   end
 

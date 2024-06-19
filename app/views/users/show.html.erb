@@ -1,1 +1,13 @@
-<h1>User Profile</h1>
+<h1><%= @user.username %>'s Profile</h1>
+<p><strong>First Name:</strong> <%= @user.first_name %></p>
+<p><strong>Last Name:</strong> <%= @user.last_name %></p>
+<p><strong>Email:</strong> <%= @user.email %></p>
+<p><strong>Experience Level:</strong> <%= @user.experience_level %></p>
+<p><strong>Days Availability:</strong> <%= @user.days_availability %></p>
+<p><strong>Time Availability:</strong> <%= @user.time_availability %></p>
+<p><strong>About Me:</strong> <%= @user.about_me %></p>
+<p><strong>Programming Languages:</strong> <%= @user.programming_languages %></p>
+<% if @user.avatar.present? %>
+  <p><strong>Avatar:</strong></p>
+  <%= image_tag(@user.avatar) %>
+<% end %>
