@@ -1,5 +1,5 @@
 <!-- Navbar place holder -->
-<div style="width:100%; height: 50px; background-color:white; border-bottom: 1px solid black; padding:0;">
+<div style="width:100%; height: 100px; background-color:white; border-bottom: 1px solid black; padding:0;">
 </div>
 
 <div style="display: flex; flex-direction: column; height: 100vh; padding:0;">
@@ -7,10 +7,17 @@
   <div class="row" style="display: flex; flex: 1; width: 100%; margin:0;">
     <div class="col" style="flex: 1; padding: 10px; background-color: #fff;">
 
-      <!-- Placeholder button -->
-      <button style="background-color:black; padding:1px 20px; color:white; border-radius:10px; font-size:10px;">< back</button>
 
-      <div class="container" style="margin: 50px 100px;">
+
+      <div class="container" style="margin: 20px 100px;">
+        <!-- Placeholder button -->
+      <button style="background-color:black; padding:1px 20px; color:white; border-radius:30px; font-size:17px;">< back</button>
+
+        <div class="avatar-and-main-info" style="margin-top:50px;">
+          <% if @user.avatar.present? %>
+            <%= image_tag(@user.avatar, style: "width:320px; height:240px; object-fit:cover;") %>
+          <% end %>
+        </div>
         <h1><%= @user.username %>'s Profile</h1>
         <p><strong>First Name:</strong> <%= @user.first_name %></p>
         <p><strong>Last Name:</strong> <%= @user.last_name %></p>
@@ -21,7 +28,6 @@
         <p><strong>About Me:</strong> <%= @user.about_me %></p>
         <p><strong>Programming Languages:</strong> <%= @user.programming_languages %></p>
           <% if @user.avatar.present? %>
-            <p><strong>Avatar:</strong></p>
             <%= image_tag(@user.avatar, style: "width:100px;") %>
           <% end %>
       </div>
