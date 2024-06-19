@@ -6,6 +6,10 @@ class UsersController < ApplicationController
     # @user is set by the set_user method
   end
 
+  def index
+    @users = User.all
+  end
+
   private
 
   def set_user
