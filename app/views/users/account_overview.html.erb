@@ -1,1 +1,25 @@
-<h1>This is the account overview page</h1>
+<div class="container">
+  <h1>Account Overview</h1>
+  <ul class="nav nav-tabs" id="accountTabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="appointments-tab" data-toggle="tab" href="#appointments" role="tab" aria-controls="appointments" aria-selected="true">My Appointments</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="beehive-tab" data-toggle="tab" href="#beehive" role="tab" aria-controls="beehive" aria-selected="false">My Beehive</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="achievements-tab" data-toggle="tab" href="#achievements" role="tab" aria-controls="achievements" aria-selected="false">My Achievements</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="accountTabsContent">
+    <div class="tab-pane fade show active" id="appointments" role="tabpanel" aria-labelledby="appointments-tab">
+      <!-- My Appointments content -->
+    </div>
+    <div class="tab-pane fade" id="beehive" role="tabpanel" aria-labelledby="beehive-tab">
+      <!-- My Beehive content -->
+    </div>
+    <div class="tab-pane fade" id="achievements" role="tabpanel" aria-labelledby="achievements-tab">
+      <!-- My Achievements content -->
+    </div>
+  </div>
+</div>

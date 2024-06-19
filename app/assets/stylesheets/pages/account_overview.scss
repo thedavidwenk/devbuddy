@@ -1,0 +1,10 @@
+.nav-tabs .nav-link.active {
+  background-color: $yellow-brand;
+  color: $dark-brand; // Optional: to ensure the text is readable
+}
+
+.nav-tabs .nav-link.active:focus,
+.nav-tabs .nav-link.active:hover {
+  background-color: $yellow-brand; // Ensure hover and focus states are also styled
+  color: $dark-brand;
+}
