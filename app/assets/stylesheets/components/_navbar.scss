@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  height: 75px;
   border-bottom: 2px solid black;
 
   .navbar-collapse {
@@ -8,7 +9,7 @@
     }
 
     .navbar-brand img {
-      width: 150px;
+      width: auto;
       }
 
       .nav-link {
@@ -17,12 +18,12 @@
 
         &:hover {
           color: $purple;
-          text-decoration: underline;
+          font-weight: bold;
           }
 
           &.active {
             color: $purple !important;
-            text-decoration: underline;
+            font-weight: bold;
             }
             }
 }
