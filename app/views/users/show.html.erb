@@ -8,26 +8,30 @@
         <!-- Placeholder button -->
         <button style="background-color:black; padding:1px 20px; color:white; border-radius:30px; font-size:17px;">< back</button>
 
-        <div class="avatar-and-main-info" style="display: flex; align-items: center; margin-top: 20px;">
+        <div class="avatar-and-main-info">
           <div class="avatar">
             <% if @user.avatar.present? %>
               <%= image_tag(@user.avatar, style: "width:320px; height:240px; object-fit:cover; border-radius:20px;") %>
             <% end %>
           </div>
           <div class="user-main-info">
-            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+            <h3><!-- <%= @user.first_name %> <%= @user.last_name %> --></h3>
           </div>
         </div>
 
-        <h1><%= @user.username %>'s Profile</h1>
-        <p><strong>First Name:</strong> <%= @user.first_name %></p>
-        <p><strong>Last Name:</strong> <%= @user.last_name %></p>
-        <p><strong>Email:</strong> <%= @user.email %></p>
-        <p><strong>Experience Level:</strong> <%= @user.experience_level %></p>
-        <p><strong>Days Availability:</strong> <%= @user.days_availability %></p>
-        <p><strong>Time Availability:</strong> <%= @user.time_availability %></p>
-        <p><strong>About Me:</strong> <%= @user.about_me %></p>
-        <p><strong>Programming Languages:</strong> <%= @user.programming_languages %></p>
+        <div class="about-me">
+          <h3>About me</h3>
+          <p><%= @user.about_me %></p>
+        </div>
+
+        <div class="achievements">
+          <h3>Achievements</h3>
+        </div>
+
+        <div class="programming-languages">
+          <h3>Currently using...</h3>
+        </div>
+
       </div>
     </div>
     <div class="col" style="flex: 1; padding: 10px; background-color: #fee53f;">
