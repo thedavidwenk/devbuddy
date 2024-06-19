@@ -5,3 +5,29 @@
 .col {
   flex: 1;
 }
+
+.avatar-and-main-info {
+  margin-top: 50px;
+  height: 300px;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+}
+
+h2 {
+  flex: 1;
+  margin-top: -70px;
+  margin-left: 300px;
+}
+.avatar {
+  margin-right: 20px;
+}
+.user-main-info {
+  flex: 1;
+}
+img {
+  width: 320px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 20px;
+}

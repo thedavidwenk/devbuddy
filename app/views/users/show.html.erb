@@ -1,23 +1,24 @@
 <!-- Navbar place holder -->
-<div style="width:100%; height: 100px; background-color:white; border-bottom: 1px solid black; padding:0;">
-</div>
+<div style="width:100%; height: 100px; background-color:white; border-bottom: 1px solid black; padding:0;"></div>
 
 <div style="display: flex; flex-direction: column; height: 100vh; padding:0;">
-
   <div class="row" style="display: flex; flex: 1; width: 100%; margin:0;">
     <div class="col" style="flex: 1; padding: 10px; background-color: #fff;">
-
-
-
-      <div class="container" style="margin: 20px 100px;">
+      <div class="container" style="margin: 20px 200px;">
         <!-- Placeholder button -->
-      <button style="background-color:black; padding:1px 20px; color:white; border-radius:30px; font-size:17px;">< back</button>
+        <button style="background-color:black; padding:1px 20px; color:white; border-radius:30px; font-size:17px;">< back</button>
 
-        <div class="avatar-and-main-info" style="margin-top:50px;">
-          <% if @user.avatar.present? %>
-            <%= image_tag(@user.avatar, style: "width:320px; height:240px; object-fit:cover;") %>
-          <% end %>
+        <div class="avatar-and-main-info" style="display: flex; align-items: center; margin-top: 20px;">
+          <div class="avatar">
+            <% if @user.avatar.present? %>
+              <%= image_tag(@user.avatar, style: "width:320px; height:240px; object-fit:cover; border-radius:20px;") %>
+            <% end %>
+          </div>
+          <div class="user-main-info">
+            <h2><%= @user.first_name %> <%= @user.last_name %></h2>
+          </div>
         </div>
+
         <h1><%= @user.username %>'s Profile</h1>
         <p><strong>First Name:</strong> <%= @user.first_name %></p>
         <p><strong>Last Name:</strong> <%= @user.last_name %></p>
@@ -27,9 +28,6 @@
         <p><strong>Time Availability:</strong> <%= @user.time_availability %></p>
         <p><strong>About Me:</strong> <%= @user.about_me %></p>
         <p><strong>Programming Languages:</strong> <%= @user.programming_languages %></p>
-          <% if @user.avatar.present? %>
-            <%= image_tag(@user.avatar, style: "width:100px;") %>
-          <% end %>
       </div>
     </div>
     <div class="col" style="flex: 1; padding: 10px; background-color: #fee53f;">
@@ -44,10 +42,8 @@
           <% end %>
 
           <!-- Placeholder button -->
-        <button style="background-color:#2d2d2d; padding:1px 20px; color:white; border-radius:30px; font-size:16px; font-style:bold; width:260px; margin-top:40px;">confirm</button>
+          <button style="background-color:#2d2d2d; padding:1px 20px; color:white; border-radius:30px; font-size:16px; font-style:bold; width:260px; margin-top:40px;">confirm</button>
         </div>
-
-
       </div>
     </div>
   </div>
