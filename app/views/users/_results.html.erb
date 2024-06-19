@@ -4,13 +4,13 @@
       <div class="card h-100 border border-0 rounded-5">
         <div class="card-body">
           <div class="d-flex justify-content-between align-items-start">
-            <h5 class="card-title"><%= user.first_name %> <%= user.last_name %></h5>
+            <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
             <a href="#" class="favorite-icon">
               <i class="far fa-heart"></i>
             </a>
           </div>
-          <p class="card-text"><%= user.experience_level %></p>
-          <p class="card-text">I'm currently working on</p>
+          <p class="card-text"><i class="fa-solid fa-desktop"> </i><span class="icon-space"></span> <%= user.experience_level %></p>
+          <p class="card-text"><i class="fa-solid fa-book-open"><span class="icon-space"></i> I'm currently working on</p>
           <p class="card-text"><small class="text-muted"><%= user.programming_languages %></small></p>
         </div>
         <div class="p-3">
