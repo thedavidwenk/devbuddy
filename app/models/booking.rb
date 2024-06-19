@@ -9,5 +9,5 @@ class Booking < ApplicationRecord
 
   # With this line it selects the bookings where the date is greater than or equal to today's date.
   # The Upcoming scope is used in the users controller.
-  scope :upcoming, -> { where('start_date >= ?', Date.today).order(:start_date) }
+  scope :upcoming, -> { where('start_date >= ?', Date.today).order(start_date: :asc) }
 end

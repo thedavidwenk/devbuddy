@@ -9,9 +9,16 @@
 #   end
 
 # db/seeds.rb
-# db/seeds.rb
 
-# Users creation
+
+
+# Clear existing users------------------------
+
+User.destroy_all
+
+
+# Users creation -----------------------------
+
 users = User.create!([
   {
     email: "madonna@madonna.com",

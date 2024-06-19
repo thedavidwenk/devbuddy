@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   def account_overview
     @user = current_user
     @upcoming_bookings = Booking.where(buddy1: @user).or(Booking.where(buddy2: @user)).upcoming.includes(:buddy1, :buddy2)
-
   end
 
   private
