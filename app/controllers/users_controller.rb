@@ -6,6 +6,11 @@ class UsersController < ApplicationController
     # @user is set by the set_user method
   end
 
+  def account_overview
+    @user = current_user
+
+  end
+
   private
 
   def set_user

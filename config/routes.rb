@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :home] do
     member do
       get 'profile', to: 'users#show'
+      get 'account_overview', to: 'users#account_overview'
     end
     resources :bookings, only: [:create]
   end
