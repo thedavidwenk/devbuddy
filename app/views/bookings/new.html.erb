@@ -1,0 +1,27 @@
+<h1>New Booking</h1>
+
+<%= form_with(model: [@user, @booking], local: true) do |form| %>
+  <div>
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+  </div>
+
+  <div>
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date %>
+  </div>
+
+  <div>
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div>
+    <%= form.label :buddy2_id, 'Buddy 2' %>
+    <%= form.collection_select :buddy2_id, User.all, :id, :username %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
