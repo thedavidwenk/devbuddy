@@ -23,5 +23,8 @@ module Devbuddy
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    # Include the fonts directory in the asset pipeline
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

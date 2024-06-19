@@ -7,12 +7,12 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                #FFF5F0;
+$body-bg:                #ffffff;
 $font-size-base:         1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $purple;
+$primary:    $yellow-brand;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -26,16 +26,15 @@ $border-radius-xl:            .5rem;
 $border-radius-xxl:           1rem;
 
 // Override other variables below!
-$btn-primary-bg: $purple;
-$btn-primary-border: $purple;
+$btn-primary-bg: $dark-brand;
 $btn-primary-color: #fff;
 
 $link-color: black;
-$link-hover-color: $purple;
-$link-active-color: $purple;
+$link-hover-color: $orange;
+$link-active-color: $orange;
 
 // Specific overrides for nav-tabs
-$nav-tabs-link-active-color: $purple;
-$nav-tabs-link-hover-color: $dark-purple;
-$nav-tabs-link-active-bg: $body-bg;
-$nav-tabs-border-color: rgb(221, 221, 221)  ;
+// $nav-tabs-link-active-color: $purple;
+// $nav-tabs-link-hover-color: $dark-purple;
+// $nav-tabs-link-active-bg: $body-bg;
+// $nav-tabs-border-color: rgb(221, 221, 221)  ;
