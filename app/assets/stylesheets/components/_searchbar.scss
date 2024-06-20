@@ -1,5 +1,5 @@
 .search-input {
-  color: rgb(64, 64, 64);
+  color: $dark-brand;
   border: 0;
   outline: 0;
   margin-left: 8px;
@@ -11,7 +11,7 @@
 }
 
 .search-input::placeholder {
-  color: #181818;
+  color: $dark-brand;
 }
 
 .search {
@@ -36,7 +36,7 @@
 }
 
 .search:hover>.search-icon{
-  background: #ffe53e;
+  background: $yellow-brand;
   color: black;;
 }
 .search-icon{
