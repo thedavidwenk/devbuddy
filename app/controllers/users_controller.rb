@@ -9,6 +9,13 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all 
+
+    if params[:query].present?
+      @users = User.search_by_programming_language_and_experience_level(params[:query])
+    else  
+      flash[:note] = "No search result found."
+      @users = User.all
+    end
   end
   
   def account_overview
