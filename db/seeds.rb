@@ -10,7 +10,16 @@
 
 # db/seeds.rb
 
-User.create!([
+
+
+# Clear existing users------------------------
+
+User.destroy_all
+
+
+# Users creation -----------------------------
+
+users = User.create!([
   {
     email: "madonna@madonna.com",
     password: "password123",
@@ -52,5 +61,53 @@ User.create!([
     time_availability: "Afternoons",
     about_me: "Experienced in backend development and database management.",
     programming_languages: "Java, SQL"
+  }
+])
+
+# Bookings creation
+Booking.create!([
+  # Past bookings
+  {
+    start_date: Date.today - 10,
+    end_date: Date.today - 10,
+    note: "Completed project discussion",
+    buddy1: users[0], # Madonna
+    buddy2: users[1]  # Lady Gaga
+  },
+  {
+    start_date: Date.today - 7,
+    end_date: Date.today - 7,
+    note: "Past code review session",
+    buddy1: users[1], # Lady Gaga
+    buddy2: users[2]  # Beyonce
+  },
+  {
+    start_date: Date.today - 5,
+    end_date: Date.today - 5,
+    note: "Old debugging session",
+    buddy1: users[0], # Madonna
+    buddy2: users[2]  # Beyonce
+  },
+  # Upcoming bookings
+  {
+    start_date: Date.today + 1,
+    end_date: Date.today + 1,
+    note: "Pair programming session",
+    buddy1: users[0], # Madonna
+    buddy2: users[1]  # Lady Gaga
+  },
+  {
+    start_date: Date.today + 3,
+    end_date: Date.today + 3,
+    note: "Backend development",
+    buddy1: users[0], # Madonna
+    buddy2: users[2]  # Beyonce
+  },
+  {
+    start_date: Date.today + 5,
+    end_date: Date.today + 5,
+    note: "Frontend design review",
+    buddy1: users[1], # Lady Gaga
+    buddy2: users[2]  # Beyonce
   }
 ])
