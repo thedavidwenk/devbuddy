@@ -1,0 +1,27 @@
+.appointment-row {
+  cursor: pointer;
+  background-color: #f8f9fa;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  transition: background-color 0.2s;
+  display: table-row; /* Ensure it still displays as a table row */
+}
+
+.appointment-row:hover {
+  background-color: #e9ecef;
+}
+
+.appointment-row td {
+  vertical-align: middle;
+  padding: 10px; /* Adds padding inside each cell */
+}
+
+.appointment-row td:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-link i {
+  color: #0d6efd;
+}

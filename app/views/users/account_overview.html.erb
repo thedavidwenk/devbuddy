@@ -1,8 +1,7 @@
 <div class="container">
   <h1>Account Overview</h1>
 
-  <%# Top 3 tabs ------------------------------------------------------------- %>
-
+  <!-- Top 3 tabs -->
   <ul class="nav nav-tabs" id="accountTabs" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="appointments-tab" data-toggle="tab" href="#appointments" role="tab" aria-controls="appointments" aria-selected="true">My Appointments</a>
@@ -15,36 +14,26 @@
     </li>
   </ul>
 
-
-
   <div class="tab-content" id="accountTabsContent">
     <div class="tab-pane fade show active" id="appointments" role="tabpanel" aria-labelledby="appointments-tab">
-
-      <!-- My Appointments content ---------------------------->
-
+      <!-- My Appointments content -->
       <div class="mt-4">
         <h2>Upcoming</h2>
         <table class="table table-striped">
-
-
-           <!-- Heathers (date, time, message, ....) ---------------------------->
-
           <thead>
             <tr>
               <th>Date</th>
               <th>Time</th>
               <th>Message</th>
               <th>Buddy</th>
-              <th></th> <!-- Column for icons -->
+              <th></th> <!-- empty column for icons -->
             </tr>
           </thead>
-
-
           <tbody>
             <% @upcoming_bookings.each do |booking| %>
-              <tr>
+              <tr class="appointment-row">
                 <td><%= booking.start_date %></td>
-                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- Assuming you want the time in AM/PM format -->
+                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- time in AM/PM format -->
                 <td>"<%= booking.note %>"</td>
                 <td>
                   <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
@@ -62,11 +51,9 @@
               </tr>
             <% end %>
           </tbody>
-
         </table>
       </div>
     </div>
-
 
     <div class="tab-pane fade" id="beehive" role="tabpanel" aria-labelledby="beehive-tab">
       <!-- My Beehive content -->
