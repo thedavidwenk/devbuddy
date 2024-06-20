@@ -1,8 +1,10 @@
 <div class="d-flex justify-content-center row">
   <div class="search">
-      <input type="text" class="search-input" placeholder="search ..." name="">
-      <a href="#" class="search-icon">
-          <i class="fa fa-search"></i>
-      </a>
+    <%= form_with url: users_path, method: :get, local: true do %>
+      <input type="text" class="search-input" placeholder="search ..." name="query" value="<%= params[:query] %>">
+      <button type="submit" class="search-icon border-0">
+        <i class="fa fa-search"></i>
+      </button>
+    <% end %>
   </div>
 </div>
