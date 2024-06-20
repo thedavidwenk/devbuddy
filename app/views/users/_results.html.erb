@@ -26,7 +26,7 @@
         </div>
         <div class="px-3 pb-3">
           <% if user.avatar.nil? || user.avatar.empty?  %>
-            <%= image_tag "https://via.placeholder.com/250", alt: 'user avatar', class: "card-img-bottom rounded-4" %>
+            <%= image_tag "placeholder_card_image.png", alt: 'user avatar', class: "card-img-bottom rounded-4" %>
           <% else %>
             <%= image_tag user.avatar, alt: 'user avatar', class: "card-img-bottom rounded-4" %>
           <% end %>
