@@ -1,6 +1,6 @@
 .appointment-row {
   cursor: pointer;
-  background-color: #f8f9fa;
+  background-color: $yellow-brand;
   border-radius: 5px;
   margin-bottom: 10px;
   padding: 10px;
@@ -8,8 +8,14 @@
   display: table-row; /* Ensure it still displays as a table row */
 }
 
+.appointment-row {
+  td {
+    font-family: $body-font;
+  }
+}
+
 .appointment-row:hover {
-  background-color: #e9ecef;
+  background-color: $yellow-brand;
 }
 
 .appointment-row td {
@@ -23,5 +29,5 @@
 }
 
 .btn-link i {
-  color: #0d6efd;
+  color: $dark-brand;
 }

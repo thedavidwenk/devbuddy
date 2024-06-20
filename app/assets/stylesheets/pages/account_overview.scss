@@ -11,5 +11,14 @@
 }
 
 .title-appointments {
-  margin-top: 100px;
+  margin-top: 80px;
+  font-family: $headers-font;
+}
+
+.nav-link {
+  font-family: $body-font;
+}
+
+.nav-link active {
+  font-family: $body-font;
 }
