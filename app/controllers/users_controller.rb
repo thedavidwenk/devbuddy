@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   def show
     # @user is set by the set_user method
   end
-  
+
+
   def index
     @users = User.all 
-  end
 
   def account_overview
     @user = current_user
