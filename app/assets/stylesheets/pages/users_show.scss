@@ -19,6 +19,13 @@
     margin-top: -70px;
     margin-left: 300px;
   }
+
+  img {
+    width: 320px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 20px;
+  }
 }
 
 .avatar {
@@ -26,12 +33,6 @@
 }
 .user-main-info {
   flex: 1;
-}
-img {
-  width: 320px;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 20px;
 }
 
 .about-me {
