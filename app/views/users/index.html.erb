@@ -1,2 +1,19 @@
-<h1>Hi, this is our index/search/cards page</h1>
+<div class="pt-5 bg-color-light-yellow">
+  <div class="container" data-controller="search">
+    <div class="">
+      <h1>find your buddy</h1>
+      <p class="my-0">Search for a skill or area you are working on.</p>
+    </div>
+
+    <div class="container">
+      <%= render 'users/search' %>
+    </div>
+
+    <div data-search-target="results" class="mb-5">
+      <%= render 'users/results', costumes: @costumes %>
+    </div>
+  </div>
+</div>
+
+
 

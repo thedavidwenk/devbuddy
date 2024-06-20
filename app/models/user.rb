@@ -12,4 +12,13 @@ class User < ApplicationRecord
   def bookings
     Booking.where('buddy1_id = ? OR buddy2_id = ?', id, id)
   end
+
+  # PG Search 
+  include PgSearch::Model
+  pg_search_scope :search_by_programming_language_and_experience_level,
+  against: [ :programming_languages, :experience_level ],
+  using: {
+    tsearch: { prefix: true } 
+  }
+
 end

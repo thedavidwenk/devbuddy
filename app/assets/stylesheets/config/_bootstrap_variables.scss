@@ -8,7 +8,16 @@
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
 $body-bg:                #ffffff;
-$font-size-base:         1rem;
+$font-size-base:         1.2rem;
+
+// font sizes
+
+$h1-font-size: 4.5rem; // H1 font size
+$h2-font-size: 2rem; // H2 font size
+$h3-font-size: 1.75rem; // H3 font size
+$h4-font-size: 1.5rem; // H4 font size
+$h5-font-size: 1.25rem; // H5 font size
+$h6-font-size: 1rem; // H6 font size
 
 // Colors
 $body-color: $gray;
@@ -32,6 +41,10 @@ $btn-primary-color: #fff;
 $link-color: black;
 $link-hover-color: $orange;
 $link-active-color: $orange;
+
+// card bootstrap values 
+$grid-gutter-width: 40px !default;
+$badge-bg: #FFE53E;
 
 // Specific overrides for nav-tabs
 // $nav-tabs-link-active-color: $purple;
