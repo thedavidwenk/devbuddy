@@ -13,7 +13,7 @@
           <p class="card-text"><i class="fa-solid fa-book-open"></i><span class="icon-space"></span>I'm currently working on</p>
 
           <div class="d-flex">
-            <% if user.programming_languages.nil? %>
+            <% if user.programming_languages.nil? || user.programming_languages.empty? %>
               <p class="card-text"><small class="text-muted">No skills selected</small></p>
             <% else %>
               <% programming_languages_array = user.programming_languages.split(", ") %>
@@ -25,7 +25,11 @@
 
         </div>
         <div class="px-3 pb-3">
-          <%= image_tag user.avatar, alt: 'user avatar', class: "card-img-bottom rounded-4" %>
+          <% if user.avatar.nil? || user.avatar.empty?  %>
+            <%= image_tag "https://via.placeholder.com/250", alt: 'user avatar', class: "card-img-bottom rounded-4" %>
+          <% else %>
+            <%= image_tag user.avatar, alt: 'user avatar', class: "card-img-bottom rounded-4" %>
+          <% end %>
         </div>
       </div>
     </div>
