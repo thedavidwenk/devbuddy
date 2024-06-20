@@ -1,0 +1,37 @@
+<div class="row">
+  <% @users.each do |user| %>
+    <div class="mb-4 col-lg-4 col-md-6 col-sm-12">
+      <div class="card h-100 border border-0 rounded-5">
+        <div class="card-body pb-0">
+          <div class="d-flex justify-content-between align-items-start">
+            <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
+            <a href="#" class="favorite-icon">
+              <i class="far fa-heart"></i>
+            </a>
+          </div>
+          <p class="card-text"><i class="fa-solid fa-desktop"></i><span class="icon-space"></span><%= user.experience_level %></p>
+          <p class="card-text"><i class="fa-solid fa-book-open"></i><span class="icon-space"></span>I'm currently working on</p>
+
+          <div class="d-flex">
+            <% if user.programming_languages.nil? || user.programming_languages.empty? %>
+              <p class="card-text"><small class="text-muted">No skills selected</small></p>
+            <% else %>
+              <% programming_languages_array = user.programming_languages.split(", ") %>
+              <% programming_languages_array.each do |language| %>
+                <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
+              <% end %>
+            <% end %>  
+          </div>
+
+        </div>
+        <div class="px-3 pb-3">
+          <% if user.avatar.nil? || user.avatar.empty?  %>
+            <%= image_tag "https://via.placeholder.com/250", alt: 'user avatar', class: "card-img-bottom rounded-4" %>
+          <% else %>
+            <%= image_tag user.avatar, alt: 'user avatar', class: "card-img-bottom rounded-4" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
