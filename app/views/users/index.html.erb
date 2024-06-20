@@ -2,8 +2,12 @@
   <div class="container" data-controller="search">
     <%= link_to "Back", root_path, class: "link-offset-2 mt-3" %>
     <div class="mt-5">
-      <h1>Find your Buddy</h1>
-      <p>Search for a skill or area you are working on.</p>
+      <h1>find your buddy</h1>
+      <p class="my-0">Search for a skill or area you are working on.</p>
+    </div>
+
+    <div class="container">
+      <%= render 'users/search' %>
     </div>
 
     <div data-search-target="results" class="mb-5">
