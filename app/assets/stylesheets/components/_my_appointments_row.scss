@@ -8,12 +8,6 @@
   display: table-row; /* Ensure it still displays as a table row */
 }
 
-.appointment-row {
-  td {
-    font-family: $body-font;
-  }
-}
-
 .appointment-row:hover {
   background-color: $yellow-brand;
 }
@@ -21,6 +15,7 @@
 .appointment-row td {
   vertical-align: middle;
   padding: 10px; /* Adds padding inside each cell */
+  font-family: $body-font;
 }
 
 .appointment-row td:last-child {
