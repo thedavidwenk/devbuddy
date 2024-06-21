@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
+  # Skill levels to select from for users and search
+  SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"]
+
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -16,10 +18,17 @@ class User < ApplicationRecord
 
   # PG Search
   include PgSearch::Model
-  pg_search_scope :search_by_programming_language_and_experience_level,
-  against: [ :programming_languages, :experience_level ],
-  using: {
-    tsearch: { prefix: true }
-  }
+  pg_search_scope :search_by_programming_language, against: :programming_languages,
+    using: {
+      tsearch: { prefix: true }
+    }
 
+  # Scope to filter by experience level
+  scope :filter_by_experience_level, ->(level) { where(experience_level: level) if level.present? }
+
+  def self.search(query, experience_level)
+    results = query.present? ? search_by_programming_language(query) : all
+    results = results.filter_by_experience_level(experience_level)
+    results
+  end
 end

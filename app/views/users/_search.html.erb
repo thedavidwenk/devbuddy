@@ -1,10 +1,26 @@
-<div class="d-flex justify-content-center row">
-  <div class="search">
-    <%= form_with url: users_path, method: :get, local: true do %>
-      <input type="text" class="search-input" placeholder="search ..." name="query" value="<%= params[:query] %>">
-      <button type="submit" class="search-icon border-0">
-        <i class="fa fa-search"></i>
-      </button>
-    <% end %>
+<div class="position-relative">
+  <div class="d-flex justify-content-center row">
+    <div class="search">
+      <%= form_with url: users_path, method: :get, local: true, class: 'd-flex w-100 align-items-center justify-content-between' do %>
+        <div class="d-flex align-items-center">
+          <i class="fa fa-search side-icon"></i>
+          <input type="text" class="search-input" placeholder="Search by skill ..." name="query" value="<%= params[:query] %>">
+        </div>
+        <div class="d-flex align-items-center">
+          <select name="experience_level" class="experience-level-dropdown ml-auto mx-3">
+            <option value="">Experience Level</option>
+            <% User::SKILL_LEVELS.each do |level| %>
+              <option value="<%= level %>" <%= 'selected' if params[:experience_level] == level %>><%= level.capitalize %></option>
+            <% end %>
+          </select>
+          <button type="submit" class="search-icon border-0 ml-2">
+            Search
+          </button>
+        </div>
+      <% end %>
+    </div>
   </div>
+    <div class="illustration-index">
+      <%= image_tag "illustration-index.png", alt: 'illustration of two people' %>
+    </div>
 </div>
