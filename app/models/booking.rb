@@ -7,7 +7,8 @@ class Booking < ApplicationRecord
   validates :buddy1, presence: true
   validates :buddy2, presence: true
 
-  # With this line it selects the bookings where the date is greater than or equal to today's date.
-  # The Upcoming scope is used in the users controller.
+  # These SCOPES are used in the account_overview view file!! ------------------- >
+
   scope :upcoming, -> { where('start_date >= ?', Date.today).order(start_date: :asc) }
+  scope :past, -> { where('start_date < ?', Date.today) }
 end

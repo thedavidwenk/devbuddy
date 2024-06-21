@@ -1,10 +1,24 @@
 .nav-tabs .nav-link.active {
-  background-color: $yellow-brand;
-  color: $dark-brand; // Optional: to ensure the text is readable
+  background-color: $yellow-brand-light;
+  color: $dark-brand;
+  border-color: $yellow-brand-light $yellow-brand-light transparent;
 }
 
 .nav-tabs .nav-link.active:focus,
 .nav-tabs .nav-link.active:hover {
-  background-color: $yellow-brand; // Ensure hover and focus states are also styled
+  background-color: $yellow-brand-light; // Ensure hover and focus states are also styled
   color: $dark-brand;
+}
+
+.title-appointments {
+  margin-top: 80px;
+  font-family: $headers-font;
+}
+
+.nav-link {
+  font-family: $body-font;
+}
+
+.nav-link active {
+  font-family: $body-font;
 }

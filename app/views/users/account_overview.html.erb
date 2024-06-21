@@ -15,8 +15,6 @@
     </li>
   </ul>
 
-
-
   <div class="tab-content" id="accountTabsContent">
     <div class="tab-pane fade show active" id="appointments" role="tabpanel" aria-labelledby="appointments-tab">
 
@@ -25,26 +23,21 @@
       <div class="mt-4">
         <h2>Upcoming</h2>
         <table class="table table-striped">
-
-
-           <!-- Heathers (date, time, message, ....) ---------------------------->
-
+          <!-- Headers (date, time, message, ....) -->
           <thead>
             <tr>
               <th>Date</th>
               <th>Time</th>
               <th>Message</th>
               <th>Buddy</th>
-              <th></th> <!-- Column for icons -->
+              <th></th> <!-- empty column for icons -->
             </tr>
           </thead>
-
-
           <tbody>
             <% @upcoming_bookings.each do |booking| %>
-              <tr>
+              <tr class="appointment-row">
                 <td><%= booking.start_date %></td>
-                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- Assuming you want the time in AM/PM format -->
+                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- time in AM/PM format -->
                 <td>"<%= booking.note %>"</td>
                 <td>
                   <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
@@ -62,11 +55,43 @@
               </tr>
             <% end %>
           </tbody>
-
         </table>
       </div>
-    </div>
 
+      <!-- Past Appointments content --------------------------->
+
+      <div class="mt-4">
+        <h2>Past Appointments</h2>
+        <table class="table table-striped">
+          <!-- Headers (date, time, message, ....) -->
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Message</th>
+              <th>Buddy</th>
+              <th></th> <!-- empty column for spacing -->
+            </tr>
+          </thead>
+          <tbody>
+            <% @past_bookings.each do |booking| %>
+              <tr class="appointment-row">
+                <td><%= booking.start_date %></td>
+                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- time in AM/PM format -->
+                <td>"<%= booking.note %>"</td>
+                <td>
+                  <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
+                  <%= image_tag(buddy.avatar, class: 'my-appointments-avatar') %>
+                  <%= buddy.username %>
+                </td>
+                <td></td> <!-- No icons for past appointments -->
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
 
     <div class="tab-pane fade" id="beehive" role="tabpanel" aria-labelledby="beehive-tab">
       <!-- My Beehive content -->
