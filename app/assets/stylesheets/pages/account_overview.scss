@@ -12,16 +12,15 @@
 .section-container {
   background-color: white;
   border-radius: 14px;
-  // padding: 20px;
   padding-left: 30px;
   padding-right: 30px;
   padding-bottom: 15px;
   padding-top: 30px;
   margin-right: 117px;
+  margin-bottom: 80px;
 }
 
 .custom-container {
-  // min-width: 800px;
   margin: 0;
 }
 
@@ -34,27 +33,32 @@
 .custom-nav-item {
   margin-right: 10px;
   list-style-type: none;
-  background-color: $dark-brand;
-  padding: 3px 15px;
   border-radius: 20px;
   font-size: 16px;
-  margin-bottom: 7px;
+  margin-bottom: -6px;
 }
 
 .custom-nav-link {
-  border-bottom: none;
-  text-decoration: none;
+  display: block;
+  padding: 3px 15px;
+  background-color: $dark-brand;
   color: white;
-  cursor: pointer;
+  text-decoration: none;
+  border-radius: 20px;
   font-family: $body-font;
+  cursor: pointer;
 }
 
 .custom-nav-link.active {
   background-color: $yellow-brand-light;
   color: $dark-brand;
-  padding: 10px 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   border-radius: 14px 14px 0 0;
-  padding-bottom: 15px;
+  position: relative;
+  top: -5px;
 }
 
 .custom-tab-content {
@@ -116,8 +120,7 @@
 }
 
 .custom-appointment-row:hover {
-  border-style: dashed;
-  border-width: 2px;
+  background-color: lightgrey;
 }
 
 .custom-avatar {
