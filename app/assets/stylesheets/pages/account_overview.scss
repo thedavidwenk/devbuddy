@@ -6,22 +6,25 @@
 .overview-title {
   padding-top: 70px;
   padding-bottom: 70px;
+  padding-left: 117px;
 }
 
 .section-container {
   background-color: white;
   border-radius: 14px;
   padding: 20px;
+  margin-right: 117px;
 }
 
 .custom-container {
-  max-width: 1000px;
+  // min-width: 800px;
   margin: 0;
 }
 
 .custom-nav-tabs {
   display: flex;
   margin: 0;
+  padding-left: 117px;
 }
 
 .custom-nav-item {
@@ -53,6 +56,8 @@
 .custom-tab-content {
   padding: 20px;
   background-color: $yellow-brand-light;
+  width: 100vw;
+  padding-left: 117px;
 }
 
 .overview-subtitle {
@@ -81,7 +86,7 @@
 
 .custom-appointments-header {
   display: flex;
-  padding: 10px 0;
+  padding: 0;
   color: $dark-brand;
   font-family: $body-font;
   font-size: 16px;
@@ -90,6 +95,8 @@
 .custom-appointment-row {
   display: flex;
   padding: 10px 0;
+  font-size: 16px;
+  font-family: $body-font;
 }
 
 .custom-appointments-cell {
