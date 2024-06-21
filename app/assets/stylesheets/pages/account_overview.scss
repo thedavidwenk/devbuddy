@@ -8,25 +8,32 @@
   padding-bottom: 70px;
 }
 
+.section-container {
+  background-color: white;
+  border-radius: 14px;
+}
+
 .custom-container {
   max-width: 1000px;
   margin: 0;
-  // padding: 20px;
 }
 
 .custom-nav-tabs {
   display: flex;
+  margin: 0;
 }
 
 .custom-nav-item {
   margin-right: 10px;
   list-style-type: none;
   background-color: $dark-brand;
-  padding: 10px;
+  padding: 3px 15px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-bottom: 7px;
 }
 
 .custom-nav-link {
-  padding: 20px 20px;
   border-bottom: none;
   text-decoration: none;
   color: white;
@@ -35,13 +42,21 @@
 }
 
 .custom-nav-link.active {
-  background-color: $yellow-brand;
-  color: white;
+  background-color: $yellow-brand-light;
+  color: $dark-brand;
+  padding: 10px 20px;
+  border-radius: 14px 14px 0 0;
+  padding-bottom: 15px;
 }
 
 .custom-tab-content {
-  border: 1px solid #ddd;
   padding: 20px;
+  background-color: $yellow-brand-light;
+}
+
+.overview-subtitle {
+  font-size: 16px;
+  font-family: $headers-font;
 }
 
 .custom-tab-pane {
