@@ -3,8 +3,8 @@ class CreateTimeSlots < ActiveRecord::Migration[7.1]
     create_table :time_slots do |t|
       t.references :user, null: false, foreign_key: true
       t.integer :day
-      t.date :start_time
-      t.date :end_time
+      t.time :start_time
+      t.time :end_time
       t.boolean :reserved
 
       t.timestamps
