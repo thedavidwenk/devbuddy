@@ -14,3 +14,10 @@
     <% end %>
   </div>
 </div>
+
+<% experience_levels_array = @users.map do |user| %>
+  <% user.experience_level unless user.experience_level.blank? %>
+<% end.compact %>
+<% experience_levels_array.uniq! %>
+
+<% raise %>
