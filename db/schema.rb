@@ -10,20 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_19_092400) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_21_085729) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.date "start_date"
-    t.date "end_date"
     t.text "note"
-    t.bigint "buddy1_id", null: false
-    t.bigint "buddy2_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "booker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["buddy1_id"], name: "index_bookings_on_buddy1_id"
-    t.index ["buddy2_id"], name: "index_bookings_on_buddy2_id"
+    t.index ["booker_id"], name: "index_bookings_on_booker_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +45,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_19_092400) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bookings", "users", column: "buddy1_id"
-  add_foreign_key "bookings", "users", column: "buddy2_id"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "bookings", "users", column: "booker_id"
 end
