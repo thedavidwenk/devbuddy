@@ -11,6 +11,7 @@
 .section-container {
   background-color: white;
   border-radius: 14px;
+  padding: 20px;
 }
 
 .custom-container {
@@ -57,6 +58,7 @@
 .overview-subtitle {
   font-size: 16px;
   font-family: $headers-font;
+  margin-bottom: 10px;
 }
 
 .custom-tab-pane {
@@ -77,10 +79,16 @@
   margin-bottom: 20px;
 }
 
-.custom-appointments-header,
+.custom-appointments-header {
+  display: flex;
+  padding: 10px 0;
+  color: $dark-brand;
+  font-family: $body-font;
+  font-size: 16px;
+}
+
 .custom-appointment-row {
   display: flex;
-  border-bottom: 1px solid #ddd;
   padding: 10px 0;
 }
 
