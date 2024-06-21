@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # skill levels to select from for users and search
-  SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"] 
+  # Skill levels to select from for users and search
+  SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"]
 
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -20,10 +20,11 @@ class User < ApplicationRecord
   include PgSearch::Model
   pg_search_scope :search_by_programming_language, against: :programming_languages,
     using: {
-    tsearch: { prefix: true } 
+      tsearch: { prefix: true }
+    }
 
   # Scope to filter by experience level
-  scope :filter_by_experience_level, -> (level) { where(experience_level: level) if level.present? }
+  scope :filter_by_experience_level, ->(level) { where(experience_level: level) if level.present? }
 
   def self.search(query, experience_level)
     results = query.present? ? search_by_programming_language(query) : all
