@@ -23,3 +23,9 @@
 @import "pages/users_home";
 
 // Your CSS partials
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
