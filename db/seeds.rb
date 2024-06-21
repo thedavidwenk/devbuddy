@@ -13,9 +13,10 @@
 
 
 # Clear existing users------------------------
-
+Booking.destroy_all
 User.destroy_all
-
+puts "Deleting existing entries"
+puts "Creating new entries"
 
 # Users creation -----------------------------
 
@@ -64,50 +65,48 @@ users = User.create!([
   }
 ])
 
-# Bookings creation
-Booking.create!([
-  # Past bookings
-  {
-    start_date: Date.today - 10,
-    end_date: Date.today - 10,
-    note: "Completed project discussion",
-    buddy1: users[0], # Madonna
-    buddy2: users[1]  # Lady Gaga
-  },
-  {
-    start_date: Date.today - 7,
-    end_date: Date.today - 7,
-    note: "Past code review session",
-    buddy1: users[1], # Lady Gaga
-    buddy2: users[2]  # Beyonce
-  },
-  {
-    start_date: Date.today - 5,
-    end_date: Date.today - 5,
-    note: "Old debugging session",
-    buddy1: users[0], # Madonna
-    buddy2: users[2]  # Beyonce
-  },
-  # Upcoming bookings
-  {
-    start_date: Date.today + 1,
-    end_date: Date.today + 1,
-    note: "Pair programming session",
-    buddy1: users[0], # Madonna
-    buddy2: users[1]  # Lady Gaga
-  },
-  {
-    start_date: Date.today + 3,
-    end_date: Date.today + 3,
-    note: "Backend development",
-    buddy1: users[0], # Madonna
-    buddy2: users[2]  # Beyonce
-  },
-  {
-    start_date: Date.today + 5,
-    end_date: Date.today + 5,
-    note: "Frontend design review",
-    buddy1: users[1], # Lady Gaga
-    buddy2: users[2]  # Beyonce
-  }
-])
+puts "Creating Bookings..."
+
+user1 = User.first
+user2 = User.last
+
+start_time1 = Time.current + 1.hour
+end_time1 = start_time1 + 1.hour
+
+time_slot1 = TimeSlot.create!(
+  user_id: user1.id,
+  day: 1,
+  start_time: start_time1,
+  end_time: end_time1,
+  reserved: false
+)
+
+start_time2 = Time.current + 2.hours
+end_time2 = start_time2 + 1.hour
+
+time_slot2 = TimeSlot.create!(
+  user_id: user2.id,
+  day: 2,
+  start_time: start_time2,
+  end_time: end_time2,
+  reserved: false
+)
+
+
+booking1 = Booking.create!(
+  note: "Meeting for Ruby Basics",
+  user_id: user1.id,
+  booker_id: user2.id,
+  time_slot_id: time_slot1.id
+)
+
+# Create Booking 2 (user2 as user, user1 as booker)
+booking2 = Booking.create!(
+  note: "Learn about AJAX Requests",
+  user_id: user2.id,
+  booker_id: user1.id,
+  time_slot_id: time_slot2.id
+)
+
+
+puts "All done!"
