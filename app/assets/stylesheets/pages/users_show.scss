@@ -1,139 +1,142 @@
-.container {
-  margin: 20px 200px;
-}
+#users-show {
 
-.avatar-and-main-info {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  height: 240px;
-  max-width: 600px;
-  display: block;
-  align-items: center;
-
-  h3 {
-    flex: 1;
-    margin-top: -70px;
-    margin-left: 300px;
+  .container {
+    margin: 20px 200px;
   }
 
-  img {
-    width: 320px;
+  .avatar-and-main-info {
+    margin-top: 50px;
+    margin-bottom: 20px;
     height: 240px;
-    object-fit: cover;
-    border-radius: 20px;
+    max-width: 600px;
+    display: block;
+    align-items: center;
+
+    h3 {
+      flex: 1;
+      margin-top: -70px;
+      margin-left: 300px;
+    }
+
+    img {
+      width: 320px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
   }
-}
 
-.avatar {
-  margin-right: 20px;
-}
-.user-main-info {
-  flex: 1;
-}
+  .avatar {
+    margin-right: 20px;
+  }
+  .user-main-info {
+    flex: 1;
+  }
 
-.about-me {
-  display: block;
-  text-align: left;
-  margin-bottom: 20px;
-
-  h3 {
+  .about-me {
+    display: block;
     text-align: left;
+    margin-bottom: 20px;
+
+    h3 {
+      text-align: left;
+    }
   }
-}
 
-.achievements {
-  display: block;
-  text-align: left;
-  margin-bottom: 20px;
-
-  h3 {
+  .achievements {
+    display: block;
     text-align: left;
+    margin-bottom: 20px;
+
+    h3 {
+      text-align: left;
+    }
   }
-}
 
-.programming-languages {
-  display: block;
-  text-align: left;
-  margin-bottom: 20px;
-
-  h3 {
+  .programming-languages {
+    display: block;
     text-align: left;
-  }
-}
+    margin-bottom: 20px;
 
-.yellow-bg {
-  background-color: #fee53f;
-}
-.white-bg {
-  background-color: #fff;
-}
-.yellow-container, .white-container {
-  margin-top: 150px;
-  width: 80%;
-  max-width: 100%;
-  margin: 150px auto 0 auto;
-}
-.yellow-container {
-  margin: 20px 200px;
-}
-.headline h1 {
-  margin: 0;
-}
-.headline span.code-solo {
-  font-size: 1.5em;
-}
-.headline p {
-  margin: 20px 0;
-}
-.headline button, .white-container button {
-  background-color: white;
-  padding: 1px 30px;
-  color: black;
-  border-radius: 30px;
-  font-size: 20px;
-  border: none;
-  float: right;
-  margin-top: 30px;
-}
-.confirm-button {
-  background-color: #2d2d2d;
-  color: white;
-  font-size: 16px;
-  width: 260px;
-  margin-top: 40px;
-  border: none;
-  border-radius: 30px;
-  padding: 1px 20px;
-}
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  padding: 0;
-}
-.row {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  margin: 0;
-}
-.col {
-  flex: 1;
-  padding: 10px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-  .row {
-    flex-direction: column;
+    h3 {
+      text-align: left;
+    }
   }
-  .yellow-container,
-  .white-container {
-    margin: 20px;
+
+  .yellow-bg {
+    background-color: #fee53f;
+  }
+  .white-bg {
+    background-color: #fff;
+  }
+  .yellow-container, .white-container {
+    margin-top: 150px;
+    width: 80%;
+    max-width: 100%;
+    margin: 150px auto 0 auto;
+  }
+  .yellow-container {
+    margin: 20px 200px;
+  }
+  .headline h1 {
+    margin: 0;
+  }
+  .headline span.code-solo {
+    font-size: 1.5em;
+  }
+  .headline p {
+    margin: 20px 0;
   }
   .headline button, .white-container button {
-    float: none;
-    display: block;
-    margin: 30px auto 0 auto;
+    background-color: white;
+    padding: 1px 30px;
+    color: black;
+    border-radius: 30px;
+    font-size: 20px;
+    border: none;
+    float: right;
+    margin-top: 30px;
+  }
+  .confirm-button {
+    background-color: #2d2d2d;
+    color: white;
+    font-size: 16px;
+    width: 260px;
+    margin-top: 40px;
+    border: none;
+    border-radius: 30px;
+    padding: 1px 20px;
+  }
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+  }
+  .row {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    margin: 0;
+  }
+  .col {
+    flex: 1;
+    padding: 10px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .row {
+      flex-direction: column;
+    }
+    .yellow-container,
+    .white-container {
+      margin: 20px;
+    }
+    .headline button, .white-container button {
+      float: none;
+      display: block;
+      margin: 30px auto 0 auto;
+    }
   }
 }
