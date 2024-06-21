@@ -4,7 +4,9 @@
       <div class="card h-100 border border-0 rounded-5">
         <div class="card-body pb-0">
           <div class="d-flex justify-content-between align-items-start">
-            <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
+            <%= link_to profile_user_path(user), class: "card-links" do %>
+              <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
+            <% end %>
             <a href="#" class="favorite-icon">
               <i class="far fa-heart"></i>
             </a>

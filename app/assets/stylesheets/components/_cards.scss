@@ -26,3 +26,12 @@
   margin-right: 7px;
 }
 
+.card-links {
+  text-decoration: none;
+  &:hover {
+    color: $dark-brand;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+  }
+}
