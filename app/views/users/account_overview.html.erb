@@ -38,7 +38,7 @@
                   <div class="custom-appointment-row">
                     <div class="custom-appointments-cell"><%= booking.start_date %></div>
                     <div class="custom-appointments-cell"><%= booking.start_date.strftime("%I:%M %p") %></div>
-                    <div class="custom-appointments-cell"><%= booking.note %></div>
+                    <div class="custom-appointments-cell">"<%= booking.note %>"</div>
                     <div class="custom-appointments-cell">
                       <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
                       <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
