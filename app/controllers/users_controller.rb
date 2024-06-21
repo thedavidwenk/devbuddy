@@ -17,8 +17,12 @@ class UsersController < ApplicationController
     if params[:query].present?
       @users = User.search_by_programming_language_and_experience_level(params[:query])
     else
-      flash[:note] = "No search result found."
+      flash[:note] = "Programming language not found."
       @users = User.all
+    end
+
+    if params[:experience_level].present?
+      @users = User.filter_by_experience_level(params[:experience_level])
     end
   end
 

@@ -14,11 +14,19 @@ class User < ApplicationRecord
   end
 
   # PG Search 
+  # include PgSearch::Model
+  # pg_search_scope :search_by_programming_language_and_experience_level,
+  # against: [ :programming_languages, :experience_level ],
+  # using: {
+  #   tsearch: { prefix: true } 
+  # }
+
   include PgSearch::Model
-  pg_search_scope :search_by_programming_language_and_experience_level,
-  against: [ :programming_languages, :experience_level ],
-  using: {
+  pg_search_scope :search_by_programming_language, against: :programming_languages,
+    using: {
     tsearch: { prefix: true } 
   }
 
+  # Scope to filter by experience level
+  scope :filter_by_experience_level, -> (level) { where(experience_level: level) if level.present? }
 end
