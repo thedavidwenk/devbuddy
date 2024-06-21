@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
+  SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"] 
+
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

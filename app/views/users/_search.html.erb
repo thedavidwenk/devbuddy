@@ -3,8 +3,8 @@
     <%= form_with url: users_path, method: :get, local: true do %>
       <input type="text" class="search-input" placeholder="Search by skill ..." name="query" value="<%= params[:query] %>">
       <select name="experience_level" class="experience-level-dropdown">
-        <option value="">Experience Level</option>
-        <% ['beginner', 'intermediate', 'advanced'].each do |level| %>
+        <option value="">Select Experience Level</option>
+        <% User::SKILL_LEVELS.each do |level| %>
           <option value="<%= level %>" <%= 'selected' if params[:experience_level] == level %>><%= level.capitalize %></option>
         <% end %>
       </select>
@@ -14,10 +14,3 @@
     <% end %>
   </div>
 </div>
-
-<% experience_levels_array = @users.map do |user| %>
-  <% user.experience_level unless user.experience_level.blank? %>
-<% end.compact %>
-<% experience_levels_array.uniq! %>
-
-<% raise %>
