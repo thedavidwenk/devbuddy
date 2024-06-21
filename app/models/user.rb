@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # A user can be involved in a booking either as user or booker
-  has_many :bookings_as_user, class_name: 'Booking', foreign_key: 'user_id'
-  has_many :bookings_as_booker, class_name: 'Booking', foreign_key: 'booker_id'
-  has_many :time_slots
+  has_many :bookings_as_user, class_name: 'Booking', foreign_key: 'user_id', dependent: :destroy
+  has_many :bookings_as_booker, class_name: 'Booking', foreign_key: 'booker_id', dependent: :destroy
+  has_many :time_slots, dependent: :destroy
 
   # Combine both associations into a single bookings association
   def bookings

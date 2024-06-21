@@ -100,7 +100,6 @@ booking1 = Booking.create!(
   time_slot_id: time_slot1.id
 )
 
-# Create Booking 2 (user2 as user, user1 as booker)
 booking2 = Booking.create!(
   note: "Learn about AJAX Requests",
   user_id: user2.id,
