@@ -69,11 +69,10 @@
     flex-direction: column;
     height: 100vh;
     padding: 0;
-    background-image: url("../images/LandingPage_Graphics.svg");
     background-size: auto; /* Keep the original size of the image */
-    background-position: left top; /* Position the image to the left */
+    background-position: left 50px; /* Position the image to the left */
     background-repeat: no-repeat; /* Prevent the image from repeating */
-    overflow: hidden; 
+    overflow: hidden;
     z-index: 3;
   }
 
@@ -90,10 +89,6 @@
   .yellow-bg {
     background-color: $yellow-brand;
     z-index: -1;
-  }
-  .white-bg {
-    // background-color: #fff;
-    // z-index: -1;
   }
 
   /* Responsive adjustments */
