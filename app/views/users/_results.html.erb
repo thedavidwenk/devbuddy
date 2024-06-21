@@ -1,7 +1,9 @@
 <div class="row">
   <% if @users.empty? || @users.nil? %>
-    <div class="col-12 d-flex align-items-center justify-content-center" style="height: 60vh;">
-      <p>Can't find any buddies with this search criteria. Please try again.</p>
+    <div class="col-12 d-flex flex-column align-items-center justify-content-center" style="height: 60vh;">
+      <%= image_tag "no-results-img.png", alt: 'A bee comic', class: "no-results-img mb-5" %>
+      <h3>Can't find any buddies with this search criteria.</h3>
+      <h3>Please try again.</h3>
     </div>
   <% else %>
     <% @users.each do |user| %>
