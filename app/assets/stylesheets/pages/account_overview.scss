@@ -1,24 +1,100 @@
-.nav-tabs .nav-link.active {
-  background-color: $yellow-brand-light;
-  color: $dark-brand;
-  border-color: $yellow-brand-light $yellow-brand-light transparent;
+.wrapping-container {
+  display: flex;
+  justify-content: center;
 }
 
-.nav-tabs .nav-link.active:focus,
-.nav-tabs .nav-link.active:hover {
-  background-color: $yellow-brand-light; // Ensure hover and focus states are also styled
-  color: $dark-brand;
+.overview-title {
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
-.title-appointments {
-  margin-top: 80px;
-  font-family: $headers-font;
+.custom-container {
+  max-width: 1000px;
+  margin: 0;
+  // padding: 20px;
 }
 
-.nav-link {
+.custom-nav-tabs {
+  display: flex;
+}
+
+.custom-nav-item {
+  margin-right: 10px;
+  list-style-type: none;
+  background-color: $dark-brand;
+  padding: 10px;
+}
+
+.custom-nav-link {
+  padding: 20px 20px;
+  border-bottom: none;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
   font-family: $body-font;
 }
 
-.nav-link active {
-  font-family: $body-font;
+.custom-nav-link.active {
+  background-color: $yellow-brand;
+  color: white;
+}
+
+.custom-tab-content {
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+
+.custom-tab-pane {
+  display: none;
+}
+
+.custom-tab-pane.active {
+  display: block;
+}
+
+.custom-margin-top {
+  margin-top: 20px;
+}
+
+.custom-appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.custom-appointments-header,
+.custom-appointment-row {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.custom-appointments-cell {
+  flex: 1;
+  padding: 5px 10px;
+}
+
+.custom-appointment-row:hover {
+  background-color: #f9f9f9;
+}
+
+.custom-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.custom-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-icon-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.custom-icon-link:hover {
+  color: #000;
 }
