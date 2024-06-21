@@ -1,23 +1,23 @@
 <div class="wrapping-container">
 
   <div class="custom-container">
-    <h1 class="overview-title"><span cl>my</span> account overview</h1>
+    <h1 class="overview-title"><span class="overview-title-thin">my</span> account overview</h1>
 
     <!-- Top 3 tabs ------------------------------------------------------------- -->
     <ul class="custom-nav-tabs" id="accountTabs">
       <li class="custom-nav-item">
-        <a class="custom-nav-link active" id="appointments-tab" href="#appointments">My Appointments</a> <!-- MODIFIED -->
+        <a class="custom-nav-link active" id="appointments-tab" href="#appointments">My Appointments</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="beehive-tab" href="#beehive">My Beehive</a> <!-- MODIFIED -->
+        <a class="custom-nav-link" id="beehive-tab" href="#beehive">My Beehive</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="achievements-tab" href="#achievements">My Achievements</a> <!-- MODIFIED -->
+        <a class="custom-nav-link" id="achievements-tab" href="#achievements">My Achievements</a>
       </li>
     </ul>
 
     <div class="custom-tab-content" id="accountTabsContent">
-      <div class="custom-tab-pane active" id="appointments"> <!-- MODIFIED -->
+      <div class="custom-tab-pane active" id="appointments">
 
         <!-- My Appointments content ---------------------------->
 
@@ -37,11 +37,11 @@
 
                 <% @upcoming_bookings.each do |booking| %>
                   <div class="custom-appointment-row">
-                    <div class="custom-appointments-cell"><%= booking.start_date %></div>
-                    <div class="custom-appointments-cell"><%= booking.start_date.strftime("%I:%M %p") %></div>
+                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.to_date %></div>
+                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
                     <div class="custom-appointments-cell">"<%= booking.note %>"</div>
                     <div class="custom-appointments-cell">
-                      <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
+                      <% buddy = booking.user == current_user ? booking.booker : booking.user %>
                       <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
                       <%= buddy.username %>
                     </div>
@@ -62,19 +62,19 @@
 
               <div class="custom-appointments-table">
                 <div class="custom-appointments-header">
-                  <div class="custom-appointments-cell">Date</div>
-                  <div class="custom-appointments-cell">Time</div>
-                  <div class="custom-appointments-cell">Message</div>
-                  <div class="custom-appointments-cell">Buddy</div>
+                  <div class="custom-appointments-cell"><strong>Date</strong></div>
+                  <div class="custom-appointments-cell"><strong>Time</strong></div>
+                  <div class="custom-appointments-cell"><strong>Message</strong></div>
+                  <div class="custom-appointments-cell"><strong>Buddy</strong></div>
                 </div>
 
                 <% @past_bookings.each do |booking| %>
                   <div class="custom-appointment-row">
-                    <div class="custom-appointments-cell"><%= booking.start_date %></div>
-                    <div class="custom-appointments-cell"><%= booking.start_date.strftime("%I:%M %p") %></div>
+                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.to_date %></div>
+                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
                     <div class="custom-appointments-cell"><%= booking.note %></div>
                     <div class="custom-appointments-cell">
-                      <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
+                      <% buddy = booking.user == current_user ? booking.booker : booking.user %>
                       <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
                       <%= buddy.username %>
                     </div>
@@ -89,10 +89,10 @@
         </div>
       </div>
 
-      <div class="custom-tab-pane" id="beehive"> <!-- MODIFIED -->
+      <div class="custom-tab-pane" id="beehive">
         <!-- My Beehive content -->
       </div>
-      <div class="custom-tab-pane" id="achievements"> <!-- MODIFIED -->
+      <div class="custom-tab-pane" id="achievements">
         <!-- My Achievements content -->
       </div>
     </div>
