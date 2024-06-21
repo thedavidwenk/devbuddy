@@ -36,8 +36,13 @@
       <!-- Yellow background part -->
       <div class="col yellow-bg">
         <div class="container yellow-container">
-          <h1 style="width:300px; font-size:25px;">Confirm your appointment with <%= @user.username %></h1>
-
+          <h1 style="width:300px; font-size:25px;">Choose your appointment with <%= @user.username %></h1>
+          <%#
+            create form with hidden fields
+            when clicking on of the time-slots a modal should be triggered
+            modal shows booking overview
+            modal has confirm button which creates the booking
+          %>
           <div style="width: 280px; display: flex; flex-wrap: wrap;">
             <% @user.time_slots.each do |slot| %>
               <div style="background-color:white; width:120px; height:120px; margin: 10px 20px; margin-left:0; padding: 10px; display: flex;">
@@ -46,7 +51,8 @@
             <% end %>
 
             <!-- Placeholder button -->
-            <button class="confirm-button">confirm</button>
+            <%# <button class="confirm-button">confirm</button> %>
+          <%= render "booking_modal" %>
           </div>
         </div>
       </div>
