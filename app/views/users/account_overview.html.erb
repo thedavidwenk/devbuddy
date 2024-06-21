@@ -6,13 +6,13 @@
     <!-- Top 3 tabs ------------------------------------------------------------- -->
     <ul class="custom-nav-tabs" id="accountTabs">
       <li class="custom-nav-item">
-        <a class="custom-nav-link active" id="appointments-tab" href="#appointments">My Appointments</a>
+        <a class="custom-nav-link active" id="appointments-tab" href="#appointments"><i class="fa-solid fa-bell"></i>&nbsp; My Appointments</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="beehive-tab" href="#beehive">My Beehive</a>
+        <a class="custom-nav-link" id="beehive-tab" href="#beehive"><i class="fa-solid fa-people-group"></i>&nbsp; My Beehive</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="achievements-tab" href="#achievements">My Achievements</a>
+        <a class="custom-nav-link" id="achievements-tab" href="#achievements"><i class="fa-solid fa-cubes-stacked"></i>&nbsp; My Achievements</a>
       </li>
     </ul>
 
@@ -55,6 +55,13 @@
 
           </div>
 
+
+          <div class="illustration-account-overview">
+            <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
+          </div>
+
+
+
           <div class="custom-margin-top">
             <p class="overview-subtitle">Past Appointments<p>
 
@@ -81,12 +88,10 @@
                   </div>
                 <% end %>
               </div>
-
             </div>
-
           </div>
-
         </div>
+
       </div>
 
       <div class="custom-tab-pane" id="beehive">
