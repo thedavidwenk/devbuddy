@@ -3,13 +3,13 @@
   border: 0;
   outline: 0;
   margin-left: 8px;
-  width: 100px; /* Set an initial width */
-  margin-top: 5px;
+  width: 100px;
+  padding: 0 10px; 
+  height: 40px; 
+  line-height: 40px; 
   caret-color: transparent;
-  line-height: 40px;
   transition: width 0.4s linear;
 }
-
 .search-input::placeholder {
   color: $dark-brand;
 }
@@ -51,4 +51,24 @@
   background-color: black;
   border-radius: 50px;
   
+}
+
+.experience-level-dropdown {
+  border: none;
+  border-left: 2px solid black; 
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 45px; 
+  appearance: none; 
+  background-image: url("dropdown-arrow.svg");
+  background-repeat: no-repeat; 
+  background-position: right 10px center; 
+  background-size: 20px 20px;
+  border-radius: 0;
+  background-color: white;
+}
+
+.side-icon {
+  margin-left: 20px;
+  color: #8c8c8c;
 }
