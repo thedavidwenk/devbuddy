@@ -1,11 +1,11 @@
 class Booking < ApplicationRecord
-  belongs_to :buddy1, class_name: 'User'
-  belongs_to :buddy2, class_name: 'User'
+  belongs_to :user, class_name: 'User'
+  belongs_to :booker, class_name: 'User'
+  belongs_to :time_slot
 
-  validates :start_date, presence: true
-  validates :end_date, presence: true
-  validates :buddy1, presence: true
-  validates :buddy2, presence: true
+  validates :user, presence: true
+  validates :booker, presence: true
+  validates :time_slot, presence: true
 
   # These SCOPES are used in the account_overview view file!! ------------------- >
 

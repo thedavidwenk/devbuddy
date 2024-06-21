@@ -1,24 +1,150 @@
-.nav-tabs .nav-link.active {
+.wrapping-container {
+  display: flex;
+  justify-content: center;
+}
+
+.overview-title {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  padding-left: 117px;
+}
+
+.thin-text-in-header {
+  font-family: $body-font;
+  font-weight: normal;
+}
+
+.section-container {
+  background-color: white;
+  border-radius: 14px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  margin-right: 117px;
+  margin-bottom: 80px;
+}
+
+.custom-container {
+  margin: 0;
+}
+
+.custom-nav-tabs {
+  display: flex;
+  margin: 0;
+  padding-left: 117px;
+}
+
+.custom-nav-item {
+  margin-right: 10px;
+  list-style-type: none;
+  border-radius: 20px;
+  font-size: 16px;
+  margin-bottom: -6px;
+}
+
+.custom-nav-link {
+  display: block;
+  padding: 3px 15px;
+  background-color: $dark-brand;
+  color: white;
+  text-decoration: none;
+  border-radius: 20px;
+  font-family: $body-font;
+  cursor: pointer;
+}
+
+.custom-nav-link.active {
   background-color: $yellow-brand-light;
   color: $dark-brand;
-  border-color: $yellow-brand-light $yellow-brand-light transparent;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 14px 14px 0 0;
+  position: relative;
+  top: -5px;
 }
 
-.nav-tabs .nav-link.active:focus,
-.nav-tabs .nav-link.active:hover {
-  background-color: $yellow-brand-light; // Ensure hover and focus states are also styled
-  color: $dark-brand;
+.custom-tab-content {
+  padding: 20px;
+  background-color: $yellow-brand-light;
+  width: 100vw;
+  padding-left: 117px;
 }
 
-.title-appointments {
-  margin-top: 80px;
+.overview-subtitle {
+  font-size: 16px;
   font-family: $headers-font;
+  margin-bottom: 10px;
 }
 
-.nav-link {
-  font-family: $body-font;
+.custom-tab-pane {
+  display: none;
 }
 
-.nav-link active {
+.custom-tab-pane.active {
+  display: block;
+}
+
+.custom-margin-top {
+  margin-top: 20px;
+}
+
+.custom-appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.custom-appointments-header {
+  display: flex;
+  padding-bottom: 8px;
+  margin-top: -10px;
+  color: $dark-brand;
   font-family: $body-font;
+  font-size: 16px;
+}
+
+.custom-appointment-row {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-size: 16px;
+  font-family: $body-font;
+  background-color: $yellow-brand;
+  margin-bottom: 13px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.custom-appointments-cell {
+  flex: 1;
+  padding: 5px 30px;
+}
+
+.custom-appointment-row:hover {
+  background-color: lightgrey;
+}
+
+.custom-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.custom-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.custom-icon-link {
+  color: #333;
+  text-decoration: none;
+}
+
+.custom-icon-link:hover {
+  color: #000;
 }

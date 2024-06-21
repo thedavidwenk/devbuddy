@@ -6,21 +6,21 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  # A user can be involved in a booking either as buddy1 or buddy2
-  has_many :bookings_as_buddy1, class_name: 'Booking', foreign_key: 'buddy1_id'
-  has_many :bookings_as_buddy2, class_name: 'Booking', foreign_key: 'buddy2_id'
+  # A user can be involved in a booking either as user or booker
+  has_many :bookings_as_user, class_name: 'Booking', foreign_key: 'user_id', dependent: :destroy
+  has_many :bookings_as_booker, class_name: 'Booking', foreign_key: 'booker_id', dependent: :destroy
+  has_many :time_slots, dependent: :destroy
 
   # Combine both associations into a single bookings association
   def bookings
-    Booking.where('buddy1_id = ? OR buddy2_id = ?', id, id)
+    Booking.where('user_id = ? OR booker_id = ?', id, id)
   end
 
-  # PG Search 
+  # PG Search
   include PgSearch::Model
   pg_search_scope :search_by_programming_language, against: :programming_languages,
     using: {
     tsearch: { prefix: true } 
-  }
 
   # Scope to filter by experience level
   scope :filter_by_experience_level, -> (level) { where(experience_level: level) if level.present? }
