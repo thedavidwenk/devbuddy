@@ -14,9 +14,8 @@ class UsersController < ApplicationController
   def index
     @users = User.search(params[:query], params[:experience_level])
     
-    if @users.empty? && params[:query].present? && params[:experience_level].present?
-      flash.now[:notice] = "No users found matching the search criteria."
-    end
+    # if @users.empty? && params[:query].present? && params[:experience_level].present?
+    # end
     
     render 'index'
   end
