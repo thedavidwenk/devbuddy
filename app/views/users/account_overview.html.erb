@@ -1,103 +1,101 @@
-<div class="container">
-  <h1>Account Overview</h1>
+<div class="wrapping-container">
 
-  <%# Top 3 tabs ------------------------------------------------------------- %>
+  <div class="custom-container">
+    <h1 class="overview-title"><span cl>my</span> account overview</h1>
 
-  <ul class="nav nav-tabs" id="accountTabs" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" id="appointments-tab" data-toggle="tab" href="#appointments" role="tab" aria-controls="appointments" aria-selected="true">My Appointments</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="beehive-tab" data-toggle="tab" href="#beehive" role="tab" aria-controls="beehive" aria-selected="false">My Beehive</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" id="achievements-tab" data-toggle="tab" href="#achievements" role="tab" aria-controls="achievements" aria-selected="false">My Achievements</a>
-    </li>
-  </ul>
+    <!-- Top 3 tabs ------------------------------------------------------------- -->
+    <ul class="custom-nav-tabs" id="accountTabs">
+      <li class="custom-nav-item">
+        <a class="custom-nav-link active" id="appointments-tab" href="#appointments">My Appointments</a> <!-- MODIFIED -->
+      </li>
+      <li class="custom-nav-item">
+        <a class="custom-nav-link" id="beehive-tab" href="#beehive">My Beehive</a> <!-- MODIFIED -->
+      </li>
+      <li class="custom-nav-item">
+        <a class="custom-nav-link" id="achievements-tab" href="#achievements">My Achievements</a> <!-- MODIFIED -->
+      </li>
+    </ul>
 
-  <div class="tab-content" id="accountTabsContent">
-    <div class="tab-pane fade show active" id="appointments" role="tabpanel" aria-labelledby="appointments-tab">
+    <div class="custom-tab-content" id="accountTabsContent">
+      <div class="custom-tab-pane active" id="appointments"> <!-- MODIFIED -->
 
-      <!-- My Appointments content ---------------------------->
+        <!-- My Appointments content ---------------------------->
 
-      <div class="mt-4">
-        <h2>Upcoming</h2>
-        <table class="table table-striped">
-          <!-- Headers (date, time, message, ....) -->
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Message</th>
-              <th>Buddy</th>
-              <th></th> <!-- empty column for icons -->
-            </tr>
-          </thead>
-          <tbody>
-            <% @upcoming_bookings.each do |booking| %>
-              <tr class="appointment-row">
-                <td><%= booking.start_date %></td>
-                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- time in AM/PM format -->
-                <td>"<%= booking.note %>"</td>
-                <td>
-                  <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
-                  <%= image_tag(buddy.avatar, class: 'my-appointments-avatar') %>
-                  <%= buddy.username %>
-                </td>
-                <td>
-                  <%= link_to edit_booking_path(booking), class: 'btn btn-sm btn-link' do %>
-                    <i class="fas fa-edit"></i>
-                  <% end %>
-                  <%= link_to booking_path(booking), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-link' do %>
-                    <i class="fas fa-trash"></i>
-                  <% end %>
-                </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+        <div class="custom-margin-top">
+          <p class="overview-subtitle">Upcoming Appointments</p>
+
+          <div class="section-container">
+
+              <div class="custom-appointments-table">
+                <div class="custom-appointments-header">
+                  <div class="custom-appointments-cell"><strong>Date</strong></div>
+                  <div class="custom-appointments-cell"><strong>Time</strong></div>
+                  <div class="custom-appointments-cell"><strong>Message</strong></div>
+                  <div class="custom-appointments-cell"><strong>Buddy</strong></div>
+                  <div class="custom-appointments-cell"></div>
+                </div>
+
+                <% @upcoming_bookings.each do |booking| %>
+                  <div class="custom-appointment-row">
+                    <div class="custom-appointments-cell"><%= booking.start_date %></div>
+                    <div class="custom-appointments-cell"><%= booking.start_date.strftime("%I:%M %p") %></div>
+                    <div class="custom-appointments-cell">"<%= booking.note %>"</div>
+                    <div class="custom-appointments-cell">
+                      <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
+                      <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+                      <%= buddy.username %>
+                    </div>
+                    <div class="custom-appointments-cell custom-icons">
+                      <a href="<%= edit_booking_path(booking) %>" class="custom-icon-link"><i class="fas fa-edit"></i></a>
+                      <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class="custom-icon-link"><i class="fas fa-trash"></i></a>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+
+          </div>
+
+          <div class="custom-margin-top">
+            <p class="overview-subtitle">Past Appointments<p>
+
+            <div class="section-container">
+
+              <div class="custom-appointments-table">
+                <div class="custom-appointments-header">
+                  <div class="custom-appointments-cell">Date</div>
+                  <div class="custom-appointments-cell">Time</div>
+                  <div class="custom-appointments-cell">Message</div>
+                  <div class="custom-appointments-cell">Buddy</div>
+                </div>
+
+                <% @past_bookings.each do |booking| %>
+                  <div class="custom-appointment-row">
+                    <div class="custom-appointments-cell"><%= booking.start_date %></div>
+                    <div class="custom-appointments-cell"><%= booking.start_date.strftime("%I:%M %p") %></div>
+                    <div class="custom-appointments-cell"><%= booking.note %></div>
+                    <div class="custom-appointments-cell">
+                      <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
+                      <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+                      <%= buddy.username %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
       </div>
 
-      <!-- Past Appointments content --------------------------->
-
-      <div class="mt-4">
-        <h2>Past Appointments</h2>
-        <table class="table table-striped">
-          <!-- Headers (date, time, message, ....) -->
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Message</th>
-              <th>Buddy</th>
-              <th></th> <!-- empty column for spacing -->
-            </tr>
-          </thead>
-          <tbody>
-            <% @past_bookings.each do |booking| %>
-              <tr class="appointment-row">
-                <td><%= booking.start_date %></td>
-                <td><%= booking.start_date.strftime("%I:%M %p") %></td> <!-- time in AM/PM format -->
-                <td>"<%= booking.note %>"</td>
-                <td>
-                  <% buddy = booking.buddy1 == current_user ? booking.buddy2 : booking.buddy1 %>
-                  <%= image_tag(buddy.avatar, class: 'my-appointments-avatar') %>
-                  <%= buddy.username %>
-                </td>
-                <td></td> <!-- No icons for past appointments -->
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+      <div class="custom-tab-pane" id="beehive"> <!-- MODIFIED -->
+        <!-- My Beehive content -->
       </div>
-
-    </div>
-
-    <div class="tab-pane fade" id="beehive" role="tabpanel" aria-labelledby="beehive-tab">
-      <!-- My Beehive content -->
-    </div>
-    <div class="tab-pane fade" id="achievements" role="tabpanel" aria-labelledby="achievements-tab">
-      <!-- My Achievements content -->
+      <div class="custom-tab-pane" id="achievements"> <!-- MODIFIED -->
+        <!-- My Achievements content -->
+      </div>
     </div>
   </div>
+
 </div>
