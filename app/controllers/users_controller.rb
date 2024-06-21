@@ -12,18 +12,13 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
-
-    if params[:query].present?
-      @users = User.search_by_programming_language(params[:query])
-    else
-      flash[:note] = "Programming language not found."
-      @users = User.all
+    @users = User.search(params[:query], params[:experience_level])
+    
+    if @users.empty? && params[:query].present? && params[:experience_level].present?
+      flash.now[:notice] = "No users found matching the search criteria."
     end
-
-    if params[:experience_level].present?
-      @users = User.filter_by_experience_level(params[:experience_level])
-    end
+    
+    render 'index'
   end
 
   def account_overview
