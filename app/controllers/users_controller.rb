@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     # @user is set by the set_user method
+    @time_slots = @user.time_slots
   end
 
 

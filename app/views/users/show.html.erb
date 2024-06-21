@@ -38,10 +38,10 @@
         <div class="container yellow-container">
           <h1 style="width:300px; font-size:25px;">Confirm your appointment with <%= @user.username %></h1>
 
-          <div class="" style="width: 280px; display: flex; flex-wrap: wrap;">
-            <% 6.times do %>
-              <div class="" style="background-color:white; width:120px; height:120px; margin: 10px 20px; margin-left:0; padding: 10px; display: flex;">
-                <p style="display: grid; place-items: center; text-align:center;">March 30, 16:00hr</p>
+          <div style="width: 280px; display: flex; flex-wrap: wrap;">
+            <% @user.time_slots.each do |slot| %>
+              <div style="background-color:white; width:120px; height:120px; margin: 10px 20px; margin-left:0; padding: 10px; display: flex;">
+                <p style="display: grid; place-items: center; text-align:center;"><%= slot.day %>, <%= slot.start_time.strftime("%R") %> to <%= slot.end_time.strftime("%R") %></p>
               </div>
             <% end %>
 

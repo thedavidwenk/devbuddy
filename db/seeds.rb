@@ -30,8 +30,6 @@ users = User.create!([
     username: "madonna",
     avatar: "https://i.pinimg.com/736x/4c/5b/f8/4c5bf873f703368d83f841812be4e96c.jpg",
     experience_level: "Expert",
-    days_availability: "Weekdays",
-    time_availability: "Evenings",
     about_me: "A passionate developer who loves coding.",
     programming_languages: "Ruby, JavaScript"
   },
@@ -44,8 +42,6 @@ users = User.create!([
     username: "ladygaga",
     avatar: "https://64.media.tumblr.com/d9939d665b9f01048f4f6ecb23c9871f/tumblr_pkepjs3cS61xm3be3o1_1280.jpg",
     experience_level: "Beginner",
-    days_availability: "Weekends",
-    time_availability: "Mornings",
     about_me: "Enjoys learning new technologies and working on projects.",
     programming_languages: "Python, HTML, CSS"
   },
@@ -58,8 +54,6 @@ users = User.create!([
     username: "beyonce",
     avatar: "https://media1.popsugar-assets.com/files/thumbor/7pCjLbKRLixIA8rwFaOjmjw1KpE=/2220x3000/filters:format_auto():quality(85):extract_cover()/2014/11/03/095/n/1922398/7bee161c20c24c89_71431710_10.jpg",
     experience_level: "Advanced",
-    days_availability: "Mondays, Wednesdays",
-    time_availability: "Afternoons",
     about_me: "Experienced in backend development and database management.",
     programming_languages: "Java, SQL"
   }
