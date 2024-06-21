@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_21_100538) do
   create_table "time_slots", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "day"
-    t.date "start_time"
-    t.date "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.boolean "reserved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
