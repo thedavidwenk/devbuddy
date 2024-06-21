@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   root to: "users#home"
+  get 'time_slots/new'
+  get 'time_slots/create'
+  get 'time_slots/edit'
+  get 'time_slots/delete'
 
   devise_for :users
 
