@@ -107,16 +107,17 @@
     p {
       margin: 20px 0;
     }
+  }
 
-    button, .white-container button {
-      background-color: white;
-      padding: 1px 30px;
-      color: black;
-      border-radius: 30px;
-      font-size: 20px;
-      border: none;
-      margin-top: 30px;
-    }
+  .back-button {
+    background-color: black;
+    padding: 1px 30px 1px 20px;
+    color: white;
+    border-radius: 30px;
+    font-size: 20px;
+    border: none;
+    margin-top: 30px;
+    font-family: $body-font;
   }
 
   .confirm-button {
@@ -146,4 +147,3 @@
     }
   }
 }
-
