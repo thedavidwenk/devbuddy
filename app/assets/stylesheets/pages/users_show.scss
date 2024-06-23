@@ -1,7 +1,25 @@
 #users-show {
+  .flex-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height for demonstration */
+    width: 100%;
+  }
+  .row {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    margin: 0;
+  }
+  .col {
+    flex: 1;
+    padding: 10px;
+  }
 
   .container {
-    margin: 20px 200px;
+    box-sizing: border-box;
+    padding: 20px 20px;
   }
 
   .avatar-and-main-info {
@@ -70,33 +88,42 @@
     background-color: #fff;
   }
   .yellow-container, .white-container {
-    margin-top: 150px;
+    margin-top: 0;
     width: 80%;
     max-width: 100%;
-    margin: 150px auto 0 auto;
+    height: 100vh;
+    margin: 0 auto 0 auto;
   }
   .yellow-container {
-    margin: 20px 200px;
+    box-sizing: border-box;
+    padding: 20px 20px;
   }
-  .headline h1 {
+  .headline {
+
+    h1 {
     margin: 0;
+    }
+
+    span.code-solo {
+      font-size: 1.5em;
+    }
+
+    p {
+      margin: 20px 0;
+    }
+
+    button, .white-container button {
+      background-color: white;
+      padding: 1px 30px;
+      color: black;
+      border-radius: 30px;
+      font-size: 20px;
+      border: none;
+      float: right;
+      margin-top: 30px;
+    }
   }
-  .headline span.code-solo {
-    font-size: 1.5em;
-  }
-  .headline p {
-    margin: 20px 0;
-  }
-  .headline button, .white-container button {
-    background-color: white;
-    padding: 1px 30px;
-    color: black;
-    border-radius: 30px;
-    font-size: 20px;
-    border: none;
-    float: right;
-    margin-top: 30px;
-  }
+  
   .confirm-button {
     background-color: #2d2d2d;
     color: white;
@@ -106,22 +133,6 @@
     border: none;
     border-radius: 30px;
     padding: 1px 20px;
-  }
-  .flex-container {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    padding: 0;
-  }
-  .row {
-    display: flex;
-    flex: 1;
-    width: 100%;
-    margin: 0;
-  }
-  .col {
-    flex: 1;
-    padding: 10px;
   }
 
   /* Responsive adjustments */
