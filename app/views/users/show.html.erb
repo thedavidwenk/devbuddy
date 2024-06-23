@@ -3,9 +3,9 @@
     <div class="row">
       <!-- White background part -->
       <div class="col white-bg">
-        <div class="container">
+        <div class="" style="min-height: 900px;">
           <!-- Placeholder button -->
-          <button style="background-color:black; padding:1px 20px; color:white; border-radius:30px; font-size:17px;">< back</button>
+          <button class="back-button" onclick="window.location.href='<%= request.referer || root_path %>'">< back</button>
 
           <div class="avatar-and-main-info">
             <div class="avatar">
@@ -14,6 +14,7 @@
               <% end %>
             </div>
             <div class="user-main-info">
+              <%= image_tag 'user_profile_hexagon.png', alt: 'User Profile Hexagon', class: 'profile-hexagon' %>
               <h3><%= @user.first_name %> <%= @user.last_name %></h3>
             </div>
           </div>
@@ -35,8 +36,8 @@
       </div>
       <!-- Yellow background part -->
       <div class="col yellow-bg">
-        <div class="container yellow-container">
-          <h1 style="width:300px; font-size:25px;">Confirm your appointment with <%= @user.username %></h1>
+        <div class="yellow-container">
+          <h1 style="width:300px; font-size:25px; padding-left: 10px;">Confirm your appointment with <%= @user.username %></h1>
 
           <div class="" style="width: 280px; display: flex; flex-wrap: wrap;">
             <% 6.times do %>
