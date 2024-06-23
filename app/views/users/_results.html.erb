@@ -5,7 +5,7 @@
     <% elsif params[:query].blank? %>
       <%= pluralize @users.count, "buddy" %> with <code><%= params[:experience_level] %></code> experience level available
     <% else %>
-      <%= pluralize @users.count, "buddy" %> with <code><%= params[:query] %></code>
+      <%= pluralize @users.count, "buddy" %> with <code><%= params[:query].capitalize %></code>
       <% unless params[:experience_level].blank? %>
         and <code><%= params[:experience_level] %></code> experience level
       <% end %>
