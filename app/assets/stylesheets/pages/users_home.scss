@@ -91,6 +91,16 @@
     z-index: -1;
   }
 
+  .girl-vector {
+    .landing-girl {
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+    }
+  }
+
   /* Responsive adjustments */
   @media (max-width: 768px) {
     .row {
