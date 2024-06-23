@@ -1,3 +1,17 @@
+<% unless @users.empty? || @users.nil? %>
+  <p class="h2">
+    <% if params[:query].blank? && params[:experience_level].blank? %>
+      <%= pluralize @users.count, "buddy" %> available
+    <% elsif params[:query].blank? %>
+      <%= pluralize @users.count, "buddy" %> with <code><%= params[:experience_level] %></code> experience level available
+    <% else %>
+      <%= pluralize @users.count, "buddy" %> with <code><%= params[:query] %></code>
+      <% unless params[:experience_level].blank? %>
+        and <code><%= params[:experience_level] %></code> experience level
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
 <div class="row">
   <% if @users.empty? || @users.nil? %>
     <div class="col-12 d-flex flex-column align-items-center justify-content-center" style="height: 60vh;">
