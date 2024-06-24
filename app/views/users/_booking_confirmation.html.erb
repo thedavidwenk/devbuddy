@@ -1,4 +1,4 @@
-<div class="modal" id="confirmation-modal" tabindex="-1">
+<div class="modal" id="confirmation-modal" tabindex="-1" data-controller="time-slot-picker">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-dialog">
       <div class="modal-content modal-size rounded-5">
@@ -15,7 +15,7 @@
               <%= simple_form_for ([user, booking]) do |f| %>
                 <%= f.input :user_id, input_html: { value: @user.id }, as: :hidden %>
                 <%= f.input :booker_id, input_html: { value: current_user.id }, as: :hidden %>
-                <%= f.input :time_slot_id, as: :hidden %>
+                <%= f.input :time_slot_id, as: :hidden, id: "input-slot-id" %>
                 <%= f.input :note, label: "Send a message to #{@user.first_name} (optional)" %>
 
                 <%= f.button :submit, "Confirm Booking", class: "btn btn-success rounded-5" %>
