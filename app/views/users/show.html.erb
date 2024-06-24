@@ -36,23 +36,32 @@
       <!-- Yellow background part -->
       <div class="col yellow-bg">
         <div class="container yellow-container">
-          <h1 style="width:300px; font-size:25px;">Choose your appointment with <%= @user.username %></h1>
+          <h1 style="width:300px; font-size:25px;">Choose your appointment with <%= @user.first_name %></h1>
+
           <%#
-            create form with hidden fields
-            when clicking on of the time-slots a modal should be triggered
-            modal shows booking overview
-            modal has confirm button which creates the booking
+            - create form with hidden fields
+            - when clicking on of the time-slots a modal should be triggered
+            - modal shows booking overview
+            - modal has confirm button which creates the booking
           %>
-          <div style="width: 280px; display: flex; flex-wrap: wrap;">
+
+          <div class="d-flex" style="width: 280px">
             <% @user.time_slots.each do |slot| %>
-              <div style="background-color:white; width:120px; height:120px; margin: 10px 20px; margin-left:0; padding: 10px; display: flex;">
-                <p style="display: grid; place-items: center; text-align:center;"><%= slot.day %>, <%= slot.start_time.strftime("%R") %> to <%= slot.end_time.strftime("%R") %></p>
-              </div>
+              <%= simple_form_for @booking do |f| %>
+                <%= f.input :user_id, input_html: { value: @user.id }, as: :hidden %>
+                <%= f.input :booker_id, input_html: { value: current_user.id }, as: :hidden %>
+                <%= f.input :time_slot_id, input_html: { value: slot.id }, as: :hidden %>
+                <%= button_tag(type: 'submit', class: 'time-slot-button') do %>
+                  <strong><%= slot.start_time.strftime("%A") %></strong>
+                  <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
+                  <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+                <% end %>
+              <% end %>
             <% end %>
 
             <!-- Placeholder button -->
             <%# <button class="confirm-button">confirm</button> %>
-          <%= render "booking_modal" %>
+          <%# render "booking_modal" %>
           </div>
         </div>
       </div>

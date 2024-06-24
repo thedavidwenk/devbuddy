@@ -124,6 +124,19 @@
     padding: 10px;
   }
 
+  .time-slot-button {
+    background-color:white;
+    width:120px;
+    height:120px;
+    // margin: 10px 20px;
+    // margin-left:0;
+    // padding: 10px;
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
   /* Responsive adjustments */
   @media (max-width: 480px) {
     .row {
