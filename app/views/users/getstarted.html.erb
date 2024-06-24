@@ -1,7 +1,24 @@
-<h1>This is our onboarding flow</h1>
-
-<%= simple_form_for(:user, url: users_path, method: :get, html: { data: { controller: "onboarding", target: "onboarding.form" } }) do |f| %>
-  <%= f.input :programming_languages, input_html: { name: "query" } %>
-  <%= f.input :experience_level, collection: ["Beginner", "Intermediate", "Advanced"], prompt: "Select your experience level", input_html: { name: "experience_level" } %>
-  <%= f.submit "Submit", data: { action: "click->onboarding#fill" } %>
-<% end %>
+<div id="onboarding-page">
+  <div class="flex-container">
+    <div class="row">
+      <!-- Yellow background part -->
+      <div class="col yellow-bg">
+        <div id="onboarding-headline" class="onboarding-form">
+          <h1>What are you learning?</h1>
+          <p>Help us find your best matching buddy!</p>
+          <%= simple_form_for(:user, url: users_path, method: :get, html: { data: { controller: "onboarding", onboarding_target: "form" } }) do |f| %>
+            <%= f.input :programming_languages, input_html: { name: "query" } %>
+            <%= f.input :experience_level, collection: User::SKILL_LEVELS, prompt: "Select your experience level", input_html: { name: "experience_level" } %>
+            <%= f.submit "Submit", data: { action: "click->onboarding#fill" } %>
+          <% end %>
+        </div>
+      </div>
+      <!-- White background part -->
+      <div class="col white-bg">
+        <div class="">
+          <!-- Content for the white background part -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
