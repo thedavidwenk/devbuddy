@@ -1,3 +1,22 @@
+<% unless @users.empty? || @users.nil? %>
+  <p class="h2">
+    <% if params[:query].blank? && params[:experience_level].blank? %>
+      <%= pluralize @users.count, "buddy" %> available
+    <% elsif params[:query].blank? %>
+      <%= pluralize @users.count, "buddy" %> with <code class="text-capitalize"><%= params[:experience_level] %></code> experience level available
+    <% else %>
+      <% query_text = params[:query].downcase %>
+      <% if query_text.include?("html") || query_text.include?("css") %>
+        <%= pluralize @users.count, "buddy" %> with <code class="text-uppercase"><%= params[:query].upcase %></code> skills
+      <% else %>
+        <%= pluralize @users.count, "buddy" %> with <code class="text-capitalize"><%= params[:query].capitalize %></code> skills
+      <% end %>
+      <% unless params[:experience_level].blank? %>
+        and <code class="text-capitalize"><%= params[:experience_level] %></code> experience level
+      <% end %>
+    <% end %>
+  </p>
+<% end %>
 <div class="row">
   <% if @users.empty? || @users.nil? %>
     <div class="col-12 d-flex flex-column align-items-center justify-content-center" style="height: 60vh;">
