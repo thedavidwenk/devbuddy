@@ -9,14 +9,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.booker = current_user
     @booking.user = @user
-    # @time_slot = TimeSlot.find(params[:id])
     @booking.time_slot = @time_slot
 
     if @booking.save!
       redirect_to account_overview_user(current_user)
       flash[:notice]="Booking was successfully created!"
-    # else
-    # render 'user/show', status: :unprocessable_entity
     end
   end
 
@@ -27,7 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :note, :buddy2_id)
+    params.require(:booking).permit(:user_id, :booker_id, :time_slot_id, :note)
   end
 end
 
