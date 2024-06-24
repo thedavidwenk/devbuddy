@@ -118,3 +118,19 @@
     }
   }
 }
+
+
+.btn-home {
+  text-decoration: none;
+  height: 50px;
+  border: 0;
+  
+  width: 200px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+  border-radius: 50px;
+}

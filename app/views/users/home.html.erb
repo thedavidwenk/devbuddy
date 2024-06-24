@@ -12,9 +12,10 @@
             <p class="code-solo">done <br> struggling <br> to code <br> <span class="solo-word">solo?</span></p>
             <p>We don't make it easier <br> to become a Software Developer, <br> but you don't have to be alone while doing so.</p>
             <!-- Placeholder button -->
-            <button>
-              find out more   >>
-            </button>
+            <%= link_to getstarted_path, class: 'btn-home' do %>
+               Find Out More 
+              <i class="fa-solid fa-chevron-right px-2"></i>
+            <% end %>
           </div>
         </div>
       </div>
