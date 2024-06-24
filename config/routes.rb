@@ -7,7 +7,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :users, only: [:index, :home] do
+  # Custom route for getstarted
+  get 'getstarted', to: 'users#getstarted' 
+
+  resources :users, only: [:index, :home] do 
+
     member do
       get 'profile', to: 'users#show'
       get 'account_overview', to: 'users#account_overview'

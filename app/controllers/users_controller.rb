@@ -10,6 +10,9 @@ class UsersController < ApplicationController
     # @user is set by the set_user method
   end
 
+  def getstarted
+  end
+
 
   def index
     @users = User.search(params[:query], params[:experience_level])
