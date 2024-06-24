@@ -14,21 +14,18 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
-
-    if params[:query].present?
-      @users = User.search_by_programming_language_and_experience_level(params[:query])
-    else
-      flash[:note] = "No search result found."
-      @users = User.all
-    end
+    @users = User.search(params[:query], params[:experience_level])
+    
+    # if @users.empty? && params[:query].present? && params[:experience_level].present?
+    # end
+    
+    render 'index'
   end
 
   def account_overview
     @user = current_user
-    @upcoming_bookings = Booking.where(buddy1: @user).or(Booking.where(buddy2: @user)).upcoming.includes(:buddy1, :buddy2)
-    @past_bookings = Booking.where(buddy1: @user).or(Booking.where(buddy2: @user)).past.includes(:buddy1, :buddy2)
-
+    @upcoming_bookings = Booking.joins(:time_slot).where(user: @user).or(Booking.joins(:time_slot).where(booker: @user)).upcoming
+    @past_bookings = Booking.joins(:time_slot).where(user: @user).or(Booking.joins(:time_slot).where(booker: @user)).past
   end
 
   private

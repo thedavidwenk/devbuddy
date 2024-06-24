@@ -1,20 +1,23 @@
-<div id="landing-page" style="background-image: url(<%= asset_path('LandingPage_Graphics.svg') %>); background-size: 100%; background-position: auto; background-repeat: no-repeat;">
+<div id="landing-page">
   <div class="flex-container">
+    <div class="girl-vector">
+      <%= image_tag 'landing_page_girl.svg', alt: 'Landing Page Girl', class: 'landing-girl', style: 'your-css-style' %>
+    </div>
     <div class="row">
       <!-- Yellow background part -->
-      <div class="col yellow-bg">
+      <div class="col yellow-bg" style="background-image: url(<%= asset_path('landing_page_white_dotted_line.svg') %>); background-size: 100%; background-position: auto; background-repeat: no-repeat;">
         <div class="">
           <div id="landing-headline">
             <p class="first-line">Hi there,</p>
             <p class="code-solo">done <br> struggling <br> to code <br> <span class="solo-word">solo?</span></p>
             <p>We don't make it easier <br> to become a Software Developer, <br> but you don't have to be alone while doing so.</p>
             <!-- Placeholder button -->
-            <button>find out more >>></button>
+            <button>find out more   >></button>
           </div>
         </div>
       </div>
       <!-- White background part -->
-      <div class="col white-bg">
+      <div class="col white-bg" style="background-image: url(<%= asset_path('landing_page_bees.svg') %>); background-size: 100%; background-position: left 30px; background-repeat: no-repeat;">
         <div class="">
           <!-- Content for the white background part -->
         </div>
