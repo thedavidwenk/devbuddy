@@ -42,7 +42,7 @@
           <div class="d-flex" style="width: 280px" data-controller="time-slot-picker">
             <% @user.time_slots.each do |slot| %>
 
-              <div class="time-slot-button text-center" data-bs-toggle="modal" data-bs-target="#confirmation-modal" data-slot-id="<%= slot.id %>" data-time-slot-picker-target="slotId" data-action="click->time-slot-picker#getSlotId">
+              <div class="time-slot-button text-center" data-bs-toggle="modal" data-bs-target="#confirmation-modal" data-slot-id="<%= slot.id %>" data-time-slot-picker-target="slotId timeSlotInput" data-action="click->time-slot-picker#selectTimeSlot">
                 <strong><%= slot.start_time.strftime("%A") %></strong>
                 <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
                 <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
