@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def getstarted
+    @user = User.new
   end
 
 

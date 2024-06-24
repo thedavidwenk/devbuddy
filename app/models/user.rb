@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   # Skill levels to select from for users and search
-  SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"]
+  SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"].freeze
 
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
