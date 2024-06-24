@@ -1,0 +1,57 @@
+<div class="custom-margin-top">
+          <p class="overview-subtitle">Upcoming Appointments</p>
+          <div class="section-container">
+            <div class="custom-appointments-table">
+              <div class="custom-appointments-header">
+                <div class="custom-appointments-cell"><strong>Date</strong></div>
+                <div class="custom-appointments-cell"><strong>Time</strong></div>
+                <div class="custom-appointments-cell"><strong>Message</strong></div>
+                <div class="custom-appointments-cell"><strong>Buddy</strong></div>
+                <div class="custom-appointments-cell"></div>
+              </div>
+              <% @upcoming_bookings.each do |booking| %>
+                <div class="custom-appointment-row">
+                  <div class="custom-appointments-cell"><%= booking.time_slot.start_time.to_date %></div>
+                  <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
+                  <div class="custom-appointments-cell">"<%= booking.note %>"</div>
+                  <div class="custom-appointments-cell">
+                    <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+                    <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+                    <%= buddy.username %>
+                  </div>
+                  <div class="custom-appointments-cell custom-icons">
+                    <a href="<%= edit_booking_path(booking) %>" class="custom-icon-link"><i class="fas fa-edit"></i></a>
+                    <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class="custom-icon-link"><i class="fas fa-trash"></i></a>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+
+          <div class="custom-margin-top">
+            <p class="overview-subtitle">Past Appointments</p>
+            <div class="section-container">
+              <div class="custom-appointments-table">
+                <div class="custom-appointments-header">
+                  <div class="custom-appointments-cell"><strong>Date</strong></div>
+                  <div class="custom-appointments-cell"><strong>Time</strong></div>
+                  <div class="custom-appointments-cell"><strong>Message</strong></div>
+                  <div class="custom-appointments-cell"><strong>Buddy</strong></div>
+                </div>
+                <% @past_bookings.each do |booking| %>
+                  <div class="custom-appointment-row">
+                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.to_date %></div>
+                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
+                    <div class="custom-appointments-cell"><%= booking.note %></div>
+                    <div class="custom-appointments-cell">
+                      <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+                      <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+                      <%= buddy.username %>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
