@@ -9,10 +9,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.booker = current_user
     @booking.user = @user
-    @booking.time_slot = TimeSlot.find(params[:id])
+    # @time_slot = TimeSlot.find(params[:id])
+    @booking.time_slot = @time_slot
 
-    if @booking.save
-      redirect_to profile_user_path(@user), notice: "Booking was successfully created!"
+    if @booking.save!
+      redirect_to account_overview_user(current_user)
+      flash[:notice]="Booking was successfully created!"
     # else
     # render 'user/show', status: :unprocessable_entity
     end

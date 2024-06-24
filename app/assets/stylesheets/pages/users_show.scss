@@ -144,12 +144,13 @@
     background-color:white;
     width:120px;
     height:120px;
-    // margin: 10px 20px;
-    // margin-left:0;
-    // padding: 10px;
 
     p {
       font-size: 1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
     }
   }
 
