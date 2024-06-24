@@ -1,8 +1,8 @@
 #onboarding-page {
   position: relative;
   width: 100%;
-  min-height: 100vh; /* Ensure it covers the viewport height */
-  overflow: auto; /* Handle any overflow */
+  min-height: 100vh; 
+  overflow: auto; 
   
   .flex-container {
     display: flex;
@@ -25,28 +25,42 @@
     position: relative;
   }
 
-  .yellow-bg {
+
+  .btn-onboarding {
+    height: 50px;
+    border: 0;
+    width: 120px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    border-radius: 50px;
+  }
+
+  .yellow-bg-onboarding {
     background-color: $yellow-brand;
-    z-index: 1; /* Ensure it's above the base layer */
+    z-index: 1; 
     position: relative;
   }
 
-  .white-bg {
-    background-image: url('landing_page_bees.svg');
-    background-size: 100%;
-    background-position: left 30px;
+  .white-bg-onboarding {
+    display: block;
+    background-image: url('onboarding-img1.png');
+    background-size: cover;
     background-repeat: no-repeat;
-    z-index: 0; /* Ensure it's below yellow-bg */
+    z-index: 0; 
   }
 
   .onboarding-form {
-    z-index: 2; /* Ensure form is in front */
+    z-index: 2; 
     position: relative;
   }
 
   #onboarding-headline {
     max-width: 100%;
-    margin: 5% 15%;
+    margin: 5% 20%;
     position: relative;
     
     h1, p {
@@ -67,20 +81,16 @@
       font-size: 20px;
       margin-bottom: 50px;
     }
+
+    .form-control, .form-select {
+      border: 0;
+    }
   }
 
   /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .row {
-      flex-direction: column;
-    }
-    .col {
-      margin: 20px;
-    }
-    .headline button {
-      float: none;
-      display: block;
-      margin: 30px auto 0 auto;
+  @media (max-width: 1000px) {
+    .white-bg-onboarding {
+      display: none;
     }
   }
 }
