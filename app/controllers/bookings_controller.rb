@@ -32,11 +32,6 @@ class BookingsController < ApplicationController
 end
 
 
-# @booking = @user.buddy1_bookings.new(booking_params)
-# @booking.buddy2 = User.find(params[:booking][:buddy2_id]) # Ensure buddy2 is set correctly
-
-# if @booking.save
-#   redirect_to user_bookings_path(@user), notice: 'Booking was successfully created.'
-# else
-#   render :new
-# end
+# dem div ein data-slot-id="<%= slot.id %>" geben
+# stimulus controller erstellen und dieses div targeten
+# im Modal mit Hilfe des Targets den richtigen Slot finden (TimeSlot.find...)
