@@ -36,22 +36,25 @@
       </div>
       <!-- Yellow background part -->
       <div class="col yellow-bg">
-        <div class="container yellow-container">
-          <h1 style="width:300px; font-size:25px;">Choose your appointment with <%= @user.first_name %></h1>
+        <div class="yellow-container">
+          <div style="width: 350px">
 
-          <div class="d-flex" style="width: 280px" data-controller="time-slot-picker">
-            <% @user.time_slots.each do |slot| %>
+          <h3 class="mb-3">Choose your appointment with <%= @user.first_name %></h3>
 
-              <div class="time-slot-button text-center" data-bs-toggle="modal" data-bs-target="#confirmation-modal" data-slot-id="<%= slot.id %>" data-time-slot-picker-target="slotId timeSlotInput" data-action="click->time-slot-picker#selectTimeSlot">
-                <strong><%= slot.start_time.strftime("%A") %></strong>
-                <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
-                <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
-              </div>
+            <div class="d-flex gap-3 flex-wrap justify-content-center" data-controller="time-slot-picker">
+              <% @user.time_slots.each do |slot| %>
 
-            <% end %>
+                <div class="time-slot-button text-center rounded-4 p-2" data-bs-toggle="modal" data-bs-target="#confirmation-modal" data-slot-id="<%= slot.id %>" data-time-slot-picker-target="slotId timeSlotInput" data-action="click->time-slot-picker#selectTimeSlot">
+                  <strong><%= slot.start_time.strftime("%A") %></strong>
+                  <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
+                  <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+                </div>
 
-            <%= render "booking_confirmation", user: @user, booking: @booking %>
+              <% end %>
 
+              <%= render "booking_confirmation", user: @user, booking: @booking %>
+
+            </div>
           </div>
         </div>
       </div>
