@@ -10,7 +10,7 @@
         <div class="custom-appointments-cell"><strong>Time</strong></div>
         <div class="custom-appointments-cell"><strong>Message</strong></div>
         <div class="custom-appointments-cell"><strong>Buddy</strong></div>
-        <div class="custom-appointments-cell"></div>
+        <div class="custom-appointments-cell"><strong>Edit or delete this appointment</strong></div>
       </div>
 
       <% @upcoming_bookings.each do |booking| %>
@@ -45,7 +45,7 @@
         <div class="custom-appointments-cell"><strong>Time</strong></div>
         <div class="custom-appointments-cell"><strong>Message</strong></div>
         <div class="custom-appointments-cell"><strong>Buddy</strong></div>
-        <div class="custom-appointments-cell"></div>
+        <div class="custom-appointments-cell"><strong>Your notes</strong></div>
       </div>
 
       <% @past_bookings.each do |booking| %>
@@ -58,7 +58,9 @@
             <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
             <%= buddy.username %>
           </div>
-          <div class="custom-appointments-cell"></div> <!-- Empty cell for alignment -->
+          <div class="custom-appointments-cell custom-icons">
+            <a href="#" class="custom-icon-link"><i class="fa-solid fa-comment"></i></a>
+          </div>
         </div>
       <% end %>
     </div>
