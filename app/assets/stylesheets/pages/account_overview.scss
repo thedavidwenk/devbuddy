@@ -5,14 +5,14 @@
 
 .illustration-account-overview {
   position: absolute;
-  top: 270px;
+  top: 230px;
   right: 15%;
 }
 
 .overview-title {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-left: 117px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 300px;
 }
 
 .overview-title-thin {
@@ -42,7 +42,7 @@
 .custom-nav-tabs {
   display: flex;
   margin: 0;
-  padding-left: 117px;
+  padding-left: 300px;
 }
 
 .custom-nav-item {
@@ -80,7 +80,9 @@
   padding: 20px;
   background-color: $yellow-brand-light;
   width: 100vw;
-  padding-left: 117px;
+  padding-left: 300px;
+  padding-right: 200px;
+  padding-top: 40px;
 }
 
 .overview-subtitle {
@@ -159,7 +161,7 @@
   color: #000;
 }
 
-.back-button {
+.back-button-account-overview {
   background-color: $gray;
   padding: 1px 30px 1px 20px;
   color: white;
@@ -168,5 +170,5 @@
   border: none;
   margin-top: 30px;
   font-family: $body-font;
-  margin-left: 120px;
+  margin-left: 300px;
 }
