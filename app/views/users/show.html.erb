@@ -17,6 +17,7 @@
               <%= image_tag 'user_profile_hexagon.png', alt: 'User Profile Hexagon', class: 'profile-hexagon' %>
               <h3><%= @user.first_name %> <%= @user.last_name %></h3>
               <span class="user-location"><i class="fa-solid fa-location-dot fa-sm" style="margin-right: 10px;"></i> <%= @user.location %> <i class="fa-solid fa-flag fa-sm" style="margin-left:5px;"></i></span>
+              <span class="user-level"><i class="fa-solid fa-desktop fa-sm" style="margin-right:10px"></i><%= @user.experience_level %></span>
             </div>
           </div>
 
