@@ -5,7 +5,7 @@ class Booking < ApplicationRecord
 
   validates :user, presence: true
   validates :booker, presence: true
-  validates :time_slot, presence: true
+  validates :time_slot, presence: true, uniqueness: true
 
   # These SCOPES are used in the account_overview view file!! ------------------- >
 

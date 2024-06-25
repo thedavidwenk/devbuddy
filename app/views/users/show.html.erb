@@ -47,22 +47,32 @@
       <div class="col yellow-bg">
         <div class="yellow-container">
           <div style="width: 350px">
-
           <h3 class="mb-3">Choose your appointment with <%= @user.first_name %></h3>
 
-            <div class="d-flex gap-3 flex-wrap justify-content-center" data-controller="time-slot-picker" data-bs-toggle="modal" data-bs-target="#confirmation-modal">
+            <div class="d-flex gap-3 flex-wrap justify-content-center" data-controller="time-slot-picker">
               <% @user.time_slots.each do |slot| %>
-                <div
+                <% if slot.reserved? %>
+                  <div class="time-slot-button-disabled text-center rounded-4 p-2">
+                    <h5><%= slot.start_time.strftime("%A") %></h5>
+                    <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
+                    <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+                  </div>
+                <% else %>
+                  <div
                   class="time-slot-button text-center rounded-4 p-2"
+                  data-bs-toggle="modal"
+                  data-bs-target="#confirmation-modal"
                   data-slot-id="<%= slot.id %>"
                   data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
                   data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
                   data-day="<%= slot.start_time.strftime("%A") %>"
                   data-action="click->time-slot-picker#selectTimeSlot">
-                  <strong><%= slot.start_time.strftime("%A") %></strong>
-                  <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
-                  <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
-                </div>
+                    <h5><%= slot.start_time.strftime("%A") %></h5>
+                    <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
+                    <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+                  </div>
+                <% end %>
+
 
               <% end %>
 
