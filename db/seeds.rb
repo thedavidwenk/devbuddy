@@ -1,24 +1,10 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-# db/seeds.rb
-
-
-
 # Clear existing users------------------------
+puts "Deleting existing entries"
 Booking.destroy_all
 User.destroy_all
-puts "Deleting existing entries"
-puts "Creating new entries"
 
 # Users creation -----------------------------
+puts "Creating new entries"
 
 users = User.create!([
   {
@@ -62,47 +48,55 @@ users = User.create!([
   }
 ])
 
-puts "Creating Bookings..."
+puts "Creating Users, Timeslots and Bookings..."
 
 user1 = User.first
 user2 = User.last
 
-start_time1 = Time.current + 1.hour
-end_time1 = start_time1 + 1.hour
-
-time_slot1 = TimeSlot.create!(
+timeslot1 = TimeSlot.create!(
   user_id: user1.id,
   day: 1,
-  start_time: start_time1,
-  end_time: end_time1,
+  start_time: DateTime.new(2024, 6, 21, 10, 0, 0),
+  end_time: DateTime.new(2024, 6, 21, 12, 0, 0),
   reserved: false
 )
 
-start_time2 = Time.current + 2.hours
-end_time2 = start_time2 + 1.hour
-
-time_slot2 = TimeSlot.create!(
-  user_id: user2.id,
+timeslot2 = TimeSlot.create!(
+  user_id: user1.id,
   day: 2,
-  start_time: start_time2,
-  end_time: end_time2,
+  start_time: DateTime.new(2024, 7, 28, 8, 0, 0),
+  end_time: DateTime.new(2024, 7, 28, 9, 0, 0),
+  reserved: true
+)
+
+timeslot3 = TimeSlot.create!(
+  user_id: user2.id,
+  day: 3,
+  start_time: DateTime.new(2024, 6, 23, 13, 0, 0),
+  end_time: DateTime.new(2024, 6, 23, 14, 0, 0),
   reserved: false
 )
 
+timeslot4 = TimeSlot.create!(
+  user_id: user2.id,
+  day: 4,
+  start_time: DateTime.new(2024, 8, 24, 20, 0, 0),
+  end_time: DateTime.new(2024, 8, 24, 21, 0, 0),
+  reserved: true
+)
 
-booking1 = Booking.create!(
+Booking.create!(
   note: "Meeting for Ruby Basics",
   user_id: user1.id,
   booker_id: user2.id,
-  time_slot_id: time_slot1.id
+  time_slot_id: timeslot1.id
 )
 
-booking2 = Booking.create!(
+Booking.create!(
   note: "Learn about AJAX Requests",
   user_id: user2.id,
   booker_id: user1.id,
-  time_slot_id: time_slot2.id
+  time_slot_id: timeslot3.id
 )
-
 
 puts "All done!"
