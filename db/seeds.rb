@@ -11,15 +11,13 @@
 # db/seeds.rb
 
 
-
-# Clear existing users------------------------
+# Clear existing users and bookings
 Booking.destroy_all
 User.destroy_all
 puts "Deleting existing entries"
 puts "Creating new entries"
 
-# Users creation -----------------------------
-
+# Users creation
 users = User.create!([
   {
     email: "madonna@madonna.com",
@@ -67,42 +65,38 @@ puts "Creating Bookings..."
 user1 = User.first
 user2 = User.last
 
-start_time1 = Time.current + 1.hour
-end_time1 = start_time1 + 1.hour
+# Create past and future bookings
+past_time1 = Time.current - 1.day
+future_time1 = Time.current + 1.hour
 
-time_slot1 = TimeSlot.create!(
+time_slot_past = TimeSlot.create!(
   user_id: user1.id,
-  day: 1,
-  start_time: start_time1,
-  end_time: end_time1,
+  day: past_time1.wday,
+  start_time: past_time1,
+  end_time: past_time1 + 1.hour,
   reserved: false
 )
 
-start_time2 = Time.current + 2.hours
-end_time2 = start_time2 + 1.hour
-
-time_slot2 = TimeSlot.create!(
-  user_id: user2.id,
-  day: 2,
-  start_time: start_time2,
-  end_time: end_time2,
+time_slot_future = TimeSlot.create!(
+  user_id: user1.id,
+  day: future_time1.wday,
+  start_time: future_time1,
+  end_time: future_time1 + 1.hour,
   reserved: false
 )
 
-
-booking1 = Booking.create!(
+booking_past = Booking.create!(
   note: "Meeting for Ruby Basics",
   user_id: user1.id,
   booker_id: user2.id,
-  time_slot_id: time_slot1.id
+  time_slot_id: time_slot_past.id
 )
 
-booking2 = Booking.create!(
+booking_future = Booking.create!(
   note: "Learn about AJAX Requests",
   user_id: user2.id,
   booker_id: user1.id,
-  time_slot_id: time_slot2.id
+  time_slot_id: time_slot_future.id
 )
-
 
 puts "All done!"
