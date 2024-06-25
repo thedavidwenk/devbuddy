@@ -31,6 +31,4 @@ class User < ApplicationRecord
     results = results.filter_by_experience_level(experience_level)
     results
   end
-
-  validates :location, presence: true
 end

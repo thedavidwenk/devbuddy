@@ -33,7 +33,8 @@ users = User.create!([
     days_availability: "Weekdays",
     time_availability: "Evenings",
     about_me: "A passionate developer who loves coding.",
-    programming_languages: "Ruby, JavaScript"
+    programming_languages: "Ruby, JavaScript",
+    location: "Dublin, Ireland"
   },
   {
     email: "ladygaga@ladygaga.com",
@@ -47,7 +48,8 @@ users = User.create!([
     days_availability: "Weekends",
     time_availability: "Mornings",
     about_me: "Enjoys learning new technologies and working on projects.",
-    programming_languages: "Python, HTML, CSS"
+    programming_languages: "Python, HTML, CSS",
+    location: "Marrakech, Morocco"
   },
   {
     email: "beyonce@beyonce.com",
@@ -61,7 +63,8 @@ users = User.create!([
     days_availability: "Mondays, Wednesdays",
     time_availability: "Afternoons",
     about_me: "Experienced in backend development and database management.",
-    programming_languages: "Java, SQL"
+    programming_languages: "Java, SQL",
+    location: "Beijing, China"
   }
 ])
 
