@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.user = @user
 
     if @booking.save!
-      redirect_to account_overview_user(current_user), notice:"Booking was successfully created!"
+      redirect_to account_overview_user_path(current_user), notice:"Booking was successfully created!"
     else
       redirect_to user_path(@user), alert: "Failed to create booking."
     end
