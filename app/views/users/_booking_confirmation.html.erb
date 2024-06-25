@@ -1,0 +1,28 @@
+<div class="modal" id="confirmation-modal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog">
+      <div class="modal-content modal-size rounded-5">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body d-flex justify-content-center aligin-items-center modal-size flex-column">
+
+            <h3>Your appointment summary</h3>
+            <strong data-time-slot-picker-target="day"></strong>
+            <p data-time-slot-picker-target="start"></p>
+            <p data-time-slot-picker-target="end"></p>
+
+              <%= simple_form_for ([user, booking]) do |f| %>
+                <%= f.input :time_slot_id, as: :hidden, input_html: { data: { time_slot_picker_target:"timeSlotInput" }} %>
+                <%= f.input :note, label: "Send a message to #{@user.first_name} (optional)" %>
+                <%= f.button :submit, "Confirm Booking", class: "btn btn-success rounded-5" %>
+              <% end %>
+
+        </div>
+        </div>
+        <div class="modal-footer border-0 d-flex justify-content-center">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

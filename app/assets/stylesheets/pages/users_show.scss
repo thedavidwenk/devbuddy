@@ -179,6 +179,22 @@
     padding: 1px 20px;
   }
 
+  .time-slot-button {
+    background-color:white;
+    width:130px;
+    height:130px;
+
+    p {
+      font-size: 1rem;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background-color: $dark-brand;
+      color: white;
+    }
+  }
+
   /* Responsive adjustments */
   @media (max-width: 480px) {
     .row {
