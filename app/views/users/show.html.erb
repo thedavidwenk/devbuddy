@@ -38,6 +38,9 @@
 
           <div class="programming-languages">
             <h3>Currently using...</h3>
+            <% @user.programming_languages.split(', ').each do |language| %>
+              <span class="programming-languages-tag"><%= language %></span>
+            <% end %>
           </div>
 
         </div>

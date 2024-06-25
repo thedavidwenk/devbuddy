@@ -34,7 +34,7 @@ users = User.create!([
     time_availability: "Evenings",
     about_me: "A passionate developer who loves coding.",
     programming_languages: "Ruby, JavaScript",
-    location: "Dublin, Ireland"
+    location: "Dublin, Ireland",
   },
   {
     email: "ladygaga@ladygaga.com",
