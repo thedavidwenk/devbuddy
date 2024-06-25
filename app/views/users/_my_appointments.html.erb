@@ -10,7 +10,7 @@
         <div class="custom-appointments-cell"><strong>Time</strong></div>
         <div class="custom-appointments-cell"><strong>Message</strong></div>
         <div class="custom-appointments-cell"><strong>Buddy</strong></div>
-        <div class="custom-appointments-cell"><strong>Edit or delete this appointment</strong></div>
+        <div class="custom-appointments-cell"><strong>Edit or delete</strong></div>
       </div>
 
       <% @upcoming_bookings.each do |booking| %>
@@ -24,8 +24,12 @@
             <%= buddy.username %>
           </div>
           <div class="custom-appointments-cell custom-icons">
-            <a href="<%= edit_booking_path(booking) %>" class="custom-icon-link"><i class="fas fa-edit"></i></a>
-            <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class="custom-icon-link"><i class="fas fa-trash"></i></a>
+            <a href="<%= edit_booking_path(booking) %>" class="custom-icon-link custom-button-icon">
+              <i class="fas fa-edit"></i>
+            </a>
+            <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class="custom-icon-link custom-button-icon">
+              <i class="fas fa-trash"></i>
+            </a>
           </div>
         </div>
       <% end %>

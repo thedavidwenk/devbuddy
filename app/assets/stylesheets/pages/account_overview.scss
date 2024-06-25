@@ -136,9 +136,9 @@
   padding: 5px 30px;
 }
 
-.custom-appointment-row:hover {
-  background-color: lightgrey;
-}
+// .custom-appointment-row:hover {
+//   background-color: lightgrey;
+// }
 
 .custom-avatar {
   width: 30px;
@@ -158,7 +158,7 @@
 }
 
 .custom-icon-link:hover {
-  color: #000;
+  background-color: lighten($dark-brand, 10%);
 }
 
 .back-button-account-overview {
@@ -171,4 +171,9 @@
   margin-top: 30px;
   font-family: $body-font;
   margin-left: 300px;
+}
+
+.custom-button-icon i {
+  color: white;
+  font-size: 16px;
 }
