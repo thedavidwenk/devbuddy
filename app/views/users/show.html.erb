@@ -50,13 +50,11 @@
 
           <h3 class="mb-3">Choose your appointment with <%= @user.first_name %></h3>
 
-            <div class="d-flex gap-3 flex-wrap justify-content-center" data-controller="time-slot-picker">
+            <div class="d-flex gap-3 flex-wrap justify-content-center" data-controller="time-slot-picker" data-bs-toggle="modal" data-bs-target="#confirmation-modal">
               <% @user.time_slots.each do |slot| %>
 
                 <div
                 class="time-slot-button text-center rounded-4 p-2"
-                data-bs-toggle="modal"
-                data-bs-target="#confirmation-modal"
                 data-slot-id="<%= slot.id %>"
                 data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
                 data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
