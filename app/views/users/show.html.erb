@@ -16,6 +16,24 @@
             <div class="user-main-info">
               <%= image_tag 'user_profile_hexagon.png', alt: 'User Profile Hexagon', class: 'profile-hexagon' %>
               <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+              <span class="user-level"><i class="fa-solid fa-desktop fa-sm" style="margin-right:10px"></i><%= @user.experience_level %></span>
+            </div>
+          </div>
+
+          <div class="programming-languages">
+            <h3>Currently using...</h3>
+            <% @user.programming_languages.split(', ').each do |language| %>
+              <span class="programming-languages-tag"><%= language %></span>
+            <% end %>
+          </div>
+
+          <div class="achievements">
+            <h3>Achievements</h3>
+            <!-- Placeholder hexagons -->
+            <div class="user-achievements-icons">
+              <% 5.times do %>
+                <%= image_tag 'achievement_placeholder.png' %>
+              <% end %>
             </div>
           </div>
 
@@ -23,15 +41,6 @@
             <h3>About me</h3>
             <p><%= @user.about_me %></p>
           </div>
-
-          <div class="achievements">
-            <h3>Achievements</h3>
-          </div>
-
-          <div class="programming-languages">
-            <h3>Currently using...</h3>
-          </div>
-
         </div>
       </div>
       <!-- Yellow background part -->
