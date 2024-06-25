@@ -11,10 +11,15 @@ class BookingsController < ApplicationController
     @booking.user = @user
 
     if @booking.save!
+      time_slot = @booking.time_slot
+      time_slot.reserved = true
+      time_slot.save!
+
       redirect_to account_overview_user_path(current_user), notice:"Booking was successfully created!"
     else
       redirect_to user_path(@user), alert: "Failed to create booking."
     end
+
   end
 
   private
