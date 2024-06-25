@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :account_overview]
   before_action :set_user, only: [:show]
 
   def home
@@ -13,10 +13,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.search(params[:query], params[:experience_level])
-    
+
     # if @users.empty? && params[:query].present? && params[:experience_level].present?
     # end
-    
+
     render 'index'
   end
 
