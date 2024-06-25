@@ -31,7 +31,7 @@
 
   .avatar-and-main-info {
     margin-top: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     height: 240px;
     max-width: 600px;
     display: flex;
@@ -55,7 +55,7 @@
     .profile-hexagon {
       width: 18px;
       height: 20px;
-      margin-top: -250px;
+      margin-top: -220px;
       margin-left: 300px;
     }
 
@@ -76,7 +76,12 @@
     .user-achievements-icons img {
       margin-right: 10px;
       margin-top: 10px;
+      margin-bottom: 15px;
     }
+  }
+
+  .programming-languages h3 {
+    margin-bottom: 20px;
   }
 
   .programming-languages-tag {
@@ -84,7 +89,7 @@
     background-color: $yellow-brand;
     color: $dark-brand;
     padding: 3px 20px 5px 20px;
-    margin: 5px;
+    margin-right: 5px;
     border-radius: 20px;
     font-size: 14px;
     text-transform: lowercase;
