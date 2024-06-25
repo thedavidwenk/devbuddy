@@ -1,106 +1,52 @@
 <div class="wrapping-container">
 
-  <div class="custom-container">
+  <div class="custom-container" data-controller="tabs">
     <h1 class="overview-title"><span class="overview-title-thin">my</span> account overview</h1>
 
-    <!-- Top 3 tabs ------------------------------------------------------------- -->
+    <!-- Top 3 tabs --------------------------------------------------------------->
     <ul class="custom-nav-tabs" id="accountTabs">
       <li class="custom-nav-item">
-        <a class="custom-nav-link active" id="appointments-tab" href="#appointments"><i class="fa-solid fa-bell"></i>&nbsp; My Appointments</a>
+        <a class="custom-nav-link" id="appointments-tab" href="#appointments" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-bell"></i>&nbsp; My Appointments</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="beehive-tab" href="#beehive"><i class="fa-solid fa-people-group"></i>&nbsp; My Beehive</a>
+        <a class="custom-nav-link active" id="beehive-tab" href="#beehive" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-people-group"></i>&nbsp; My Beehive</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="achievements-tab" href="#achievements"><i class="fa-solid fa-cubes-stacked"></i>&nbsp; My Achievements</a>
+        <a class="custom-nav-link" id="achievements-tab" href="#achievements" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-cubes-stacked"></i>&nbsp; My Achievements</a>
       </li>
     </ul>
 
+
     <div class="custom-tab-content" id="accountTabsContent">
-      <div class="custom-tab-pane active" id="appointments">
 
-        <!-- My Appointments content ---------------------------->
-
-        <div class="custom-margin-top">
-          <p class="overview-subtitle">Upcoming Appointments</p>
-
-          <div class="section-container">
-
-              <div class="custom-appointments-table">
-                <div class="custom-appointments-header">
-                  <div class="custom-appointments-cell"><strong>Date</strong></div>
-                  <div class="custom-appointments-cell"><strong>Time</strong></div>
-                  <div class="custom-appointments-cell"><strong>Message</strong></div>
-                  <div class="custom-appointments-cell"><strong>Buddy</strong></div>
-                  <div class="custom-appointments-cell"></div>
-                </div>
-
-                <% @upcoming_bookings.each do |booking| %>
-                  <div class="custom-appointment-row">
-                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.to_date %></div>
-                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
-                    <div class="custom-appointments-cell">"<%= booking.note %>"</div>
-                    <div class="custom-appointments-cell">
-                      <% buddy = booking.user == current_user ? booking.booker : booking.user %>
-                      <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
-                      <%= buddy.username %>
-                    </div>
-                    <div class="custom-appointments-cell custom-icons">
-                      <a href="<%= edit_booking_path(booking) %>" class="custom-icon-link"><i class="fas fa-edit"></i></a>
-                      <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class="custom-icon-link"><i class="fas fa-trash"></i></a>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-
-          </div>
-
-
-          <div class="illustration-account-overview">
-            <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
-          </div>
-
-
-
-          <div class="custom-margin-top">
-            <p class="overview-subtitle">Past Appointments<p>
-
-            <div class="section-container">
-
-              <div class="custom-appointments-table">
-                <div class="custom-appointments-header">
-                  <div class="custom-appointments-cell"><strong>Date</strong></div>
-                  <div class="custom-appointments-cell"><strong>Time</strong></div>
-                  <div class="custom-appointments-cell"><strong>Message</strong></div>
-                  <div class="custom-appointments-cell"><strong>Buddy</strong></div>
-                </div>
-
-                <% @past_bookings.each do |booking| %>
-                  <div class="custom-appointment-row">
-                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.to_date %></div>
-                    <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
-                    <div class="custom-appointments-cell"><%= booking.note %></div>
-                    <div class="custom-appointments-cell">
-                      <% buddy = booking.user == current_user ? booking.booker : booking.user %>
-                      <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
-                      <%= buddy.username %>
-                    </div>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          </div>
+      <!-- My Appointments tab ------------------------------------>
+      <div class="custom-tab-pane" id="appointments" data-tabs-target="pane">
+        <!-- My Appointments Illustration ------------------------->
+        <div class="illustration-account-overview">
+          <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
         </div>
-
+        <%= render 'users/my_appointments' %>
       </div>
 
-      <div class="custom-tab-pane" id="beehive">
-        <!-- My Beehive content -->
+      <!-- My Beehive tab --------------------------------------------->
+      <div class="custom-tab-pane active" id="beehive" data-tabs-target="pane">
+        <!-- My Beehive Illustration ------------------------->
+        <div class="illustration-account-overview">
+          <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
+        </div>
+        <%= render 'users/my_beehive' %>
       </div>
-      <div class="custom-tab-pane" id="achievements">
-        <!-- My Achievements content -->
+
+
+      <!-- My Achievements tab ----------------------------------------->
+      <div class="custom-tab-pane" id="achievements" data-tabs-target="pane">
+        <!-- My Beehive Illustration ------------------------->
+        <div class="illustration-account-overview">
+          <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
+        </div>
+        <%= render 'users/my_achievements' %>
       </div>
+
     </div>
   </div>
-
 </div>

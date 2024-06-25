@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show]
+  before_action :authenticate_user!, only: [:show, :account_overview]
   before_action :set_user, only: [:show]
 
   def home
@@ -12,13 +12,17 @@ class UsersController < ApplicationController
     @booking = Booking.new
   end
 
+  def getstarted
+    @user = User.new
+  end
+
 
   def index
     @users = User.search(params[:query], params[:experience_level])
-    
+
     # if @users.empty? && params[:query].present? && params[:experience_level].present?
     # end
-    
+
     render 'index'
   end
 
