@@ -66,7 +66,7 @@ timeslot2 = TimeSlot.create!(
   day: 2,
   start_time: DateTime.new(2024, 7, 28, 8, 0, 0),
   end_time: DateTime.new(2024, 7, 28, 9, 0, 0),
-  reserved: true
+  reserved: false
 )
 
 timeslot3 = TimeSlot.create!(
@@ -82,7 +82,7 @@ timeslot4 = TimeSlot.create!(
   day: 4,
   start_time: DateTime.new(2024, 8, 24, 20, 0, 0),
   end_time: DateTime.new(2024, 8, 24, 21, 0, 0),
-  reserved: true
+  reserved: false
 )
 
 Booking.create!(
