@@ -1,8 +1,19 @@
+# This file should ensure the existence of records required to run the application in every environment (production,
+# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
+# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
+#
+# Example:
+#
+#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
+#     MovieGenre.find_or_create_by!(name: genre_name)
+#   end
+
+# db/seeds.rb
+
 # Clear existing users and bookings
 Booking.destroy_all
 TimeSlot.destroy_all
 User.destroy_all
-
 puts "Deleting existing entries"
 puts "Creating new entries"
 
@@ -46,61 +57,91 @@ users = User.create!([
     about_me: "Experienced in backend development and database management.",
     programming_languages: "Java, SQL",
     location: "Beijing, China"
+  },
+  {
+    email: "adele@adele.com",
+    password: "password123",
+    password_confirmation: "password123",
+    first_name: "Adele",
+    last_name: "Adkins",
+    username: "adele",
+    avatar: "https://api.time.com/wp-content/uploads/2015/12/adele-portrait-03.jpg",
+    experience_level: "Intermediate",
+    about_me: "A singer who loves coding in her free time.",
+    programming_languages: "C++, Swift",
+    location: "London, UK"
+  },
+  {
+    email: "ed@ed.com",
+    password: "password123",
+    password_confirmation: "password123",
+    first_name: "Ed",
+    last_name: "Sheeran",
+    username: "edsheeran",
+    avatar: "https://media.gq.com.mx/photos/617c1b4dbaf6be34ac935a9a/16:9/w_2560%2Cc_limit/ed.jpg",
+    experience_level: "Beginner",
+    about_me: "Musician learning to code.",
+    programming_languages: "HTML, CSS",
+    location: "Los Angeles, USA"
   }
 ])
 
 puts "Creating Bookings..."
 
-user1 = User.first
-user2 = User.last
-
-# Create past and future bookings
-past_times = [
-  Time.new(2024, 1, 15, 10, 0, 0),
-  Time.new(2024, 2, 10, 14, 0, 0),
-  Time.new(2024, 2, 20, 16, 0, 0),
-  Time.new(2024, 3, 5, 9, 0, 0),
-  Time.new(2024, 3, 25, 11, 0, 0)
+# Create past bookings (Jan-Mar 2024)
+past_dates = [
+  DateTime.new(2024, 1, 10, 10, 0, 0),
+  DateTime.new(2024, 2, 15, 14, 0, 0),
+  DateTime.new(2024, 3, 20, 9, 0, 0),
+  DateTime.new(2024, 3, 25, 11, 0, 0),
+  DateTime.new(2024, 3, 30, 15, 0, 0)
 ]
 
-future_times = [
-  Time.new(2024, 10, 5, 10, 0, 0),
-  Time.new(2024, 10, 20, 14, 0, 0),
-  Time.new(2024, 11, 10, 16, 0, 0),
-  Time.new(2024, 11, 15, 9, 0, 0),
-  Time.new(2024, 11, 25, 11, 0, 0)
+# Create future bookings (Oct-Nov 2024)
+future_dates = [
+  DateTime.new(2024, 10, 5, 10, 0, 0),
+  DateTime.new(2024, 10, 10, 14, 0, 0),
+  DateTime.new(2024, 11, 15, 9, 0, 0),
+  DateTime.new(2024, 11, 20, 11, 0, 0),
+  DateTime.new(2024, 11, 25, 15, 0, 0)
 ]
 
-past_times.each_with_index do |time, index|
+users_pairs = users.combination(2).to_a
+
+# Create past bookings
+past_dates.each_with_index do |date, index|
+  user_pair = users_pairs[index % users_pairs.size]
   time_slot = TimeSlot.create!(
-    user_id: user1.id,
-    day: time.wday,
-    start_time: time,
-    end_time: time + 1.hour,
+    user_id: user_pair.first.id,
+    day: date.wday,
+    start_time: date,
+    end_time: date + 1.hour,
     reserved: false
   )
 
   Booking.create!(
-    note: "Past Meeting #{index + 1}",
-    user_id: user1.id,
-    booker_id: user2.id,
+    note: "Past meeting #{index + 1}",
+    user_id: user_pair.first.id,
+    booker_id: user_pair.last.id,
     time_slot_id: time_slot.id
   )
 end
 
-future_times.each_with_index do |time, index|
+# Create future bookings
+future_dates.each_with_index do |date, index|
+  user_pair = users_pairs[(index + 5) % users_pairs.size]
   time_slot = TimeSlot.create!(
-    user_id: user1.id,
-    day: time.wday,
-    start_time: time,
-    end_time: time + 1.hour,
+    user_id: user_pair.first.id,
+    day: date.wday,
+    start_time: date,
+    end_time: date + 1.hour,
     reserved: false
   )
 
   Booking.create!(
-    note: "Future Meeting #{index + 1}",
-    user_id: user2.id,
-    booker_id: user1.id,
+    note: "Future meeting #{index + 1}",
+    user_id: user_pair.first.id,
+    booker_id: user_pair.last.id,
     time_slot_id: time_slot.id
   )
 end
