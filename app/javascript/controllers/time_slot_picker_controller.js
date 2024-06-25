@@ -4,19 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["timeSlotInput"]
 
-  connect() {
-    console.log("Hello Time Slot")
-  }
-
   selectTimeSlot(event) {
     console.log(event.currentTarget.dataset.slotId)
+    const slotId = event.currentTarget.dataset.slotId
+    console.log(slotId)
+    this.timeSlotInputTarget.value = slotId
     console.log(this.timeSlotInputTarget.value)
   }
-
-  // getSlotId() {
-  //   const slotId = this.slotIdTarget.dataset.slotId
-  //   console.log("slotId", slotId)
-  //   console.log(this.timeSlotInputTarget)
-  //   // this.timeSlotInputTarget.value = slotId
-  // }
 }

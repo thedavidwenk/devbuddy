@@ -9,11 +9,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.booker = current_user
     @booking.user = @user
-    @booking.time_slot = @time_slot
 
     if @booking.save!
-      redirect_to account_overview_user(current_user)
-      flash[:notice]="Booking was successfully created!"
+      redirect_to account_overview_user(current_user), notice:"Booking was successfully created!"
+    else
+      redirect_to user_path(@user), alert: "Failed to create booking."
     end
   end
 
@@ -27,8 +27,3 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:user_id, :booker_id, :time_slot_id, :note)
   end
 end
-
-
-# dem div ein data-slot-id="<%= slot.id %>" geben
-# stimulus controller erstellen und dieses div targeten
-# im Modal mit Hilfe des Targets den richtigen Slot finden (TimeSlot.find...)
