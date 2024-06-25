@@ -6,10 +6,10 @@
     <!-- Top 3 tabs --------------------------------------------------------------->
     <ul class="custom-nav-tabs" id="accountTabs">
       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="appointments-tab" href="#appointments" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-bell"></i>&nbsp; My Appointments</a>
+        <a class="custom-nav-link active" id="appointments-tab" href="#appointments" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-bell"></i>&nbsp; My Appointments</a>
       </li>
       <li class="custom-nav-item">
-        <a class="custom-nav-link active" id="beehive-tab" href="#beehive" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-people-group"></i>&nbsp; My Beehive</a>
+        <a class="custom-nav-link" id="beehive-tab" href="#beehive" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-people-group"></i>&nbsp; My Beehive</a>
       </li>
       <li class="custom-nav-item">
         <a class="custom-nav-link" id="achievements-tab" href="#achievements" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-cubes-stacked"></i>&nbsp; My Achievements</a>
@@ -20,7 +20,7 @@
     <div class="custom-tab-content" id="accountTabsContent">
 
       <!-- My Appointments tab ------------------------------------>
-      <div class="custom-tab-pane" id="appointments" data-tabs-target="pane">
+      <div class="custom-tab-pane active" id="appointments" data-tabs-target="pane">
         <!-- My Appointments Illustration ------------------------->
         <div class="illustration-account-overview">
           <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
@@ -29,7 +29,7 @@
       </div>
 
       <!-- My Beehive tab --------------------------------------------->
-      <div class="custom-tab-pane active" id="beehive" data-tabs-target="pane">
+      <div class="custom-tab-pane" id="beehive" data-tabs-target="pane">
         <!-- My Beehive Illustration ------------------------->
         <div class="illustration-account-overview">
           <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
