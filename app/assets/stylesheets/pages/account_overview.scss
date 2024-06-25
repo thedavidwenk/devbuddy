@@ -5,14 +5,14 @@
 
 .illustration-account-overview {
   position: absolute;
-  top: 207px;
+  top: 230px;
   right: 15%;
 }
 
 .overview-title {
-  padding-top: 70px;
-  padding-bottom: 70px;
-  padding-left: 117px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 300px;
 }
 
 .overview-title-thin {
@@ -42,7 +42,7 @@
 .custom-nav-tabs {
   display: flex;
   margin: 0;
-  padding-left: 117px;
+  padding-left: 300px;
 }
 
 .custom-nav-item {
@@ -80,11 +80,13 @@
   padding: 20px;
   background-color: $yellow-brand-light;
   width: 100vw;
-  padding-left: 117px;
+  padding-left: 300px;
+  padding-right: 200px;
+  padding-top: 40px;
 }
 
 .overview-subtitle {
-  font-size: 18px;
+  font-size: 20px;
   font-family: $headers-font;
   margin-bottom: 10px;
 }
@@ -134,9 +136,9 @@
   padding: 5px 30px;
 }
 
-.custom-appointment-row:hover {
-  background-color: lightgrey;
-}
+// .custom-appointment-row:hover {
+//   background-color: lightgrey;
+// }
 
 .custom-avatar {
   width: 30px;
@@ -147,14 +149,33 @@
 
 .custom-icons {
   display: flex;
-  gap: 10px;
+  gap: 30px;
 }
 
 .custom-icon-link {
-  color: #333;
+  color: $dark-brand;
   text-decoration: none;
 }
 
-.custom-icon-link:hover {
-  color: #000;
+.custom-button-icon i {
+  color: white;
+  background-color: $dark-brand;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 10px;
+}
+.custom-button-icon:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.back-button-account-overview {
+  background-color: $gray;
+  padding: 1px 30px 1px 20px;
+  color: white;
+  border-radius: 30px;
+  font-size: 20px;
+  border: none;
+  margin-top: 30px;
+  font-family: $body-font;
+  margin-left: 300px;
 }

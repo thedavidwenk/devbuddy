@@ -1,25 +1,12 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-# db/seeds.rb
-
-
-
-# Clear existing users------------------------
+# Clear existing users and bookings
 Booking.destroy_all
+TimeSlot.destroy_all
 User.destroy_all
+
 puts "Deleting existing entries"
 puts "Creating new entries"
 
-# Users creation -----------------------------
-
+# Users creation
 users = User.create!([
   {
     email: "madonna@madonna.com",
@@ -67,42 +54,55 @@ puts "Creating Bookings..."
 user1 = User.first
 user2 = User.last
 
-start_time1 = Time.current + 1.hour
-end_time1 = start_time1 + 1.hour
+# Create past and future bookings
+past_times = [
+  Time.new(2024, 1, 15, 10, 0, 0),
+  Time.new(2024, 2, 10, 14, 0, 0),
+  Time.new(2024, 2, 20, 16, 0, 0),
+  Time.new(2024, 3, 5, 9, 0, 0),
+  Time.new(2024, 3, 25, 11, 0, 0)
+]
 
-time_slot1 = TimeSlot.create!(
-  user_id: user1.id,
-  day: 1,
-  start_time: start_time1,
-  end_time: end_time1,
-  reserved: false
-)
+future_times = [
+  Time.new(2024, 10, 5, 10, 0, 0),
+  Time.new(2024, 10, 20, 14, 0, 0),
+  Time.new(2024, 11, 10, 16, 0, 0),
+  Time.new(2024, 11, 15, 9, 0, 0),
+  Time.new(2024, 11, 25, 11, 0, 0)
+]
 
-start_time2 = Time.current + 2.hours
-end_time2 = start_time2 + 1.hour
+past_times.each_with_index do |time, index|
+  time_slot = TimeSlot.create!(
+    user_id: user1.id,
+    day: time.wday,
+    start_time: time,
+    end_time: time + 1.hour,
+    reserved: false
+  )
 
-time_slot2 = TimeSlot.create!(
-  user_id: user2.id,
-  day: 2,
-  start_time: start_time2,
-  end_time: end_time2,
-  reserved: false
-)
+  Booking.create!(
+    note: "Past Meeting #{index + 1}",
+    user_id: user1.id,
+    booker_id: user2.id,
+    time_slot_id: time_slot.id
+  )
+end
 
+future_times.each_with_index do |time, index|
+  time_slot = TimeSlot.create!(
+    user_id: user1.id,
+    day: time.wday,
+    start_time: time,
+    end_time: time + 1.hour,
+    reserved: false
+  )
 
-booking1 = Booking.create!(
-  note: "Meeting for Ruby Basics",
-  user_id: user1.id,
-  booker_id: user2.id,
-  time_slot_id: time_slot1.id
-)
-
-booking2 = Booking.create!(
-  note: "Learn about AJAX Requests",
-  user_id: user2.id,
-  booker_id: user1.id,
-  time_slot_id: time_slot2.id
-)
-
+  Booking.create!(
+    note: "Future Meeting #{index + 1}",
+    user_id: user2.id,
+    booker_id: user1.id,
+    time_slot_id: time_slot.id
+  )
+end
 
 puts "All done!"
