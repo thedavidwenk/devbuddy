@@ -149,16 +149,23 @@
 
 .custom-icons {
   display: flex;
-  gap: 10px;
+  gap: 30px;
 }
 
 .custom-icon-link {
-  color: #333;
+  color: $dark-brand;
   text-decoration: none;
 }
 
-.custom-icon-link:hover {
-  background-color: lighten($dark-brand, 10%);
+.custom-button-icon i {
+  color: white;
+  background-color: $dark-brand;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 10px;
+}
+.custom-button-icon:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .back-button-account-overview {
@@ -171,9 +178,4 @@
   margin-top: 30px;
   font-family: $body-font;
   margin-left: 300px;
-}
-
-.custom-button-icon i {
-  color: white;
-  font-size: 16px;
 }
