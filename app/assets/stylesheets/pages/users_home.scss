@@ -5,7 +5,6 @@
   width: 100%;
   height: 100%;
 
-
   .flex-container {
     display: flex;
     flex-direction: column;
@@ -74,7 +73,6 @@
     background-position: left 50px; /* Position the image to the left */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     overflow: hidden;
-    z-index: 3;
   }
 
   .row {
@@ -89,7 +87,15 @@
   }
   .yellow-bg {
     background-color: $yellow-brand;
-    z-index: -1;
+    background-size: 100%;
+    background-position: auto;
+    background-repeat: no-repeat;
+  }
+
+  .white-bg {
+    background-size: 100%;
+    background-position: left 30px;
+    background-repeat: no-repeat;
   }
 
   .girl-vector {
@@ -98,7 +104,7 @@
       top: 80%;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 1000;
+
     }
   }
 
@@ -124,7 +130,6 @@
   text-decoration: none;
   height: 50px;
   border: 0;
-  
   width: 200px;
   float: right;
   display: flex;
