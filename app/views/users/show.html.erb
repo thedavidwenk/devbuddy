@@ -59,10 +59,11 @@
                     data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
                     data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
                     data-day="<%= slot.start_time.strftime("%A") %>"
-                    >
+                  >
                     <h5><%= slot.start_time.strftime("%A") %></h5>
                     <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
                     <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+
                   </div>
                 <% else %>
                   <div

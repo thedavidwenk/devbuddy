@@ -1,27 +1,27 @@
 #users-show {
   .flex-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
     width: 100%;
-    flex-direction: column; /* Ensure children are stacked vertically if needed */
+    flex-direction: column; 
   }
   .row {
     display: flex;
     flex: 1;
     width: 100%;
     margin: 0;
-    justify-content: center; /* Center content horizontally within the row */
-    align-items: center; /* Center content vertically within the row */
+    justify-content: center;
+    align-items: center; 
   }
   .col {
     flex: 1;
     padding: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically within the column */
-    align-items: center; /* Center content horizontally within the column */
+    justify-content: center;
+    align-items: center;
   }
 
   .container {
@@ -120,6 +120,7 @@
 
   .yellow-bg {
     background-color: $yellow-brand;
+    z-index: -2;
   }
   .white-bg {
     background-color: #fff;
@@ -131,8 +132,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Center content vertically */
-    align-items: center; /* Center content horizontally */
+    justify-content: center; 
+    align-items: center; 
   }
   .yellow-container {
     box-sizing: border-box;
@@ -141,7 +142,7 @@
   .headline {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center headline content horizontally */
+    align-items: center; 
     text-align: center;
 
     h1 {
@@ -179,46 +180,49 @@
     padding: 1px 20px;
   }
 
-  .time-slot-button {
-    background-color:white;
-    width:130px;
-    height:130px;
-    
-    h5 {
-      font-size: 1.2rem;
-    }
+.time-slot-button {
+  background-color: white;
+  width: 130px;
+  height: 130px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 
-    p {
-      font-size: 1rem;
-    }
+  h5 {
+    font-size: 1.2rem;
 
-    &:hover {
-      cursor: pointer;
-      background-color: $dark-brand;
-      color: white;
-    }
   }
 
-  .time-slot-button-disabled {
-    background-color:white;
-    width:130px;
-    height:130px;
-    
-    h5 {
-      font-size: 1.2rem;
-      color: grey;
-    }
-
-    p {
-      font-size: 1rem;
-      color: grey;
-    }
-
-     &:hover {
-      cursor: not-allowed;
-    }
+  p {
+    font-size: 1rem;
   }
-    
+
+  &:hover {
+    cursor: pointer;
+    color: white;
+    background-color: $dark-brand;
+  }
+}
+
+.time-slot-button-disabled {
+  background-color: #f2f2f2; 
+  width: 130px;
+  height: 130px;
+  box-shadow: none; 
+
+  h5 {
+    font-size: 1.2rem;
+    color: #959595; 
+  }
+
+  p {
+    font-size: 1rem;
+    color: #959595; 
+  }
+
+  &:hover {
+    cursor: not-allowed;
+    background-color: #f2f2f2; 
+  }
+}
 
   }
 
@@ -237,4 +241,8 @@
       margin: 30px auto 0 auto;
     }
   }
+
+
+
+
 
