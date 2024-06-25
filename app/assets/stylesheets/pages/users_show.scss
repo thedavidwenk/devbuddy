@@ -1,4 +1,5 @@
 #users-show {
+
   .flex-container {
     display: flex;
     justify-content: center; 
@@ -120,7 +121,6 @@
 
   .yellow-bg {
     background-color: $yellow-brand;
-    z-index: -2;
   }
   .white-bg {
     background-color: #fff;
