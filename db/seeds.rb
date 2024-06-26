@@ -1,6 +1,7 @@
 # Clear existing users------------------------
 puts "Deleting existing entries"
 Booking.destroy_all
+TimeSlot.destroy_all
 User.destroy_all
 
 # Users creation -----------------------------
@@ -45,6 +46,32 @@ users = User.create!([
     about_me: "Experienced in backend development and database management.",
     programming_languages: "Java, SQL",
     location: "Beijing, China"
+  },
+  {
+    email: "adele@adele.com",
+    password: "password123",
+    password_confirmation: "password123",
+    first_name: "Adele",
+    last_name: "Adkins",
+    username: "adele",
+    avatar: "https://api.time.com/wp-content/uploads/2015/12/adele-portrait-03.jpg",
+    experience_level: "Intermediate",
+    about_me: "A singer who loves coding in her free time.",
+    programming_languages: "C++, Swift",
+    location: "London, UK"
+  },
+  {
+    email: "ed@ed.com",
+    password: "password123",
+    password_confirmation: "password123",
+    first_name: "Ed",
+    last_name: "Sheeran",
+    username: "edsheeran",
+    avatar: "https://media.gq.com.mx/photos/617c1b4dbaf6be34ac935a9a/16:9/w_2560%2Cc_limit/ed.jpg",
+    experience_level: "Beginner",
+    about_me: "Musician learning to code.",
+    programming_languages: "HTML, CSS",
+    location: "Los Angeles, USA"
   }
 ])
 
@@ -98,5 +125,63 @@ Booking.create!(
   booker_id: user1.id,
   time_slot_id: timeslot3.id
 )
+
+# Create past bookings (Jan-Mar 2024)
+# past_dates = [
+#   DateTime.new(2024, 1, 10, 10, 0, 0),
+#   DateTime.new(2024, 2, 15, 14, 0, 0),
+#   DateTime.new(2024, 3, 20, 9, 0, 0),
+#   DateTime.new(2024, 3, 25, 11, 0, 0),
+#   DateTime.new(2024, 3, 30, 15, 0, 0)
+# ]
+
+# Create future bookings (Oct-Nov 2024)
+# future_dates = [
+#   DateTime.new(2024, 10, 5, 10, 0, 0),
+#   DateTime.new(2024, 10, 10, 14, 0, 0),
+#   DateTime.new(2024, 11, 15, 9, 0, 0),
+#   DateTime.new(2024, 11, 20, 11, 0, 0),
+#   DateTime.new(2024, 11, 25, 15, 0, 0)
+# ]
+
+# users_pairs = users.combination(2).to_a
+
+# # Create past bookings
+# past_dates.each_with_index do |date, index|
+#   user_pair = users_pairs[index % users_pairs.size]
+#   time_slot = TimeSlot.create!(
+#     user_id: user_pair.first.id,
+#     day: date.wday,
+#     start_time: date,
+#     end_time: date + 1.hour,
+#     reserved: false
+#   )
+
+#   Booking.create!(
+#     note: "Past meeting #{index + 1}",
+#     user_id: user_pair.first.id,
+#     booker_id: user_pair.last.id,
+#     time_slot_id: time_slot.id
+#   )
+# end
+
+# # Create future bookings
+# future_dates.each_with_index do |date, index|
+#   user_pair = users_pairs[(index + 5) % users_pairs.size]
+#   time_slot = TimeSlot.create!(
+#     user_id: user_pair.first.id,
+#     day: date.wday,
+#     start_time: date,
+#     end_time: date + 1.hour,
+#     reserved: false
+#   )
+
+#   Booking.create!(
+#     note: "Future meeting #{index + 1}",
+#     user_id: user_pair.first.id,
+#     booker_id: user_pair.last.id,
+#     time_slot_id: time_slot.id
+#   )
+# end
 
 puts "All done!"
