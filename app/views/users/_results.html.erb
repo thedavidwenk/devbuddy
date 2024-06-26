@@ -44,16 +44,17 @@
               <% if user.programming_languages.nil? || user.programming_languages.empty? %>
                 <p class="card-text"><small class="text-muted">No skills selected</small></p>
               <% else %>
-                <% if user.programming_languages.match?(", ") %>
-                  <% programming_languages_array = user.programming_languages.split(", ") %>
+                <% programming_languages_array = user.programming_languages.split(/[\s,]+/) %>
+                <% if programming_languages_array.size >= 4 %>
+                  <% first_three_languages = programming_languages_array.first(3) %>
+                  <% first_three_languages.each do |language| %>
+                    <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
+                  <% end %>
+                  <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= link_to '...', profile_user_path(user), class: 'text-dark text-decoration-none ' %></small></p>
+                <% else %>
                   <% programming_languages_array.each do |language| %>
                     <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
-                    <% end %>
-                <% elsif user.programming_languages.match?(" ") %>
-                  <% programming_languages_array = user.programming_languages.split(" ") %>
-                  <% programming_languages_array.each do |language| %>
-                    <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
-                    <% end %>
+                  <% end %>
                 <% end %>   
               <% end %>  
             </div>
