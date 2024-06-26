@@ -44,10 +44,17 @@
               <% if user.programming_languages.nil? || user.programming_languages.empty? %>
                 <p class="card-text"><small class="text-muted">No skills selected</small></p>
               <% else %>
-                <% programming_languages_array = user.programming_languages.split(", ") %>
-                <% programming_languages_array.each do |language| %>
-                  <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
-                <% end %>
+                <% if user.programming_languages.match?(", ") %>
+                  <% programming_languages_array = user.programming_languages.split(", ") %>
+                  <% programming_languages_array.each do |language| %>
+                    <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
+                    <% end %>
+                <% elsif user.programming_languages.match?(" ") %>
+                  <% programming_languages_array = user.programming_languages.split(" ") %>
+                  <% programming_languages_array.each do |language| %>
+                    <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
+                    <% end %>
+                <% end %>   
               <% end %>  
             </div>
 
