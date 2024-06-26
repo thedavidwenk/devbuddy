@@ -1,23 +1,12 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
-# db/seeds.rb
-
-# Clear existing users and bookings
+# Clear existing users------------------------
+puts "Deleting existing entries"
 Booking.destroy_all
 TimeSlot.destroy_all
 User.destroy_all
-puts "Deleting existing entries"
+
+# Users creation -----------------------------
 puts "Creating new entries"
 
-# Users creation
 users = User.create!([
   {
     email: "madonna@madonna.com",
@@ -86,64 +75,113 @@ users = User.create!([
   }
 ])
 
-puts "Creating Bookings..."
+puts "Creating Users, Timeslots and Bookings..."
+
+user1 = User.first
+user2 = User.last
+
+timeslot1 = TimeSlot.create!(
+  user_id: user1.id,
+  day: 1,
+  start_time: DateTime.new(2024, 6, 21, 10, 0, 0),
+  end_time: DateTime.new(2024, 6, 21, 12, 0, 0),
+  reserved: false
+)
+
+timeslot2 = TimeSlot.create!(
+  user_id: user1.id,
+  day: 2,
+  start_time: DateTime.new(2024, 7, 28, 8, 0, 0),
+  end_time: DateTime.new(2024, 7, 28, 9, 0, 0),
+  reserved: false
+)
+
+timeslot3 = TimeSlot.create!(
+  user_id: user2.id,
+  day: 3,
+  start_time: DateTime.new(2024, 6, 23, 13, 0, 0),
+  end_time: DateTime.new(2024, 6, 23, 14, 0, 0),
+  reserved: false
+)
+
+timeslot4 = TimeSlot.create!(
+  user_id: user2.id,
+  day: 4,
+  start_time: DateTime.new(2024, 8, 24, 20, 0, 0),
+  end_time: DateTime.new(2024, 8, 24, 21, 0, 0),
+  reserved: false
+)
+
+Booking.create!(
+  note: "Meeting for Ruby Basics",
+  user_id: user1.id,
+  booker_id: user2.id,
+  time_slot_id: timeslot1.id
+)
+
+Booking.create!(
+  note: "Learn about AJAX Requests",
+  user_id: user2.id,
+  booker_id: user1.id,
+  time_slot_id: timeslot3.id
+)
 
 # Create past bookings (Jan-Mar 2024)
-past_dates = [
-  DateTime.new(2024, 1, 10, 10, 0, 0),
-  DateTime.new(2024, 2, 15, 14, 0, 0),
-  DateTime.new(2024, 3, 20, 9, 0, 0),
-  DateTime.new(2024, 3, 25, 11, 0, 0),
-  DateTime.new(2024, 3, 30, 15, 0, 0)
-]
+# past_dates = [
+#   DateTime.new(2024, 1, 10, 10, 0, 0),
+#   DateTime.new(2024, 2, 15, 14, 0, 0),
+#   DateTime.new(2024, 3, 20, 9, 0, 0),
+#   DateTime.new(2024, 3, 25, 11, 0, 0),
+#   DateTime.new(2024, 3, 30, 15, 0, 0)
+# ]
 
 # Create future bookings (Oct-Nov 2024)
-future_dates = [
-  DateTime.new(2024, 10, 5, 10, 0, 0),
-  DateTime.new(2024, 10, 10, 14, 0, 0),
-  DateTime.new(2024, 11, 15, 9, 0, 0),
-  DateTime.new(2024, 11, 20, 11, 0, 0),
-  DateTime.new(2024, 11, 25, 15, 0, 0)
-]
+# future_dates = [
+#   DateTime.new(2024, 10, 5, 10, 0, 0),
+#   DateTime.new(2024, 10, 10, 14, 0, 0),
+#   DateTime.new(2024, 11, 15, 9, 0, 0),
+#   DateTime.new(2024, 11, 20, 11, 0, 0),
+#   DateTime.new(2024, 11, 25, 15, 0, 0)
+# ]
 
-users_pairs = users.combination(2).to_a
+# users_pairs = users.combination(2).to_a
 
-# Create past bookings
-past_dates.each_with_index do |date, index|
-  user_pair = users_pairs[index % users_pairs.size]
-  time_slot = TimeSlot.create!(
-    user_id: user_pair.first.id,
-    day: date.wday,
-    start_time: date,
-    end_time: date + 1.hour,
-    reserved: false
-  )
+# # Create past bookings
+# past_dates.each_with_index do |date, index|
+#   user_pair = users_pairs[index % users_pairs.size]
+#   time_slot = TimeSlot.create!(
+#     user_id: user_pair.first.id,
+#     day: date.wday,
+#     start_time: date,
+#     end_time: date + 1.hour,
+#     reserved: false
+#   )
 
-  Booking.create!(
-    note: "Past meeting #{index + 1}",
-    user_id: user_pair.first.id,
-    booker_id: user_pair.last.id,
-    time_slot_id: time_slot.id
-  )
-end
+#   Booking.create!(
+#     note: "Past meeting #{index + 1}",
+#     user_id: user_pair.first.id,
+#     booker_id: user_pair.last.id,
+#     time_slot_id: time_slot.id
+#   )
+# end
 
-# Create future bookings
-future_dates.each_with_index do |date, index|
-  user_pair = users_pairs[(index + 5) % users_pairs.size]
-  time_slot = TimeSlot.create!(
-    user_id: user_pair.first.id,
-    day: date.wday,
-    start_time: date,
-    end_time: date + 1.hour,
-    reserved: false
-  )
+# # Create future bookings
+# future_dates.each_with_index do |date, index|
+#   user_pair = users_pairs[(index + 5) % users_pairs.size]
+#   time_slot = TimeSlot.create!(
+#     user_id: user_pair.first.id,
+#     day: date.wday,
+#     start_time: date,
+#     end_time: date + 1.hour,
+#     reserved: false
+#   )
 
-  Booking.create!(
-    note: "Future meeting #{index + 1}",
-    user_id: user_pair.first.id,
-    booker_id: user_pair.last.id,
-    time_slot_id: time_slot.id
-  )
-end
+#   Booking.create!(
+#     note: "Future meeting #{index + 1}",
+#     user_id: user_pair.first.id,
+#     booker_id: user_pair.last.id,
+#     time_slot_id: time_slot.id
+#   )
+# end
 
 puts "All done!"
