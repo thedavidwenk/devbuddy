@@ -9,6 +9,12 @@
   right: 15%;
 }
 
+@media (max-width: 768px) {
+  .illustration-account-overview {
+    display: none;
+  }
+}
+
 .overview-title {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -85,6 +91,14 @@
   padding-top: 40px;
 }
 
+@media (max-width: 768px) {
+  .custom-tab-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
+}
+
 .overview-subtitle {
   font-size: 20px;
   font-family: $headers-font;
@@ -136,10 +150,6 @@
   padding: 5px 30px;
 }
 
-// .custom-appointment-row:hover {
-//   background-color: lightgrey;
-// }
-
 .custom-avatar {
   width: 30px;
   height: 30px;
@@ -180,4 +190,10 @@
   margin-top: 30px;
   font-family: $body-font;
   margin-left: 300px;
+}
+
+@media (max-width: 768px) {
+  .back-button-account-overview {
+    margin-left: 20px;
+  }
 }
