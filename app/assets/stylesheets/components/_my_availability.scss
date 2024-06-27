@@ -1,3 +1,19 @@
-.availability_container {
+.availability-container {
   background-color: $yellow-brand;
+  border-radius: 14px;
+  min-height: 300px;
+  justify-content: center;
+}
+
+.availability-header {
+  font-family: $headers-font;
+  padding-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.all-hexagons {
+  margin: 50px;
+  display: flex;
+  justify-content: space-between;
 }
