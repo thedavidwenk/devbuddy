@@ -27,9 +27,9 @@
             <a href="<%= edit_booking_path(booking) %>" class=" custom-button-icon">
               <i class="fas fa-edit"></i>
             </a>
-            <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class=" custom-button-icon">
+            <%= link_to user_booking_path(current_user, booking), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "custom-button-icon" do %>
               <i class="fas fa-trash"></i>
-            </a>
+            <% end %>
           </div>
         </div>
       <% end %>
