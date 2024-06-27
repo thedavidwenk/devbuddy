@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :account_overview, :toggle_favorite]
   before_action :set_user, only: [:show, :toggle_favorite]
-  around_action :lock_user, only: [:toggle_favorite]
+  # around_action :lock_user, only: [:toggle_favorite]
 
   def home
 
@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def getstarted
     @user = User.new
   end
-
 
   def toggle_favorite
     if current_user.favorited?(@user)
@@ -33,7 +32,6 @@ class UsersController < ApplicationController
   rescue ActiveRecord::RecordNotUnique
     render json: { error: 'Duplicate favorite action' }, status: :unprocessable_entity
   end
-
 
   def index
     @users = User.search(params[:query], params[:experience_level])
@@ -59,9 +57,9 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def lock_user
-    @user.with_lock do
-      yield
-    end
-  end
+  # def lock_user
+  #   @user.with_lock do
+  #     yield
+  #   end
+  # end
 end
