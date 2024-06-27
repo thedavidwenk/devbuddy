@@ -1,0 +1,86 @@
+// my appointments -------------------------
+
+.section-container {
+  background-color: white;
+  border-radius: 14px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  margin-right: 117px;
+  margin-bottom: 80px;
+}
+
+.overview-subtitle {
+  font-size: 20px;
+  font-family: $headers-font;
+  margin-bottom: 10px;
+}
+
+.custom-margin-top {
+  margin-top: 20px;
+}
+
+.custom-appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.custom-appointments-header {
+  display: flex;
+  padding-bottom: 8px;
+  margin-top: -10px;
+  color: $dark-brand;
+  font-family: $body-font;
+  font-size: 16px;
+}
+
+.custom-appointment-row {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  font-size: 16px;
+  // font-family: $body-font;
+  background-color: $yellow-brand;
+  margin-bottom: 13px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.custom-appointments-cell {
+  flex: 1;
+  padding: 5px 30px;
+  font-family: $body-font;
+}
+
+.custom-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.custom-icons {
+  display: flex;
+  gap: 30px;
+}
+
+.custom-icon-link {
+  color: $dark-brand;
+  text-decoration: none;
+}
+
+.custom-button-icon i {
+  color: white;
+  background-color: $dark-brand;
+  border-radius: 50%;
+  font-size: 16px;
+  padding: 10px;
+}
+.custom-button-icon:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
