@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :account_overview, :toggle_favorite]
   before_action :set_user, only: [:show, :toggle_favorite]
+  around_action :lock_user, only: [:toggle_favorite]
 
   def home
 
@@ -29,10 +30,10 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.json { render json: { message: message } }
     end
-
-  rescue ActiveRecord::RecordNotFound
-    render json: { message: 'User not found.' }, status: :not_found
+  rescue ActiveRecord::RecordNotUnique
+    render json: { error: 'Duplicate favorite action' }, status: :unprocessable_entity
   end
+
 
   def index
     @users = User.search(params[:query], params[:experience_level])
@@ -56,5 +57,11 @@ class UsersController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "User not found."
     redirect_to root_path
+  end
+
+  def lock_user
+    @user.with_lock do
+      yield
+    end
   end
 end

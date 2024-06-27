@@ -35,3 +35,12 @@
     text-decoration-thickness: 2px;
   }
 }
+
+.toggle-favorite-link i {
+  color: $dark-brand; 
+  transition: transform 0.3s; 
+}
+
+.toggle-favorite-link i:hover {
+  transform: scale(1.2); 
+}

@@ -36,23 +36,20 @@
               <% end %>
               
               <!-- Favorite button -->
-
-            <div data-controller="favorite" data-favorite-url="<%= toggle_favorite_user_path(user) %>">
-              <% if current_user.favorited?(user) %>
-                <%= link_to toggle_favorite_user_path(user), method: :post, remote: true, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
-                  <i class="fas fa-heart" data-favorite-target="heart"></i> <!-- Filled heart when favorited -->
+              <div data-controller="favorite" data-favorite-url="<%= toggle_favorite_user_path(user) %>">
+                <% if current_user.favorited?(user) %>
+                  <%= link_to toggle_favorite_user_path(user), method: :post, remote: true, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
+                    <i class="fas fa-heart" data-favorite-target="heart"></i> <!-- Filled heart when favorited -->
+                  <% end %>
+                <% else %>
+                  <%= link_to toggle_favorite_user_path(user), method: :post, remote: true, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
+                    <i class="far fa-heart" data-favorite-target="heart"></i> <!-- Unfilled heart when not favorited -->
+                  <% end %>
                 <% end %>
-              <% else %>
-                <%= link_to toggle_favorite_user_path(user), method: :post, remote: true, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
-                  <i class="far fa-heart" data-favorite-target="heart"></i> <!-- Unfilled heart when not favorited -->
-                <% end %>
-              <% end %>
-            </div>
-
-            </div>
-            <p class="card-text"><i class="fa-solid fa-desktop"></i><span class="icon-space"></span><%= user.experience_level %></p>
-            <p class="card-text"><i class="fa-solid fa-book-open"></i><span class="icon-space"></span>I'm currently working on</p>
-
+              </div>
+           </div>
+              <p class="card-text"><i class="fa-solid fa-desktop"></i><span class="icon-space"></span><%= user.experience_level %></p>
+              <p class="card-text"><i class="fa-solid fa-book-open"></i><span class="icon-space"></span>I'm currently working on</p>
             <div class="d-flex">
               <% if user.programming_languages.nil? || user.programming_languages.empty? %>
                 <p class="card-text"><small class="text-muted">No skills selected</small></p>
