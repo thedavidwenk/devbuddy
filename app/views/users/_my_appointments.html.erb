@@ -16,7 +16,7 @@
       <% if @upcoming_bookings.empty? %>
         <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
           <h5 class="custom-appointments-cell">No upcoming appointments</h5>
-          <%= button_to getstarted_path, class: 'btn btn-primary rounded-5 px-5' do %>
+          <%= link_to users_path, class: 'btn btn-primary rounded-5 px-5' do %>
               <span>Find A Buddy!</span>
               <i class="fa-solid fa-chevron-right px-2"></i>
             <% end %>
