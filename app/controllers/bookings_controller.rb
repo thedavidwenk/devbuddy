@@ -22,7 +22,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    raise
     @booking = Booking.find(params[:id])
     if @booking.destroy
       redirect_to account_overview_user_path(current_user), status: :see_other, notice: "Booking deleted successfully"
