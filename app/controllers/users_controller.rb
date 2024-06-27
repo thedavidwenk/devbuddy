@@ -16,25 +16,23 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def toggle_favorite
-    
     if current_user.favorited?(@user)
       current_user.unfavorite(@user)
-      flash.now[:notice] = 'Buddy has been unfavorited.'
-      render :notice
+      message = 'User unfavorited.'
     else
       current_user.favorite(@user)
-      flash.now[:notice] = 'Buddy has been favorited.'
-      render :notice
+      message = 'User favorited.'
     end
 
     respond_to do |format|
-    format.html { redirect_to users_path } # Redirect if not using AJAX
-    format.js   # Render toggle_favorite.js.erb
-  end
- 
-  end
+      format.json { render json: { message: message } }
+    end
 
+  rescue ActiveRecord::RecordNotFound
+    render json: { message: 'User not found.' }, status: :not_found
+  end
 
   def index
     @users = User.search(params[:query], params[:experience_level])
