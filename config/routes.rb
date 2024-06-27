@@ -8,18 +8,18 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Custom route for getstarted
-  get 'getstarted', to: 'users#getstarted' 
+  get 'getstarted', to: 'users#getstarted'
 
-  resources :users, only: [:index, :home] do 
+  resources :users, only: [:index, :home] do
 
     member do
       get 'profile', to: 'users#show'
       get 'account_overview', to: 'users#account_overview'
     end
-    resources :bookings, only: [:create]
+    resources :bookings, only: [:create, :destroy]
   end
 
-  resources :bookings, only: [:index, :edit, :update, :destroy] do
+  resources :bookings, only: [:index, :edit, :update] do
     resources :feedbacks, only: [:new, :create]
   end
 end
