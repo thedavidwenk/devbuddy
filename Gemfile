@@ -50,6 +50,9 @@ gem "bootsnap", require: false
 # search function 
 gem "pg_search"
 
+# add a favorite buddy
+gem 'acts_as_favoritor'
+
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "simple_form"
