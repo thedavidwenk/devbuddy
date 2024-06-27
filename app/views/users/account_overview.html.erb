@@ -19,9 +19,6 @@
       <li class="custom-nav-item">
         <a class="custom-nav-link" id="achievements-tab" href="#achievements" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-cubes-stacked"></i>&nbsp; My Achievements</a>
       </li>
-       <li class="custom-nav-item">
-        <a class="custom-nav-link" id="buddies-tab" href="#buddies" data-action="tabs#switch" data-tabs-target="tab"><i class="fa-solid fa-cubes-stacked"></i>&nbsp; My Favorite Buddies</a>
-      </li>
     </ul>
 
 
@@ -54,16 +51,6 @@
         </div>
         <%= render 'users/my_achievements' %>
       </div>
-
-      <!-- My Buddies tab ----------------------------------------->
-      <div class="custom-tab-pane" id="buddies" data-tabs-target="pane">
-        <!-- My Beehive Illustration ------------------------->
-        <div class="illustration-account-overview">
-          <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
-        </div>
-        <%= render 'users/my_buddies' %>
-      </div>
-
     </div>
   </div>
 </div>

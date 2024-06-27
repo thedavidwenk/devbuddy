@@ -1,5 +1,9 @@
 <div class="custom-margin-top">
   <p class="overview-subtitle">My Beehive</p>
   <div class="section-container">
+    <% current_user.favorited_users.each do |user| %>
+      <p><%= user.first_name %> <%= user.last_name %></p>
+      <%# more details here %> 
+    <% end %>
   </div>
 </div>

@@ -1,9 +1,0 @@
-<div class="custom-margin-top">
-  <p class="overview-subtitle">My Favorite Buddies</p>
-  <div class="section-container">
-    <% current_user.favorited_users.each do |user| %>
-      <p><%= user.first_name %> <%= user.last_name %></p>
-      <!-- You can add more details or links here -->
-    <% end %>
-  </div>
-</div>
