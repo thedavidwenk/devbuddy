@@ -2,6 +2,10 @@ class User < ApplicationRecord
   # acts_as_favoritor gem setup
   acts_as_favoritor
   acts_as_favoritable
+  
+  # Define associations for favorites and favoritors
+  has_many :favorites_by_user, class_name: 'Favorite', as: :favoritor, dependent: :destroy
+  has_many :favorited_users, through: :favorites_by_user, source: :favoritable, source_type: 'User'
 
   # Skill levels to select from for users and search
   SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"].freeze
