@@ -1,0 +1,9 @@
+<% if current_user.favorited?(user) %>
+  <%= link_to toggle_favorite_user_path(user), method: :post, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
+    <i class="fas fa-heart" data-target="favorite.heart"></i> <!-- Solid heart icon when favorited -->
+  <% end %>  
+<% else %>
+  <%= link_to toggle_favorite_user_path(user), method: :post, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
+    <i class="far fa-heart" data-target="favorite.heart"></i> <!-- Outline heart icon when not favorited -->
+  <% end %>  
+<% end %>

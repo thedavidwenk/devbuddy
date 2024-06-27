@@ -17,6 +17,7 @@
     <% end %>
   </p>
 <% end %>
+
 <div class="row">
   <% if @users.empty? || @users.nil? %>
     <div class="col-12 d-flex flex-column align-items-center justify-content-center" style="height: 60vh;">
@@ -33,9 +34,14 @@
               <%= link_to profile_user_path(user), class: "card-links" do %>
                 <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
               <% end %>
-              <a href="#" class="favorite-icon">
-                <i class="far fa-heart"></i>
-              </a>
+              
+              <!-- Favorite button -->
+              <div data-controller="favorite"
+                   data-favorite-user-id="<%= user.id %>"
+                   data-favorited="<%= current_user.favorited?(user) %>">
+                <%= render_favorite_button(user) %>
+              </div>
+              
             </div>
             <p class="card-text"><i class="fa-solid fa-desktop"></i><span class="icon-space"></span><%= user.experience_level %></p>
             <p class="card-text"><i class="fa-solid fa-book-open"></i><span class="icon-space"></span>I'm currently working on</p>
@@ -69,6 +75,10 @@
           </div>
         </div>
       </div>
-    <% end %>  
+    <% end %>
   <% end %>
 </div>
+
+<%= javascript_importmap_tags %> <!-- Include Import map tags -->
+<%= javascript_importmap_resolve_tags %> <!-- Resolve JavaScript imports -->
+<%= stimulus_include_tags %> <!-- Include Stimulus.js -->

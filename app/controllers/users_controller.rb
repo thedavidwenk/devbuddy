@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :account_overview]
-  before_action :set_user, only: [:show]
+  before_action :authenticate_user!, only: [:show, :account_overview, :toggle_favorite]
+  before_action :set_user, only: [:show, :toggle_favorite]
 
   def home
 
@@ -14,6 +14,25 @@ class UsersController < ApplicationController
 
   def getstarted
     @user = User.new
+  end
+
+  def toggle_favorite
+    
+    if current_user.favorited?(@user)
+      current_user.unfavorite(@user)
+      flash.now[:notice] = 'Buddy has been unfavorited.'
+      render :notice
+    else
+      current_user.favorite(@user)
+      flash.now[:notice] = 'Buddy has been favorited.'
+      render :notice
+    end
+
+    respond_to do |format|
+    format.html { redirect_to users_path } # Redirect if not using AJAX
+    format.js   # Render toggle_favorite.js.erb
+  end
+ 
   end
 
 
