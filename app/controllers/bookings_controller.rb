@@ -19,7 +19,13 @@ class BookingsController < ApplicationController
     else
       redirect_to user_path(@user), alert: "Failed to create booking."
     end
+  end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    if @booking.destroy
+      redirect_to account_overview_user_path(current_user), status: :see_other, notice: "Booking deleted successfully"
+    end
   end
 
   private
