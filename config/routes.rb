@@ -17,8 +17,6 @@ Rails.application.routes.draw do
       get 'account_overview', to: 'users#account_overview'
       # favorite feature 
       post 'toggle_favorite', to: "users#toggle_favorite"
-      # post 'favorite', to: 'favorites#create'
-      # delete 'unfavorite', to: 'favorites#destroy'
     end
     resources :bookings, only: [:create]
   end
