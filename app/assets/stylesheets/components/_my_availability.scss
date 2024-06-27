@@ -2,6 +2,7 @@
   background-color: $yellow-brand;
   border-radius: 14px;
   min-height: 300px;
+  max-width: 650px;
   justify-content: center;
 }
 
@@ -13,7 +14,9 @@
 }
 
 .all-hexagons {
-  margin: 50px;
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
   display: flex;
   justify-content: space-between;
 }
