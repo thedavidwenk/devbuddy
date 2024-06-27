@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # acts_as_favoritor gem setup
+  acts_as_favoritor
+  acts_as_favoritable
+
   # Skill levels to select from for users and search
   SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"].freeze
 

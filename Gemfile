@@ -51,7 +51,7 @@ gem "bootsnap", require: false
 gem "pg_search"
 
 # add a favorite buddy
-gem 'acts_as_favoritor'
+gem 'acts_as_favoritor', path: 'vendor/gems/acts_as_favoritor'
 
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
