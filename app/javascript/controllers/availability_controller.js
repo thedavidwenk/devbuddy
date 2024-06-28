@@ -12,6 +12,7 @@ export default class extends Controller {
 
   connect() {
     console.log("hello from availability controller");
+    this.selectedDay = null;
   }
 
   showDay(event) {
@@ -20,6 +21,7 @@ export default class extends Controller {
     dayButton.classList.add("active");
 
     const day = dayButton.dataset.day;
+    this.selectedDay = day;
     this.daySlotsTargets.forEach((daySlot) => {
       daySlot.style.display = daySlot.dataset.day === day ? "block" : "none";
     });
@@ -41,6 +43,13 @@ export default class extends Controller {
     this.hideAllTables();
     this.hideNoTimeSlots();
     this.formTarget.style.display = "block";
+
+    const selectedDayInput = this.formTarget.querySelector(
+      'input[name="time_slot[day]"]'
+    );
+    if (selectedDayInput) {
+      selectedDayInput.value = this.selectedDay;
+    }
   }
 
   clearActiveButtons() {

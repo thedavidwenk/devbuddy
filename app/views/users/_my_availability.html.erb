@@ -12,7 +12,7 @@
   </div>
 
   <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
-    <div class="section-container day-slots"
+    <div class="section-container day-slots hidden"
     data-availability-target="daySlots"
     data-day="<%= day.downcase %>">
       <% slots_for_day = @time_slots.select { |slot| Date::DAYNAMES[slot.day].casecmp(day).zero? } %>
@@ -30,7 +30,6 @@
         </div>
 
       <% else %>
-
         <div class="custom-availability-table" data-availability-target="table">
           <div class="custom-availability-header">
             <div class="custom-availability-cell">
@@ -68,7 +67,7 @@
   <% end %>
 
   <div class="section-container" data-availability-target="form" style="display: none;">
-    <%= form_with(model: @new_time_slot, url: time_slots_path, local: true) do |f| %>
+    <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
       <div class="custom-availability-header">
         <div class="custom-availability-cell">
           <strong>start time</strong>
@@ -85,6 +84,7 @@
         <div class="custom-availability-cell">
           <%= f.time_select :end_time %>
         </div>
+        <%= f.hidden_field :day %>
       </div>
 
       <div class="custom-availability-cell">
