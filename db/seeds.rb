@@ -111,14 +111,16 @@ Booking.create!(
   note: "Meeting for Ruby Basics",
   user_id: user1.id,
   booker_id: user2.id,
-  time_slot_id: timeslot1.id
+  time_slot_id: timeslot1.id,
+  booking_date: Date.new(2024, 9, 24)
 )
 
 Booking.create!(
   note: "Learn about AJAX Requests",
   user_id: user2.id,
   booker_id: user1.id,
-  time_slot_id: timeslot3.id
+  time_slot_id: timeslot3.id,
+  booking_date: Date.new(2024, 9, 16)
 )
 
 # Create past bookings (Jan-Mar 2024)
