@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def toggle_favorite
     if current_user.favorited?(@user)
       current_user.unfavorite(@user)
