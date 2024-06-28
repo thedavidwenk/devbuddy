@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_27_084652) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_28_094933) do
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_27_084652) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "time_slot_id", null: false
+    t.date "booking_date"
     t.index ["booker_id"], name: "index_bookings_on_booker_id"
     t.index ["time_slot_id"], name: "index_bookings_on_time_slot_id"
     t.index ["user_id"], name: "index_bookings_on_user_id"
@@ -78,8 +81,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_27_084652) do
     t.boolean "reserved"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.index ["user_id"], name: "index_time_slots_on_user_id"
   end
 
@@ -96,11 +99,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_27_084652) do
     t.string "username"
     t.string "avatar"
     t.string "experience_level"
-    t.string "days_availability"
-    t.string "time_availability"
     t.text "about_me"
     t.string "programming_languages"
-    t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
