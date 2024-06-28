@@ -1,86 +1,86 @@
-// hexagon shape --------------------------
+// // hexagon shape --------------------------
 
-.hexagon_60px {
-  position: relative;
-  width: 60px;
-  height: 34.64px; /* height = width * sqrt(3) / 2 */
-  background-color: white;
-  margin: 17.32px 0; /* margin = height / 2 */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  cursor: pointer;
+// .hexagon_60px {
+//   position: relative;
+//   width: 60px;
+//   height: 34.64px; /* height = width * sqrt(3) / 2 */
+//   background-color: white;
+//   margin: 17.32px 0; /* margin = height / 2 */
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-align: center;
+//   cursor: pointer;
 
-  &:hover {
-    background-color: $dark-brand;
-    color: #ffffff;
+//   &:hover {
+//     background-color: $dark-brand;
+//     color: #ffffff;
 
-    .hexagon-text {
-      color: #ffffff;
-    }
+//     .hexagon-text {
+//       color: #ffffff;
+//     }
 
-    &:before,
-    &:after {
-      border-bottom-color: $dark-brand;
-      border-top-color: $dark-brand;
-    }
-  }
+//     &:before,
+//     &:after {
+//       border-bottom-color: $dark-brand;
+//       border-top-color: $dark-brand;
+//     }
+//   }
 
-  &.active {
-    background-color: $dark-brand;
-    color: #ffffff;
+//   &.active {
+//     background-color: $dark-brand;
+//     color: #ffffff;
 
-    .hexagon-text {
-      color: #ffffff;
-    }
+//     .hexagon-text {
+//       color: #ffffff;
+//     }
 
-    &:before,
-    &:after {
-      border-bottom-color: $dark-brand;
-      border-top-color: $dark-brand;
-    }
+//     &:before,
+//     &:after {
+//       border-bottom-color: $dark-brand;
+//       border-top-color: $dark-brand;
+//     }
 
-    .cross-icon {
-      display: block;
-    }
-  }
+//     .cross-icon {
+//       display: block;
+//     }
+//   }
 
-  .cross-icon {
-    position: absolute;
-    bottom: -25px;
-    right: 0;
-    display: none; /* Initially hidden */
-    color: $dark-brand;
-    font-size: 24px;
-    cursor: pointer;
-  }
-}
+//   .cross-icon {
+//     position: absolute;
+//     bottom: -25px;
+//     right: 0;
+//     display: none; /* Initially hidden */
+//     color: $dark-brand;
+//     font-size: 24px;
+//     cursor: pointer;
+//   }
+// }
 
-.hexagon_60px:before,
-.hexagon_60px:after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 30px solid transparent; /* half of the width */
-  border-right: 30px solid transparent; /* half of the width */
-}
+// .hexagon_60px:before,
+// .hexagon_60px:after {
+//   content: "";
+//   position: absolute;
+//   width: 0;
+//   border-left: 30px solid transparent; /* half of the width */
+//   border-right: 30px solid transparent; /* half of the width */
+// }
 
-.hexagon_60px:before {
-  bottom: 100%;
-  border-bottom: 17.32px solid #ffffff; /* border-bottom = height / 2 */
-}
+// .hexagon_60px:before {
+//   bottom: 100%;
+//   border-bottom: 17.32px solid #ffffff; /* border-bottom = height / 2 */
+// }
 
-.hexagon_60px:after {
-  top: 100%;
-  border-top: 17.32px solid #ffffff; /* border-top = height / 2 */
-}
+// .hexagon_60px:after {
+//   top: 100%;
+//   border-top: 17.32px solid #ffffff; /* border-top = height / 2 */
+// }
 
-.hexagon-text {
-  position: absolute;
-  color: $dark-brand;
-  font-size: 16px;
-  font-family: $body-font;
-  text-align: center;
-  line-height: 1.2;
-}
+// .hexagon-text {
+//   position: absolute;
+//   color: $dark-brand;
+//   font-size: 16px;
+//   font-family: $body-font;
+//   text-align: center;
+//   line-height: 1.2;
+// }
