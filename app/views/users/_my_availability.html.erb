@@ -1,6 +1,8 @@
 
 <div class="custom-margin-top">
 
+<%# weekdays row ------------------------------------- %>
+
   <div class="weekdays-row">
     <div class="button-day">
       <span class="button-day-text"><strong>Monday</strong></span>
@@ -38,6 +40,9 @@
     </div>
 
   </div>
+
+
+
     <div class="section-container">
 
 
@@ -57,69 +62,22 @@
           </div>
         </div>
 
-        <% @upcoming_bookings.each do |booking| %>
-          <div class="custom-appointment-row">
-            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
-            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
-            <div class="custom-appointments-cell">"<%= booking.note %>"</div>
-            <div class="custom-appointments-cell">
-              <% buddy = booking.user == current_user ? booking.booker : booking.user %>
-              <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
-              <%= buddy.username %>
-            </div>
-            <div class="custom-appointments-cell custom-icons">
-              <a href="<%= edit_booking_path(booking) %>" class=" custom-button-icon">
+          <div class="custom-availability-row">
+            <div class="custom-availability-cell"><p>start time</p></div>
+            <div class="custom-availability-cell"><p>end time</p></div>
+            <div class="custom-availability-cell custom-icons">
+              <a href="#" class="custom-button-icon">
                 <i class="fas fa-edit"></i>
               </a>
-              <a href="<%= booking_path(booking) %>" data-method="delete" data-confirm="Are you sure?" class=" custom-button-icon">
+              <a href="#" data-method="delete" data-confirm="Are you sure?" class=" custom-button-icon">
                 <i class="fas fa-trash"></i>
               </a>
             </div>
           </div>
-        <% end %>
+
       </div>
     </div>
   </div>
-
-
-
-
-
-
-<%#
-
-  <div class="all-weekdays">
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>mon</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>tue</strong></span>
-    </div>
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>wed</strong></span>
-    </div>
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>thu</strong></span>
-    </div>
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>fri</strong></span>
-    </div>
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>sat</strong></span>
-    </div>
-
-    <div class="hexagon_60px">
-      <span class="hexagon-text"><strong>sun</strong></span>
-    </div>
-
-  </div> %>
 
 
 </div>
