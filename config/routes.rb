@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     member do
       get 'profile', to: 'users#show'
       get 'account_overview', to: 'users#account_overview'
+      # favorite feature 
+      post 'toggle_favorite', to: "users#toggle_favorite"
     end
     resources :bookings, only: [:create, :destroy]
   end
