@@ -19,7 +19,6 @@ users = User.create!([
     experience_level: "Expert",
     about_me: "A passionate developer who loves coding.",
     programming_languages: "Ruby, JavaScript",
-    location: "Dublin, Ireland",
   },
   {
     email: "ladygaga@ladygaga.com",
@@ -32,7 +31,6 @@ users = User.create!([
     experience_level: "Beginner",
     about_me: "Enjoys learning new technologies and working on projects.",
     programming_languages: "Python, HTML, CSS",
-    location: "Marrakech, Morocco"
   },
   {
     email: "beyonce@beyonce.com",
@@ -45,7 +43,6 @@ users = User.create!([
     experience_level: "Advanced",
     about_me: "Experienced in backend development and database management.",
     programming_languages: "Java, SQL",
-    location: "Beijing, China"
   },
   {
     email: "adele@adele.com",
@@ -58,7 +55,6 @@ users = User.create!([
     experience_level: "Intermediate",
     about_me: "A singer who loves coding in her free time.",
     programming_languages: "C++, Swift",
-    location: "London, UK"
   },
   {
     email: "ed@ed.com",
@@ -71,7 +67,6 @@ users = User.create!([
     experience_level: "Beginner",
     about_me: "Musician learning to code.",
     programming_languages: "HTML, CSS",
-    location: "Los Angeles, USA"
   }
 ])
 
@@ -83,32 +78,32 @@ user2 = User.last
 timeslot1 = TimeSlot.create!(
   user_id: user1.id,
   day: 1,
-  start_time: DateTime.new(2024, 6, 21, 10, 0, 0),
-  end_time: DateTime.new(2024, 6, 21, 12, 0, 0),
+  start_time: Time.new(2024, 6, 21, 10, 0, 0),
+  end_time: Time.new(2024, 6, 21, 12, 0, 0),
   reserved: false
 )
 
 timeslot2 = TimeSlot.create!(
   user_id: user1.id,
   day: 2,
-  start_time: DateTime.new(2024, 7, 28, 8, 0, 0),
-  end_time: DateTime.new(2024, 7, 28, 9, 0, 0),
+  start_time: Time.new(2024, 7, 28, 8, 0, 0),
+  end_time: Time.new(2024, 7, 28, 9, 0, 0),
   reserved: false
 )
 
 timeslot3 = TimeSlot.create!(
   user_id: user2.id,
   day: 3,
-  start_time: DateTime.new(2024, 6, 23, 13, 0, 0),
-  end_time: DateTime.new(2024, 6, 23, 14, 0, 0),
+  start_time: Time.new(2024, 6, 23, 13, 0, 0),
+  end_time: Time.new(2024, 6, 23, 14, 0, 0),
   reserved: false
 )
 
 timeslot4 = TimeSlot.create!(
   user_id: user2.id,
   day: 4,
-  start_time: DateTime.new(2024, 8, 24, 20, 0, 0),
-  end_time: DateTime.new(2024, 8, 24, 21, 0, 0),
+  start_time: Time.new(2024, 8, 24, 20, 0, 0),
+  end_time: Time.new(2024, 8, 24, 21, 0, 0),
   reserved: false
 )
 

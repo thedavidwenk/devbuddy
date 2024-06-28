@@ -52,7 +52,7 @@
         <div class="illustration-account-overview">
           <%= image_tag "accountOverview_twoPeople.png", alt: 'illustration of two people' %>
         </div>
-        <%= render 'users/my_appointments' %>
+        <%= render 'users/my_appointments', booking: @booking %>
       </div>
 
       <!-- My Beehive tab --------------------------------------------->

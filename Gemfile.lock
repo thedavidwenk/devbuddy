@@ -1,3 +1,8 @@
+PATH
+  remote: vendor/gems/acts_as_favoritor
+  specs:
+    acts_as_favoritor (6.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -313,6 +318,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  acts_as_favoritor!
   autoprefixer-rails
   bootsnap
   bootstrap (~> 5.2)
