@@ -1,117 +1,61 @@
-
-<div class="custom-margin-top">
-
-  <%# weekdays row ------------------------------------- %>
-
-  <div class="weekdays-row">
-    <div class="button-day">
-      <span class="button-day-text"><strong>Monday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="button-day">
-      <span class="button-day-text"><strong>Tuesday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="button-day">
-      <span class="button-day-text"><strong>Wednesday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="button-day">
-      <span class="button-day-text"><strong>Thursday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="button-day">
-      <span class="button-day-text"><strong>Friday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="button-day">
-      <span class="button-day-text"><strong>Saturday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-    <div class="button-day">
-      <span class="button-day-text"><strong>Sunday</strong></span>
-      <i class="fa-solid fa-circle-plus cross-icon"></i>
-    </div>
-
-  </div>
-
-
-  <%# List with time slots ----------------------------- %>
-
-  <div class="section-container">
-    <div class="custom-availability-table">
-
-      <div class="custom-availability-header">
-        <div class="custom-availability-cell">
-          <strong>start time</strong>
+<div data-controller="availability">
+  <% if @time_slots.empty? %>
+    <div class="weekdays-row">
+      <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+        <div class="button-day" data-action="click->availability#showDay" data-availability-target="button" data-day="<%= day.downcase %>">
+          <span class="button-day-text"><strong><%= day %></strong></span>
         </div>
-        <div class="custom-availability-cell">
-          <strong>end time</strong>
-        </div>
-        <div class="custom-availability-cell">
-          <strong>Edit or delete</strong>
-        </div>
+      <% end %>
+    </div>
+
+    <div class="no-time-slots-created-yet">
+      <div class="no-time-slots-yet-image">
+        <%= image_tag "warning_message_bee.png", alt: 'illustration of a bee talking' %>
       </div>
-
-      <div class="custom-availability-row">
-        <div class="custom-availability-cell"><p>start time</p></div>
-        <div class="custom-availability-cell"><p>end time</p></div>
-        <div class="custom-availability-cell custom-icons">
-          <a href="#" class="custom-button-icon">
-            <i class="fas fa-edit"></i>
-          </a>
-          <a href="#" data-method="delete" data-confirm="Are you sure?" class=" custom-button-icon">
-            <i class="fas fa-trash"></i>
-          </a>
+      <h2>No time slots created yet.</h2>
+      <button class="create-time-slot-button" data-action="click->availability#showForm"><strong>Create your first one</strong></button>
+    </div>
+  <% else %>
+    <div class="weekdays-row">
+      <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+        <div class="button-day" data-action="click->availability#showDay" data-availability-target="button" data-day="<%= day.downcase %>">
+          <span class="button-day-text"><strong><%= day %></strong></span>
+          <i class="fa-solid fa-circle-plus cross-icon" data-action="click->availability#showForm"></i>
         </div>
-      </div>
-
+      <% end %>
     </div>
-  </div>
 
-<%# Form to create a time slot ----------------------------- %>
+    <div class="section-container">
+      <% @time_slots.each do |slot| %>
+        <div class="custom-availability-table" data-availability-target="table" data-day="<%= Date::DAYNAMES[slot.day].downcase %>">
+          <div class="custom-availability-header">
+            <div class="custom-availability-cell">
+              <strong>start time</strong>
+            </div>
+            <div class="custom-availability-cell">
+              <strong>end time</strong>
+            </div>
+            <div class="custom-availability-cell">
+              <strong>Edit or delete</strong>
+            </div>
+          </div>
 
-  <div class="section-container">
-    <div class="custom-availability-table">
-
-      <div class="custom-availability-header">
-        <div class="custom-availability-cell">
-          <strong>start time</strong>
+          <div class="custom-availability-row">
+            <div class="custom-availability-cell"><p><%= slot.start_time.strftime("%I:%M %p") %></p></div>
+            <div class="custom-availability-cell"><p><%= slot.end_time.strftime("%I:%M %p") %></p></div>
+            <div class="custom-availability-cell custom-icons">
+              <a href="#" class="custom-button-icon">
+                <i class="fas fa-edit"></i>
+              </a>
+              <a href="#" data-method="delete" data-confirm="Are you sure?" class="custom-button-icon">
+                <i class="fas fa-trash"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="custom-availability-cell">
-          <strong>end time</strong>
-        </div>
-      </div>
-
-      <div class="custom-availability-row">
-        <div class="custom-availability-cell"><p>start time</p></div>
-        <div class="custom-availability-cell"><p>end time</p></div>
-      </div>
-
+      <% end %>
     </div>
-  </div>
+  <% end %>
 
-  <%# Empty screen for when there are no time slots yet ----------------------------- %>
-
-  <div class="no-time-slots-created-yet">
-    <div class="no-time-slots-yet-image">
-      <%= image_tag "warning_message_bee.png",
-      alt: 'illustration of a bee talking' %>
-    </div>
-
-    <h2>No time slots created yet.</h2>
-
-    <div class="create-time-slot-button">
-      <strong>Create your first one</strong>
-    </div>
-
-
-  </div>
-
-</div>
+  <div class="section-container" data-availability-target="form" style="display: none;">
+    <%= form_with(model: @new_time_slot, url: time_slots_path

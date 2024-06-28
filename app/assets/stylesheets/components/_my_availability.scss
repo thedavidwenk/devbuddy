@@ -27,6 +27,18 @@
   display: inline-block; /* Ensure buttons are inline */
 }
 
+.button-day.active .cross-icon {
+  display: block;
+}
+
+.button-day.active {
+  background-color: $dark-brand;
+}
+
+.button-day.active .button-day-text {
+  color: white;
+}
+
 .button-day-text {
   font-size: 18px;
   color: $dark-brand;
@@ -36,17 +48,19 @@
 }
 
 .cross-icon {
-  color: $dark-brand; /* Use your desired color */
+  display: none;
+  color: $dark-brand;
   position: absolute;
-  right: 15px; /* Adjust position to half outside the button */
-  bottom: 15px; /* Adjust position to half outside the button */
-  font-size: 24px; /* Adjust size as needed */
+  right: -12px;
+  bottom: -12px;
+  font-size: 24px;
 }
 
 .custom-availability-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
+  display: none;
 }
 
 .custom-availability-header {
@@ -77,17 +91,24 @@
   cursor: pointer;
 }
 
-.no-time-slots-crated-yet {
-  justify-content: center;
+.no-time-slots-created-yet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
 }
 
 .no-time-slots-yet-image {
   max-width: 300px;
+  margin-bottom: 20px;
 }
 
-.crate-time-slot-button {
-  width: 500px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: $dark-brand;
+.save-timeslot-button {
+  background-color: $yellow-brand;
+  color: $dark-brand;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 5px;
 }

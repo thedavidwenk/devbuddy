@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @user = current_user
     @upcoming_bookings = Booking.joins(:time_slot).where(user: @user).or(Booking.joins(:time_slot).where(booker: @user)).upcoming
     @past_bookings = Booking.joins(:time_slot).where(user: @user).or(Booking.joins(:time_slot).where(booker: @user)).past
+    @time_slots = current_user.time_slots || [] # <------- this line is used in my_availability tab
   end
 
   private

@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   # Custom route for getstarted
-  get 'getstarted', to: 'users#getstarted' 
+  get 'getstarted', to: 'users#getstarted'
 
-  resources :users, only: [:index, :home] do 
+  resources :users, only: [:index, :home] do
 
     member do
       get 'profile', to: 'users#show'
@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :edit, :update, :destroy] do
     resources :feedbacks, only: [:new, :create]
   end
+
+  resources :time_slots, only: [:new, :create, :edit, :update, :destroy]
+
 end
