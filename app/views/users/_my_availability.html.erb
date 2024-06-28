@@ -16,12 +16,13 @@
     data-availability-target="daySlots"
     data-day="<%= day.downcase %>">
       <% slots_for_day = @time_slots.select { |slot| Date::DAYNAMES[slot.day].casecmp(day).zero? } %>
+
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
           <div class="no-time-slots-yet-image">
             <%= image_tag "warning_message_bee.png", alt: 'illustration of a bee talking' %>
           </div>
-          <h2>No time slots created yet for <%= day %>.</h2>
+          <h3 class="message-no-time-slots-yet">No time slots created yet for <%= day %>.</h3>
           <button class="create-time-slot-button"
             data-action="click->availability#showForm">
             <strong>Create your first one</strong>

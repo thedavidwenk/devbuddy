@@ -8,27 +8,27 @@ class TimeSlotsController < ApplicationController
   def create
     @time_slot = TimeSlot.new(time_slot_params)
     if @time_slot.save
-      redirect_to availability_path, notice: 'Time slot was successfully created.'
+      redirect_to account_overview_user_path, notice: 'Time slot was successfully created.'
     else
       render :new
     end
   end
 
-  # def edit
-  # end
+  def edit
+  end
 
-  # def update
-  #   if @time_slot.update(time_slot_params)
-  #     redirect_to availability_path, notice: 'Time slot was successfully updated.'
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    if @time_slot.update(time_slot_params)
+      redirect_to account_overview_user_path, notice: 'Time slot was successfully updated.'
+    else
+      render :edit
+    end
+  end
 
-  # def destroy
-  #   @time_slot.destroy
-  #   redirect_to availability_path, notice: 'Time slot was successfully deleted.'
-  # end
+  def destroy
+    @time_slot.destroy
+    redirect_to account_overview_user_path, notice: 'Time slot was successfully deleted.'
+  end
 
   private
 
