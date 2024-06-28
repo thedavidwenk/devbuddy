@@ -1,7 +1,7 @@
 
 <div class="custom-margin-top">
 
-<%# weekdays row ------------------------------------- %>
+  <%# weekdays row ------------------------------------- %>
 
   <div class="weekdays-row">
     <div class="button-day">
@@ -42,42 +42,76 @@
   </div>
 
 
+  <%# List with time slots ----------------------------- %>
 
-    <div class="section-container">
+  <div class="section-container">
+    <div class="custom-availability-table">
 
-
-      <div class="custom-availability-table">
-
-        <div class="custom-availability-header">
-          <div class="custom-availability-cell">
-            <strong>start time</strong>
-          </div>
-
-          <div class="custom-availability-cell">
-            <strong>end time</strong>
-          </div>
-
-          <div class="custom-availability-cell">
-            <strong>Edit or delete</strong>
-          </div>
+      <div class="custom-availability-header">
+        <div class="custom-availability-cell">
+          <strong>start time</strong>
         </div>
-
-          <div class="custom-availability-row">
-            <div class="custom-availability-cell"><p>start time</p></div>
-            <div class="custom-availability-cell"><p>end time</p></div>
-            <div class="custom-availability-cell custom-icons">
-              <a href="#" class="custom-button-icon">
-                <i class="fas fa-edit"></i>
-              </a>
-              <a href="#" data-method="delete" data-confirm="Are you sure?" class=" custom-button-icon">
-                <i class="fas fa-trash"></i>
-              </a>
-            </div>
-          </div>
-
+        <div class="custom-availability-cell">
+          <strong>end time</strong>
+        </div>
+        <div class="custom-availability-cell">
+          <strong>Edit or delete</strong>
+        </div>
       </div>
+
+      <div class="custom-availability-row">
+        <div class="custom-availability-cell"><p>start time</p></div>
+        <div class="custom-availability-cell"><p>end time</p></div>
+        <div class="custom-availability-cell custom-icons">
+          <a href="#" class="custom-button-icon">
+            <i class="fas fa-edit"></i>
+          </a>
+          <a href="#" data-method="delete" data-confirm="Are you sure?" class=" custom-button-icon">
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 
+<%# Form to create a time slot ----------------------------- %>
+
+  <div class="section-container">
+    <div class="custom-availability-table">
+
+      <div class="custom-availability-header">
+        <div class="custom-availability-cell">
+          <strong>start time</strong>
+        </div>
+        <div class="custom-availability-cell">
+          <strong>end time</strong>
+        </div>
+      </div>
+
+      <div class="custom-availability-row">
+        <div class="custom-availability-cell"><p>start time</p></div>
+        <div class="custom-availability-cell"><p>end time</p></div>
+      </div>
+
+    </div>
+  </div>
+
+  <%# Empty screen for when there are no time slots yet ----------------------------- %>
+
+  <div class="no-time-slots-created-yet">
+    <div class="no-time-slots-yet-image">
+      <%= image_tag "warning_message_bee.png",
+      alt: 'illustration of a bee talking' %>
+    </div>
+
+    <h2>No time slots created yet.</h2>
+
+    <div class="create-time-slot-button">
+      <strong>Create your first one</strong>
+    </div>
+
+
+  </div>
 
 </div>

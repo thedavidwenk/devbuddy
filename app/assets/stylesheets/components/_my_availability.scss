@@ -76,3 +76,18 @@
   border-radius: 14px;
   cursor: pointer;
 }
+
+.no-time-slots-crated-yet {
+  justify-content: center;
+}
+
+.no-time-slots-yet-image {
+  max-width: 300px;
+}
+
+.crate-time-slot-button {
+  width: 500px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: $dark-brand;
+}
