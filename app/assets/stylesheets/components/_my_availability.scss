@@ -18,13 +18,13 @@
 }
 
 .button-day {
-  width: 150px; /* Set a fixed width to ensure the button is square */
-  height: 150px; /* Set height equal to width */
+  width: 150px;
+  height: 150px;
   border-radius: 24px;
   background-color: white;
   position: relative;
   margin-bottom: 20px;
-  display: inline-block; /* Ensure buttons are inline */
+  display: inline-block;
 }
 
 .button-day.active .cross-icon {
@@ -43,16 +43,16 @@
   font-size: 18px;
   color: $dark-brand;
   position: absolute;
-  top: 14px; /* Align text to the top */
-  left: 18px; /* Align text to the left */
+  top: 14px;
+  left: 18px;
 }
 
 .cross-icon {
   display: none;
-  color: $dark-brand;
+  color: white;
   position: absolute;
-  right: -12px;
-  bottom: -12px;
+  right: 12px;
+  bottom: 12px;
   font-size: 24px;
 }
 
@@ -84,7 +84,6 @@
   padding-bottom: 5px;
   padding-left: 5px;
   font-size: 16px;
-  // font-family: $body-font;
   background-color: $yellow-brand;
   margin-bottom: 13px;
   border-radius: 14px;
@@ -92,7 +91,7 @@
 }
 
 .no-time-slots-created-yet {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -104,11 +103,22 @@
   margin-bottom: 20px;
 }
 
-.save-timeslot-button {
-  background-color: $yellow-brand;
-  color: $dark-brand;
+.create-time-slot-button {
+  background-color: $dark-brand;
+  color: white;
+  height: 48px;
   border: none;
   cursor: pointer;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 24px;
+}
+
+.save-timeslot-button {
+  background-color: $dark-brand;
+  color: white;
+  height: 48px;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 24px;
 }
