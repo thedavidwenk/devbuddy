@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       get 'profile', to: 'users#show'
       get 'account_overview', to: 'users#account_overview'
       # favorite feature 
-      post 'toggle_favorite', to: "users#toggle_favorite"
+      post 'toggle_favorite', to: "users#toggle_favorite", defaults: { format: :json }
     end
     resources :bookings, only: [:create]
   end
