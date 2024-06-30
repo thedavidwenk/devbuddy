@@ -71,6 +71,9 @@
                     <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
                     <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
                   </div>
+                  <%= form_for @booking, html: { data: { controller: "datepicker" } } do |f| %>
+                    <%= f.text_field :booking_date %>
+                  <% end %>
                 <% end %>
 
 
