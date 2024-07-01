@@ -8,6 +8,7 @@ export default class extends Controller {
     "table",
     "form",
     "noTimeSlotsCreatedYet",
+    "dayField",
   ];
 
   connect() {
@@ -62,11 +63,8 @@ export default class extends Controller {
     this.hideNoTimeSlots();
     this.formTarget.style.display = "block";
 
-    const selectedDayInput = this.formTarget.querySelector(
-      'input[name="time_slot[day]"]'
-    );
-    if (selectedDayInput) {
-      selectedDayInput.value = this.selectedDay;
+    if (this.selectedDay !== null) {
+      this.dayFieldTarget.value = this.selectedDay;
     }
   }
 

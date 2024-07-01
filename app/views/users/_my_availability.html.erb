@@ -3,7 +3,7 @@
 
   <%# day buttons ---------------------- %>
 
-    <% [0, 1, 2, 3, 4, 5, 6].each do |day| %>
+    <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
       <div class="button-day"
       data-action="click->availability#showDay"
       data-availability-target="button"
@@ -17,20 +17,24 @@
 
   <%# availability slots per day ------------------ %>
 
-  <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+  <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
     <div class="section-container day-slots hidden"
     data-availability-target="daySlots"
-    data-day="<%= day.downcase %>">
-      <% slots_for_day = @time_slots.select { |slot| Date::DAYNAMES[slot.day].casecmp(day).zero? } %>
+    data-day="<%= day %>">
+      <% slots_for_day = @time_slots.select { |slot| slot.day == day } %>
 
-      <%# message no time slots yet -------------------- %>
+      <%# ^ line above...creates an array with only the timeslots for
+            a day that matches the day clicked  %>
+
+
+      <%# is slots_for_day array is empty then...message no time slots yet -------------------- %>
 
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
           <div class="no-time-slots-yet-image">
             <%= image_tag "warning_message_bee.png", alt: 'illustration of a bee talking' %>
           </div>
-          <h3 class="message-no-time-slots-yet">No time slots created yet for <%= day %>.</h3>
+          <h3 class="message-no-time-slots-yet">No time slots created yet for <%= day_string(day) %>.</h3>
           <button class="create-time-slot-button"
             data-action="click->availability#showForm">
             <strong>Create your first one</strong>
@@ -66,7 +70,9 @@
                 <a href="#" class="custom-button-icon">
                   <i class="fas fa-edit"></i>
                 </a>
-                <a href="#" data-method="delete" data-confirm="Are you sure?" class="custom-button-icon">
+                <a href="#" data-method="delete"
+                   data-confirm="Are you sure?"
+                   class="custom-button-icon">
                   <i class="fas fa-trash"></i>
                 </a>
               </div>
@@ -79,7 +85,10 @@
 
   <%# form to crate a new time slot ------------------- %>
 
-  <div class="section-container" data-availability-target="form" style="display: none;">
+  <div class="section-container"
+       data-availability-target="form"
+       style="display: none;">
+
     <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
       <div class="custom-availability-header">
         <div class="custom-availability-cell">
@@ -97,7 +106,9 @@
         <div class="custom-availability-cell">
           <%= f.time_select :end_time %>
         </div>
-        <%= f.hidden_field :day %>
+        <div>
+          <%= f.hidden_field :day, data: { availability_target: "dayField" } %>
+        </div>
       </div>
 
       <div class="custom-availability-cell">
