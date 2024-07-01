@@ -179,3 +179,13 @@
   font-family: $body-font;
   margin-left: 300px;
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.remove-card-transition {
+  opacity: 0;
+  transition: opacity 0.35s;
+}
