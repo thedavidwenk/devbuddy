@@ -47,20 +47,40 @@
       <!-- Yellow background part -->
       <div class="col yellow-bg">
         <div class="yellow-container">
-          <h3 class="mb-3">Choose your appointment with <%= @user.first_name %></h3>
+          <h3 class="mb-3">Select your appointment with <%= @user.first_name %></h3>
           <div class="container">
-            <div class="circle">
-              <%# A bubble for each day of the week %>
+            <div class="d-flex justify-content-evenly mb-5">
+              <div class="day-bubble">
+                <span>Mo</span>
+              </div>
+              <div class="day-bubble">
+                <span>Tue</span>
+              </div>
+              <div class="day-bubble">
+                <span>Wed</span>
+              </div>
+              <div class="day-bubble">
+                <span>Thu</span>
+              </div>
+              <div class="day-bubble">
+                <span>Fri</span>
+              </div>
+              <div class="day-bubble">
+                <span>Sat</span>
+              </div>
+              <div class="day-bubble">
+                <span>Sun</span>
+              </div>
             </div>
             <div class="row gap-3" data-controller="time-slot-picker">
               <% @user.time_slots.each do |slot| %>
                 <% if slot.reserved? %>
-                  <div class="btn-home p-2">
+                  <div class="time-slot-button p-2 col-5">
                     <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                   </div>
                 <% else %>
                   <div
-                  class="btn-home p-2 col-6"
+                  class="time-slot-button p-2 col-5"
                   <%# data-bs-toggle="modal"
                   data-bs-target="#confirmation-modal" %>
                   data-slot-id="<%= slot.id %>"
@@ -71,8 +91,6 @@
                     <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                   </div>
                 <% end %>
-
-
               <% end %>
 
               <%= form_for @booking, html: { data: { controller: "datepicker" } } do |f| %>
