@@ -2,11 +2,11 @@
 
   .flex-container {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     width: 100%;
-    flex-direction: column; 
+    flex-direction: column;
   }
   .row {
     display: flex;
@@ -14,7 +14,7 @@
     width: 100%;
     margin: 0;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
   }
   .col {
     flex: 1;
@@ -32,44 +32,39 @@
 
   .avatar-and-main-info {
     margin-top: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     height: 240px;
     max-width: 600px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: start;
     color: $gray;
 
-    h3 {
-      flex: 1;
-      margin-top: -100px;
-      margin-left: 300px;
-      color: $gray;
-    }
-
     img {
+      flex: 1;
       width: 320px;
       height: 240px;
       object-fit: cover;
       border-radius: 20px;
     }
 
-    .profile-hexagon {
-      width: 18px;
-      height: 20px;
-      margin-top: -220px;
-      margin-left: 300px;
-    }
+    .column-2 {
+      flex-grow: 1;
+      padding-left: 300px;
 
-    .user-location {
-      margin-top: -120px;
-      margin-left: 300px;
-      color: $mid-gray;
-    }
+      h3 {
+        flex: 1;
+        color: $gray;
+      }
 
-    .user-level {
-      margin-top: -120px;
-      margin-left: 300px;
-      color: $mid-gray;
+      .user-level {
+        color: $mid-gray;
+      }
+
+      .profile-heart {
+        width: 18px;
+
+      }
     }
   }
 
@@ -132,8 +127,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
   }
   .yellow-container {
     box-sizing: border-box;
@@ -142,7 +137,7 @@
   .headline {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     text-align: center;
 
     h1 {
@@ -203,24 +198,24 @@
 }
 
 .time-slot-button-disabled {
-  background-color: #f2f2f2; 
+  background-color: #f2f2f2;
   width: 130px;
   height: 130px;
-  box-shadow: none; 
+  box-shadow: none;
 
   h5 {
     font-size: 1.2rem;
-    color: #959595; 
+    color: #959595;
   }
 
   p {
     font-size: 1rem;
-    color: #959595; 
+    color: #959595;
   }
 
   &:hover {
     cursor: not-allowed;
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2;
   }
 }
 
@@ -241,8 +236,3 @@
       margin: 30px auto 0 auto;
     }
   }
-
-
-
-
-
