@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_28_094933) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_01_114324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -73,6 +73,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_094933) do
     t.index ["scope"], name: "index_favorites_on_scope"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "message"
+    t.boolean "read"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "time_slots", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.integer "day"
@@ -99,6 +108,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_094933) do
     t.string "experience_level"
     t.text "about_me"
     t.string "programming_languages"
+    t.integer "unread_notifications_count", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -108,5 +118,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_28_094933) do
   add_foreign_key "bookings", "time_slots"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "users", column: "booker_id"
+  add_foreign_key "notifications", "users"
   add_foreign_key "time_slots", "users"
 end

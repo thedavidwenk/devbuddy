@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
+  get 'notifications/mark_as_read'
   root to: "users#home"
   get 'time_slots/new'
   get 'time_slots/create'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
     member do
       get 'profile', to: 'users#show'
       get 'account_overview', to: 'users#account_overview'
-      # favorite feature 
+      # favorite feature
       post 'toggle_favorite', to: "users#toggle_favorite"
     end
     resources :bookings, only: [:create, :destroy]
@@ -27,4 +29,6 @@ Rails.application.routes.draw do
 
   resources :time_slots, only: [:new, :create, :edit, :update, :destroy]
 
+  # Other routes...
+  resources :notifications, only: [:index]
 end
