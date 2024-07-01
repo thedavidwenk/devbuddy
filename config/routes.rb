@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     member do
       get 'profile', to: 'users#show'
       get 'account_overview', to: 'users#account_overview'
-      # favorite feature 
+      # favorite feature
       post 'toggle_favorite', to: "users#toggle_favorite"
     end
     resources :bookings, only: [:create, :destroy]
@@ -27,10 +27,6 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:new, :create]
   end
 
-  # Add routes for notifications
-  resources :notifications, only: [:index] do
-    member do
-      patch :mark_as_read
-    end
-  end
+  # Other routes...
+  resources :notifications, only: [:index]
 end
