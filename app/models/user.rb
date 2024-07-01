@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :bookings_as_user, class_name: 'Booking', foreign_key: 'user_id', dependent: :destroy
   has_many :bookings_as_booker, class_name: 'Booking', foreign_key: 'booker_id', dependent: :destroy
   has_many :time_slots, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   # Combine both associations into a single bookings association
   def bookings
