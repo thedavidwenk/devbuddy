@@ -15,13 +15,21 @@ export default class extends Controller {
     this.selectedDay = null;
   }
 
+  // highlights clicked day,
+  // picks up weekday name,
+  // display slots table or alert message ----- >
+
   showDay(event) {
     this.clearActiveButtons();
     const dayButton = event.currentTarget;
+    console.dir(dayButton);
     dayButton.classList.add("active");
 
     const day = dayButton.dataset.day;
+
     this.selectedDay = day;
+    console.log(this.selectedDay);
+
     this.daySlotsTargets.forEach((daySlot) => {
       daySlot.style.display = daySlot.dataset.day === day ? "block" : "none";
     });
@@ -39,6 +47,16 @@ export default class extends Controller {
     }
   }
 
+  clearActiveButtons() {
+    this.buttonTargets.forEach((button) => button.classList.remove("active"));
+  }
+
+  showTable(slotsForDay) {
+    this.formTarget.style.display = "none";
+    const table = slotsForDay.querySelector(".custom-availability-table");
+    table.style.display = "block";
+  }
+
   showForm(event) {
     this.hideAllTables();
     this.hideNoTimeSlots();
@@ -52,18 +70,8 @@ export default class extends Controller {
     }
   }
 
-  clearActiveButtons() {
-    this.buttonTargets.forEach((button) => button.classList.remove("active"));
-  }
-
   hideAllTables() {
     this.tableTargets.forEach((table) => (table.style.display = "none"));
-  }
-
-  showTable(slotsForDay) {
-    this.formTarget.style.display = "none";
-    const table = slotsForDay.querySelector(".custom-availability-table");
-    table.style.display = "block";
   }
 
   showNoTimeSlots(slotsForDay) {
