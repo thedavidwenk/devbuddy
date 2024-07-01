@@ -15,6 +15,9 @@ class BookingsController < ApplicationController
       time_slot.reserved = true
       time_slot.save!
 
+      # Create a notification for the user being booked
+      Notification.create(user: @user, message: "You have a new booking from #{current_user.email}", read: false)
+
       redirect_to account_overview_user_path(current_user), notice:"Booking was successfully created!"
     else
       redirect_to user_path(@user), alert: "Failed to create booking."
