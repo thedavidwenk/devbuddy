@@ -3,8 +3,6 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="datepicker"
 export default class extends Controller {
-
-
   connect() {
     flatpickr(this.element, {
       enableTime: true,
@@ -21,8 +19,4 @@ export default class extends Controller {
       }
     });
   }
-
-  // grab slot.day from show page
-  // if disable all days except slot.day on the calender
-
 }

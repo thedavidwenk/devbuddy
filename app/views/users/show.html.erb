@@ -49,8 +49,8 @@
         <div class="yellow-container">
           <h3 class="mb-3">Select your appointment with <%= @user.first_name %></h3>
           <div class="container">
-            <div class="d-flex justify-content-evenly mb-5">
-              <div class="day-bubble">
+            <div class="d-flex justify-content-evenly mb-5" data-controller="day-selector">
+              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
                 <span>Mo</span>
               </div>
               <div class="day-bubble">
