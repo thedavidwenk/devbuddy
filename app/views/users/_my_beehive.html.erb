@@ -2,8 +2,8 @@
   <p class="overview-subtitle">My Beehive</p>
   <div class="row">
     <% current_user.favorited_users.each do |user| %>
-        <div class="mb-4 col-lg-4 col-md-6 col-sm-12">
-          <div class="card h-100 border border-0 rounded-5">
+        <div class="mb-4 col-lg-4 col-md-12 col-sm-12">
+          <div class="card h-100 border border-0 rounded-5" data-controller="removecard" data-removecard-target="card">
             <div class="card-body pb-0">
               <div class="d-flex justify-content-between align-items-start">
                 <%= link_to profile_user_path(user), class: "card-links" do %>
@@ -11,8 +11,10 @@
                 <% end %>
                 
                 <!-- Favorite button -->
-                <%= render partial: 'users/fav_button', locals: { user: user } %>
-
+                <div data-action="click->removecard#toggleRemove">
+                  <%= render partial: 'users/fav_button', locals: { user: user } %>
+                </div>
+                
               </div>
                 <p class="card-text"><i class="fa-solid fa-desktop"></i><span class="icon-space"></span><%= user.experience_level %></p>
                 <p class="card-text"><i class="fa-solid fa-book-open"></i><span class="icon-space"></span>I'm currently working on</p>
