@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :account_overview, :toggle_favorite]
   before_action :set_user, only: [:show, :toggle_favorite]
-  # around_action :lock_user, only: [:toggle_favorite]
 
   def home
 
@@ -19,19 +18,23 @@ class UsersController < ApplicationController
 
 
   def toggle_favorite
-    if current_user.favorited?(@user)
-      current_user.unfavorite(@user)
-      message = 'User unfavorited.'
-    else
-      current_user.favorite(@user)
-      message = 'User favorited.'
-    end
+    begin
+      if current_user.favorited?(@user)
+        current_user.unfavorite(@user)
+        message = 'User unfavorited.'
+      else
+        current_user.favorite(@user)
+        message = 'User favorited.'
+      end
 
-    respond_to do |format|
-      format.json { render json: { message: message } }
+      respond_to do |format|
+        format.json { render json: { message: message, success: true } }
+      end
+    rescue ActiveRecord::RecordNotUnique
+      respond_to do |format|
+        format.json { render json: { error: 'Duplicate favorite action', success: false }, status: :unprocessable_entity }
+      end
     end
-  rescue ActiveRecord::RecordNotUnique
-    render json: { error: 'Duplicate favorite action' }, status: :unprocessable_entity
   end
 
   def index
@@ -57,10 +60,4 @@ class UsersController < ApplicationController
     flash[:alert] = "User not found."
     redirect_to root_path
   end
-
-  # def lock_user
-  #   @user.with_lock do
-  #     yield
-  #   end
-  # end
 end
