@@ -1,7 +1,7 @@
 class DropNoticedNotificationsTable < ActiveRecord::Migration[7.1]
-  def up
-    drop_table :noticed_notifications
-  end
+  # def up
+  #   drop_table :noticed_notifications
+  # end
 
   def down
     create_table :noticed_notifications do |t|
