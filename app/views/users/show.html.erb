@@ -46,39 +46,37 @@
       <!-- Yellow background part -->
       <div class="col yellow-bg">
         <div class="yellow-container">
-          <div style="width: 350px">
           <h3 class="mb-3">Choose your appointment with <%= @user.first_name %></h3>
-
-            <div class="d-flex gap-3 flex-wrap justify-content-center" data-controller="time-slot-picker">
+          <div class="container">
+            <div class="circle">
+              <%# A bubble for each day of the week %>
+            </div>
+            <div class="row gap-3" data-controller="time-slot-picker">
               <% @user.time_slots.each do |slot| %>
                 <% if slot.reserved? %>
-                  <div class="time-slot-button-disabled text-center rounded-4 p-2">
-                    <h5><%= slot.start_time.strftime("%A") %></h5>
-                    <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
-                    <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+                  <div class="btn-home p-2">
+                    <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                   </div>
                 <% else %>
                   <div
-                  class="time-slot-button text-center rounded-4 p-2"
-                  data-bs-toggle="modal"
-                  data-bs-target="#confirmation-modal"
+                  class="btn-home p-2 col-6"
+                  <%# data-bs-toggle="modal"
+                  data-bs-target="#confirmation-modal" %>
                   data-slot-id="<%= slot.id %>"
                   data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
                   data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
                   data-day="<%= day_string(slot.day) %>"
                   data-action="click->time-slot-picker#selectTimeSlot">
-                    <h5><%= day_string(slot.day) %></h5>
-                    <p>Start: <%= slot.start_time.strftime("%I:%M %p") %></p>
-                    <p>End: <%= slot.end_time.strftime("%I:%M %p") %></p>
+                    <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                   </div>
-                  <%= form_for @booking, html: { data: { controller: "datepicker" } } do |f| %>
-                    <%= f.text_field :booking_date %>
-                  <% end %>
                 <% end %>
 
 
               <% end %>
 
+              <%= form_for @booking, html: { data: { controller: "datepicker" } } do |f| %>
+                <%= f.text_field :booking_date, hidden: true %>
+              <% end %>
               <%= render "booking_confirmation", user: @user, booking: @booking %>
 
             </div>

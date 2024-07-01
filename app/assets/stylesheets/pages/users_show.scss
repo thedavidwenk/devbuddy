@@ -2,11 +2,11 @@
 
   .flex-container {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     width: 100%;
-    flex-direction: column; 
+    flex-direction: column;
   }
   .row {
     display: flex;
@@ -14,7 +14,7 @@
     width: 100%;
     margin: 0;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
   }
   .col {
     flex: 1;
@@ -132,8 +132,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
   }
   .yellow-container {
     box-sizing: border-box;
@@ -142,7 +142,7 @@
   .headline {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
     text-align: center;
 
     h1 {
@@ -182,17 +182,14 @@
 
 .time-slot-button {
   background-color: white;
-  width: 130px;
-  height: 130px;
+  width: 200px;
+  height: 54px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-
-  h5 {
-    font-size: 1.2rem;
-
-  }
+  border-radius: 34px;
 
   p {
     font-size: 1rem;
+    margin: 0;
   }
 
   &:hover {
@@ -203,24 +200,24 @@
 }
 
 .time-slot-button-disabled {
-  background-color: #f2f2f2; 
+  background-color: #f2f2f2;
   width: 130px;
   height: 130px;
-  box-shadow: none; 
+  box-shadow: none;
 
   h5 {
     font-size: 1.2rem;
-    color: #959595; 
+    color: #959595;
   }
 
   p {
     font-size: 1rem;
-    color: #959595; 
+    color: #959595;
   }
 
   &:hover {
     cursor: not-allowed;
-    background-color: #f2f2f2; 
+    background-color: #f2f2f2;
   }
 }
 
@@ -241,8 +238,3 @@
       margin: 30px auto 0 auto;
     }
   }
-
-
-
-
-
