@@ -14,7 +14,8 @@
               <% end %>
             </div>
             <div class="user-main-info">
-              <%= image_tag 'user_profile_hexagon.png', alt: 'User Profile Hexagon', class: 'profile-hexagon' %>
+              <%# image_tag 'user_profile_hexagon.png', alt: 'User Profile Hexagon', class: 'profile-hexagon' %>
+              <%= render partial: 'users/fav_button', locals: { user: @user } %>
               <h3><%= @user.first_name %> <%= @user.last_name %></h3>
               <span class="user-level"><i class="fa-solid fa-desktop fa-sm" style="margin-right:10px"></i><%= @user.experience_level %></span>
             </div>

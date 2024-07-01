@@ -2,8 +2,6 @@ class User < ApplicationRecord
   # acts_as_favoritor gem setup
   acts_as_favoritor
   acts_as_favoritable
-  has_many :favorites_by_user, class_name: 'Favorite', as: :favoritor, dependent: :destroy
-  has_many :favorited_users, through: :favorites_by_user, source: :favoritable, source_type: 'User'
 
   # Skill levels to select from for users and search
   SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"].freeze
@@ -17,6 +15,7 @@ class User < ApplicationRecord
   has_many :bookings_as_user, class_name: 'Booking', foreign_key: 'user_id', dependent: :destroy
   has_many :bookings_as_booker, class_name: 'Booking', foreign_key: 'booker_id', dependent: :destroy
   has_many :time_slots, dependent: :destroy
+  has_many :notifications, dependent: :destroy
 
   # Combine both associations into a single bookings association
   def bookings
