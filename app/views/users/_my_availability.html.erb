@@ -99,21 +99,21 @@
         </div>
       </div>
 
-      <div class="custom-availability-row">
-        <div class="custom-availability-cell">
-          <%= f.time_select :start_time %>
-        </div>
-        <div class="custom-availability-cell">
-          <%= f.time_select :end_time %>
-        </div>
-        <div>
-          <%= f.hidden_field :day, data: { availability_target: "dayField" } %>
-        </div>
-      </div>
-
+    <div class="custom-availability-row">
       <div class="custom-availability-cell">
-        <%= f.submit 'Save timeslot', class: 'save-timeslot-button' %>
+        <%= f.time_field :start_time %>
       </div>
-    <% end %>
+      <div class="custom-availability-cell">
+        <%= f.time_field :end_time %>
+      </div>
+      <div>
+        <%= f.hidden_field :day, data: { availability_target: "dayField" } %>
+      </div>
+    </div>
+
+  <div class="custom-availability-cell">
+    <%= f.submit 'Save timeslot', class: 'save-timeslot-button' %>
+  </div>
+<% end %>
   </div>
 </div>
