@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
+  get 'notifications/mark_as_read'
   root to: "users#home"
   get 'time_slots/new'
   get 'time_slots/create'
@@ -23,5 +25,12 @@ Rails.application.routes.draw do
 
   resources :bookings, only: [:index, :edit, :update] do
     resources :feedbacks, only: [:new, :create]
+  end
+
+  # Add routes for notifications
+  resources :notifications, only: [:index] do
+    member do
+      patch :mark_as_read
+    end
   end
 end

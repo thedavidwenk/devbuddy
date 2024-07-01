@@ -29,3 +29,12 @@
     flex-direction: column;
     min-height: 100vh;
 }
+
+.badge-danger {
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  font-size: 10px;
+  border-radius: 50px;
+}
