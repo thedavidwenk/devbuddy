@@ -8,8 +8,12 @@
       data-action="click->availability#showDay"
       data-availability-target="button"
       data-day="<%= day %>">
-        <span class="button-day-text"><strong><%= day_string(day) %></strong></span>
-        <i class="fa-solid fa-circle-plus cross-icon" data-action="click->availability#showForm"></i>
+        <span class="button-day-text">
+          <strong><%= day_string(day) %></strong>
+        </span>
+        <i class="fa-solid fa-circle-plus cross-icon"
+          data-action="click->availability#showForm">
+        </i>
       </div>
     <% end %>
   </div>
@@ -27,21 +31,26 @@
             a day that matches the day clicked  %>
 
 
-      <%# is slots_for_day array is empty then...message no time slots yet -------------------- %>
+      <%# is slots_for_day array is empty then
+          message no time slots yet -------------------- %>
 
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
           <div class="no-time-slots-yet-image">
-            <%= image_tag "warning_message_bee.png", alt: 'illustration of a bee talking' %>
+            <%= image_tag "warning_message_bee.png",
+            alt: 'illustration of a bee talking' %>
           </div>
-          <h3 class="message-no-time-slots-yet">No time slots created yet for <%= day_string(day) %>.</h3>
+          <h3 class="message-no-time-slots-yet">
+            No time slots created yet for <%= day_string(day) %>. <%# uses helper to transform integer into day %>
+          </h3>
           <button class="create-time-slot-button"
             data-action="click->availability#showForm">
             <strong>Create your first one</strong>
           </button>
         </div>
 
-      <%# list with time slots ---------------------- %>
+
+      <%# list with existing time slots ------------------------------------ %>
 
       <% else %>
         <div class="custom-availability-table"
@@ -101,10 +110,10 @@
 
       <div class="custom-availability-row">
         <div class="custom-availability-cell">
-          <%= f.time_field :start_time %>
+          <%= f.time_field :start_time, format: "%H:%M" %>
         </div>
         <div class="custom-availability-cell">
-          <%= f.time_field :end_time %>
+          <%= f.time_field :end_time, format: "%H:%M" %>
         </div>
         <div>
           <%= f.hidden_field :day, data: { availability_target: "dayField" } %>

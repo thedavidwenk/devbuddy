@@ -11,13 +11,25 @@ class TimeSlotsController < ApplicationController
     end_time = params["end_time"]
     day = params["day"]
 
-    @time_slot = TimeSlot.new(start_time: start_time, end_time: end_time, day: day)
+    @time_slot = current_user.time_slots.new(start_time: start_time, end_time: end_time, day: day)
+
+    # raise
     if @time_slot.save
-      raise
       redirect_to users_path, notice: 'Time slot was successfully created.'
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
+
+    # raise
+    # raise @time_slot_params.inspect
+    # @time_slot = TimeSlot.new(time_slot_params)
+
+
+    # if @time_slot.save
+    #   redirect_to users_path, notice: 'Time slot was successfully created.'
+    # else
+    #   render :new, status: :unprocessable_entity
+    # end
 
   end
 
@@ -44,6 +56,6 @@ class TimeSlotsController < ApplicationController
   end
 
   def time_slot_params
-    params.require(:time_slot).permit(:start_time, :end_time, :day)
+    params.require(:time_slot).permit(:day, :start_time, :end_time)
   end
 end
