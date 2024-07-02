@@ -1,7 +1,7 @@
 class DropNoticedEventsTable < ActiveRecord::Migration[7.1]
-  def up
-    drop_table :noticed_events
-  end
+  # def up
+  #   drop_table :noticed_events
+  # end
 
   def down
     create_table :noticed_events do |t|

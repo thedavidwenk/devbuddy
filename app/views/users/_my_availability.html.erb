@@ -1,0 +1,95 @@
+<div data-controller="availability">
+  <div class="weekdays-row">
+    <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+      <div class="button-day"
+      data-action="click->availability#showDay"
+      data-availability-target="button"
+      data-day="<%= day.downcase %>">
+        <span class="button-day-text"><strong><%= day %></strong></span>
+        <i class="fa-solid fa-circle-plus cross-icon" data-action="click->availability#showForm"></i>
+      </div>
+    <% end %>
+  </div>
+
+  <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+    <div class="section-container day-slots hidden"
+    data-availability-target="daySlots"
+    data-day="<%= day.downcase %>">
+      <% slots_for_day = @time_slots.select { |slot| Date::DAYNAMES[slot.day].casecmp(day).zero? } %>
+
+      <% if slots_for_day.empty? %>
+        <div class="no-time-slots-created-yet">
+          <div class="no-time-slots-yet-image">
+            <%= image_tag "warning_message_bee.png", alt: 'illustration of a bee talking' %>
+          </div>
+          <h3 class="message-no-time-slots-yet">No time slots created yet for <%= day %>.</h3>
+          <button class="create-time-slot-button"
+            data-action="click->availability#showForm">
+            <strong>Create your first one</strong>
+          </button>
+        </div>
+
+      <% else %>
+        <div class="custom-availability-table" data-availability-target="table">
+          <div class="custom-availability-header">
+            <div class="custom-availability-cell">
+              <strong>start time</strong>
+            </div>
+            <div class="custom-availability-cell">
+              <strong>end time</strong>
+            </div>
+            <div class="custom-availability-cell">
+              <strong>Edit or delete</strong>
+            </div>
+          </div>
+
+          <% slots_for_day.each do |slot| %>
+            <div class="custom-availability-row">
+              <div class="custom-availability-cell">
+                <p><%= slot.start_time.strftime("%I:%M %p") %></p>
+              </div>
+              <div class="custom-availability-cell">
+               <p><%= slot.end_time.strftime("%I:%M %p") %></p>
+              </div>
+              <div class="custom-availability-cell custom-icons">
+                <a href="#" class="custom-button-icon">
+                  <i class="fas fa-edit"></i>
+                </a>
+                <a href="#" data-method="delete" data-confirm="Are you sure?" class="custom-button-icon">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div class="section-container" data-availability-target="form" style="display: none;">
+    <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
+      <div class="custom-availability-header">
+        <div class="custom-availability-cell">
+          <strong>start time</strong>
+        </div>
+        <div class="custom-availability-cell">
+          <strong>end time</strong>
+        </div>
+      </div>
+
+      <div class="custom-availability-row">
+        <div class="custom-availability-cell">
+          <%= f.time_select :start_time %>
+        </div>
+        <div class="custom-availability-cell">
+          <%= f.time_select :end_time %>
+        </div>
+        <%= f.hidden_field :day %>
+      </div>
+
+      <div class="custom-availability-cell">
+        <%= f.submit 'Save timeslot', class: 'save-timeslot-button' %>
+      </div>
+    <% end %>
+  </div>
+</div>

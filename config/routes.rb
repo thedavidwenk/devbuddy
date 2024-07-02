@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:new, :create]
   end
 
+  resources :time_slots, only: [:new, :create, :edit, :update, :destroy]
+
   # Other routes...
   resources :notifications, only: [:index]
 end
