@@ -2,12 +2,12 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notifications = current_user.notifications.order(created_at: :desc)
-  end
+    # Fetch notifications data here
+    notifications_data = {
+      unread_count: current_user.notifications.unread.count
+      # Other relevant data you may need
+    }
 
-  def mark_as_read
-    notification = current_user.notifications.find(params[:id])
-    notification.update(read: true)
-    render json: { success: true }
+    render json: notifications_data
   end
 end

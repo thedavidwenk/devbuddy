@@ -34,8 +34,8 @@
                 <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <%= image_tag current_user.avatar, class: "avatar-large border border-2 border-dark", alt: "dropdown menu" %>
                 </a>
-                <span class="badge badge-danger" data-notifications-target="count">
-                  <%= current_user.notifications.unread.count %>
+                <span class="badge badge-danger d-none" data-controller="notification" data-notification-target="badge">
+                  <!-- Badge content will be updated dynamically by Stimulus -->
                 </span>
               <% else %>
                 <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

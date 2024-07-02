@@ -32,44 +32,39 @@
 
   .avatar-and-main-info {
     margin-top: 50px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     height: 240px;
     max-width: 600px;
     display: flex;
-    align-items: center;
+    justify-content: center;
+    align-items: start;
     color: $gray;
 
-    h3 {
-      flex: 1;
-      margin-top: -100px;
-      margin-left: 300px;
-      color: $gray;
-    }
-
     img {
+      flex: 1;
       width: 320px;
       height: 240px;
       object-fit: cover;
       border-radius: 20px;
     }
 
-    .profile-hexagon {
-      width: 18px;
-      height: 20px;
-      margin-top: -220px;
-      margin-left: 300px;
-    }
+    .column-2 {
+      flex-grow: 1;
+      padding-left: 300px;
 
-    .user-location {
-      margin-top: -120px;
-      margin-left: 300px;
-      color: $mid-gray;
-    }
+      h3 {
+        flex: 1;
+        color: $gray;
+      }
 
-    .user-level {
-      margin-top: -120px;
-      margin-left: 300px;
-      color: $mid-gray;
+      .user-level {
+        color: $mid-gray;
+      }
+
+      .profile-heart {
+        width: 18px;
+
+      }
     }
   }
 

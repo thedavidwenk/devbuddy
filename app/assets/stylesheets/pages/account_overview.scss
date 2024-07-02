@@ -9,6 +9,12 @@
   right: 15%;
 }
 
+@media (max-width: 768px) {
+  .illustration-account-overview {
+    display: none;
+  }
+}
+
 .overview-title {
   padding-top: 50px;
   padding-bottom: 50px;
@@ -17,22 +23,6 @@
 
 .overview-title-thin {
   font-family: $body-font;
-}
-
-.thin-text-in-header {
-  font-family: $body-font;
-  font-weight: normal;
-}
-
-.section-container {
-  background-color: white;
-  border-radius: 14px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 15px;
-  padding-top: 30px;
-  margin-right: 117px;
-  margin-bottom: 80px;
 }
 
 .custom-container {
@@ -85,10 +75,12 @@
   padding-top: 40px;
 }
 
-.overview-subtitle {
-  font-size: 20px;
-  font-family: $headers-font;
-  margin-bottom: 10px;
+@media (max-width: 768px) {
+  .custom-tab-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+  }
 }
 
 .custom-tab-pane {
@@ -97,75 +89,6 @@
 
 .custom-tab-pane.active {
   display: block;
-}
-
-.custom-margin-top {
-  margin-top: 20px;
-}
-
-.custom-appointments-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-.custom-appointments-header {
-  display: flex;
-  padding-bottom: 8px;
-  margin-top: -10px;
-  color: $dark-brand;
-  font-family: $body-font;
-  font-size: 16px;
-}
-
-.custom-appointment-row {
-  display: flex;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 5px;
-  font-size: 18px;
-  font-family: $body-font;
-  background-color: $yellow-brand;
-  margin-bottom: 13px;
-  border-radius: 14px;
-  cursor: pointer;
-}
-
-.custom-appointments-cell {
-  flex: 1;
-  padding: 5px 30px;
-}
-
-// .custom-appointment-row:hover {
-//   background-color: lightgrey;
-// }
-
-.custom-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.custom-icons {
-  display: flex;
-  gap: 30px;
-}
-
-.custom-icon-link {
-  color: $dark-brand;
-  text-decoration: none;
-}
-
-.custom-button-icon i {
-  color: white;
-  background-color: $dark-brand;
-  border-radius: 50%;
-  font-size: 16px;
-  padding: 10px;
-}
-.custom-button-icon:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .back-button-account-overview {
@@ -179,3 +102,21 @@
   font-family: $body-font;
   margin-left: 300px;
 }
+
+
+@media (max-width: 768px) {
+  .back-button-account-overview {
+    margin-left: 20px;
+  }
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.remove-card-transition {
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+

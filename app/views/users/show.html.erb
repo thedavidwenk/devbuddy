@@ -12,12 +12,13 @@
           <div class="avatar-and-main-info">
             <div class="avatar">
               <% if @user.avatar.present? %>
-                <%= image_tag(@user.avatar, style: "width:320px; height:240px; object-fit:cover; border-radius:20px;") %>
+                <%= image_tag(@user.avatar) %>
               <% end %>
             </div>
-            <div class="user-main-info">
-              <%# image_tag 'user_profile_hexagon.png', alt: 'User Profile Hexagon', class: 'profile-hexagon' %>
-              <%= render partial: 'users/fav_button', locals: { user: @user } %>
+            <div class="column-2 user-main-info">
+              <div class="profile-heart">
+                <%= render partial: 'users/fav_button', locals: { user: @user } %>
+              </div>
               <h3><%= @user.first_name %> <%= @user.last_name %></h3>
               <span class="user-level"><i class="fa-solid fa-desktop fa-sm" style="margin-right:10px"></i><%= @user.experience_level %></span>
             </div>

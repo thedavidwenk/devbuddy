@@ -1,16 +1,11 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
-// Connects to data-controller="notification"
 export default class extends Controller {
-  static targets = ["count"];
+  static targets = ["badge"];
 
   connect() {
-    // This timeout removes the notification after 5 seconds
-    const notificationElement = this.element;
-    setTimeout(() => {
-      notificationElement.remove();
-    }, 3000);
-
+    // Initially hide the badge
+    this.toggleBadgeVisibility();
     this.loadNotifications();
   }
 
@@ -18,8 +13,22 @@ export default class extends Controller {
     fetch("/notifications")
       .then(response => response.json())
       .then(data => {
-        this.countTarget.innerText = data.unread_count;
+        this.count = data.unread_count;
+        this.updateBadge();
+        this.toggleBadgeVisibility();
       });
+  }
+
+  toggleBadgeVisibility() {
+    if (this.count > 0) {
+      this.badgeTarget.classList.remove("d-none");
+    } else {
+      this.badgeTarget.classList.add("d-none");
+    }
+  }
+
+  updateBadge() {
+    this.badgeTarget.innerText = this.count;
   }
 
   markAsRead(event) {
