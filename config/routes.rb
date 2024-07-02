@@ -26,8 +26,10 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :edit, :update] do
     resources :feedbacks, only: [:new, :create]
     # accept and reject a booking
-    patch :accept
-    patch :reject
+    member do
+      patch :accept
+      patch :reject
+    end
   end
 
   resources :time_slots, only: [:new, :create, :edit, :update, :destroy]

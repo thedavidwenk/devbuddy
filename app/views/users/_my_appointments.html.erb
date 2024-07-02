@@ -39,12 +39,16 @@
             <div class="custom-appointments-cell">"<%= booking.note %>"</div>
             <div class="custom-appointments-cell">
               <% buddy = booking.user == current_user ? booking.booker : booking.user %>
-              <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+             <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
               <%= buddy.username %>
             </div>
             <div class="custom-appointments-cell custom-icons">
-              <%= link_to 'Approve', booking_accept_path(booking), method: :patch, class: 'btn btn-success' %>
-              <%= link_to 'Reject', booking_reject_path(booking), method: :patch, class: 'btn btn-danger' %>
+              <%= link_to accept_booking_path(booking), method: :patch do  %>
+                <i class="fa-regular fa-circle-check"></i> 
+              <% end  %>
+              <%= link_to reject_booking_path(booking), method: :patch, data: { turbo_confirm: 'Are you sure?' } do  %>
+                <i class="fa-regular fa-circle-xmark"></i>
+              <% end  %>
             </div>
           </div>
         <% end %>
