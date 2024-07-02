@@ -47,7 +47,7 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-# search function 
+# search function
 gem "pg_search"
 
 # add a favorite buddy
@@ -59,6 +59,7 @@ gem "simple_form"
 gem "font-awesome-sass", "~> 6.1"
 gem "sassc-rails"
 gem "devise"
+gem "flatpickr"
 
 group :development, :test do
   gem "dotenv-rails"
