@@ -6,13 +6,19 @@ class TimeSlotsController < ApplicationController
   end
 
   def create
-    raise
-    @time_slot = TimeSlot.new(time_slot_params)
+
+    start_time = params["start_time"]
+    end_time = params["end_time"]
+    day = params["day"]
+
+    @time_slot = TimeSlot.new(start_time: start_time, end_time: end_time, day: day)
     if @time_slot.save
-      redirect_to account_overview_user_path, notice: 'Time slot was successfully created.'
+      raise
+      redirect_to users_path, notice: 'Time slot was successfully created.'
     else
       render :new
     end
+
   end
 
   def edit
