@@ -16,10 +16,6 @@ export default class extends Controller {
     this.selectedDay = null;
   }
 
-  // highlights clicked day,
-  // picks up weekday name,
-  // display slots table or alert message ----- >
-
   showDay(event) {
     this.clearActiveButtons(); // <--- removes active class from any other button
 
@@ -67,6 +63,7 @@ export default class extends Controller {
   }
 
   showForm(event) {
+    console.log("hello from showForm function!");
     this.hideAllTables();
     this.hideNoTimeSlots();
     this.formTarget.style.display = "block";
@@ -96,5 +93,9 @@ export default class extends Controller {
     this.noTimeSlotsCreatedYetTargets.forEach(
       (message) => (message.style.display = "none")
     );
+  }
+
+  stopPropagation(event) {
+    event.stopPropagation();
   }
 }

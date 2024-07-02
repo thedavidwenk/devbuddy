@@ -12,7 +12,11 @@
           <strong><%= day_string(day) %></strong>
         </span>
         <i class="fa-solid fa-circle-plus cross-icon"
-          data-action="click->availability#showForm">
+           data-action="click->availability#stopPropagation
+           click->availability#showForm">
+        </i>
+
+        </i>
         </i>
       </div>
     <% end %>
