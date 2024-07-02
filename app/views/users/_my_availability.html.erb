@@ -31,7 +31,7 @@
             a day that matches the day clicked  %>
 
 
-      <%# is slots_for_day array is empty then
+      <%# if slots_for_day array is empty then
           message no time slots yet -------------------- %>
 
       <% if slots_for_day.empty? %>
@@ -57,10 +57,10 @@
           data-availability-target="table">
           <div class="custom-availability-header">
             <div class="custom-availability-cell">
-              <strong>start time</strong>
+              <strong>Starts at:</strong>
             </div>
             <div class="custom-availability-cell">
-              <strong>end time</strong>
+              <strong>Ends at:</strong>
             </div>
             <div class="custom-availability-cell">
               <strong>Edit or delete</strong>
