@@ -2,20 +2,24 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="day-selector"
 export default class extends Controller {
-  static targets = ["bubble", "slot", "slots"];
+  static targets = ["bubble", "slot"];
 
   selectDay(event) {
     const clickedBubble = event.currentTarget;
     const bubbles = this.bubbleTargets;
+    const slots = this.slotTargets;
 
     bubbles.forEach(bubble => {
       bubble.classList.remove("active-btn");
     })
-    clickedBubble.classList.toggle("active-btn");
+    clickedBubble.classList.add("active-btn");
 
-    
-
-    // this.slotsTargets.classList.remove("d-none")
+    slots.forEach( (slot) => {
+      slot.classList.add("d-none")
+      if (slot.dataset.day === clickedBubble.dataset.day) {
+        slot.classList.remove("d-none");
+      }
+    });
   }
 
   selectTime(event) {
@@ -25,6 +29,6 @@ export default class extends Controller {
     slots.forEach(slot => {
       slot.classList.remove("active-btn");
     })
-    clickedSlot.classList.toggle("active-btn");
+    clickedSlot.classList.add("active-btn");
   }
 }
