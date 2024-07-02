@@ -103,8 +103,20 @@
   margin-left: 300px;
 }
 
+
 @media (max-width: 768px) {
   .back-button-account-overview {
     margin-left: 20px;
   }
 }
+
+.card-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.remove-card-transition {
+  opacity: 0;
+  transition: opacity 0.35s;
+}
+
