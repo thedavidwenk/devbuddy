@@ -50,43 +50,35 @@
           <h3 class="mb-3">Select your appointment with <%= @user.first_name %></h3>
           <div class="container" data-controller="day-selector">
             <div class="d-flex justify-content-evenly mb-5" >
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Mo</span>
-              </div>
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Tue</span>
-              </div>
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Wed</span>
-              </div>
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Thu</span>
-              </div>
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Fri</span>
-              </div>
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Sat</span>
-              </div>
-              <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay">
-                <span>Sun</span>
-              </div>
+
+              <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
+                <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay" data-weekday=<%= day %>
+                  <span><%= day_string(day)[0...3] %></span>
+                </div>
+              <% end %>
+
             </div>
-            <div class="row gap-3" data-controller="time-slot-picker">
-              <% @user.time_slots.each do |slot| %>
+            <div class="row gap-3" data-controller="time-slot-picker" data-day-selector-target="slots">
+
+
+              <%# <% @time_slots.each do |slot| %> %>
+              <% @time_slots.select { |slot| slot.day == day } %> <%# How do I get the day integer to compare? %>
+
                 <% if slot.reserved? %>
                   <div class="time-slot-button p-2 col-5">
                     <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                   </div>
                 <% else %>
-                  <div data-day-selector-target="slot" data-action="click->day-selector#selectTime"
+                  <div
+                  data-day-selector-target="slot"
+                  data-action="click->day-selector#selectTime"
                   class="time-slot-button p-2 col-5"
                   <%# data-bs-toggle="modal"
                   data-bs-target="#confirmation-modal" %>
                   data-slot-id="<%= slot.id %>"
                   data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
                   data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
-                  data-day="<%= day_string(slot.day) %>"
+                  data-day="<%= slot.day %>"
                   data-action="click->time-slot-picker#selectTimeSlot">
                     <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                   </div>
@@ -94,7 +86,7 @@
               <% end %>
 
               <%= form_for @booking, html: { data: { controller: "datepicker" } } do |f| %>
-                <%= f.text_field :booking_date, hidden: true %>
+                <%= f.text_field :booking_date %>
               <% end %>
               <%= render "booking_confirmation", user: @user, booking: @booking %>
 

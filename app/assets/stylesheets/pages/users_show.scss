@@ -217,16 +217,7 @@
     width: 130px;
     height: 130px;
     box-shadow: none;
-
-    h5 {
-      font-size: 1.2rem;
-      color: #959595;
-    }
-
-    p {
-      font-size: 1rem;
-      color: #959595;
-    }
+    color: #959595;
 
     &:hover {
       cursor: not-allowed;
@@ -234,13 +225,11 @@
     }
   }
 
-  .active {
+  .active-btn {
     background-color: $dark-brand;
     color: white;
     transform: translateY(-3px);
   }
-
-
 }
 
   /* Responsive adjustments */
