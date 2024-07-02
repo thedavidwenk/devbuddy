@@ -42,6 +42,7 @@ class BookingsController < ApplicationController
 
 
   def accept
+     @booking = Booking.find(params[:id])
     if @booking.update(status: "approved")
       redirect_to account_overview_user_path(current_user), notice: "Booking successfully approved"
     else
@@ -50,6 +51,7 @@ class BookingsController < ApplicationController
   end
 
   def reject
+     @booking = Booking.find(params[:id])
     if @booking.update(status: "rejected")
       redirect_to account_overview_user_path(current_user), notice: "Booking successfully rejected"
     else
