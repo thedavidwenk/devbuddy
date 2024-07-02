@@ -3,7 +3,11 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="day-selector"
 export default class extends Controller {
-  static targets = ["bubble", "slot", "datepicker"];
+  static targets = ["bubble", "slot", "datepicker", "submit"];
+
+  connect() {
+
+  }
 
   selectDay(event) {
     const clickedBubble = event.currentTarget;
@@ -21,32 +25,35 @@ export default class extends Controller {
         slot.classList.remove("d-none");
       }
     });
-
-
-
-    flatpickr(this.element, {
-      dateFormat: "Y-m-d",
-      minDate: "today",
-      "disable": [
-        function(date) {
-          let value = parseInt(clickedBubble.dataset.day);
-          return (date.getDay() !== value);
-        }
-      ],
-      "locale": {
-        "firstDayOfWeek": 1 // start week on Monday
-      }
-    });
   }
 
   selectTime(event) {
     const clickedSlot = event.currentTarget;
     const slots = this.slotTargets;
+    const submitButton = this.submitTarget
 
     slots.forEach(slot => {
       slot.classList.remove("active-btn");
     })
     clickedSlot.classList.add("active-btn");
 
+    flatpickr(this.element, {
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      "disable": [
+        function(date) {
+          let dayValue = parseInt(clickedSlot.dataset.day);
+          return (date.getDay() !== dayValue);
+        }
+      ],
+      "locale": {
+        "firstDayOfWeek": 1 // start week on Monday
+      },
+      onChange: function(selectedDates, dateStr, instance) {
+        if (selectedDates) {
+          submitButton.classList.remove("d-none");
+        }
+      }
+    });
   }
 }
