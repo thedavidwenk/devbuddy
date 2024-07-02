@@ -56,7 +56,7 @@
 
             <div class="d-flex justify-content-evenly mb-5" >
               <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
-                <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay" data-day=<%= day %>
+                <div class="day-bubble" data-day-selector-target="bubble" data-datepicker-target="day" data-action="click->day-selector#selectDay" data-day=<%= day %>
                   <span><%= day_string(day)[0...3] %></span>
                 </div>
               <% end %>
@@ -82,7 +82,7 @@
 
 
 
-              <%= form_for @booking, html: { data: { controller: "datepicker" } } do |f| %>
+              <%= form_for @booking, html: { data: { day_selector_target: "datepicker" } } do |f| %>
                 <%= f.text_field :booking_date %>
               <% end %>
               <%= render "booking_confirmation", user: @user, booking: @booking %>

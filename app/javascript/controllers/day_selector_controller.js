@@ -1,8 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
+import flatpickr from "flatpickr";
 
 // Connects to data-controller="day-selector"
 export default class extends Controller {
-  static targets = ["bubble", "slot"];
+  static targets = ["bubble", "slot", "datepicker"];
 
   selectDay(event) {
     const clickedBubble = event.currentTarget;
@@ -20,6 +21,22 @@ export default class extends Controller {
         slot.classList.remove("d-none");
       }
     });
+
+
+
+    flatpickr(this.element, {
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      "disable": [
+        function(date) {
+          let value = parseInt(clickedBubble.dataset.day);
+          return (date.getDay() !== value);
+        }
+      ],
+      "locale": {
+        "firstDayOfWeek": 1 // start week on Monday
+      }
+    });
   }
 
   selectTime(event) {
@@ -30,5 +47,6 @@ export default class extends Controller {
       slot.classList.remove("active-btn");
     })
     clickedSlot.classList.add("active-btn");
+
   }
 }
