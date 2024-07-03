@@ -1,5 +1,7 @@
 class BookingsController < ApplicationController
-  before_action :authenticate_user!, :set_user
+  before_action :authenticate_user!
+  before_action :set_user, only: [:create]
+  before_action :set_booking, only: [:destroy, :accept, :reject]
 
   def index
     @bookings = Booking.all
@@ -25,7 +27,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
     time_slot = @booking.time_slot
 
     if @booking.destroy
@@ -38,10 +39,31 @@ class BookingsController < ApplicationController
     end
   end
 
+
+  def accept
+    if @booking.update(status: "approved")
+      redirect_to account_overview_user_path(current_user, anchor: "appointments"), notice: "Booking successfully approved"
+    else
+      redirect_to account_overview_user_path(current_user, anchor: "appointments"), alert: "Failed to approve booking"
+    end
+  end
+
+  def reject
+    if @booking.update(status: "rejected")
+      redirect_to account_overview_user_path(current_user, anchor: "appointments"), notice: "Booking successfully rejected"
+    else
+      redirect_to account_overview_user_path(current_user, anchor: "appointments"), alert: "Failed to reject booking"
+    end
+  end
+
   private
 
   def set_user
     @user = User.find(params[:user_id])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def booking_params
