@@ -62,7 +62,7 @@
 
         <div class="custom-availability-table"
           data-availability-target="table">
-          <p class="custom-form-title">Your availability slots on <%= day_string(day) %>: </p>
+          <p class="custom-form-title-slots">Your availability slots on <%= day_string(day) %>: </p>
           <div class="custom-availability-header-slot-rows">
             <div class="custom-availability-cell">
               <p>starts at:</p>
@@ -107,7 +107,7 @@
     data-availability-target="form"
     style="display: none;">
 
-    <p class="custom-form-title">Select start and end times of a new timeslot</p>
+    <p class="custom-form-title-slots">Create a new timeslot</p>
     <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
       <div class="custom-availability-header">
         <div class="custom-availability-header-text">
