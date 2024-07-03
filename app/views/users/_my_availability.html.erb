@@ -13,11 +13,9 @@
           <strong><%= day_string(day) %></strong>
         </span>
         <i class="fa-solid fa-circle-plus cross-icon"
+
            data-action="click->availability#stopPropagation
            click->availability#showForm">
-        </i>
-
-        </i>
         </i>
       </div>
     <% end %>
@@ -36,11 +34,13 @@
             a day that matches the day clicked  %>
 
 
+
       <%# if slots_for_day array is empty then
           message no time slots yet -------------------- %>
 
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
+
           <div>
             <%= image_tag "warning_message_bee.png",
             alt: 'illustration of a bee talking',
@@ -64,6 +64,7 @@
           data-availability-target="table">
           <p class="custom-form-title-slots">Your availability slots on <%= day_string(day) %>: </p>
           <div class="custom-availability-header-slot-rows">
+
             <div class="custom-availability-cell">
               <p>starts at:</p>
             </div>
@@ -102,12 +103,12 @@
 
   <%# form to crate a new time slot ------------------- %>
 
-
   <div class="section-container"
     data-availability-target="form"
     style="display: none;">
 
     <p class="custom-form-title-slots">Create a new timeslot</p>
+
     <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
       <div class="custom-availability-header">
         <div class="custom-availability-header-text">

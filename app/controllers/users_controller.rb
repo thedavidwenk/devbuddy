@@ -48,10 +48,18 @@ class UsersController < ApplicationController
 
   def account_overview
     @user = current_user
-    @upcoming_bookings = Booking.joins(:time_slot).where(user: @user).or(Booking.joins(:time_slot).where(booker: @user)).upcoming
-    @past_bookings = Booking.joins(:time_slot).where(user: @user).or(Booking.joins(:time_slot).where(booker: @user)).past
+    @pending_requests = Booking.where(user: @user).where(status: 'open')           
+    @upcoming_bookings = Booking.joins(:time_slot)
+                                .where(user: @user).or(Booking.joins(:time_slot)
+                                .where(booker: @user)).upcoming
+                                .where(status: 'approved')
+    @past_bookings = Booking.joins(:time_slot)
+                                .where(user: @user).or(Booking.joins(:time_slot)
+                                .where(booker: @user)).past
+                                .where(status: 'approved')
     @time_slots = current_user.time_slots || [] # <------- this line is used in my_availability tab
   end
+
 
   private
 

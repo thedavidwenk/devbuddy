@@ -112,7 +112,8 @@ Booking.create!(
   user_id: user1.id,
   booker_id: user2.id,
   time_slot_id: timeslot1.id,
-  booking_date: Date.new(2024, 9, 24)
+  booking_date: Date.new(2024, 9, 24),
+  status: "open"
 )
 
 Booking.create!(
@@ -120,7 +121,8 @@ Booking.create!(
   user_id: user2.id,
   booker_id: user1.id,
   time_slot_id: timeslot3.id,
-  booking_date: Date.new(2024, 9, 16)
+  booking_date: Date.new(2024, 9, 16),
+  status: "open"
 )
 
 # Create past bookings (Jan-Mar 2024)

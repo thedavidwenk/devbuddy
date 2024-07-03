@@ -1,3 +1,62 @@
+<%# Appointment Requests --------------------- %>
+
+<div class="custom-margin-top">
+  <p class="overview-subtitle">Appointment Requests</p>
+  <div class="section-container">
+    <div class="custom-appointments-table">
+
+      <div class="custom-appointments-header">
+        <div class="custom-appointments-cell">
+          <strong>Date</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>Time</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>Message</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>Buddy</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>Confirm</strong>
+        </div>
+      </div>
+
+      <% if @pending_requests.empty? %>
+        <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
+          <h5 class="custom-appointments-cell">No open booking requests</h5>
+        </div>
+      <% else %>
+        <% @pending_requests.each do |booking| %>
+          <div class="custom-appointment-row d-flex justify-content-center align-items-top">
+            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
+            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
+            <div class="custom-appointments-cell">"<%= booking.note %>"</div>
+            <div class="custom-appointments-cell">
+              <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+             <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+              <%= buddy.username %>
+            </div>
+            <div class="custom-appointments-cell custom-icons">
+              <%= link_to accept_booking_path(booking), method: :patch, class: 'custom-button-icon' do  %>
+                <i class="fa-regular fa-circle-check"></i> 
+              <% end  %>
+              <%= link_to reject_booking_path(booking), method: :patch, class: 'custom-button-icon', data: { turbo_confirm: 'Are you sure?' } do  %>
+                <i class="fa-regular fa-circle-xmark"></i>
+              <% end  %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
 <%# Upcoming Appointments --------------------- %>
 
 <div class="custom-margin-top">
@@ -31,12 +90,13 @@
         <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
           <h5 class="custom-appointments-cell">No upcoming appointments</h5>
           <%= link_to users_path, class: 'btn btn-primary rounded-5 px-5' do %>
-              <span>Find A Buddy!</span>
-              <i class="fa-solid fa-chevron-right px-2"></i>
-            <% end %>
+            <span>Find A Buddy!</span>
+            <i class="fa-solid fa-chevron-right px-2"></i>
+          <% end %>
         </div>
       <% else %>
         <% @upcoming_bookings.each do |booking| %>
+      
           <div class="custom-appointment-row">
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
@@ -76,20 +136,26 @@
         <div class="custom-appointments-cell"><strong>Your notes</strong></div>
       </div>
 
-      <% @past_bookings.each do |booking| %>
-        <div class="custom-appointment-row">
-          <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
-          <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.start_time.strftime("%I:%M %p") %></div>
-          <div class="custom-appointments-cell">"<%= booking.note %>"</div>
-          <div class="custom-appointments-cell">
-            <% buddy = booking.user == current_user ? booking.booker : booking.user %>
-            <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
-            <%= buddy.username %>
-          </div>
-          <div class="custom-appointments-cell custom-icons">
-            <a href="#" class="custom-icon-link"><i class="fa-solid fa-comment"></i></a>
-          </div>
+      <% if @past_bookings.empty? %>
+        <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
+          <h5 class="custom-appointments-cell">No past appointments</h5>
         </div>
+      <% else %>
+        <% @past_bookings.each do |booking| %>
+          <div class="custom-appointment-row">
+            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
+            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
+            <div class="custom-appointments-cell">"<%= booking.note %>"</div>
+            <div class="custom-appointments-cell">
+              <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+              <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+              <%= buddy.username %>
+            </div>
+            <div class="custom-appointments-cell custom-icons">
+              <a href="#" class="custom-icon-link"><i class="fa-solid fa-comment"></i></a>
+            </div>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
