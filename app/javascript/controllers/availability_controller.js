@@ -20,13 +20,13 @@ export default class extends Controller {
     this.clearActiveButtons(); // <--- removes active class from any other button
 
     const dayButton = event.currentTarget;
-    console.dir(dayButton);
     dayButton.classList.add("active");
 
     const day = dayButton.dataset.day; // <--- stores value of data-day
-
     this.selectedDay = day; // <--- stores value of data-day in a controller property (integer)
     console.log(this.selectedDay);
+
+    // show the correspondent day slots --------- >
 
     this.daySlotsTargets.forEach((daySlot) => {
       daySlot.style.display = daySlot.dataset.day === day ? "block" : "none";
