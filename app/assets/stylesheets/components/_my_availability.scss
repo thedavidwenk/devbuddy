@@ -118,7 +118,7 @@
 }
 
 .no-time-slots-created-yet {
-  display: none;
+  display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
@@ -127,13 +127,14 @@
 }
 
 .no-time-slots-yet-image {
-  max-width: 400px;
-  margin-bottom: 20px;
+  margin-right: 80px;
 }
 
 .message-no-time-slots-yet {
   font-family: $headers-font;
   margin-bottom: 20px;
+  margin-top: 20px;
+  color: $dark-brand;
 }
 
 .create-time-slot-button {
@@ -166,6 +167,7 @@
 .custom-form-title {
   font-size: 20px;
   font-family: $headers-font;
+  color: $dark-brand;
   margin-bottom: 30px;
   padding-left: 5px;
 }

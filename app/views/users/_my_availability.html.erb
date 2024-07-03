@@ -41,9 +41,10 @@
 
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
-          <div class="no-time-slots-yet-image">
+          <div>
             <%= image_tag "warning_message_bee.png",
-            alt: 'illustration of a bee talking' %>
+            alt: 'illustration of a bee talking',
+            class:"no-time-slots-yet-image" %>
           </div>
           <h3 class="message-no-time-slots-yet">
             No time slots created yet for <%= day_string(day) %>. <%# uses helper to transform integer into day %>
@@ -59,7 +60,7 @@
 
       <% else %>
 
-        <div class="custom-availability-table hidden"
+        <div class="custom-availability-table"
           data-availability-target="table">
           <p class="custom-form-title">Your availability slots on <%= day_string(day) %>: </p>
           <div class="custom-availability-header-slot-rows">
