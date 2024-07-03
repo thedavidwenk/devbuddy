@@ -1,17 +1,19 @@
-// .section-container {
-//   background-color: white;
-//   border-radius: 14px;
-//   padding-left: 30px;
-//   padding-right: 30px;
-//   padding-bottom: 15px;
-//   padding-top: 20px;
-//   margin-right: 117px;
-//   margin-bottom: 80px;
-// }
+.section-container-availability {
+  background-color: white;
+  border-radius: 14px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  margin-right: 210px;
+  margin-left: 100px;
+  margin-bottom: 80px;
+}
 
 .weekdays-row {
   padding: 0;
-  margin-right: 117px;
+  margin-right: 210px;
+  margin-left: 100px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
@@ -79,7 +81,7 @@
   display: flex;
   padding-bottom: 8px;
   margin-top: -10px;
-  margin-left: 320px;
+  margin-left: 0px;
   color: $dark-brand;
   font-family: $body-font;
   font-size: 16px;
@@ -105,11 +107,16 @@
   margin-left: 20px;
 }
 
+#end-time-header-text {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
 .custom-availability-row {
   display: flex;
   padding-top: 10px;
   padding-bottom: 5px;
-  padding-left: 5px;
+  padding-left: 0px;
   font-size: 16px;
   background-color: $yellow-brand;
   margin-bottom: 13px;
@@ -180,6 +187,7 @@
   color: $dark-brand;
   margin-top: 20px;
   margin-bottom: 10px;
+  margin-left: 100px;
   padding-left: 5px;
 }
 
@@ -191,9 +199,9 @@
   padding-left: 5px;
 }
 
-#start_time {
-  margin-left: 300px;
-}
+// #start_time {
+//   margin-left: 300px;
+// }
 
 .hidden {
   display: none;

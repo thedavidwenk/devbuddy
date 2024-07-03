@@ -25,7 +25,7 @@
   <%# availability slots per day ------------------ %>
 
   <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
-    <div class="section-container day-slots hidden"
+    <div class="section-container-availability day-slots hidden"
     data-availability-target="daySlots"
     data-day="<%= day %>">
       <% slots_for_day = @time_slots.select { |slot| slot.day == day } %>
@@ -104,7 +104,7 @@
 
   <%# form to crate a new time slot ------------------- %>
 
-  <div class="section-container"
+  <div class="section-container-availability"
     data-availability-target="form"
     style="display: none;">
 
@@ -116,7 +116,7 @@
           <p id="start-time-header-text">start time</p>
         </div>
         <div class="custom-availability-header-text">
-          <p>end time</p>
+          <p id="end-time-header-text">end time</p>
         </div>
       </div>
 
