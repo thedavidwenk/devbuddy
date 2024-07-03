@@ -13,18 +13,15 @@
 
     <!-- Middle Items -->
     <div class="mx-auto">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users">search</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/users">buddies</a>
-        </li>
-      </ul>
-    </div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <%= link_to "about", root_path, class: "nav-link #{active_class(root_path)}" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "buddies", users_path, class: "nav-link #{active_class(users_path)}" %>
+          </li>
+        </ul>
+      </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto"  style="padding-left:121px;">
