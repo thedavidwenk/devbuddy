@@ -66,14 +66,14 @@
 
 .cross-icon {
   display: none;
-  color: white;
+  color: $yellow-brand;
   position: absolute;
   right: 5px;
   bottom: 5px;
   font-size: 24px;
 
   &:hover {
-    color: $yellow-brand;
+    color: white;
     transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
   }
 }
@@ -186,6 +186,7 @@
   padding: 10px 20px;
   border-radius: 24px;
   margin-bottom: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
 
   &:hover {
     background-color: $dark-brand;
