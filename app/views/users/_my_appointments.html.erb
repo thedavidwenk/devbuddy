@@ -23,7 +23,7 @@
         </div>
 
         <div class="custom-appointments-cell">
-          <strong>Accept or Reject</strong>
+          <strong></strong>
         </div>
       </div>
 
@@ -33,7 +33,7 @@
         </div>
       <% else %>
         <% @pending_requests.each do |booking| %>
-          <div class="custom-appointment-row">
+          <div class="custom-appointment-row d-flex justify-content-center align-items-top">
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
             <div class="custom-appointments-cell">"<%= booking.note %>"</div>
@@ -43,10 +43,10 @@
               <%= buddy.username %>
             </div>
             <div class="custom-appointments-cell custom-icons">
-              <%= link_to accept_booking_path(booking), method: :patch do  %>
+              <%= link_to accept_booking_path(booking), method: :patch, class: 'custom-button-icon' do  %>
                 <i class="fa-regular fa-circle-check"></i> 
               <% end  %>
-              <%= link_to reject_booking_path(booking), method: :patch, data: { turbo_confirm: 'Are you sure?' } do  %>
+              <%= link_to reject_booking_path(booking), method: :patch, class: 'custom-button-icon', data: { turbo_confirm: 'Are you sure?' } do  %>
                 <i class="fa-regular fa-circle-xmark"></i>
               <% end  %>
             </div>

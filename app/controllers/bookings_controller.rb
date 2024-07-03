@@ -44,18 +44,18 @@ class BookingsController < ApplicationController
   def accept
     @booking = Booking.find(params[:id])
     if @booking.update(status: "approved")
-      redirect_to account_overview_user_path(current_user, anchor: "appointments"), notice: "Booking successfully approved"
+      redirect_to account_overview_user_path(current_user, anchor: "#appointments"), notice: "Booking successfully approved"
     else
-      redirect_to account_overview_user_path(current_user, anchor: "appointments"), alert: "Failed to approve booking"
+      redirect_to account_overview_user_path(current_user, anchor: "#appointments"), alert: "Failed to approve booking"
     end
   end
 
   def reject
     @booking = Booking.find(params[:id])
     if @booking.update(status: "rejected")
-      redirect_to account_overview_user_path(current_user, anchor: "appointments"), notice: "Booking successfully rejected"
+      redirect_to account_overview_user_path(current_user, anchor: "#appointments"), notice: "Booking successfully rejected"
     else
-      redirect_to account_overview_user_path(current_user, anchor: "appointments"), alert: "Failed to reject booking"
+      redirect_to account_overview_user_path(current_user, anchor: "#appointments"), alert: "Failed to reject booking"
     end
   end
 
