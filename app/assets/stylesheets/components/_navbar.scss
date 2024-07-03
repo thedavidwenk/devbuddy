@@ -14,15 +14,15 @@
 
       .nav-link {
 
-        color: #000;
+        color: $dark-brand;
 
         &:hover {
-          color: $purple;
+          color: $dark-brand;
           font-weight: bold;
           }
 
           &.active {
-            color: $purple !important;
+            color: $dark-brand !important;
             font-weight: bold;
             }
             }
