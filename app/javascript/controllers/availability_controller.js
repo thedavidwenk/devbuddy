@@ -16,15 +16,10 @@ export default class extends Controller {
     this.selectedDay = null;
   }
 
-  // highlights clicked day,
-  // picks up weekday name,
-  // display slots table or alert message ----- >
-
   showDay(event) {
     this.clearActiveButtons(); // <--- removes active class from any other button
 
     const dayButton = event.currentTarget;
-    console.dir(dayButton);
     dayButton.classList.add("active");
 
     const day = dayButton.dataset.day; // <--- stores value of data-day
@@ -59,14 +54,12 @@ export default class extends Controller {
 
   showTable(slotsForDay) {
     this.formTarget.style.display = "none";
-
     slotsForDay.forEach((slot) => {
       const table = slot.querySelector(".custom-availability-table");
       if (table) {
         table.style.display = "block";
       }
     });
-
   }
 
   showForm(event) {
