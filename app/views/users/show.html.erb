@@ -64,29 +64,31 @@
             </div>
 
             <div class="row gap-3" data-controller="time-slot-picker">
-                <% @time_slots.each do |slot| %>
-                    <div
-                    <%# data-bs-toggle="modal" %>
-                    <%# data-bs-target="#confirmation-modal" %>
-                    <%# data-action="click->time-slot-picker#selectTimeSlot" %>
-                    class="time-slot-button p-2 col-5 d-none"
-                    data-day-selector-target="slot"
-                    data-action="click->day-selector#selectTime"
-                    data-slot-id="<%= slot.id %>"
-                    data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
-                    data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
-                    data-day="<%= slot.day %>">
-                      <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
-                    </div>
-                <% end %>
+              <% @time_slots.each do |slot| %>
+                  <div
+                  class="time-slot-button p-2 col-5 d-none"
+                  data-day-selector-target="slot"
+                  data-action="click->day-selector#selectTime"
+                  data-slot-id="<%= slot.id %>"
+                  data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
+                  data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
+                  data-day="<%= slot.day %>">
+                    <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
+                  </div>
+              <% end %>
 
-                <%= form_for @booking, html: { data: { day_selector_target: "datepicker" } } do |f| %>
-                  <%= f.text_field :booking_date, class:"d-none"%>
-                  <%= f.submit class:"btn-home d-none", data: { day_selector_target: "submit" } %>
-                <% end %>
             </div>
-
-
+              <%= form_for @booking do |f| %>
+                <%= f.text_field :booking_date, class:"d-none", data: { day_selector_target:"date" } %>
+              <% end %>
+              <a
+                href=""
+                class="btn-home d-none mt-5"
+                data-bs-toggle="modal"
+                data-bs-target="#confirmation-modal"
+                data-day-selector-target="submit"
+                data-action="click->day-selector#submitData">
+              Create Booking</a>
 
               <%= render "booking_confirmation", user: @user, booking: @booking %>
 
