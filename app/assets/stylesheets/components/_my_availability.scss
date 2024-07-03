@@ -1,13 +1,13 @@
-.section-container {
-  background-color: white;
-  border-radius: 14px;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 15px;
-  padding-top: 20px;
-  margin-right: 117px;
-  margin-bottom: 80px;
-}
+// .section-container {
+//   background-color: white;
+//   border-radius: 14px;
+//   padding-left: 30px;
+//   padding-right: 30px;
+//   padding-bottom: 15px;
+//   padding-top: 20px;
+//   margin-right: 117px;
+//   margin-bottom: 80px;
+// }
 
 .weekdays-row {
   padding: 0;
@@ -65,10 +65,21 @@
   display: none;
 }
 
+.custom-availability-header-slot-rows {
+  display: flex;
+  padding-bottom: 8px;
+  margin-top: -10px;
+  margin-left: 8px;
+  color: $dark-brand;
+  font-family: $body-font;
+  font-size: 16px;
+}
+
 .custom-availability-header {
   display: flex;
   padding-bottom: 8px;
   margin-top: -10px;
+  margin-left: 320px;
   color: $dark-brand;
   font-family: $body-font;
   font-size: 16px;
@@ -76,8 +87,22 @@
 
 .custom-availability-cell {
   flex: 1;
-  padding: 5px 30px;
+  padding: 0px 30px;
   font-family: $body-font;
+}
+
+.custom-availability-header-text {
+  // flex: 1;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 30px;
+  padding-left: 10px;
+  font-family: $body-font;
+}
+
+#start-time-header-text {
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .custom-availability-row {
@@ -134,4 +159,17 @@
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 24px;
+  margin-left: 250px;
+  margin-top: 15px;
+}
+
+.custom-form-title {
+  font-size: 20px;
+  font-family: $headers-font;
+  margin-bottom: 30px;
+  padding-left: 5px;
+}
+
+#start_time {
+  margin-left: 300px;
 }

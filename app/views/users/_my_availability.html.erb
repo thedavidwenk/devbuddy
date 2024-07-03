@@ -57,27 +57,29 @@
       <%# list with existing time slots ------------------------------------ %>
 
       <% else %>
+
         <div class="custom-availability-table"
           data-availability-target="table">
-          <div class="custom-availability-header">
+          <p class="custom-form-title">Your availability slots on <%= day_string(day) %>: </p>
+          <div class="custom-availability-header-slot-rows">
             <div class="custom-availability-cell">
-              <strong>Starts at:</strong>
+              <p>starts at:</p>
             </div>
             <div class="custom-availability-cell">
-              <strong>Ends at:</strong>
+              <p>ends at:</p>
             </div>
             <div class="custom-availability-cell">
-              <strong>Edit or delete</strong>
+              <p>edit or delete</p>
             </div>
           </div>
 
           <% slots_for_day.each do |slot| %>
             <div class="custom-availability-row">
               <div class="custom-availability-cell">
-                <p><%= slot.start_time.strftime("%I:%M %p") %></p>
+                <p><%= slot.start_time.strftime("%H:%M") %> h.</p>
               </div>
               <div class="custom-availability-cell">
-               <p><%= slot.end_time.strftime("%I:%M %p") %></p>
+               <p><%= slot.end_time.strftime("%I:%M") %> h.</p>
               </div>
               <div class="custom-availability-cell custom-icons">
                 <a href="#" class="custom-button-icon">
@@ -98,17 +100,19 @@
 
   <%# form to crate a new time slot ------------------- %>
 
-  <div class="section-container"
-       data-availability-target="form"
-       style="display: none;">
 
+  <div class="section-container"
+    data-availability-target="form"
+    style="display: none;">
+
+    <p class="custom-form-title">Select start and end times of a new timeslot</p>
     <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
       <div class="custom-availability-header">
-        <div class="custom-availability-cell">
-          <strong>start time</strong>
+        <div class="custom-availability-header-text">
+          <p id="start-time-header-text">start time</p>
         </div>
-        <div class="custom-availability-cell">
-          <strong>end time</strong>
+        <div class="custom-availability-header-text">
+          <p>end time</p>
         </div>
       </div>
 
@@ -130,4 +134,5 @@
     <% end %>
 
   </div>
+
 </div>
