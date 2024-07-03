@@ -6,20 +6,7 @@ export default class extends Controller {
   static targets = ["bubble", "slot", "datepicker", "submit", "dayInput", "startInput", "endInput", "timeSlotInput", "date"];
 
   connect() {
-    const submitButton = this.submitTarget
 
-    this.fp = flatpickr(this.dateTarget, { // Store the instance
-      dateFormat: "Y-m-d",
-      minDate: "today",
-      "locale": {
-        "firstDayOfWeek": 1 // start week on Monday
-      },
-      onChange: function(selectedDates) {
-        if (selectedDates) {
-          submitButton.classList.remove("d-none");
-        }
-      }
-    });
   }
 
   selectDay(event) {
@@ -43,18 +30,32 @@ export default class extends Controller {
   selectTime(event) {
     const clickedSlot = event.currentTarget;
     const slots = this.slotTargets;
+    const submitButton = this.submitTarget
 
     slots.forEach(slot => {
       slot.classList.remove("active-btn");
     })
     clickedSlot.classList.add("active-btn");
 
-    this.fp.config.disable = [ // Access existing instance config
-      function(date) {
-        let dayValue = parseInt(clickedSlot.dataset.day);
-        return (date.getDay() !== dayValue);
-      }
-    ];
+    flatpickr(this.dateTarget, {
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      "locale": {
+        "firstDayOfWeek": 1 // start week on Monday
+      },
+      onChange: function(selectedDates) {
+        if (selectedDates) {
+          submitButton.classList.remove("d-none");
+        }
+      },
+      "disable": [
+        function(date) {
+          let dayValue = parseInt(clickedSlot.dataset.day);
+          return (date.getDay() !== dayValue);
+        }
+      ]
+    });
+
   }
 
   submitData() {
