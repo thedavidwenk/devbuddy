@@ -39,6 +39,7 @@ export default class extends Controller {
       "locale": {
         "firstDayOfWeek": 1 // start week on Monday
       },
+      inline: true,
       onChange: function(selectedDates) {
         if (selectedDates) {
           submitButton.classList.remove("d-none");
