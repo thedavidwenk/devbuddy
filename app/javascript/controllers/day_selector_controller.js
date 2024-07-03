@@ -3,11 +3,7 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="day-selector"
 export default class extends Controller {
-  static targets = ["bubble", "slot", "datepicker", "submit", "dayInput", "startInput", "endInput", "timeSlotInput", "date"];
-
-  connect() {
-
-  }
+  static targets = ["bubble", "slot", "datepicker", "submit", "dayInput", "startInput", "endInput", "timeSlotInput", "date", "bookingDateInput"];
 
   selectDay(event) {
     const bubbles = this.bubbleTargets;
@@ -46,6 +42,7 @@ export default class extends Controller {
       onChange: function(selectedDates) {
         if (selectedDates) {
           submitButton.classList.remove("d-none");
+          submitButton.dataset.date = fp.selectedDates[0];
         }
       },
       "disable": [
@@ -56,7 +53,8 @@ export default class extends Controller {
       ]
     });
 
-    console.log(fp.input)
+    console.log(fp.selectedDates[0])
+    console.log(submitButton.dataset.date)
   }
 
   submitData() {
@@ -65,11 +63,13 @@ export default class extends Controller {
     const startTime = this.slotTarget.dataset.startTime;
     const endTime = this.slotTarget.dataset.endTime;
     const timeSlotId = this.slotTarget.dataset.slotId;
+    const bookingDate = this.submitTarget.dataset.date;
     const date = this.dateTarget.value;
 
     this.dayInputTarget.innerText = `${date} (${weekday[day]}) `
     this.startInputTarget.innerText = `Start: ${startTime}`;
     this.endInputTarget.innerText = `End: ${endTime}`;
     this.timeSlotInputTarget.value = timeSlotId;
+    this.bookingDateInputTarget.value = bookingDate;
   }
 }

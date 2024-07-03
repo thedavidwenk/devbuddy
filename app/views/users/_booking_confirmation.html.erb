@@ -16,6 +16,7 @@
 
         <%= simple_form_for ([user, booking]) do |f| %>
           <%= f.input :time_slot_id, as: :hidden, input_html: { data: { day_selector_target:"timeSlotInput" }} %>
+          <%= f.input :booking_date, as: :hidden, input_html: { data: { day_selector_target:"bookingDateInput" }} %>
           <%= f.input :note, label: "Send a message to #{@user.first_name} (optional)" %>
           <%= f.button :submit, "Confirm Booking", class: "btn btn-success rounded-5 w-100" %>
         <% end %>
