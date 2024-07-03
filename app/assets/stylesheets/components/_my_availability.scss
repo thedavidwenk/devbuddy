@@ -34,6 +34,7 @@
   &:hover {
     background-color: $dark-brand;
     color: white;
+    transform: translateY(-3px);
   }
 }
 
@@ -43,6 +44,7 @@
 
 .button-day.active {
   background-color: $dark-brand;
+  transform: translateY(-3px);
 }
 
 .button-day.active .button-day-text {
