@@ -28,6 +28,13 @@
   margin-bottom: 10px;
   display: inline-block;
   cursor: pointer;
+
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
+
+  &:hover {
+    background-color: $dark-brand;
+    color: white;
+  }
 }
 
 .button-day.active .cross-icon {
@@ -51,6 +58,10 @@
   transform: translate(-50%, -50%);
 }
 
+.button-day:hover .button-day-text {
+  color: white;
+}
+
 .cross-icon {
   display: none;
   color: white;
@@ -58,6 +69,11 @@
   right: 5px;
   bottom: 5px;
   font-size: 24px;
+
+  &:hover {
+    color: $yellow-brand;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
+  }
 }
 
 .custom-availability-table {
@@ -102,6 +118,8 @@
   flex: 1;
   padding: 10px;
   margin: 0 20px; /* Add margins to adjust position */
+  border: 0px;
+  cursor: pointer;
 }
 
 .custom-availability-header-text {
