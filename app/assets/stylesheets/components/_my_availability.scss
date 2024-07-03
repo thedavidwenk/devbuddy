@@ -81,7 +81,7 @@
   display: flex;
   padding-bottom: 8px;
   margin-top: -10px;
-  margin-left: 0px;
+  // margin-left: 0px;
   color: $dark-brand;
   font-family: $body-font;
   font-size: 16px;
@@ -93,13 +93,23 @@
   font-family: $body-font;
 }
 
+.custom-availability-row .custom-availability-cell {
+  display: flex;
+  align-items: center;
+}
+
+.custom-availability-row .custom-availability-cell input[type="time"] {
+  flex: 1;
+  padding: 10px;
+  margin: 0 20px; /* Add margins to adjust position */
+}
+
 .custom-availability-header-text {
-  // flex: 1;
-  padding-top: 5px;
+  flex: 1;
+  padding: 5px 30px;
   padding-bottom: 5px;
-  padding-right: 30px;
-  padding-left: 10px;
   font-family: $body-font;
+  text-align: center;
 }
 
 #start-time-header-text {
@@ -116,12 +126,11 @@
   display: flex;
   padding-top: 10px;
   padding-bottom: 5px;
-  padding-left: 0px;
   font-size: 16px;
   background-color: $yellow-brand;
   margin-bottom: 13px;
   border-radius: 14px;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
 .no-time-slots-created-yet {
