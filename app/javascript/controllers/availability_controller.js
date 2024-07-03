@@ -21,26 +21,31 @@ export default class extends Controller {
   // display slots table or alert message ----- >
 
   showDay(event) {
-    this.clearActiveButtons();
+    this.clearActiveButtons(); // <--- removes active class from any other button
+
     const dayButton = event.currentTarget;
     console.dir(dayButton);
     dayButton.classList.add("active");
 
-    const day = dayButton.dataset.day;
-
-    this.selectedDay = day;
+    const day = dayButton.dataset.day; // <--- stores value of data-day
+    this.selectedDay = day; // <--- stores value of data-day in a controller property (integer)
     console.log(this.selectedDay);
+
+    // show the correspondent day slots --------- >
 
     this.daySlotsTargets.forEach((daySlot) => {
       daySlot.style.display = daySlot.dataset.day === day ? "block" : "none";
     });
 
-    const slotsForDay = this.daySlotsTargets.find(
+    const slotsForDay = this.daySlotsTargets.filter(
       (slot) => slot.dataset.day === day
     );
+
     if (
-      slotsForDay &&
-      slotsForDay.querySelector(".custom-availability-table")
+      slotsForDay.length > 0 &&
+      slotsForDay.some((slot) =>
+        slot.querySelector(".custom-availability-table")
+      )
     ) {
       this.showTable(slotsForDay);
     } else {
@@ -54,11 +59,18 @@ export default class extends Controller {
 
   showTable(slotsForDay) {
     this.formTarget.style.display = "none";
-    const table = slotsForDay.querySelector(".custom-availability-table");
-    table.style.display = "block";
+
+    slotsForDay.forEach((slot) => {
+      const table = slot.querySelector(".custom-availability-table");
+      if (table) {
+        table.style.display = "block";
+      }
+    });
+
   }
 
   showForm(event) {
+    console.log("hello from showForm function!");
     this.hideAllTables();
     this.hideNoTimeSlots();
     this.formTarget.style.display = "block";
@@ -70,19 +82,28 @@ export default class extends Controller {
 
   hideAllTables() {
     this.tableTargets.forEach((table) => (table.style.display = "none"));
+    this.daySlotsTargets.forEach((slot) => (slot.style.display = "none"));
   }
 
   showNoTimeSlots(slotsForDay) {
     this.formTarget.style.display = "none";
-    const noTimeSlotsMessage = slotsForDay.querySelector(
-      ".no-time-slots-created-yet"
-    );
-    noTimeSlotsMessage.style.display = "block";
+    slotsForDay.forEach((slot) => {
+      const noTimeSlotsMessage = slot.querySelector(
+        ".no-time-slots-created-yet"
+      );
+      if (noTimeSlotsMessage) {
+        noTimeSlotsMessage.style.display = "block";
+      }
+    });
   }
 
   hideNoTimeSlots() {
     this.noTimeSlotsCreatedYetTargets.forEach(
       (message) => (message.style.display = "none")
     );
+  }
+
+  stopPropagation(event) {
+    event.stopPropagation();
   }
 }
