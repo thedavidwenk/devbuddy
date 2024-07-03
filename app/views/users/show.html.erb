@@ -57,13 +57,13 @@
 
             <div class="d-flex justify-content-evenly mb-5" >
               <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
-                <div class="day-bubble" data-day-selector-target="bubble" data-datepicker-target="day" data-action="click->day-selector#selectDay" data-day="<%= day %>"
+                <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay" data-day="<%= day %>"
                   <span><%= day_string(day)[0...3] %></span>
                 </div>
               <% end %>
             </div>
 
-            <div class="row gap-3" data-controller="time-slot-picker">
+            <div class="row gap-3">
               <% @time_slots.each do |slot| %>
                   <div
                   class="time-slot-button p-2 col-5 d-none"
@@ -79,7 +79,7 @@
 
             </div>
               <%= form_for @booking do |f| %>
-                <%= f.text_field :booking_date, class:"d-none", data: { day_selector_target:"date" } %>
+                <%= f.text_field :booking_date, data: { day_selector_target:"date" } %>
               <% end %>
               <a
                 href=""
