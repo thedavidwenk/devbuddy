@@ -75,6 +75,7 @@ export default class extends Controller {
 
   hideAllTables() {
     this.tableTargets.forEach((table) => (table.style.display = "none"));
+    this.daySlotsTargets.forEach((slot) => (slot.style.display = "none"));
   }
 
   showNoTimeSlots(slotsForDay) {
