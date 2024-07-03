@@ -6,25 +6,28 @@
 
   .navbar-collapse {
     flex-grow: 0;
+  }
+
+  .navbar-brand img {
+    width: auto;
+  }
+
+  .nav-link {
+    color: $dark-brand;
+    font-weight: bold;
+
+    &:hover {
+      color: $dark-brand;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
     }
 
-    .navbar-brand img {
-      width: auto;
-      }
-
-      .nav-link {
-
-        color: $dark-brand;
-
-        &:hover {
-          color: $dark-brand;
-          font-weight: bold;
-          }
-
-          &.active {
-            color: $dark-brand !important;
-            font-weight: bold;
-            }
-            }
+    &.active {
+      color: $dark-brand !important;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+    }
+  }
 }
-
