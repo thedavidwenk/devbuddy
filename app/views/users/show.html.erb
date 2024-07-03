@@ -63,7 +63,7 @@
               <% end %>
             </div>
 
-            <div class="row gap-3">
+            <div class="row gap-3" data-day-selector-target="date">
               <% @time_slots.each do |slot| %>
                   <div
                   class="time-slot-button p-2 col-5 d-none"
@@ -74,13 +74,13 @@
                   data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
                   data-day="<%= slot.day %>">
                     <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
+                    <%= form_for @booking do |f| %>
+                      <%= f.text_field :booking_date, class:"d-none" %>
+                    <% end %>
                   </div>
               <% end %>
 
             </div>
-              <%= form_for @booking do |f| %>
-                <%= f.text_field :booking_date, data: { day_selector_target:"date" } %>
-              <% end %>
               <a
                 href=""
                 class="btn-home d-none mt-5"

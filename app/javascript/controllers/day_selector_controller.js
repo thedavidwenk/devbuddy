@@ -37,7 +37,7 @@ export default class extends Controller {
     })
     clickedSlot.classList.add("active-btn");
 
-    flatpickr(this.dateTarget, {
+    const fp = flatpickr(this.dateTarget, {
       dateFormat: "Y-m-d",
       minDate: "today",
       "locale": {
@@ -56,6 +56,7 @@ export default class extends Controller {
       ]
     });
 
+    console.log(fp.input)
   }
 
   submitData() {
