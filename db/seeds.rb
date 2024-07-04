@@ -107,6 +107,14 @@ timeslot4 = TimeSlot.create!(
   reserved: false
 )
 
+timeslot5 = TimeSlot.create!(
+  user_id: user2.id,
+  date: Date.new(2024, 8, 12),
+  start_time: Time.new(2024, 8, 24, 18, 0, 0),
+  end_time: Time.new(2024, 8, 24, 19, 0, 0),
+  reserved: false
+)
+
 Booking.create!(
   note: "Meeting for Ruby Basics",
   user_id: user1.id,

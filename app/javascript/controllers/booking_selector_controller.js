@@ -6,47 +6,35 @@ export default class extends Controller {
   static targets = ["calendar", "slot", "dayInput", "startInput", "endInput", "timeSlotInput", "bookingDateInput"];
 
   connect() {
-
+    const timeSlots = this.slotTargets
     const sanitizedTimeSlots = JSON.parse(this.element.dataset.bookingSelectorTimeSlots);
     const availableDates = sanitizedTimeSlots.map(slot => slot.date);
-    console.log(availableDates)
-
 
     flatpickr(this.calendarTarget, {
       dateFormat: "Y-m-d",
       minDate: "today",
-      "locale": {
-        "firstDayOfWeek": 1 // start week on Monday
-      },
       inline: true,
       onChange: function(selectedDates) {
-        if (selectedDates) {
-          const selectedDate = selectedDates[0]; // Assuming single date selection
-          // Check if time slot exists for the selected date (replace with your logic)
-          if (hasTimeSlot(selectedDate)) {
-            // Trigger modal opening (replace with your specific modal opening method)
-            document.getElementById('exampleModal').show();
-          } else {
-            // Handle case where no time slot exists (optional: display message)
-          }
-        }
-      },
-      onReady: function() {
-        // Add click event listeners to each date element within the calendar
-        this.calendarContainer.querySelectorAll('.flatpickr-day').forEach(day => {
-          day.addEventListener('click', function() {
-            // Logic to access the selected date from the clicked element (replace with your logic)
-            const selectedDate = new Date(this.dataset.date);
-            if (hasTimeSlot(selectedDate)) {
-              // Trigger modal opening (replace with your specific modal opening method)
-              document.getElementById('exampleModal').show();
-            }
-          });
+        const selectedDate = selectedDates[0];
+
+        selectedDate.setDate(selectedDate.getDate() + 1);
+        const dateWithOneDayAdded = selectedDate.toISOString().slice(0, 10);
+
+        const matchingDate = availableDates.find(date => date === dateWithOneDayAdded);
+        console.log(timeSlots)
+
+        timeSlots.forEach(slot => {
+          slot.classList.add("d-none");
+
+          if (slot.dataset.date == matchingDate) {
+            slot.classList.remove("d-none");
+          } 
         });
-      }
+      },
+      enable: availableDates
     });
   }
-
+}
 //   selectDay(event) {
 //     const bubbles = this.bubbleTargets;
 //     const slots = this.slotTargets;
@@ -90,5 +78,3 @@ export default class extends Controller {
 //     this.endInputTarget.innerText = `End: ${endTime}`;
 //     this.timeSlotInputTarget.value = timeSlotId;
 //     this.bookingDateInputTarget.value = bookingDate;
-}
-// }

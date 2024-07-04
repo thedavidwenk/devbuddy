@@ -58,10 +58,18 @@
             <div class="d-flex justify-content-center">
               <%= form_for([@user, @booking]) do |f| %>
                 <%= f.text_field :booking_date, data: { booking_selector_target:"calendar" }, class:"d-none" %>
-                <%= render "booking_modal", user: @user, booking: @booking %>
+
+                <% unless @time_slots.empty? %>
+                  <% @time_slots.each do |slot| %>
+                    <div class="time-slot-button mt-5 d-none" data-booking-selector-target="slot" data-date=<%= slot.date %>>
+                      <span><%= slot.start_time.strftime("%I:%M %p") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
+                    </div>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
 
+                <%# render "booking_modal", user: @user, booking: @booking %>
 <%# data-toggle="modal" data-target="#booking_modal" %>
 
           </div>
