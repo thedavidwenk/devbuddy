@@ -91,5 +91,5 @@ Usage
 
 ## License
 
-This project is licensed under the Creative Commons Zero v1.0 Universal. See `LICENSE` for more information.
+TBD 
 
