@@ -3,7 +3,7 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="booking-selector"
 export default class extends Controller {
-  static targets = ["calendar", "slot", "dayInput", "startInput", "endInput", "timeSlotInput", "bookingDateInput"];
+  static targets = ["calendar", "slot", "dateInput", "startInput", "endInput", "timeSlotIdInput"];
 
   connect() {
     const timeSlots = this.slotTargets
@@ -14,25 +14,40 @@ export default class extends Controller {
       dateFormat: "Y-m-d",
       minDate: "today",
       inline: true,
+      "locale": {
+        "firstDayOfWeek": 1
+      },
       onChange: function(selectedDates) {
         const selectedDate = selectedDates[0];
 
         selectedDate.setDate(selectedDate.getDate() + 1);
         const dateWithOneDayAdded = selectedDate.toISOString().slice(0, 10);
-
         const matchingDate = availableDates.find(date => date === dateWithOneDayAdded);
-        console.log(timeSlots)
 
         timeSlots.forEach(slot => {
           slot.classList.add("d-none");
 
           if (slot.dataset.date == matchingDate) {
             slot.classList.remove("d-none");
-          } 
+          }
         });
       },
       enable: availableDates
     });
+  }
+
+  submitData(event) {
+    console.log("hello")
+    const date = event.currentTarget.dataset.date;
+    console.log(date)
+    const startTime = event.currentTarget.dataset.startTime;
+    const endTime = event.currentTarget.dataset.endTime;
+    const timeSlotId = event.currentTarget.dataset.slotId;
+
+    this.dateInputTarget.innerText = date
+    this.startInputTarget.innerText = `Start: ${startTime}`;
+    this.endInputTarget.innerText = `End: ${endTime}`;
+    this.timeSlotIdInputTarget.value = timeSlotId;
   }
 }
 //   selectDay(event) {
@@ -63,18 +78,3 @@ export default class extends Controller {
 //     })
 //     clickedSlot.classList.add("active-btn");
 //   }
-
-//   submitData() {
-//     const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-//     const day = this.slotTarget.dataset.day;
-//     const startTime = this.slotTarget.dataset.startTime;
-//     const endTime = this.slotTarget.dataset.endTime;
-//     const timeSlotId = this.slotTarget.dataset.slotId;
-//     const bookingDate = this.submitTarget.dataset.date;
-//     const date = this.dateTarget.value;
-
-//     this.dayInputTarget.innerText = `${date} (${weekday[day]}) `
-//     this.startInputTarget.innerText = `Start: ${startTime}`;
-//     this.endInputTarget.innerText = `End: ${endTime}`;
-//     this.timeSlotInputTarget.value = timeSlotId;
-//     this.bookingDateInputTarget.value = bookingDate;

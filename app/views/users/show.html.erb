@@ -59,17 +59,26 @@
               <%= form_for([@user, @booking]) do |f| %>
                 <%= f.text_field :booking_date, data: { booking_selector_target:"calendar" }, class:"d-none" %>
 
-                <% unless @time_slots.empty? %>
+                <% if @time_slots.any? %>
                   <% @time_slots.each do |slot| %>
-                    <div class="time-slot-button mt-5 d-none" data-booking-selector-target="slot" data-date=<%= slot.date %>>
+                    <div
+                      class="time-slot-button mt-5 d-none"
+                      data-booking-selector-target="slot"
+                      data-date="<%= slot.date %>"
+                      data-id="<%= slot.id %>"
+                      data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
+                      data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
+                      data-action="click->booking-selector#submitData"
+                      data-bs-toggle="modal"
+                      data-bs-target="#booking-modal">
                       <span><%= slot.start_time.strftime("%I:%M %p") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
                     </div>
                   <% end %>
                 <% end %>
+                    <%= render "booking_modal", f: f, user: @user, booking: @booking  %>
               <% end %>
             </div>
 
-                <%# render "booking_modal", user: @user, booking: @booking %>
 <%# data-toggle="modal" data-target="#booking_modal" %>
 
           </div>
