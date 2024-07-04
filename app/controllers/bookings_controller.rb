@@ -11,11 +11,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.booker = current_user
     @booking.user = @user
-
     if @booking.save!
-      time_slot = @booking.time_slot
-      time_slot.reserved = true
-      time_slot.save!
+      # time_slot = @booking.time_slot
+      # time_slot.reserved = true
+      # time_slot.save!
 
       # Create a notification for the user being booked
       Notification.create(user: @user, message: "You have a new booking from #{current_user.email}", read: false)

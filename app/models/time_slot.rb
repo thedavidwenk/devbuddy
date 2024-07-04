@@ -4,7 +4,7 @@ class TimeSlot < ApplicationRecord
 
   validates :start_time, presence: true
   validates :end_time, presence: true
-  validates :day, presence: true, inclusion: { in: (0..6), message: "Pick a number between 0 and 6" }
+  validates :date, presence: true
   validates :user, presence: true
   validate :end_time_after_start_time
 
