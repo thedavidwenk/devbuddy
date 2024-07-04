@@ -1,12 +1,12 @@
 #onboarding-page {
   position: relative;
   min-height: 100vh;
-  overflow: auto; 
-  
+  overflow: auto;
+
   .flex-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh;
     padding: 0;
     z-index: 1;
   }
@@ -33,7 +33,16 @@
     justify-content: center;
     align-items: center;
     color: white;
-    background-color: black;
+    background-color: $dark-brand;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-onboarding:hover {
+    font-weight: bold;
+    color: $dark-brand;
+    background-color: white;
+    border: 2px solid $dark-brand;
     border-radius: 50px;
     transition: background-color 0.3s ease;
   }
@@ -48,7 +57,7 @@
 
   .yellow-bg-onboarding {
     background-color: $yellow-brand;
-    z-index: 1; 
+    z-index: 1;
     position: relative;
     background-size: 100%;
     background-position: auto;
@@ -57,24 +66,25 @@
 
   .white-bg-onboarding {
     display: block;
-    background-image: url('onboarding-img1.png');
+    background-image: url("onboarding-img1.png");
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: 0; 
+    z-index: 0;
   }
 
   .onboarding-form {
-    z-index: 2; 
+    z-index: 2;
     position: relative;
   }
 
   #onboarding-headline {
     max-width: 100%;
     margin: 5% 20%;
-    flex-grow: 1; 
+    flex-grow: 1;
 
-    h1, p {
-      color: $gray;
+    h1,
+    p {
+      color: $dark-brand;
     }
 
     h1 {
@@ -83,7 +93,7 @@
       font-size: 75px;
       text-align: left;
       font-family: $headers-font;
-      line-height: 1.0;
+      line-height: 1;
     }
 
     p {
@@ -93,7 +103,8 @@
       margin-bottom: 50px;
     }
 
-    .form-control, .form-select {
+    .form-control,
+    .form-select {
       border: 0;
     }
   }
@@ -160,9 +171,9 @@
 
 .btn-onboarding:hover {
   font-weight: bold;
-  color: black;
+  color: $dark-brand;
   background-color: white;
-  border: 2px solid black;
+  border: 2px solid $dark-brand;
   border-radius: 50px;
 }
 
