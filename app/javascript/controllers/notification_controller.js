@@ -4,8 +4,7 @@ export default class extends Controller {
   static targets = ["badge"];
 
   connect() {
-    // Initially hide the badge
-    this.toggleBadgeVisibility();
+    console.log("Notification controller connected");
     this.loadNotifications();
   }
 
@@ -13,37 +12,21 @@ export default class extends Controller {
     fetch("/notifications")
       .then(response => response.json())
       .then(data => {
+        console.log("Notifications data loaded", data);
         this.count = data.unread_count;
         this.updateBadge();
-        this.toggleBadgeVisibility();
-      });
+      })
+      .catch(error => console.error("Error loading notifications:", error));
   }
 
-  toggleBadgeVisibility() {
+  updateBadge() {
+    console.log("Updating badge with count:", this.count);
     if (this.count > 0) {
       this.badgeTarget.classList.remove("d-none");
+      this.badgeTarget.innerText = this.count;
     } else {
       this.badgeTarget.classList.add("d-none");
     }
   }
-
-  updateBadge() {
-    this.badgeTarget.innerText = this.count;
-  }
-
-  markAsRead(event) {
-    const notificationId = event.target.dataset.notificationId;
-    fetch(`/notifications/${notificationId}/mark_as_read`, {
-      method: 'PATCH',
-      headers: {
-        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-        'Content-Type': 'application/json'
-      }
-    }).then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          this.loadNotifications();
-        }
-      });
-  }
 }
+
