@@ -56,12 +56,13 @@
           <div class="container" data-controller="booking-selector" data-booking-selector-time-slots=<%= @time_slots.to_json %>>
 
             <div class="d-flex justify-content-center">
-              <%= form_for @booking do |f| %>
+              <%= form_for([@user, @booking]) do |f| %>
                 <%= f.text_field :booking_date, data: { booking_selector_target:"calendar" }, class:"d-none" %>
+                <%= render "booking_modal", user: @user, booking: @booking %>
               <% end %>
             </div>
 
-              <%= render "booking_modal", user: @user, booking: @booking %>
+<%# data-toggle="modal" data-target="#booking_modal" %>
 
           </div>
         </div>

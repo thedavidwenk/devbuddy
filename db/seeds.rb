@@ -77,7 +77,7 @@ user2 = User.last
 
 timeslot1 = TimeSlot.create!(
   user_id: user1.id,
-  date: Date.new(2024, 6, 21),
+  date: Date.new(2024, 7, 21),
   start_time: Time.new(2024, 6, 21, 10, 0, 0),
   end_time: Time.new(2024, 6, 21, 12, 0, 0),
   reserved: false
@@ -93,7 +93,7 @@ timeslot2 = TimeSlot.create!(
 
 timeslot3 = TimeSlot.create!(
   user_id: user2.id,
-  date: Date.new(2024, 6, 23),
+  date: Date.new(2024, 7, 23),
   start_time: Time.new(2024, 6, 23, 13, 0, 0),
   end_time: Time.new(2024, 6, 23, 14, 0, 0),
   reserved: false

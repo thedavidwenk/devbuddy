@@ -21,9 +21,29 @@ export default class extends Controller {
       inline: true,
       onChange: function(selectedDates) {
         if (selectedDates) {
+          const selectedDate = selectedDates[0]; // Assuming single date selection
+          // Check if time slot exists for the selected date (replace with your logic)
+          if (hasTimeSlot(selectedDate)) {
+            // Trigger modal opening (replace with your specific modal opening method)
+            document.getElementById('exampleModal').show();
+          } else {
+            // Handle case where no time slot exists (optional: display message)
+          }
         }
       },
-      enable: availableDates
+      onReady: function() {
+        // Add click event listeners to each date element within the calendar
+        this.calendarContainer.querySelectorAll('.flatpickr-day').forEach(day => {
+          day.addEventListener('click', function() {
+            // Logic to access the selected date from the clicked element (replace with your logic)
+            const selectedDate = new Date(this.dataset.date);
+            if (hasTimeSlot(selectedDate)) {
+              // Trigger modal opening (replace with your specific modal opening method)
+              document.getElementById('exampleModal').show();
+            }
+          });
+        });
+      }
     });
   }
 
