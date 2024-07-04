@@ -80,13 +80,14 @@ rails server
 Configuration
 
   Make sure to configure your database settings in config/database.yml.
+  Create an account with Cloudinary
   Create an .env file to store environment variables.
+
 
 Usage
 
   Navigate to http://localhost:3000 in your browser.
   Register or log in to access the main features.
-  Create a project or browse existing projects to start collaborating.
 
 ## License
 
