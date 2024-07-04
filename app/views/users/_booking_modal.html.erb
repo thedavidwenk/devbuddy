@@ -15,14 +15,11 @@
         </div>
 
         <%= f.hidden_field :time_slot_id, data: { booking_selector_target: "timeSlotIdInput" } %>
-        <%# f.hidden_field :booking_date, data: { booking_selector_target: "bookingDateInput" } %>
         <div class="mb-3">
           <%= f.label :note, "Send a message to #{user.first_name} (optional)" %>
           <%= f.text_area :note, class: "form-control" %>
         </div>
         <%= f.submit "Confirm Booking", class: "btn btn-success rounded-5 w-100" %>
-
-
 
       </div>
     </div>

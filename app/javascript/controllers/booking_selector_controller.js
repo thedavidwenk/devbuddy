@@ -37,9 +37,7 @@ export default class extends Controller {
   }
 
   submitData(event) {
-    console.log("hello")
     const date = event.currentTarget.dataset.date;
-    console.log(date)
     const startTime = event.currentTarget.dataset.startTime;
     const endTime = event.currentTarget.dataset.endTime;
     const timeSlotId = event.currentTarget.dataset.slotId;
@@ -50,31 +48,3 @@ export default class extends Controller {
     this.timeSlotIdInputTarget.value = timeSlotId;
   }
 }
-//   selectDay(event) {
-//     const bubbles = this.bubbleTargets;
-//     const slots = this.slotTargets;
-//     const clickedBubble = event.currentTarget;
-
-//     bubbles.forEach(bubble => {
-//       bubble.classList.remove("active-btn");
-//     })
-//     clickedBubble.classList.add("active-btn");
-
-//     slots.forEach( (slot) => {
-//       slot.classList.add("d-none")
-//       if (slot.dataset.day === clickedBubble.dataset.day) {
-//         slot.classList.remove("d-none");
-//       }
-//     });
-//   }
-
-//   selectTime(event) {
-//     const clickedSlot = event.currentTarget;
-//     const slots = this.slotTargets;
-//     const submitButton = this.submitTarget
-
-//     slots.forEach(slot => {
-//       slot.classList.remove("active-btn");
-//     })
-//     clickedSlot.classList.add("active-btn");
-//   }

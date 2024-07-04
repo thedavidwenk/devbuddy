@@ -65,7 +65,7 @@
                       class="time-slot-button mt-5 d-none"
                       data-booking-selector-target="slot"
                       data-date="<%= slot.date %>"
-                      data-id="<%= slot.id %>"
+                      data-slot-id="<%= slot.id %>"
                       data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
                       data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
                       data-action="click->booking-selector#submitData"

@@ -28,7 +28,7 @@
     <div class="section-container-availability day-slots hidden"
     data-availability-target="daySlots"
     data-day="<%= day %>">
-      <% slots_for_day = @time_slots.select { |slot| slot.day == day } %>
+      <%# slots_for_day = @time_slots.select { |slot| slot.day == day } %>
 
       <%# ^ line above...creates an array with only the timeslots for
             a day that matches the day clicked  %>
