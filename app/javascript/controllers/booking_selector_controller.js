@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import flatpickr from "flatpickr";
 
-// Connects to data-controller="day-selector"
+// Connects to data-controller="booking-selector"
 export default class extends Controller {
   static targets = ["bubble", "slot", "datepicker", "submit", "dayInput", "startInput", "endInput", "timeSlotInput", "date", "bookingDateInput"];
 

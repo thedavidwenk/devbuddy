@@ -52,46 +52,16 @@
 
       <div class="col yellow-bg">
         <div class="yellow-container">
-          <h3 class="mb-3">Select your appointment with <%= @user.first_name %></h3>
-          <div class="container" data-controller="day-selector">
+          <h3 class="mb-3">Make an appointment with <%= @user.first_name %></h3>
+          <div class="container" data-controller="booking-selector">
 
-            <div class="d-flex justify-content-evenly mb-5" >
-              <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
-                <div class="day-bubble" data-day-selector-target="bubble" data-action="click->day-selector#selectDay" data-day="<%= day %>"
-                  <span><%= day_string(day)[0...3] %></span>
-                </div>
+            <div class="row gap-3" data-booking-selector-target="date">
+              <%= form_for @booking do |f| %>
+                <%= f.text_field :booking_date, class:"d-none" %>
               <% end %>
             </div>
 
-            <div class="row gap-3" data-day-selector-target="date">
-              <% @time_slots.each do |slot| %>
-                  <div
-                  class="time-slot-button p-2 col-5 d-none"
-                  data-day-selector-target="slot"
-                  data-action="click->day-selector#selectTime"
-                  data-slot-id="<%= slot.id %>"
-                  data-start-time="<%= slot.start_time.strftime("%I:%M %p") %>"
-                  data-end-time="<%= slot.end_time.strftime("%I:%M %p") %>"
-                  data-day="<%= slot.day %>">
-                    <span><%= slot.start_time.strftime("%I:%M") %> - <%= slot.end_time.strftime("%I:%M %p") %></span>
-                    <%= form_for @booking do |f| %>
-                      <%= f.text_field :booking_date, class:"d-none" %>
-                    <% end %>
-                  </div>
-              <% end %>
-
-            </div>
-              <a
-                href=""
-                class="btn-home d-none mt-5"
-                data-date-id=""
-                data-bs-toggle="modal"
-                data-bs-target="#confirmation-modal"
-                data-day-selector-target="submit"
-                data-action="click->day-selector#submitData">
-              Create Booking</a>
-
-              <%= render "booking_confirmation", user: @user, booking: @booking %>
+              <%= render "booking_modal", user: @user, booking: @booking %>
 
           </div>
         </div>
