@@ -6,9 +6,12 @@ export default class extends Controller {
   static targets = ["calendar", "slot", "dayInput", "startInput", "endInput", "timeSlotInput", "bookingDateInput"];
 
   connect() {
-    console.log("hello")
-    console.log(this.calendarTarget)
-    
+
+    const sanitizedTimeSlots = JSON.parse(this.element.dataset.bookingSelectorTimeSlots);
+    const availableDates = sanitizedTimeSlots.map(slot => slot.date);
+    console.log(availableDates)
+
+
     flatpickr(this.calendarTarget, {
       dateFormat: "Y-m-d",
       minDate: "today",
@@ -20,12 +23,7 @@ export default class extends Controller {
         if (selectedDates) {
         }
       },
-      // "disable": [
-      //   function(date) {
-      //     let dayValue = parseInt(clickedSlot.dataset.day);
-      //     return (date.getDay() !== dayValue);
-      //   }
-      // ]
+      enable: availableDates
     });
   }
 

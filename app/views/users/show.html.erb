@@ -53,7 +53,7 @@
       <div class="col yellow-bg">
         <div class="yellow-container">
           <h3 class="mb-3">Make an appointment with <%= @user.first_name %></h3>
-          <div class="container" data-controller="booking-selector">
+          <div class="container" data-controller="booking-selector" data-booking-selector-time-slots=<%= @time_slots.to_json %>>
 
             <div class="d-flex justify-content-center">
               <%= form_for @booking do |f| %>

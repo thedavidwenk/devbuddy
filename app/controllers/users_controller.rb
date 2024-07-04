@@ -9,6 +9,13 @@ class UsersController < ApplicationController
   def show
     # @user is set by the set_user method
     @time_slots = @user.time_slots
+    @sanitized_time_slots = @time_slots.map do |slot|
+      {
+        date: slot.date,
+        times: [slot.start_time.strftime('%H:%M'), slot.end_time.strftime('%H:%M')]
+    }
+    end
+    # @time_slots = @user.time_slots
     @booking = Booking.new
   end
 
@@ -48,7 +55,7 @@ class UsersController < ApplicationController
 
   def account_overview
     @user = current_user
-    @pending_requests = Booking.where(user: @user).where(status: 'open')           
+    @pending_requests = Booking.where(user: @user).where(status: 'open')
     @upcoming_bookings = Booking.joins(:time_slot)
                                 .where(user: @user).or(Booking.joins(:time_slot)
                                 .where(booker: @user)).upcoming
