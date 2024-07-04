@@ -91,10 +91,5 @@ Usage
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE` for more information.
+This project is licensed under the Creative Commons Zero v1.0 Universal. See `LICENSE` for more information.
 
-### Modification and Redistribution Disclaimer
-
-Permission is hereby denied to modify, adapt, or redistribute copies of this software or its derivative works for any purpose, including commercial, subject to the following conditions:
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
