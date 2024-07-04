@@ -1,61 +1,96 @@
 <div data-controller="availability">
+  <p class="custom-form-title">Select a day to see your slots: </p>
   <div class="weekdays-row">
-    <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+
+  <%# day buttons ---------------------- %>
+
+    <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
       <div class="button-day"
       data-action="click->availability#showDay"
       data-availability-target="button"
-      data-day="<%= day.downcase %>">
-        <span class="button-day-text"><strong><%= day %></strong></span>
-        <i class="fa-solid fa-circle-plus cross-icon" data-action="click->availability#showForm"></i>
+      data-day="<%= day %>">
+        <span class="button-day-text">
+          <strong><%= day_string(day) %></strong>
+        </span>
+        <i class="fa-solid fa-circle-plus cross-icon"
+
+           data-action="click->availability#stopPropagation
+           click->availability#showForm">
+        </i>
       </div>
     <% end %>
   </div>
 
-  <% ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"].each do |day| %>
+
+  <%# availability slots per day ------------------ %>
+
+  <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
     <div class="section-container day-slots hidden"
     data-availability-target="daySlots"
-    data-day="<%= day.downcase %>">
-      <% slots_for_day = @time_slots.select { |slot| Date::DAYNAMES[slot.day].casecmp(day).zero? } %>
+    data-day="<%= day %>">
+      <% slots_for_day = @time_slots.select { |slot| slot.day == day } %>
+
+      <%# ^ line above...creates an array with only the timeslots for
+            a day that matches the day clicked  %>
+
+
+
+      <%# if slots_for_day array is empty then
+          message no time slots yet -------------------- %>
 
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
-          <div class="no-time-slots-yet-image">
-            <%= image_tag "warning_message_bee.png", alt: 'illustration of a bee talking' %>
+
+          <div>
+            <%= image_tag "warning_message_bee.png",
+            alt: 'illustration of a bee talking',
+            class:"no-time-slots-yet-image" %>
           </div>
-          <h3 class="message-no-time-slots-yet">No time slots created yet for <%= day %>.</h3>
+          <h3 class="message-no-time-slots-yet">
+            No time slots created yet for <%= day_string(day) %>. <%# uses helper to transform integer into day %>
+          </h3>
           <button class="create-time-slot-button"
             data-action="click->availability#showForm">
             <strong>Create your first one</strong>
           </button>
         </div>
 
+
+      <%# list with existing time slots ------------------------------------ %>
+
       <% else %>
-        <div class="custom-availability-table" data-availability-target="table">
-          <div class="custom-availability-header">
+
+        <div class="custom-availability-table"
+          data-availability-target="table">
+          <p class="custom-form-title-slots">Your availability slots on <%= day_string(day) %>: </p>
+          <div class="custom-availability-header-slot-rows">
+
             <div class="custom-availability-cell">
-              <strong>start time</strong>
+              <p>starts at:</p>
             </div>
             <div class="custom-availability-cell">
-              <strong>end time</strong>
+              <p>ends at:</p>
             </div>
             <div class="custom-availability-cell">
-              <strong>Edit or delete</strong>
+              <p>edit or delete</p>
             </div>
           </div>
 
           <% slots_for_day.each do |slot| %>
             <div class="custom-availability-row">
               <div class="custom-availability-cell">
-                <p><%= slot.start_time.strftime("%I:%M %p") %></p>
+                <p><%= slot.start_time.strftime("%H:%M") %> h.</p>
               </div>
               <div class="custom-availability-cell">
-               <p><%= slot.end_time.strftime("%I:%M %p") %></p>
+               <p><%= slot.end_time.strftime("%H:%M") %> h.</p>
               </div>
               <div class="custom-availability-cell custom-icons">
                 <a href="#" class="custom-button-icon">
                   <i class="fas fa-edit"></i>
                 </a>
-                <a href="#" data-method="delete" data-confirm="Are you sure?" class="custom-button-icon">
+                <a href="#" data-method="delete"
+                   data-confirm="Are you sure?"
+                   class="custom-button-icon">
                   <i class="fas fa-trash"></i>
                 </a>
               </div>
@@ -66,30 +101,41 @@
     </div>
   <% end %>
 
-  <div class="section-container" data-availability-target="form" style="display: none;">
+  <%# form to crate a new time slot ------------------- %>
+
+  <div class="section-container"
+    data-availability-target="form"
+    style="display: none;">
+
+    <p class="custom-form-title-slots">Create a new timeslot</p>
+
     <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
       <div class="custom-availability-header">
-        <div class="custom-availability-cell">
-          <strong>start time</strong>
+        <div class="custom-availability-header-text">
+          <p id="start-time-header-text">start time</p>
         </div>
-        <div class="custom-availability-cell">
-          <strong>end time</strong>
+        <div class="custom-availability-header-text">
+          <p>end time</p>
         </div>
       </div>
 
       <div class="custom-availability-row">
         <div class="custom-availability-cell">
-          <%= f.time_select :start_time %>
+          <%= f.time_field :start_time, format: "%H:%M" %>
         </div>
         <div class="custom-availability-cell">
-          <%= f.time_select :end_time %>
+          <%= f.time_field :end_time, format: "%H:%M" %>
         </div>
-        <%= f.hidden_field :day %>
+        <div>
+          <%= f.hidden_field :day, data: { availability_target: "dayField" } %>
+        </div>
       </div>
 
       <div class="custom-availability-cell">
         <%= f.submit 'Save timeslot', class: 'save-timeslot-button' %>
       </div>
     <% end %>
+
   </div>
+
 </div>

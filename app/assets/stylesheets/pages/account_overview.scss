@@ -70,8 +70,8 @@
   padding: 20px;
   background-color: $yellow-brand-light;
   width: 100vw;
-  padding-left: 300px;
-  padding-right: 200px;
+  padding-left: 500px;
+  padding-right: 400px;
   padding-top: 40px;
 }
 
@@ -103,7 +103,6 @@
   margin-left: 300px;
 }
 
-
 @media (max-width: 768px) {
   .back-button-account-overview {
     margin-left: 20px;
@@ -119,4 +118,3 @@
   opacity: 0;
   transition: opacity 0.35s;
 }
-
