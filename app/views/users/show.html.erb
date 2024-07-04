@@ -55,9 +55,9 @@
           <h3 class="mb-3">Make an appointment with <%= @user.first_name %></h3>
           <div class="container" data-controller="booking-selector">
 
-            <div class="row gap-3" data-booking-selector-target="date">
+            <div class="d-flex justify-content-center">
               <%= form_for @booking do |f| %>
-                <%= f.text_field :booking_date, class:"d-none" %>
+                <%= f.text_field :booking_date, data: { booking_selector_target:"calendar" }, class:"d-none" %>
               <% end %>
             </div>
 
