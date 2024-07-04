@@ -1,17 +1,19 @@
-// .section-container {
-//   background-color: white;
-//   border-radius: 14px;
-//   padding-left: 30px;
-//   padding-right: 30px;
-//   padding-bottom: 15px;
-//   padding-top: 20px;
-//   margin-right: 117px;
-//   margin-bottom: 80px;
-// }
+.section-container-availability {
+  background-color: white;
+  border-radius: 14px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  padding-top: 30px;
+  margin-right: 210px;
+  margin-left: 100px;
+  margin-bottom: 80px;
+}
 
 .weekdays-row {
   padding: 0;
-  margin-right: 117px;
+  margin-right: 210px;
+  margin-left: 100px;
   margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
@@ -26,6 +28,14 @@
   margin-bottom: 10px;
   display: inline-block;
   cursor: pointer;
+
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Adjust duration and timing function if needed */
+
+  &:hover {
+    background-color: $dark-brand;
+    color: white;
+    transform: translateY(-4px);
+  }
 }
 
 .button-day.active .cross-icon {
@@ -34,6 +44,7 @@
 
 .button-day.active {
   background-color: $dark-brand;
+  transform: translateY(-4px);
 }
 
 .button-day.active .button-day-text {
@@ -49,13 +60,22 @@
   transform: translate(-50%, -50%);
 }
 
+.button-day:hover .button-day-text {
+  color: white;
+}
+
 .cross-icon {
   display: none;
-  color: white;
+  color: $yellow-brand;
   position: absolute;
   right: 5px;
   bottom: 5px;
   font-size: 24px;
+
+  &:hover {
+    color: white;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
+  }
 }
 
 .custom-availability-table {
@@ -79,7 +99,7 @@
   display: flex;
   padding-bottom: 8px;
   margin-top: -10px;
-  margin-left: 320px;
+  // margin-left: 0px;
   color: $dark-brand;
   font-family: $body-font;
   font-size: 16px;
@@ -91,16 +111,35 @@
   font-family: $body-font;
 }
 
+.custom-availability-row .custom-availability-cell {
+  display: flex;
+  align-items: center;
+}
+
+.custom-availability-row .custom-availability-cell input[type="time"] {
+  flex: 1;
+  padding: 10px;
+  margin-bottom: 8px;
+  margin-left: 20px; /* Add margins to adjust position */
+  margin-right: 20px;
+  border: 0px;
+  cursor: pointer;
+}
+
 .custom-availability-header-text {
-  // flex: 1;
-  padding-top: 5px;
+  flex: 1;
+  padding: 5px 30px;
   padding-bottom: 5px;
-  padding-right: 30px;
-  padding-left: 10px;
   font-family: $body-font;
+  text-align: center;
 }
 
 #start-time-header-text {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#end-time-header-text {
   margin-right: 20px;
   margin-left: 20px;
 }
@@ -109,12 +148,11 @@
   display: flex;
   padding-top: 10px;
   padding-bottom: 5px;
-  padding-left: 5px;
   font-size: 16px;
   background-color: $yellow-brand;
   margin-bottom: 13px;
   border-radius: 14px;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
 .no-time-slots-created-yet {
@@ -138,30 +176,42 @@
 }
 
 .create-time-slot-button {
-  background-color: $dark-brand;
+  background-color: $yellow-brand;
   font-family: $body-font;
   width: 300px;
-  color: white;
+  color: $dark-brand;
   height: 48px;
   border: none;
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 24px;
   margin-bottom: 30px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
+
+  &:hover {
+    background-color: $dark-brand;
+    color: white;
+  }
 }
 
 .save-timeslot-button {
-  background-color: $dark-brand;
+  background-color: $yellow-brand;
   font-family: $body-font;
   width: 300px;
-  color: white;
+  color: $dark-brand;
   height: 48px;
   border: none;
   cursor: pointer;
   padding: 10px 20px;
   border-radius: 24px;
-  margin-left: 250px;
+  margin-left: 300px;
   margin-top: 15px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
+
+  &:hover {
+    background-color: $dark-brand;
+    color: white;
+  }
 }
 
 .custom-form-title {
@@ -170,6 +220,7 @@
   color: $dark-brand;
   margin-top: 20px;
   margin-bottom: 10px;
+  margin-left: 100px;
   padding-left: 5px;
 }
 
@@ -181,10 +232,18 @@
   padding-left: 5px;
 }
 
-#start_time {
-  margin-left: 300px;
-}
+// #start_time {
+//   margin-left: 300px;
+// }
 
 .hidden {
   display: none;
+}
+
+.overview-title {
+  color: $dark-brand;
+}
+
+.overview-title-thin {
+  color: $dark-brand;
 }
