@@ -35,5 +35,9 @@ Rails.application.routes.draw do
   resources :time_slots, only: [:new, :create, :edit, :update, :destroy]
 
   # Other routes...
-  resources :notifications, only: [:index]
+  resources :notifications, only: [:index] do
+    member do
+      patch :mark_as_read
+    end
+  end
 end

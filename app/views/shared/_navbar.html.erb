@@ -1,5 +1,4 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon border-1 border-bottom border-dark">
-
   <div class="container-fluid px-5">
     <div class="navbar-nav">
       <%= link_to root_path, class: "navbar-brand" do %>
@@ -24,41 +23,48 @@
       </div>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto"  style="padding-left:121px;">
+      <ul class="navbar-nav ms-auto align-items-center justify-content-end" style="width:180px;">
         <% if user_signed_in? %>
-            <li class="nav-item dropdown" data-controller="notifications">
-              <% if current_user.avatar? %>
-                <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= image_tag current_user.avatar, class: "avatar-large border border-2 border-dark", alt: "dropdown menu" %>
-                </a>
+          <!-- Notification Bell -->
+          <li class="nav-item dropdown" data-controller="notifications">
+            <a href="#" class="nav-link position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-bell"></i>
                 <span class="badge badge-danger d-none" data-controller="notification" data-notification-target="badge">
                   <!-- Badge content will be updated dynamically by Stimulus -->
                 </span>
-              <% else %>
-                <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <%= image_tag 'placeholder-avatar.png', class: "avatar-large border border-2 border-dark", alt: "dropdown menu" %>
-                </a>
-                <span class="badge badge-danger" data-notifications-target="count">
-                  <%= current_user.notifications.unread.count %>
-                </span>
-              <% end %>
-              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:#fff; border: 1px solid #000;">
-                <div data-notifications-target="list">
-                  <% current_user.notifications.unread.each do |notification| %>
-                    <a class="dropdown-item" href="#" data-action="click->notifications#markAsRead" data-notification-id="<%= notification.id %>">
-                      <%= notification.message %>
-                    </a>
-                  <% end %>
-                </div>
-                <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
-                <%= link_to "My Account", account_overview_user_path(current_user), class: "dropdown-item" %>
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="background-color:#fff; border: 1px solid #000;">
+              <div data-notifications-target="list">
+                <% current_user.notifications.unread.each do |notification| %>
+                  <a class="dropdown-item" href="#" data-action="click->notifications#markAsRead" data-notification-id="<%= notification.id %>">
+                    <%= notification.message %>
+                  </a>
+                <% end %>
               </div>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to "Login", new_user_session_path, class: "btn btn-outline-dark px-4 py-1 rounded-pill" %>
-            </li>
-          <% end %>
+            </div>
+          </li>
+
+          <!-- User Avatar -->
+          <li class="nav-item dropdown">
+            <% if current_user.avatar? %>
+              <a href="#" class="nav-link p-0" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag current_user.avatar, class: "avatar-large border border-2 border-dark rounded-circle", alt: "dropdown menu" %>
+              </a>
+            <% else %>
+              <a href="#" class="nav-link p-0" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag 'placeholder-avatar.png', class: "avatar-large border border-2 border-dark rounded-circle", alt: "dropdown menu" %>
+              </a>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="background-color:#fff; border: 1px solid #000;">
+              <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %>
+              <%= link_to "My Account", account_overview_user_path(current_user), class: "dropdown-item" %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "btn btn-outline-dark px-4 py-1 rounded-pill" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
