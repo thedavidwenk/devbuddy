@@ -132,7 +132,7 @@
   }
   .yellow-container {
     box-sizing: border-box;
-    padding: 20px 20px;
+    padding: 40px 40px;
   }
   .headline {
     display: flex;
@@ -177,6 +177,7 @@
 
   .time-slot-button {
     height: 60px;
+    min-width: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
