@@ -26,7 +26,7 @@
       <ul class="navbar-nav ms-auto align-items-center justify-content-end" style="width:180px;">
         <% if user_signed_in? %>
           <!-- Notification Bell -->
-          <li class="nav-item dropdown" data-controller="notifications">
+          <li class="nav-item dropdown me-3" data-controller="notifications">
             <a href="#" class="nav-link position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-bell"></i>
                 <span class="badge badge-danger d-none" data-controller="notification" data-notification-target="badge">

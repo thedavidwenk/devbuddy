@@ -3,15 +3,15 @@
     <div class="row">
 
       <!-- White background part -->
-          <div>
-          <button class="back-button" onclick="window.location.href='<%= request.referer || root_path %>'">< back</button>
-
-          </div>
 
       <div class="col white-bg">
           <!-- Placeholder button -->
     
         <div class="d-flex flex-column align-content-center" >
+
+          <%= link_to request.referer || root_path, class: "back-button" do %>
+            <i class="fa-solid fa-chevron-left me-2"></i> back
+          <% end %>
 
           <div class="avatar-and-main-info">
             <div class="avatar">
@@ -65,7 +65,7 @@
 
               <div class="align-items-center justify-content-center">
                   <h3 class="mb-4">2. Pick a slot</h3>
-                  <p data-booking-selector-target="headline" class="time-slot-placeholder">No date selected yet...</p>
+                    <p data-booking-selector-target="headline" class="time-slot-placeholder">No date selected yet...</p>
                   <% if @time_slots.any? %>
                     <div class="d-flex align-items-start flex-wrap" style="gap: 10px;">
                       <% @time_slots.each do |slot| %>

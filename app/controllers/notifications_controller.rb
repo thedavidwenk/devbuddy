@@ -2,6 +2,7 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    @notifications = Notification.all 
     notifications_data = {
       unread_count: current_user.notifications.unread.count
     }
