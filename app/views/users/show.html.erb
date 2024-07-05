@@ -31,15 +31,15 @@
             <% end %>
           </div>
 
-          <div class="achievements">
-            <h3>Achievements</h3>
+          <%# <div class="achievements"> %>
+            <%# <h3>Achievements</h3> %>
             <!-- Placeholder hexagons -->
-            <div class="user-achievements-icons">
-              <% 5.times do %>
-                <%= image_tag 'achievement_placeholder.png' %>
-              <% end %>
-            </div>
-          </div>
+            <%# <div class="user-achievements-icons"> %>
+              <%# 5.times do %>
+                <%# <%= image_tag 'achievement_placeholder.png' %>
+              <%# end %>
+            <%# </div> %>
+          <%# </div> %>
 
           <div class="about-me">
             <h3>About me</h3>
@@ -77,7 +77,7 @@
                 <% end %>
                     <%= render "booking_modal", f: f, user: @user, booking: @booking  %>
               <% end %>
-              
+
             </div>
           </div>
         </div>
