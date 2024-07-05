@@ -3,13 +3,14 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="booking-selector"
 export default class extends Controller {
-  static targets = ["calendar", "slot", "dateInput", "startInput", "endInput", "timeSlotIdInput"];
+  static targets = ["calendar", "slot", "dateInput", "startInput", "endInput", "timeSlotIdInput", "headline"];
 
   connect() {
-    const timeSlots = this.slotTargets
+    const timeSlots = this.slotTargets;
+    const headlineText = this.headlineTarget;
     const sanitizedTimeSlots = JSON.parse(this.element.dataset.bookingSelectorTimeSlots);
     const availableDates = sanitizedTimeSlots.map(slot => slot.date);
-
+    
     flatpickr(this.calendarTarget, {
       dateFormat: "Y-m-d",
       minDate: "today",
@@ -19,6 +20,7 @@ export default class extends Controller {
       },
       onChange: function(selectedDates) {
         const selectedDate = selectedDates[0];
+        console.log(headlineText)
 
         selectedDate.setDate(selectedDate.getDate() + 1);
         const dateWithOneDayAdded = selectedDate.toISOString().slice(0, 10);
@@ -29,6 +31,7 @@ export default class extends Controller {
 
           if (slot.dataset.date == matchingDate) {
             slot.classList.remove("d-none");
+            headlineText.classList.add("d-none");
           }
         });
       },
