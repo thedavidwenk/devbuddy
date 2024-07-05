@@ -65,8 +65,10 @@
 
               <div class="align-items-center justify-content-center">
                   <h3 class="mb-4">2. Pick a slot</h3>
-                    <p data-booking-selector-target="headline" class="time-slot-placeholder">No date selected yet...</p>
-                  <% if @time_slots.any? %>
+                  <div data-booking-selector-target="headline" >
+                     <% if @time_slots.any? %>
+                     <p class="time-slot-placeholder">No date selected yet...</p>
+                  </div>
                     <div class="d-flex align-items-start flex-wrap" style="gap: 10px;">
                       <% @time_slots.each do |slot| %>
                         <div
@@ -85,7 +87,9 @@
                     </div>
                   <% else %>
                     <div class="mt-5 text-center">
-                      <p>🥺<br>No time slots available.<br>Try out another buddy.</p>
+                      <p>🥺<br>No time slots available.<br>
+                        <%= link_to "Try out another buddy", users_path %>
+                      </p>
                     </div>
                   <% end %>
                   <%= render "booking_modal", f: f, user: @user, booking: @booking %>
