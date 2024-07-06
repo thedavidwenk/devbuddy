@@ -17,9 +17,9 @@ class BookingsController < ApplicationController
       # time_slot.save!
 
       # Create a notification for the user being booked
-      Notification.create(user: @user, message: "You have a new booking from #{current_user.email}", read: false)
-
-      redirect_to account_overview_user_path(current_user), notice:"Booking was successfully created!"
+      Notification.create(user: @user, message: "You have a new booking from #{current_user.first_name}", read: false)
+      Rails.logger.info "Notification created for user #{@user.id}"
+      redirect_to account_overview_user_path(current_user), notice: "Booking was successfully created!"
     else
       redirect_to user_path(@user), alert: "Failed to create booking."
     end
