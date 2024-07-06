@@ -36,9 +36,9 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="background-color:#fff; border: 1px solid #000;">
               <div data-notifications-target="list">
                 <% current_user.notifications.unread.each do |notification| %>
-                  <a class="dropdown-item" href="#" data-action="click->notifications#markAsRead" data-notification-id="<%= notification.id %>">
-                    <%= notification.message %>
-                  </a>
+                  <%= link_to mark_as_read_notification_path(notification), method: :patch, remote: true, class: "dropdown-item", data: { confirm: 'Mark as read?' } do %>
+                    <%= notification.message.html_safe %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
