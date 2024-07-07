@@ -114,6 +114,7 @@ export default class extends Controller {
         },
       ],
       dateFormat: "Y-m-d",
+      minDate: "today", // Add this line to set minimum date to today
     });
   }
 
