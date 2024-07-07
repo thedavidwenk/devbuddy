@@ -114,7 +114,10 @@ export default class extends Controller {
         },
       ],
       dateFormat: "Y-m-d",
-      minDate: "today", // Add this line to set minimum date to today
+      minDate: "today",
+      locale: {
+        firstDayOfWeek: 1, // Start week on Monday
+      },
     });
   }
 
