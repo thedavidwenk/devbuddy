@@ -63,22 +63,10 @@
 
         <div class="custom-availability-table"
           data-availability-target="table">
-          <p class="custom-form-title-slots">You have <%= slots_for_day.count %> slots on <%= day_string(day) %>: </p>
-          <%# <div class="custom-availability-header-slot-rows">
+          <p class="custom-form-title-slots">
+            You have <%= pluralize(slots_for_day.count, 'timeslot') %> on <%= day_string(day) %>:
+          </p>
 
-            <div class="custom-availability-cell">
-              <p>date:</p>
-            </div>
-            <div class="custom-availability-cell">
-              <p>starts at:</p>
-            </div>
-            <div class="custom-availability-cell">
-              <p>ends at:</p>
-            </div>
-            <div class="custom-availability-cell">
-              <p>edit or delete</p>
-            </div>
-          </div> %>
 
           <% slots_for_day.each do |slot| %>
             <div class="custom-availability-row">
@@ -92,16 +80,7 @@
                   to
                     <strong> <%= slot.end_time.strftime("%H:%M") %> h.</strong>
                 </p>
-
               </div>
-
-
-              <%# <div class="custom-availability-cell">
-                <p></p>
-              </div> %>
-              <%# <div class="custom-availability-cell">
-               <p></p>
-              </div> %>
 
               <div class="custom-availability-cell custom-icons">
                 <a href="#" class="custom-button-icon">
@@ -113,6 +92,7 @@
                   <i class="fas fa-trash"></i>
                 </a>
               </div>
+
             </div>
           <% end %>
         </div>
