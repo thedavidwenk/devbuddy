@@ -113,7 +113,7 @@ export default class extends Controller {
           return date.getDay() !== selectedDay;
         },
       ],
-      dateFormat: "Y-m-d",
+      dateFormat: "d-m-Y",
       minDate: "today",
       locale: {
         firstDayOfWeek: 1, // Start week on Monday

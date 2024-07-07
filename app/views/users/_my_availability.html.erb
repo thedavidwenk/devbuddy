@@ -109,24 +109,24 @@
     <p class="custom-form-title-slots">Create a new timeslot</p>
 
      <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
-    <div class="custom-availability-header">
+    <%# <div class="custom-availability-header">
       <div class="custom-availability-header-text">
         <p id="start-time-header-text">start time</p>
       </div>
       <div class="custom-availability-header-text">
         <p id="end-time-header-text">end time</p>
       </div>
-    </div>
+    </div> %>
 
     <div class="custom-availability-row">
       <div class="custom-availability-cell">
-        <%= f.date_field :date, data: { availability_target: "dateField", action: "change->availability#setDate" } %>
+        <%= f.date_field :date, class: "styled-input", data: { availability_target: "dateField", action: "change->availability#setDate" }, placeholder: "select a date" %>
       </div>
       <div class="custom-availability-cell">
-        <%= f.time_field :start_time, format: "%H:%M" %>
+        <%= f.time_field :start_time, class: "styled-input", format: "%H:%M", placeholder: "select a start time" %>
       </div>
       <div class="custom-availability-cell">
-        <%= f.time_field :end_time, format: "%H:%M" %>
+        <%= f.time_field :end_time, class: "styled-input", format: "%H:%M", placeholder: "select an end time" %>
       </div>
       <div>
         <%= f.hidden_field :day, data: { availability_target: "dayField" } %>
