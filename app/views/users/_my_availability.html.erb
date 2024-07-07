@@ -13,7 +13,6 @@
           <strong><%= day_string(day) %></strong>
         </span>
         <i class="fa-solid fa-circle-plus cross-icon"
-
            data-action="click->availability#stopPropagation
            click->availability#showForm">
         </i>
@@ -28,7 +27,7 @@
     <div class="section-container-availability day-slots hidden"
     data-availability-target="daySlots"
     data-day="<%= day %>">
-      <%# slots_for_day = @time_slots.select { |slot| slot.day == day } %>
+      <% slots_for_day = @time_slots.select { |slot| slot.date.wday == day } %>
 
       <%# ^ line above...creates an array with only the timeslots for
             a day that matches the day clicked  %>
@@ -40,7 +39,6 @@
 
       <% if slots_for_day.empty? %>
         <div class="no-time-slots-created-yet">
-
           <div>
             <%= image_tag "warning_message_bee.png",
             alt: 'illustration of a bee talking',
