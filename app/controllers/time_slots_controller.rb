@@ -9,10 +9,10 @@ class TimeSlotsController < ApplicationController
 
     start_time = params["start_time"]
     end_time = params["end_time"]
-    day = params["day"]
+    date = params["date"]
 
     @user = current_user
-    @time_slot = current_user.time_slots.new(start_time: start_time, end_time: end_time, day: day)
+    @time_slot = current_user.time_slots.new(start_time: start_time, end_time: end_time, date: date)
 
     if @time_slot.save
       redirect_to account_overview_user_path(@user), notice: 'Time slot was successfully created.'
