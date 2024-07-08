@@ -34,8 +34,9 @@ class TimeSlotsController < ApplicationController
   end
 
   def destroy
+    @time_slot = TimeSlot.find(params[:id])
     @time_slot.destroy
-    redirect_to account_overview_user_path, notice: 'Time slot was successfully deleted.'
+    redirect_to account_overview_user_path, notice: 'Time slot was successfully deleted.', status: :see_other
   end
 
   private
