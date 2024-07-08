@@ -105,15 +105,49 @@
   font-size: 16px;
 }
 
+.custom-availability-cell .custom-icons {
+  justify-content: end;
+}
+.custom-button-icon-availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: $dark-brand;
+  color: white;
+  font-size: 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Adjust duration and timing function if needed */
+
+  &:hover {
+    background-color: white;
+    color: $dark-brand;
+    border: 2px solid $dark-brand;
+  }
+}
+
+.custom-availability-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  font-size: 16px;
+  background-color: $yellow-brand;
+  margin-bottom: 15px;
+  border-radius: 27.5px;
+}
+
 .custom-availability-cell {
-  flex: 1;
-  padding: 0px 30px;
+  // flex: 1;
+  padding-left: 30px;
+  padding-right: 0px;
   font-family: $body-font;
 }
 
-.custom-availability-row .custom-availability-cell {
-  display: flex;
-  align-items: center;
+.custom-availability-cell-text {
+  margin-bottom: 0px;
 }
 
 .custom-availability-row .custom-availability-cell input[type="time"] {
@@ -142,17 +176,6 @@
 #end-time-header-text {
   margin-right: 20px;
   margin-left: 20px;
-}
-
-.custom-availability-row {
-  display: flex;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  font-size: 16px;
-  background-color: $yellow-brand;
-  margin-bottom: 13px;
-  border-radius: 14px;
-  // cursor: pointer;
 }
 
 .no-time-slots-created-yet {

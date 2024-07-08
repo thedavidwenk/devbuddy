@@ -72,13 +72,19 @@
             <div class="custom-availability-row">
 
               <div class = "custom-availability-cell">
-                <p>
+                <p class = "custom-availability-cell-text">
                   on the
-                    <strong><%= slot.date.strftime("%d.%m.%Y") %>,</strong>
+                  <strong>
+                    <%= slot.date.strftime("%d.%m.%Y") %>,
+                  </strong>
                   from
-                    <strong><%= slot.start_time.strftime("%H:%M") %> h.</strong>
+                  <strong>
+                    <%= slot.start_time.strftime("%H:%M") %> h.
+                  </strong>
                   to
-                    <strong> <%= slot.end_time.strftime("%H:%M") %> h.</strong>
+                  <strong>
+                    <%= slot.end_time.strftime("%H:%M") %> h.
+                  </strong>
                 </p>
               </div>
 
@@ -86,7 +92,7 @@
 
                 <a href="#" data-method="delete"
                    data-confirm="Are you sure?"
-                   class="custom-button-icon">
+                   class="custom-button-icon-availability">
                   <i class="fas fa-trash"></i>
                 </a>
               </div>
