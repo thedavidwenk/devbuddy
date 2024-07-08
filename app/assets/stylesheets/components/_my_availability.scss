@@ -199,21 +199,22 @@
 }
 
 .create-time-slot-button {
-  background-color: $yellow-brand;
+  background-color: $dark-brand;
   font-family: $body-font;
-  width: 300px;
-  color: $dark-brand;
+  width: 550px;
+  color: white;
   height: 48px;
   border: none;
   cursor: pointer;
-  padding: 10px 20px;
   border-radius: 24px;
   margin-bottom: 30px;
   transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
 
   &:hover {
-    background-color: $dark-brand;
-    color: white;
+    background-color: white;
+    color: $dark-brand;
+    border: 2px solid $dark-brand;
+    font-family: $body-font;
   }
 }
 
@@ -254,10 +255,6 @@
   margin-bottom: 30px;
   padding-left: 5px;
 }
-
-// #start_time {
-//   margin-left: 300px;
-// }
 
 .hidden {
   display: none;

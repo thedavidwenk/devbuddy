@@ -51,7 +51,7 @@
           </h3>
           <button class="create-time-slot-button"
             data-action="click->availability#showForm">
-            <strong>Create your first one</strong>
+            <strong>create your first one</strong>
             <i class="fa-solid fa-chevron-right px-2"></i>
           </button>
         </div>
@@ -89,8 +89,6 @@
               </div>
 
               <div class="custom-availability-cell custom-icons">
-
-
                 <%= link_to  time_slot_path(slot),
                   class: 'custom-button-icon-availability',
                   data: {
@@ -98,14 +96,6 @@
                     turbo_confirm: 'Are you sure?' } do  %>
                     <i class="fas fa-trash"></i>
                 <% end %>
-
-
-
-                <%# <a href="#" data-method="delete"
-                   data-confirm="Are you sure?"
-                   class="custom-button-icon-availability">
-                  <i class="fas fa-trash"></i>
-                </a> %>
               </div>
 
             </div>
