@@ -3,14 +3,14 @@ import flatpickr from "flatpickr";
 
 // Connects to data-controller="booking-selector"
 export default class extends Controller {
-  static targets = ["calendar", "slot", "dateInput", "startInput", "endInput", "timeSlotIdInput", "headline"];
+  static targets = ["calendar", "slot", "dateInput", "timeInput", "timeSlotIdInput", "headline"];
 
   connect() {
     const timeSlots = this.slotTargets;
     const headlineText = this.headlineTarget;
     const sanitizedTimeSlots = JSON.parse(this.element.dataset.bookingSelectorTimeSlots);
     const availableDates = sanitizedTimeSlots.map(slot => slot.date);
-    
+
     flatpickr(this.calendarTarget, {
       dateFormat: "Y-m-d",
       minDate: "today",
@@ -20,9 +20,7 @@ export default class extends Controller {
       },
       onChange: function(selectedDates) {
         const selectedDate = selectedDates[0];
-        console.log(headlineText)
-
-        selectedDate.setDate(selectedDate.getDate() + 1);
+        selectedDate.setDate(selectedDate.getDate() + 1); // increasing the day by 1 because it's one day off
         const dateWithOneDayAdded = selectedDate.toISOString().slice(0, 10);
         const matchingDate = availableDates.find(date => date === dateWithOneDayAdded);
 
@@ -40,14 +38,14 @@ export default class extends Controller {
   }
 
   submitData(event) {
-    const date = event.currentTarget.dataset.date;
+    const date = new Date(event.currentTarget.dataset.date);
+    const formattedDate = date.toDateString();
     const startTime = event.currentTarget.dataset.startTime;
     const endTime = event.currentTarget.dataset.endTime;
     const timeSlotId = event.currentTarget.dataset.slotId;
 
-    this.dateInputTarget.innerText = date
-    this.startInputTarget.innerText = `Start: ${startTime}`;
-    this.endInputTarget.innerText = `End: ${endTime}`;
+    this.dateInputTarget.innerText = formattedDate;
+    this.timeInputTarget.innerText = `${startTime} - ${endTime}`;
     this.timeSlotIdInputTarget.value = timeSlotId;
   }
 }
