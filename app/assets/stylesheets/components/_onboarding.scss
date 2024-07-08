@@ -78,8 +78,8 @@
   }
 
   #onboarding-headline {
-    max-width: 100%;
-    margin: 5% 20%;
+    // max-width: 100%;
+    margin: 7% 20%;
     flex-grow: 1;
 
     h1,
@@ -88,7 +88,6 @@
     }
 
     h1 {
-      margin-top: 70px;
       margin-bottom: 10px;
       font-size: 75px;
       text-align: left;
@@ -100,7 +99,7 @@
       margin-top: 10px;
       text-align: left;
       font-size: 20px;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
     }
 
     .form-control,
