@@ -90,11 +90,22 @@
 
               <div class="custom-availability-cell custom-icons">
 
-                <a href="#" data-method="delete"
+
+                <%= link_to  time_slot_path(slot),
+                  class: 'custom-button-icon-availability',
+                  data: {
+                    turbo_method: :delete,
+                    turbo_confirm: 'Are you sure?' } do  %>
+                    <i class="fas fa-trash"></i>
+                <% end %>
+
+
+
+                <%# <a href="#" data-method="delete"
                    data-confirm="Are you sure?"
                    class="custom-button-icon-availability">
                   <i class="fas fa-trash"></i>
-                </a>
+                </a> %>
               </div>
 
             </div>
