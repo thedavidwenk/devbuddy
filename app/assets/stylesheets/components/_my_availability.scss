@@ -219,22 +219,23 @@
 }
 
 .save-timeslot-button {
-  background-color: $yellow-brand;
+  background-color: $dark-brand;
   font-family: $body-font;
   width: 300px;
-  color: $dark-brand;
+  color: white;
   height: 48px;
   border: none;
   cursor: pointer;
-  padding: 10px 20px;
   border-radius: 24px;
-  margin-left: 300px;
   margin-top: 15px;
   transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
 
   &:hover {
-    background-color: $dark-brand;
-    color: white;
+    background-color: white;
+    color: $dark-brand;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $dark-brand;
   }
 }
 
@@ -316,9 +317,14 @@
   align-items: center;
   justify-content: center;
   // padding-bottom: 10px;
-  height: 48px;
+  height: 60px;
   font-size: 16px;
   background-color: $yellow-brand;
   margin-bottom: 15px;
-  border-radius: 27.5px;
+  border-radius: 30px;
+}
+
+.custom-availability-cell-form-submit-button {
+  display: flex;
+  justify-content: center;
 }
