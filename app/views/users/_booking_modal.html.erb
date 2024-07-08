@@ -9,9 +9,10 @@
 
         <div class="d-flex flex-column fs-6 gap-2 justify-content-evenly align-items-center py-3">
           <%= image_tag(user.avatar, class:"modal-avatar") %>
-          <strong data-booking-selector-target="dateInput"></strong>
-          <span data-booking-selector-target="startInput"></span>
-          <span data-booking-selector-target="endInput"></span>                           
+          <strong data-booking-selector-target="dateInput" class="fs-5"></strong>
+          <div class="d-flex">
+          <span data-booking-selector-target="timeInput" class="fs-6"></span>
+        </div>
         </div>
 
         <%= f.hidden_field :time_slot_id, data: { booking_selector_target: "timeSlotIdInput" } %>
@@ -19,7 +20,7 @@
           <%= f.label :note, "Send a message to #{user.first_name} (optional)" %>
           <%= f.text_area :note, class: "form-control" %>
         </div>
-        <%= f.submit "Confirm Booking", class: "btn btn-success rounded-5 w-100" %>
+        <%= f.submit "Confirm Booking", class: "find-buddy-button w-100 m-0" %>
 
       </div>
     </div>

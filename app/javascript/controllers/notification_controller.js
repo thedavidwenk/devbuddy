@@ -43,6 +43,7 @@ export default class extends Controller {
       .then(data => {
         if (data.success) {
           this.loadNotifications();
+          window.location.replace('<%= account_overview_user_path(current_user) %>');
         }
       });
   }

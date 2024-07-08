@@ -11,43 +11,6 @@
     color: $mid-gray;
   }
 
-  .headline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-    h1 {
-      margin: 0;
-    }
-
-    span.code-solo {
-      font-size: 1.5em;
-    }
-
-    p {
-      margin: 20px 0;
-    }
-  }
-
-  .back-button {
-    background-color: $dark-brand;
-    font-family: $body-font;
-    color: white;
-    text-decoration: none;
-  }
-
-  .confirm-button {
-    background-color: #2d2d2d;
-    color: white;
-    font-size: 16px;
-    width: 260px;
-    margin-top: 40px;
-    border: none;
-    border-radius: 30px;
-    padding: 1px 20px;
-  }
-
   .time-slot-button {
     height: 60px;
     min-width: 220px;
@@ -76,12 +39,6 @@
       cursor: not-allowed;
       background-color: #f2f2f2;
     }
-  }
-
-  .active-btn {
-    background-color: $dark-brand;
-    color: white;
-    transform: translateY(-3px);
   }
 }
 
