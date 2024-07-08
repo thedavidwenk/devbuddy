@@ -83,9 +83,7 @@
               </div>
 
               <div class="custom-availability-cell custom-icons">
-                <a href="#" class="custom-button-icon">
-                  <i class="fas fa-edit"></i>
-                </a>
+
                 <a href="#" data-method="delete"
                    data-confirm="Are you sure?"
                    class="custom-button-icon">
@@ -109,14 +107,6 @@
     <p class="custom-form-title-slots">Create a new timeslot</p>
 
      <%= form_with(model: @time_slot, url: time_slots_path, local: true) do |f| %>
-    <%# <div class="custom-availability-header">
-      <div class="custom-availability-header-text">
-        <p id="start-time-header-text">start time</p>
-      </div>
-      <div class="custom-availability-header-text">
-        <p id="end-time-header-text">end time</p>
-      </div>
-    </div> %>
 
     <div class="custom-availability-row">
       <div class="custom-availability-cell">
