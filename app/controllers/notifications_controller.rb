@@ -6,7 +6,7 @@ class NotificationsController < ApplicationController
       unread_count: current_user.notifications.unread.count
     }
     render json: notifications_data
-    
+
     # notifications = current_user.notifications.unread
     # render json: { unread_count: notifications.count }
   end
@@ -20,4 +20,3 @@ class NotificationsController < ApplicationController
     end
   end
 end
-
