@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @time_slots = @user.time_slots
     @sanitized_time_slots = @time_slots.map do |slot|
       {
-        date: slot.date,
+        date: slot.date.to_s,
         times: [slot.start_time.strftime('%H:%M'), slot.end_time.strftime('%H:%M')]
     }
     end
