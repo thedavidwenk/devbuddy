@@ -105,6 +105,14 @@
     .form-control,
     .form-select {
       border: 0;
+      height: 50px;
+      border-radius: 100px;
+      padding-left: 20px;
+    }
+
+    .form-control::placeholder,
+    .form-select::placeholder {
+      padding-left: 20px;
     }
   }
 
