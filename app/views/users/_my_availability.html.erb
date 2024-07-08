@@ -2,19 +2,20 @@
   <p class="custom-form-title">Select a day to see your slots: </p>
   <div class="weekdays-row">
 
-  <%# day buttons ---------------------- %>
+    <%# day buttons ---------------------- %>
 
     <% [1, 2, 3, 4, 5, 6, 0].each do |day| %>
       <div class="button-day"
-      data-action="click->availability#showDay"
-      data-availability-target="button"
-      data-day="<%= day %>">
+           data-action="click->availability#showDay"
+           data-availability-target="button"
+           data-day="<%= day %>"
+        <% if day == 1 %>data-default="true"<% end %>>
         <span class="button-day-text">
           <strong><%= day_string(day) %></strong>
         </span>
         <i class="fa-solid fa-circle-plus cross-icon"
            data-action="click->availability#stopPropagation
-           click->availability#showForm">
+                        click->availability#showForm">
         </i>
       </div>
     <% end %>

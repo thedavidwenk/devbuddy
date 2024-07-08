@@ -15,6 +15,15 @@ export default class extends Controller {
   connect() {
     console.log("hello from availability controller");
     this.selectedDay = null;
+
+    //  Monday button shows as active --------------------------------------
+
+    const defaultButton = this.buttonTargets.find(
+      (button) => button.dataset.default === "true"
+    );
+    if (defaultButton) {
+      this.showDay({ currentTarget: defaultButton });
+    }
   }
 
   showDay(event) {
