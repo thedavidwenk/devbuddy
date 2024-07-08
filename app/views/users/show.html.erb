@@ -3,13 +3,13 @@
 
       <!-- White background part -->
 
-      <div class="col bg-white px-5 ms-5">
+      <div class="col bg-white px-5 ms-5 d-flex flex-column justify-content-center">
 
-          <%= link_to request.referer || root_path, class: "back-button" do %>
+          <%= link_to request.referer || root_path, class: "mb-5" do %>
             <i class="fa-solid fa-chevron-left me-2"></i> back
           <% end %>
 
-        <div class="" >
+        <div>
           <div class="row mb-5">
             <div class="col-6">
               <% if @user.avatar.present? %>
@@ -51,7 +51,7 @@
       </div>
 
       <!-- Yellow background part -->
-      
+
         <div class="col bg-primary px-5">
           <div class="yellow-container">
             <div class="container d-flex flex-column justify-content-center align-items-start" data-controller="booking-selector" data-booking-selector-time-slots=<%= @time_slots.to_json %>>
