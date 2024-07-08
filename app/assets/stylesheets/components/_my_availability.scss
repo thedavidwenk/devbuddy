@@ -267,3 +267,58 @@
 .overview-title-thin {
   color: $dark-brand;
 }
+
+.styled-input {
+  background-color: white;
+  border-style: none;
+  justify-content: center;
+}
+
+.custom-availability-cell-input-date {
+  height: 38px;
+  width: 300px;
+  background-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 19px;
+
+  &:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: $dark-brand;
+    cursor: pointer;
+  }
+}
+
+.custom-availability-cell-input-time {
+  height: 38px;
+  width: 300px;
+  background-color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 19px;
+  margin-left: 10px;
+
+  &:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: $dark-brand;
+    cursor: pointer;
+  }
+}
+
+.custom-availability-row-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding-bottom: 10px;
+  height: 48px;
+  font-size: 16px;
+  background-color: $yellow-brand;
+  margin-bottom: 15px;
+  border-radius: 27.5px;
+}
