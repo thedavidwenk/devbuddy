@@ -29,8 +29,33 @@
   }
 }
 
-.find-buddy-button
-
 .back-button {
+  text-decoration: none;
+  height: 50px;
+  border: 0;
+  width: 170px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: $dark-brand;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 12%;
 
+  &:before {
+    content: "\f060"; /* Font Awesome's right arrow icon */
+    font-family: "Font Awesome 6 Free"; /* Font family for Font Awesome */
+    font-weight: 900; /* Font weight for solid icons */
+    margin-right: 8px; /* Space between text and icon */
+  }
+
+  &:hover {
+    font-weight: bold;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 50px;
+  }
 }
