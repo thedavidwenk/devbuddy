@@ -132,7 +132,8 @@
   }
   .yellow-container {
     box-sizing: border-box;
-    padding: 20px 20px;
+    padding: 20px 70px;
+    margin-top: 50px;
   }
   .headline {
     display: flex;
@@ -154,6 +155,8 @@
   }
 
   .back-button {
+    top: 20%;
+    margin-left: auto;
     background-color: $gray;
     padding: 1px 30px 1px 20px;
     color: white;
@@ -162,6 +165,8 @@
     border: none;
     margin-top: 30px;
     font-family: $body-font;
+    position: absolute;
+    text-decoration: none;
   }
 
   .confirm-button {
@@ -177,6 +182,7 @@
 
   .time-slot-button {
     height: 60px;
+    min-width: 220px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -226,3 +232,5 @@
       margin: 30px auto 0 auto;
     }
   }
+
+

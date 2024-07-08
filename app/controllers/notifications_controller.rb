@@ -2,8 +2,13 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    notifications = current_user.notifications.unread
-    render json: { unread_count: notifications.count }
+    notifications_data = {
+      unread_count: current_user.notifications.unread.count
+    }
+    render json: notifications_data
+    
+    # notifications = current_user.notifications.unread
+    # render json: { unread_count: notifications.count }
   end
 
   def mark_as_read
