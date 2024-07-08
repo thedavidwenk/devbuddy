@@ -23,7 +23,7 @@ class BookingsController < ApplicationController
             # Create a notification for the user being booked
       Notification.create(
         user: @user,
-        message: "You have a new booking from #{current_user.first_name}",
+        message: "You have a new booking request from #{current_user.first_name}",
         read: false
       )
 
