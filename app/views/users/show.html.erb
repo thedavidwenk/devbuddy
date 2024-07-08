@@ -6,7 +6,7 @@
 
       <div class="col white-bg">
           <!-- Placeholder button -->
-    
+
         <div class="d-flex flex-column align-content-center" >
 
           <%= link_to request.referer || root_path, class: "back-button" do %>
@@ -23,7 +23,7 @@
               <div class="profile-heart">
                 <%= render partial: 'users/fav_button', locals: { user: @user } %>
               </div>
-              <h3><%= @user.first_name %> <%= @user.last_name %></h3>
+              <h2><%= @user.first_name %> <%= @user.last_name %></h2>
               <span class="user-level"><i class="fa-solid fa-desktop fa-sm" style="margin-right:10px"></i><%= @user.experience_level %></span>
             </div>
           </div>
@@ -34,9 +34,9 @@
               <span class="programming-languages-tag"><%= language %></span>
             <% end %>
           </div>
-       
-        <!-- 
-         <div class="achievements">
+
+        <!--
+          <div class="achievements">
             <h3>Achievements</h3>
             <div class="user-achievements-icons">
               <% 5.times do %>
@@ -58,7 +58,8 @@
           <div class="yellow-container">
             <div class="container d-flex flex-column justify-content-center align-items-start" data-controller="booking-selector" data-booking-selector-time-slots=<%= @time_slots.to_json %>>
               <div class="d-flex flex-column align-items-start mb-4 calendar">
-              <h3 class="mb-4">1. Select your appointment with <%= @user.first_name %></h3>
+                <h2>Make an appointment with <%= @user.first_name %></h2>
+              <h3 class="mb-4">1. Pick a date</h3>
                 <%= form_for([@user, @booking]) do |f| %>
                   <%= f.text_field :booking_date, data: { booking_selector_target:"calendar" }, class:"d-none w-100 flatpickr-input" %>
               </div>
@@ -66,8 +67,8 @@
               <div class="align-items-center justify-content-center">
                   <h3 class="mb-4">2. Pick a slot</h3>
                   <div data-booking-selector-target="headline" >
-                     <% if @time_slots.any? %>
-                     <p class="time-slot-placeholder">No date selected yet...</p>
+                      <% if @time_slots.any? %>
+                      <p class="time-slot-placeholder">No date selected yet...</p>
                   </div>
                     <div class="d-flex align-items-start flex-wrap" style="gap: 10px;">
                       <% @time_slots.each do |slot| %>
