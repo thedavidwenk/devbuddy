@@ -9,6 +9,7 @@ export default class extends Controller {
     "form",
     "noTimeSlotsCreatedYet",
     "dayField",
+    "dateField",
   ];
 
   connect() {
@@ -70,6 +71,7 @@ export default class extends Controller {
 
     if (this.selectedDay !== null) {
       this.dayFieldTarget.value = this.selectedDay;
+      this.setDatePicker();
     }
   }
 
@@ -98,5 +100,29 @@ export default class extends Controller {
 
   stopPropagation(event) {
     event.stopPropagation();
+  }
+
+  setDatePicker() {
+    const dateField = this.dateFieldTarget;
+    const selectedDay = parseInt(this.selectedDay, 10);
+
+    flatpickr(dateField, {
+      disable: [
+        function (date) {
+          // Disable dates that do not match the selected day of the week
+          return date.getDay() !== selectedDay;
+        },
+      ],
+      dateFormat: "d-m-Y",
+      minDate: "today",
+      locale: {
+        firstDayOfWeek: 1, // Start week on Monday
+      },
+    });
+  }
+
+  setDate(event) {
+    const date = new Date(event.target.value);
+    this.dayFieldTarget.value = date.getDay();
   }
 }
