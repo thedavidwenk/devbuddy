@@ -121,13 +121,13 @@
       <div class="custom-availability-row-form">
 
         <div class="custom-availability-cell-input-date">
-          <%= f.date_field :date,
-          class: "styled-input",
-          data: { availability_target: "dateField",
-          action: "change->availability#setDate" },
-          placeholder: "select a date" do %>
-          <i class="fa-regular fa-calendar-days"></i>
-          <% end %>
+          <div class="input-icon-wrapper">
+            <%= f.date_field :date,
+              class: "styled-input",
+              data: { availability_target: "dateField", action: "change->availability#setDate" },
+              placeholder: "select a date" %>
+              <i class="fa-regular fa-calendar-days input-icon"></i>
+          </div>
         </div>
 
         <div class="custom-availability-cell-input-time">
@@ -152,8 +152,9 @@
       </div>
 
       <div class="custom-availability-cell-form-submit-button">
-        <%= button_tag(type: 'submit', class: 'save-timeslot-button') do %>
-          <strong>save timeslot</strong>
+        <%= button_tag(type: 'submit',
+        class: 'save-timeslot-button') do %>
+          <strong>save this timeslot</strong>
           <i class="fa-solid fa-chevron-right px-2"></i>
         <% end %>
       </div>
