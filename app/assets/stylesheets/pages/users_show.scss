@@ -154,21 +154,6 @@
     }
   }
 
-  .back-button {
-    top: 20%;
-    margin-left: auto;
-    background-color: $gray;
-    padding: 1px 30px 1px 20px;
-    color: white;
-    border-radius: 30px;
-    font-size: 20px;
-    border: none;
-    margin-top: 30px;
-    font-family: $body-font;
-    position: absolute;
-    text-decoration: none;
-  }
-
   .confirm-button {
     background-color: #2d2d2d;
     color: white;
@@ -232,5 +217,3 @@
       margin: 30px auto 0 auto;
     }
   }
-
-
