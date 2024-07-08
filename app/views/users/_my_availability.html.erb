@@ -152,7 +152,10 @@
       </div>
 
       <div class="custom-availability-cell-form-submit-button">
-        <%= f.submit 'Save timeslot', class: 'save-timeslot-button' %>
+        <%= button_tag(type: 'submit', class: 'save-timeslot-button') do %>
+          <strong>save timeslot</strong>
+          <i class="fa-solid fa-chevron-right px-2"></i>
+        <% end %>
       </div>
     <% end %>
 
