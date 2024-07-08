@@ -269,4 +269,27 @@ Booking.create!(
   status: "open"
 )
 
+# Ensure Lady Gaga and Beyonce are retrieved properly
+lady_gaga = User.find_by!(email: "ladygaga@ladygaga.com")
+beyonce = User.find_by!(email: "beyonce@beyonce.com")
+
+# Create a new time slot for Beyonce
+timeslot_for_booking = TimeSlot.create!(
+  user_id: beyonce.id,
+  date: Date.new(2024, 7, 15),
+  start_time: Time.new(2024, 7, 15, 14, 0, 0), # 2 PM
+  end_time: Time.new(2024, 7, 15, 15, 0, 0), # 3 PM
+  reserved: true
+)
+
+# Create a new booking where Lady Gaga books a meeting with Beyonce
+Booking.create!(
+  note: "Discussing collaboration on web development",
+  user_id: beyonce.id, # Beyonce's user_id
+  booker_id: lady_gaga.id, # Lady Gaga's user_id
+  time_slot_id: timeslot_for_booking.id,
+  booking_date: Date.today,
+  status: "open"
+)
+
 puts "All done!"

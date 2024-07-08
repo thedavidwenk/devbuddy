@@ -29,19 +29,23 @@
           <li class="nav-item dropdown me-3" data-controller="notifications">
             <a href="#" class="nav-link position-relative" id="notificationDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-bell"></i>
-                <span class="badge badge-danger d-none" data-controller="notification" data-notification-target="badge">
-                  <!-- Badge content will be updated dynamically by Stimulus -->
-                </span>
+              <span class="badge badge-danger d-none" data-controller="notification" data-notification-target="badge">
+                <!-- Badge content will be updated dynamically by Stimulus -->
+              </span>
             </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="background-color:#fff; border: 1px solid #000;">
-              <div data-notifications-target="list">
-                <% current_user.notifications.unread.each do |notification| %>
-                  <a class="dropdown-item" href="#" data-action="click->notifications#markAsRead" data-notification-id="<%= notification.id %>">
-                    <%= notification.message %>
-                  </a>
-                <% end %>
-              </div>
-            </div>
+<div class="dropdown-menu dropdown-menu-end" aria-labelledby="notificationDropdown" style="background-color:#fff; border: 1px solid #000;">
+  <div data-notifications-target="list">
+    <% if current_user.notifications.unread.any? %>
+      <% current_user.notifications.unread.each do |notification| %>
+        <%= link_to mark_as_read_notification_path(notification), method: :patch, remote: true, class: "dropdown-item", data: { confirm: 'Mark as read?' } do %>
+          <%= notification.message.html_safe %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <div class="dropdown-item text-muted">There are no notifications.</div>
+    <% end %>
+  </div>
+</div>
           </li>
 
           <!-- User Avatar -->
