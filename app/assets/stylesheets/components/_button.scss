@@ -1,0 +1,23 @@
+.default-button {
+  text-decoration: none;
+  height: 50px;
+  border: 0;
+  width: 170px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: $dark-brand;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 12%;
+}
+
+.default-button:hover {
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 50px;
+}
