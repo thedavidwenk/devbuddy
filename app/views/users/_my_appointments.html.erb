@@ -214,18 +214,39 @@
     <div class="custom-appointments-table">
 
       <% if @past_bookings.empty? %>
-        <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
-          <h5 class="custom-appointments-cell">You haven't got any past appointments</h5>
+        <div class="custom-appointments-cell
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    flex-column
+                    gap-3">
+          <h5 class="custom-appointments-cell-negative-message">
+            You haven't got any past appointments
+          </h5>
         </div>
 
       <% else %>
 
       <div class="custom-appointments-header">
-        <div class="custom-appointments-cell"><strong>Date</strong></div>
-        <div class="custom-appointments-cell"><strong>Time</strong></div>
-        <div class="custom-appointments-cell"><strong>Message</strong></div>
-        <div class="custom-appointments-cell"><strong>Buddy</strong></div>
-        <div class="custom-appointments-cell"><strong>Your notes</strong></div>
+        <div class="custom-appointments-cell date">
+          <strong>when?</strong>
+        </div>
+
+        <div class="custom-appointments-cell time">
+          <strong>at what time?</strong>
+        </div>
+
+        <div class="custom-appointments-cell message">
+          <strong>message...</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>from...</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong></strong>
+        </div>
       </div>
 
         <% @past_bookings.each do |booking| %>
