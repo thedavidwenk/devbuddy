@@ -56,10 +56,15 @@ class UsersController < ApplicationController
   def account_overview
     @user = current_user
     @pending_requests = Booking.where(user: @user).where(status: 'open')
+    # @upcoming_bookings = Booking.joins(:time_slot)
+    #                             .where(user: @user).or(Booking.joins(:time_slot)
+    #                             .where(booker: @user)).upcoming
+    #                             .where(status: 'approved')
     @upcoming_bookings = Booking.joins(:time_slot)
-                                .where(user: @user).or(Booking.joins(:time_slot)
-                                .where(booker: @user)).upcoming
-                                .where(status: 'approved')
+                            .where(user: @user).or(Booking.joins(:time_slot)
+                            .where(booker: @user))
+                            .where(status: ['approved', 'open'])
+                            .upcoming
     @past_bookings = Booking.joins(:time_slot)
                                 .where(user: @user).or(Booking.joins(:time_slot)
                                 .where(booker: @user)).past
