@@ -191,7 +191,13 @@
             </div>
 
             <div class="custom-appointments-cell message">
-            "<%= booking.status %>"
+              <% if booking.status == 'open' %>
+                <i class="fa-solid fa-hourglass"></i> pending
+              <% elsif booking.status == 'approved' %>
+                <i class="fa-solid fa-check"></i> <%= booking.status %>
+              <% elsif booking.status == 'rejected' %>
+                <i class="fa-solid fa-x"></i> <%= booking.status %>
+              <% end %>
             </div>
 
             <div class="custom-appointments-cell">
