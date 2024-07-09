@@ -30,13 +30,23 @@ export default class extends Controller {
 
   showTabFromHash() {
     const hash = window.location.hash;
+    console.log(this.tabTargets);
+
     if (hash) {
       const activeTab = this.tabTargets.find(
         (tab) => tab.getAttribute("href") === hash
       );
+      console.log(activeTab);
       if (activeTab) {
         this.showTab(activeTab);
       }
+    }
+    else {
+      console.log("Hello!");
+      const defaultTab = this.tabTargets.find(
+        (tab) => tab.getAttribute("href") === "#appointments"
+      );
+      this.showTab(defaultTab);
     }
   }
 }
