@@ -219,7 +219,11 @@
 }
 
 .save-timeslot-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $dark-brand;
+  text-decoration: none;
   font-family: $body-font;
   width: 600px;
   color: white;
