@@ -1,5 +1,5 @@
 <% unless @users.empty? || @users.nil? %>
-  <p class="h2">
+  <p class="h2 users-index-text">
     <% if params[:query].blank? && params[:experience_level].blank? %>
       <%= pluralize @users.count, "buddy" %> available
     <% elsif params[:query].blank? %>
@@ -35,7 +35,7 @@
                 <%= link_to profile_user_path(user), class: "card-links" do %>
                   <h4 class="card-title"><%= user.first_name %> <%= user.last_name %></h4>
                 <% end %>
-                
+
                 <!-- Favorite button -->
                 <%= render partial: 'users/fav_button', locals: { user: user } %>
 
@@ -57,8 +57,8 @@
                     <% programming_languages_array.each do |language| %>
                       <p class="card-text"><small class="badge rounded-pill badge-custom text-dark mb-3 mt-2"><%= language %></small></p>
                     <% end %>
-                  <% end %>   
-                <% end %>  
+                  <% end %>
+                <% end %>
               </div>
 
             </div>
@@ -71,8 +71,7 @@
             </div>
           </div>
         </div>
-      <% end %>  
+      <% end %>
     <% end %>
   <% end %>
 </div>
-

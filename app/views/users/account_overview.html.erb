@@ -1,9 +1,14 @@
 <div class="wrapping-container">
 
-
   <div class="custom-container" data-controller="tabs">
 
-    <button class="back-button" style="position: absolute; clear:both; margin-left: 300px; margin-top: 30px;" onclick="window.location.href='<%= request.referer || root_path %>'">back</button><br>
+    <button class="back-button"
+      style="position: absolute;
+             clear:both;
+             margin-left: 300px;
+             margin-top: 30px;"
+             onclick="window.location.href='<%= request.referer || root_path %>'">back
+    </button><br>
 
     <h1 class="overview-title"><span class="overview-title-thin">my</span> account overview</h1>
 

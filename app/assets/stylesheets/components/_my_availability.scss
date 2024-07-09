@@ -20,8 +20,8 @@
 }
 
 .button-day {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   border-radius: 14px;
   background-color: white;
   position: relative;
@@ -105,15 +105,49 @@
   font-size: 16px;
 }
 
+.custom-availability-cell .custom-icons {
+  justify-content: end;
+}
+.custom-button-icon-availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: $dark-brand;
+  color: white;
+  font-size: 15px;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Adjust duration and timing function if needed */
+
+  &:hover {
+    background-color: white;
+    color: $dark-brand;
+    border: 2px solid $dark-brand;
+  }
+}
+
+.custom-availability-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // padding-top: 10px;
+  // padding-bottom: 10px;
+  font-size: 16px;
+  background-color: $yellow-brand;
+  margin-bottom: 15px;
+  border-radius: 27.5px;
+}
+
 .custom-availability-cell {
-  flex: 1;
-  padding: 0px 30px;
+  // flex: 1;
+  padding-left: 30px;
+  padding-right: 0px;
   font-family: $body-font;
 }
 
-.custom-availability-row .custom-availability-cell {
-  display: flex;
-  align-items: center;
+.custom-availability-cell-text {
+  margin-bottom: 0px;
 }
 
 .custom-availability-row .custom-availability-cell input[type="time"] {
@@ -144,17 +178,6 @@
   margin-left: 20px;
 }
 
-.custom-availability-row {
-  display: flex;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  font-size: 16px;
-  background-color: $yellow-brand;
-  margin-bottom: 13px;
-  border-radius: 14px;
-  // cursor: pointer;
-}
-
 .no-time-slots-created-yet {
   display: flex;
   flex-direction: column;
@@ -176,41 +199,43 @@
 }
 
 .create-time-slot-button {
-  background-color: $yellow-brand;
+  background-color: $dark-brand;
   font-family: $body-font;
-  width: 300px;
-  color: $dark-brand;
+  width: 550px;
+  color: white;
   height: 48px;
   border: none;
   cursor: pointer;
-  padding: 10px 20px;
   border-radius: 24px;
   margin-bottom: 30px;
   transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
 
   &:hover {
-    background-color: $dark-brand;
-    color: white;
+    background-color: white;
+    color: $dark-brand;
+    border: 2px solid $dark-brand;
+    font-family: $body-font;
   }
 }
 
 .save-timeslot-button {
-  background-color: $yellow-brand;
+  background-color: $dark-brand;
   font-family: $body-font;
-  width: 300px;
-  color: $dark-brand;
+  width: 600px;
+  color: white;
   height: 48px;
   border: none;
   cursor: pointer;
-  padding: 10px 20px;
   border-radius: 24px;
-  margin-left: 300px;
   margin-top: 15px;
   transition: background-color 0.3s ease, color 0.3s ease; /* Adjust duration and timing function if needed */
 
   &:hover {
-    background-color: $dark-brand;
-    color: white;
+    background-color: white;
+    color: $dark-brand;
+    border-style: solid;
+    border-width: 2px;
+    border-color: $dark-brand;
   }
 }
 
@@ -228,13 +253,9 @@
   font-size: 20px;
   font-family: $headers-font;
   color: $dark-brand;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   padding-left: 5px;
 }
-
-// #start_time {
-//   margin-left: 300px;
-// }
 
 .hidden {
   display: none;
@@ -246,4 +267,88 @@
 
 .overview-title-thin {
   color: $dark-brand;
+}
+
+.styled-input {
+  background-color: $yellow-brand;
+  border-style: none;
+  justify-content: center;
+}
+
+.custom-availability-cell-input-date {
+  height: 48px;
+  width: 300px;
+  background-color: $yellow-brand;
+  color: $dark-brand;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  &:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: $dark-brand;
+    cursor: pointer;
+  }
+}
+
+.custom-availability-cell-input-time {
+  height: 48px;
+  width: 300px;
+  background-color: $yellow-brand;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  margin-left: 5px;
+  margin-right: 5px;
+
+  &:hover {
+    border-style: solid;
+    border-width: 2px;
+    border-color: $dark-brand;
+    cursor: pointer;
+  }
+}
+
+.custom-availability-row-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // padding-bottom: 10px;
+  height: 68px;
+  font-size: 16px;
+  background-color: white;
+  margin-bottom: 15px;
+  border-radius: 34px;
+}
+
+.custom-availability-cell-form-submit-button {
+  display: flex;
+  justify-content: center;
+}
+
+.styled-input::placeholder {
+  color: $dark-brand;
+}
+
+/* Icon within the input field */
+.input-icon-wrapper {
+  position: relative;
+}
+
+.input-icon {
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.styled-input {
+  padding-right: 30px; /* Adjust the padding to make room for the icon */
 }
