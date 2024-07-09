@@ -13,8 +13,8 @@ class Booking < ApplicationRecord
 
   # These SCOPES are used in the account_overview view file!! ------------------- >
 
-  scope :upcoming, -> { joins(:time_slot).where('time_slots.start_time >= ?', DateTime.now).order('time_slots.start_time ASC') }
-  scope :past, -> { joins(:time_slot).where('time_slots.start_time < ?', DateTime.now).order('time_slots.start_time DESC') }
+  scope :upcoming, -> { joins(:time_slot).where('time_slots.date >= ?', Date.today).order('time_slots.date ASC') }
+  scope :past, -> { joins(:time_slot).where('time_slots.date < ?', Date.today).order('time_slots.date DESC') }
 
   private
 
