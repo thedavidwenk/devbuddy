@@ -255,7 +255,7 @@ User.create!([
     first_name: "Vivienne",
     last_name: "Westwood",
     username: "#punk",
-    avatar: "https://graziamagazine.com/us/wp-content/uploads/sites/15/2021/06/GettyImages-695202858.jpg",
+    avatar: "http://en.ozonweb.com/wp-content/uploads/2013/06/vivienne-westwood-0021.jpg",
     experience_level: "Beginner",
     about_me: "Just caught the coding bug! Rocking the basics of web development with Ruby and Javascript. Can't wait to see the gnarly creations I come up with! Watch out.",
     programming_languages: "Ruby, HTML, CSS, Javascript, Rails, Stimulus"
