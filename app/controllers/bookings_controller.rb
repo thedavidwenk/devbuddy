@@ -40,9 +40,9 @@ class BookingsController < ApplicationController
       time_slot.reserved = false
       time_slot.save!
 
-      redirect_to account_overview_user_path(current_user), status: :see_other, notice: "Booking deleted successfully"
+      redirect_to account_overview_user_path(current_user), status: :see_other, notice: "Appointment deleted successfully"
     else
-      redirect_to account_overview_user_path(current_user), alert: "Failed to delete booking."
+      redirect_to account_overview_user_path(current_user), alert: "Failed to delete appointment."
     end
   end
 
