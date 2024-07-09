@@ -1,6 +1,9 @@
 <%# Appointment Requests --------------------- %>
 
 <div class="custom-margin-top">
+
+  <%# appointment requests ------------------------ %>
+
   <p class="overview-subtitle">Appointment Requests</p>
   <div class="section-container">
     <div class="custom-appointments-table">
@@ -29,12 +32,12 @@
 
       <% if @pending_requests.empty? %>
         <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
-          <h5 class="custom-appointments-cell">No open booking requests</h5>
+          <h5 class="custom-appointments-cell">You haven't got any open booking requests</h5>
         </div>
       <% else %>
         <% @pending_requests.each do |booking| %>
           <div class="custom-appointment-row d-flex justify-content-center align-items-top">
-            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%d/%m/%Y") %></div>
+            <div class="custom-appointments-cell"><%= booking.time_slot.date.strftime("%d/%m/%Y") %></div>
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
             <div class="custom-appointments-cell">"<%= booking.note %>"</div>
             <div class="custom-appointments-cell">
@@ -88,9 +91,9 @@
 
       <% if @upcoming_bookings.empty? %>
         <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
-          <h5 class="custom-appointments-cell">No upcoming appointments</h5>
+          <h5 class="custom-appointments-cell">You haven't got any upcoming appointments</h5>
           <%= link_to users_path, class: 'btn btn-primary rounded-5 px-5' do %>
-            <span>Find A Buddy!</span>
+            <span>find a buddy!</span>
             <i class="fa-solid fa-chevron-right px-2"></i>
           <% end %>
         </div>
@@ -98,7 +101,7 @@
         <% @upcoming_bookings.each do |booking| %>
 
           <div class="custom-appointment-row">
-            <div class="custom-appointments-cell"><%= booking.booking_date.strftime("%d/%m/%Y") %></div>
+            <div class="custom-appointments-cell"><%= booking.time_slot.date.strftime("%d/%m/%Y") %></div>
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
             <div class="custom-appointments-cell">"<%= booking.note %>"</div>
             <div class="custom-appointments-cell">
@@ -138,12 +141,12 @@
 
       <% if @past_bookings.empty? %>
         <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
-          <h5 class="custom-appointments-cell">No past appointments</h5>
+          <h5 class="custom-appointments-cell">You haven't got any past appointments</h5>
         </div>
       <% else %>
         <% @past_bookings.each do |booking| %>
           <div class="custom-appointment-row">
-            <div class="custom-appointments-cell"><%= booking.booking_date.strftime("%d/%m/%Y") %></div>
+            <div class="custom-appointments-cell"><%= booking.time_slot.date.strftime("%d/%m/%Y") %></div>
             <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
             <div class="custom-appointments-cell">"<%= booking.note %>"</div>
             <div class="custom-appointments-cell">
