@@ -59,15 +59,19 @@
 
 .date {
   padding-left: 30px;
-  max-width: 200px;
+  min-width: 200px;
 }
 
 .time {
-  min-width: 250px;
+  min-width: 230px;
 }
 
 .message {
-  min-width: 220px;
+  min-width: 350px;
+}
+
+.status {
+  min-width: 200px;
 }
 
 .custom-appointments-cell-negative-message {

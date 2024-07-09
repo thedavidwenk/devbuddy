@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
         read: false
       )
 
-      redirect_to account_overview_user_path(current_user), notice:"Booking was successfully created!"
+      redirect_to account_overview_user_path(current_user), notice:"your request was successfully created!"
     else
       redirect_to user_path(@user), alert: "Failed to create booking."
     end
