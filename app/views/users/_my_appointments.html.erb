@@ -151,7 +151,7 @@
           <strong>message...</strong>
         </div>
 
-        <div class="custom-appointments-cell message">
+        <div class="custom-appointments-cell status">
           <strong>status</strong>
         </div>
 
@@ -190,7 +190,7 @@
             "<%= booking.note %>"
             </div>
 
-            <div class="custom-appointments-cell message">
+            <div class="custom-appointments-cell status">
               <% if booking.status == 'open' %>
                 <i class="fa-solid fa-hourglass"></i> pending
               <% elsif booking.status == 'approved' %>
