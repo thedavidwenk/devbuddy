@@ -1,5 +1,3 @@
-// my appointments -------------------------
-
 .section-container {
   background-color: white;
   border-radius: 14px;
@@ -31,6 +29,7 @@
   display: flex;
   padding-bottom: 8px;
   margin-top: -10px;
+  margin-bottom: 10px;
   color: $dark-brand;
   font-family: $body-font;
   font-size: 16px;
@@ -38,34 +37,53 @@
 
 .custom-appointment-row {
   display: flex;
-  padding-top: 10px;
-  padding-bottom: 5px;
-  padding-left: 5px;
+  justify-content: center;
+  align-items: center;
   font-size: 16px;
-  // font-family: $body-font;
   background-color: $yellow-brand;
   margin-bottom: 13px;
-  border-radius: 14px;
-  cursor: pointer;
+  height: 40px;
+  border-radius: 30px;
+
+  // cursor: pointer;
 }
 
 .custom-appointments-cell {
   flex: 1;
-  padding: 5px 30px;
   font-family: $body-font;
 }
 
+.date {
+  padding-left: 30px;
+  max-width: 200px;
+}
+
+.time {
+  width: 350px;
+}
+
+.message {
+  min-width: 400px;
+}
+
+.custom-appointments-cell-negative-message {
+  color: $dark-brand;
+  font-size: 20px;
+}
+
 .custom-avatar {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  margin-right: 10px;
+  margin-right: 5px;
   object-fit: cover;
   object-position: center;
 }
 
 .custom-icons {
   display: flex;
+  justify-content: end;
+  // margin-right: 30px;
   gap: 30px;
 }
 
@@ -78,16 +96,19 @@
   color: white;
   background-color: $dark-brand;
   border-radius: 50%;
-  font-size: 16px;
+  font-size: 15px;
   padding: 10px;
   width: 40px;
-  height: 40px; 
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none; 
-}
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Adjust duration and timing function if needed */
 
-.custom-button-icon:hover {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  &:hover {
+    background-color: white;
+    color: $dark-brand;
+    border: 2px solid $dark-brand;
+  }
 }
