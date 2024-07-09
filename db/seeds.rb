@@ -9,6 +9,18 @@ puts "Creating new entries"
 
 User.create!([
   {
+    email: "rihanna@music.com",
+    password: "securepassword3",
+    password_confirmation: "securepassword3",
+    first_name: "Rihanna",
+    last_name: "Fenty",
+    username: "rihanna",
+    avatar: "https://i.pinimg.com/736x/c9/0e/fb/c90efb96e0eebbd93522a5a678551b4d.jpg",
+    experience_level: "Beginner",
+    about_me: "Beyond music and fashion, I'm fascinated by the potential of coding to shape the future of e-commerce. Learning HTML and Ruby allows me to explore integrating these skills with my businesses, creating innovative and interactive experiences for my fans.  It's a thrilling way to express creativity and connect with them on a whole new level.",
+    programming_languages: "HTML, Ruby, CSS, Javascript, "
+  },
+  {
     email: "madonna@madonna.com",
     password: "password123",
     password_confirmation: "password123",
@@ -81,18 +93,6 @@ User.create!([
     programming_languages: "Python, Ruby"
   },
   {
-    email: "rihanna@music.com",
-    password: "securepassword3",
-    password_confirmation: "securepassword3",
-    first_name: "Rihanna",
-    last_name: "Fenty",
-    username: "rihanna",
-    avatar: "https://i.pinimg.com/736x/c9/0e/fb/c90efb96e0eebbd93522a5a678551b4d.jpg",
-    experience_level: "Beginner",
-    about_me: "I am a musician and entrepreneur with a growing interest in coding. Learning to code has been an exciting journey for me. I look forward to creating innovative solutions through technology.",
-    programming_languages: "HTML, Ruby"
-  },
-  {
     email: "dwayne@johnson.com",
     password: "securepassword4",
     password_confirmation: "securepassword4",
@@ -126,7 +126,7 @@ User.create!([
     avatar: "https://cdn.mos.cms.futurecdn.net/AyZRXRAF37KwihUtAu4uJX.jpg",
     experience_level: "Beginner",
     about_me: "I am an actor who has recently developed a fascination for programming. The process of creating something from scratch is incredibly rewarding. I look forward to expanding my skills and working on exciting projects.",
-    programming_languages: "Ruby, PHP"
+    programming_languages: "Ruby, PHP, Go"
   },
   {
     email: "brad@pitt.com",
@@ -138,7 +138,7 @@ User.create!([
     avatar: "https://www.yorkshirepost.co.uk/webimg/legacy_ash_77547539.jpg?width=1200&enable=upscale",
     experience_level: "Beginner",
     about_me: "I am an actor exploring the world of coding. JavaScript has quickly become one of my favorite languages. I'm excited to see where this new interest takes me.",
-    programming_languages: "JavaScript, HTML"
+    programming_languages: "Ruby, JavaScript, HTML"
   },
   {
     email: "scarlett@johansson.com",
@@ -162,7 +162,7 @@ User.create!([
     avatar: "https://group.hugoboss.com/fileadmin/_processed_/7/1/csm_hugo-boss_CH_Image_6a37efd63e.jpg",
     experience_level: "Beginner",
     about_me: "I am an actor with a new passion for coding. JavaScript has been particularly fun to learn. I am looking forward to developing my skills further and creating some awesome projects.",
-    programming_languages: "JavaScript, Python"
+    programming_languages: "JavaScript, Python, C"
   },
   {
     email: "ryan@gosling.com",
@@ -186,66 +186,199 @@ User.create!([
     avatar: "https://variety.com/wp-content/uploads/2018/12/emma-stone.jpg?w=1000",
     experience_level: "Beginner",
     about_me: "I am an actress with a budding interest in technology. Learning JavaScript has been a fascinating journey. I am eager to see what I can create as I continue to learn.",
-    programming_languages: "JavaScript, PHP"
+    programming_languages: "JavaScript, PHP, C#"
+  },
+  {
+    email: "jenniferlawrence@icloud.com",
+    password: "securepassword13",
+    password_confirmation: "securepassword13",
+    first_name: "Jennifer",
+    last_name: "Lawrence",
+    username: "jenniferlawrence",
+    avatar: "https://img.goodfon.com/wallpaper/big/5/ac/jennifer-lawrence-devushka-vzgliad-aktrisa-portret-makiiazh.webp",
+    experience_level: "Beginner",
+    about_me: "Interested in the potential of coding for filmmaking. Just started learning Ruby and intrigued by its creative applications. Excited to explore more!",
+    programming_languages: "Ruby, HTML, CSS, C++"
+  },
+  {
+    email: "halleberry@yahoo.com",
+    password: "securepassword14",
+    password_confirmation: "securepassword14",
+    first_name: "Halle",
+    last_name: "Berry",
+    username: "halleberry",
+    avatar: "https://cdn.aarp.net/content/dam/aarp/entertainment/celebrities/2022/02/1140-halle-berry-promo.jpg",
+    experience_level: "Beginner",
+    about_me: "Taking the first steps into web development with Ruby and JavaScript. Finding the process of building interactive websites fascinating. Can't wait to learn more!",
+    programming_languages: "Ruby, JavaScript, SQL"
+  },
+  {
+    email: "idriselba@hotmail.com",
+    password: "securepassword15",
+    password_confirmation: "securepassword15",
+    first_name: "Idris",
+    last_name: "Elba",
+    username: "idriselba",
+    avatar: "https://variety.com/wp-content/uploads/2020/07/idris-elba-1.jpg",
+    experience_level: "Beginner",
+    about_me: "Curious about the power of data analysis. Beginning my coding journey with Python and Ruby to explore data manipulation and visualization. Looking forward to the challenges!",
+    programming_languages: "Python, Ruby, Rails, SQL"
+  },
+  {
+    email: "cardi@gmail.com",
+    password: "securepassword16",
+    password_confirmation: "securepassword16",
+    first_name: "Cardi",
+    last_name: "B",
+    username: "iamcardib",
+    avatar: "https://lifestyle.si.com/.image/t_share/MjAyODYxOTY3Mzc3OTY2MDky/cardib.jpg",
+    experience_level: "Beginner",
+    about_me: "Building a website for my fans! Learning the basics of Ruby and HTML to create a user-friendly and interactive platform. It's been a fun and rewarding experience!",
+    programming_languages: "PHP, HTML, Ruby"
+  },
+  {
+    email: "chloegracemoretz@aol.com",
+    password: "securepassword17",
+    password_confirmation: "securepassword17",
+    first_name: "Chloe",
+    last_name: "Grace Moretz",
+    username: "chloemoretz",
+    avatar: "https://assets.teenvogue.com/photos/559c3798950ffe746eb3ac98/4:3/w_2000,h_1500,c_limit/GettyImages-465839400.jpg",
+    experience_level: "Beginner",
+    about_me: "Exploring the world of coding for fun.  Currently playing around with Ruby and intrigued by its problem-solving aspects. Looking forward to expanding my skills!",
+    programming_languages: "Ruby, Python, NodeJS"
+  },
+  {
+    email: "david@wenk.com",
+    password: "password123",
+    password_confirmation: "password123",
+    first_name: "David",
+    last_name: "Wenk",
+    username: "dave",
+    avatar: "https://avatars.githubusercontent.com/u/128937394?v=4",
+    experience_level: "Beginner",
+    about_me: "Recently discovered a passion for coding! Learning the basics of web development with HTML and CSS. Excited to see what I can create!",
+    programming_languages: "Ruby, HTML, CSS, Javascript, Rails"
   }
 ])
 
-puts "Creating Users, Timeslots and Bookings..."
+users = User.all
 
 user1 = User.first
 user2 = User.last
+user3 = users[1]
+user4 = users[2]
+user5 = users[3]
 
-timeslot1 = TimeSlot.create!(
+puts "Creating Users, Timeslots and Bookings..."
+
+TimeSlot.create!(
   user_id: user1.id,
-  date: Date.new(2024, 7, 21),
+  date: Date.new(2024, 7, 15),
   start_time: Time.new(2024, 6, 21, 10, 0, 0),
   end_time: Time.new(2024, 6, 21, 12, 0, 0),
   reserved: false
 )
 
-timeslot2 = TimeSlot.create!(
+TimeSlot.create!(
   user_id: user1.id,
-  date: Date.new(2024, 7, 28),
+  date: Date.new(2024, 7, 15),
+  start_time: Time.new(2024, 8, 24, 6, 0, 0),
+  end_time: Time.new(2024, 8, 24, 7, 0, 0),
+  reserved: false
+)
+
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 22),
   start_time: Time.new(2024, 7, 28, 8, 0, 0),
   end_time: Time.new(2024, 7, 28, 9, 0, 0),
   reserved: false
 )
 
-timeslot3 = TimeSlot.create!(
-  user_id: user2.id,
-  date: Date.new(2024, 7, 23),
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 29),
   start_time: Time.new(2024, 6, 23, 13, 0, 0),
   end_time: Time.new(2024, 6, 23, 14, 0, 0),
   reserved: false
 )
 
-timeslot4 = TimeSlot.create!(
-  user_id: user2.id,
-  date: Date.new(2024, 8, 11),
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 17),
   start_time: Time.new(2024, 8, 24, 20, 0, 0),
   end_time: Time.new(2024, 8, 24, 21, 0, 0),
   reserved: false
 )
 
-timeslot5 = TimeSlot.create!(
-  user_id: user2.id,
-  date: Date.new(2024, 8, 12),
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 17),
+  start_time: Time.new(2024, 8, 24, 3, 0, 0),
+  end_time: Time.new(2024, 8, 24, 4, 0, 0),
+  reserved: false
+)
+
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 17),
   start_time: Time.new(2024, 8, 24, 18, 0, 0),
   end_time: Time.new(2024, 8, 24, 19, 0, 0),
   reserved: false
 )
 
-timeslot6 = TimeSlot.create!(
-  user_id: user2.id,
-  date: Date.new(2024, 8, 12),
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 24),
+  start_time: Time.new(2024, 8, 24, 18, 0, 0),
+  end_time: Time.new(2024, 8, 24, 19, 0, 0),
+  reserved: false
+)
+
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 31),
   start_time: Time.new(2024, 8, 24, 10, 0, 0),
   end_time: Time.new(2024, 8, 24, 11, 0, 0),
   reserved: false
 )
 
-timeslot7 = TimeSlot.create!(
-  user_id: user2.id,
-  date: Date.new(2024, 8, 12),
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 19),
+  start_time: Time.new(2024, 8, 24, 1, 0, 0),
+  end_time: Time.new(2024, 8, 24, 2, 0, 0),
+  reserved: false
+)
+
+TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 27),
+  start_time: Time.new(2024, 8, 24, 1, 0, 0),
+  end_time: Time.new(2024, 8, 24, 2, 0, 0),
+  reserved: false
+)
+
+timeslot9 = TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 12),
+  start_time: Time.new(2024, 8, 24, 1, 0, 0),
+  end_time: Time.new(2024, 8, 24, 2, 0, 0),
+  reserved: false
+)
+
+timeslot10 = TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 10),
+  start_time: Time.new(2024, 8, 24, 1, 0, 0),
+  end_time: Time.new(2024, 8, 24, 2, 0, 0),
+  reserved: false
+)
+
+timeslot11 = TimeSlot.create!(
+  user_id: user1.id,
+  date: Date.new(2024, 7, 02),
   start_time: Time.new(2024, 8, 24, 1, 0, 0),
   end_time: Time.new(2024, 8, 24, 2, 0, 0),
   reserved: false
@@ -253,20 +386,29 @@ timeslot7 = TimeSlot.create!(
 
 Booking.create!(
   note: "Meeting for Ruby Basics",
-  user_id: user1.id,
+  user_id: user3.id,
   booker_id: user2.id,
-  time_slot_id: timeslot1.id,
-  booking_date: Date.new(2024, 9, 24),
-  status: "open"
+  time_slot_id: timeslot9.id,
+  booking_date: Date.new(2024, 7, 12),
+  status: "approved"
 )
 
 Booking.create!(
   note: "Learn about AJAX Requests",
-  user_id: user2.id,
-  booker_id: user1.id,
-  time_slot_id: timeslot3.id,
-  booking_date: Date.new(2024, 9, 16),
-  status: "open"
+  user_id: user4.id,
+  booker_id: user2.id,
+  time_slot_id: timeslot10.id,
+  booking_date: Date.new(2024, 7, 10),
+  status: "approved"
+)
+
+Booking.create!(
+  note: "Learn about AJAX Requests",
+  user_id: user5.id,
+  booker_id: user2.id,
+  time_slot_id: timeslot11.id,
+  booking_date: Date.new(2024, 7, 02),
+  status: "approved"
 )
 
 # Ensure Lady Gaga and Beyonce are retrieved properly
