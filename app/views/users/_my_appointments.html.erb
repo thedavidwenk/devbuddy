@@ -16,7 +16,7 @@
                     align-items-center
                     flex-column gap-3">
           <h5 class="custom-appointments-cell-negative-message">
-            You haven't got any appointment requests
+            You haven't got any pending meeting requests
           </h5>
         </div>
 
@@ -115,52 +115,86 @@
   <div class="section-container">
     <div class="custom-appointments-table">
 
+      <% if @upcoming_bookings.empty? %>
+        <div class="custom-appointments-cell
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    flex-column
+                    gap-3">
+          <h5 class="custom-appointments-cell-negative-message">
+            You haven't got any upcoming appointments
+          </h5>
+
+          <%= link_to users_path,
+              class: 'save-timeslot-button' do %>
+            <strong>find a buddy</strong>
+            <i class="fa-fw fa-solid fa-arrow-right"></i>
+          <% end %>
+
+        </div>
+
+      <% else %>
+
+      <%# list of upcoming appointments ----------------------------------- %>
+
       <div class="custom-appointments-header">
-        <div class="custom-appointments-cell">
-          <strong>Date</strong>
+        <div class="custom-appointments-cell date">
+          <strong>when?</strong>
+        </div>
+
+        <div class="custom-appointments-cell time">
+          <strong>at what time?</strong>
+        </div>
+
+        <div class="custom-appointments-cell message">
+          <strong>message...</strong>
         </div>
 
         <div class="custom-appointments-cell">
-          <strong>Time</strong>
+          <strong>from...</strong>
         </div>
 
         <div class="custom-appointments-cell">
-          <strong>Message</strong>
-        </div>
-
-        <div class="custom-appointments-cell">
-          <strong>Buddy</strong>
-        </div>
-
-        <div class="custom-appointments-cell">
-          <strong>Edit or delete</strong>
+          <strong></strong>
         </div>
       </div>
 
-      <% if @upcoming_bookings.empty? %>
-        <div class="custom-appointments-cell d-flex justify-content-center align-items-center flex-column gap-3">
-          <h5 class="custom-appointments-cell">You haven't got any upcoming appointments</h5>
-          <%= link_to users_path, class: 'btn btn-primary rounded-5 px-5' do %>
-            <span>find a buddy!</span>
-            <i class="fa-solid fa-chevron-right px-2"></i>
-          <% end %>
-        </div>
-      <% else %>
+
         <% @upcoming_bookings.each do |booking| %>
 
           <div class="custom-appointment-row">
-            <div class="custom-appointments-cell"><%= booking.time_slot.date.strftime("%d/%m/%Y") %></div>
-            <div class="custom-appointments-cell"><%= booking.time_slot.start_time.strftime("%I:%M %p") %> - <%= booking.time_slot.end_time.strftime("%I:%M %p") %></div>
-            <div class="custom-appointments-cell">"<%= booking.note %>"</div>
+            <div class="custom-appointments-cell date">
+            on the
+            <strong>
+              <%= booking.time_slot.date.strftime("%d/%m/%Y") %>
+            </strong>
+            </div>
+
+            <div class="custom-appointments-cell time">
+            from
+            <strong>
+              <%= booking.time_slot.start_time.strftime("%I:%M %p") %>
+            </strong>
+            to
+            <strong>
+              <%= booking.time_slot.end_time.strftime("%I:%M %p") %>
+            </strong>
+            </div>
+
+            <div class="custom-appointments-cell message">
+            "<%= booking.note %>"
+            </div>
+
             <div class="custom-appointments-cell">
               <% buddy = booking.user == current_user ? booking.booker : booking.user %>
               <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
-              <%= buddy.username %>
+              <strong>
+                <%= buddy.username %>
+              </strong>
             </div>
             <div class="custom-appointments-cell custom-icons">
-              <a href="<%= edit_booking_path(booking) %>" class=" custom-button-icon">
-                <i class="fas fa-edit"></i>
-              </a>
+
               <%= link_to user_booking_path(current_user, booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "custom-button-icon" do %>
                 <i class="fas fa-trash"></i>
               <% end %>
