@@ -45,7 +45,11 @@
   height: 40px;
   border-radius: 30px;
 
-  // cursor: pointer;
+  &:hover {
+    background-color: $yellow-brand-light;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Adjust duration and timing function if needed */
+  }
 }
 
 .custom-appointments-cell {

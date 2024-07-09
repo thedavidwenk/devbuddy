@@ -193,12 +193,13 @@
                 <%= buddy.username %>
               </strong>
             </div>
-            <div class="custom-appointments-cell custom-icons">
 
+            <div class="custom-appointments-cell custom-icons">
               <%= link_to user_booking_path(current_user, booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "custom-button-icon" do %>
                 <i class="fas fa-trash"></i>
               <% end %>
             </div>
+
           </div>
         <% end %>
       <% end %>
@@ -282,7 +283,12 @@
             </div>
 
             <div class="custom-appointments-cell custom-icons">
-              <a href="#" class="custom-icon-link"><i class="fa-solid fa-comment"></i></a>
+              <%= link_to user_booking_path(current_user, booking),
+              data: {turbo_method: :delete,
+              turbo_confirm: 'Are you sure?'},
+              class: "custom-button-icon" do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
             </div>
 
           </div>
