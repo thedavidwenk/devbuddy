@@ -1,3 +1,16 @@
+.card {
+  border: 0;
+  transition: 0.03s;
+
+  &:hover {
+    outline: 2px solid $dark-brand; 
+  }
+}
+
+code {
+  color: rgb(213, 3, 3);
+}
+
 .card-img-bottom {
   height: 250px;
   object-fit: cover; 
@@ -15,6 +28,10 @@
   color: #9C9C9C;
   margin: 0;
   margin-top: 3px;
+}
+
+.card-title {
+  color: $dark-brand;
 }
 
 .icon-space {
