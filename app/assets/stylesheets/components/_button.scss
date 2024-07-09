@@ -30,11 +30,17 @@
   }
 }
 
+.back-button-account-overview {
+  position: absolute;          
+  margin-left: 300px;
+  margin-top: 30px;
+}
+
 .back-button {
   text-decoration: none;
-  height: 50px;
+  height: 35px;
   border: 0;
-  width: 170px;
+  width: 108px;
   float: right;
   display: flex;
   justify-content: center;
@@ -49,8 +55,8 @@
   &:before {
     content: "\f060"; /* Font Awesome's right arrow icon */
     font-family: "Font Awesome 6 Free"; /* Font family for Font Awesome */
-    font-weight: 900; /* Font weight for solid icons */
-    margin-right: 8px; /* Space between text and icon */
+    font-weight: 700; /* Font weight for solid icons */
+    margin-right: 5px; /* Space between text and icon */
   }
 
   &:hover {
