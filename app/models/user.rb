@@ -6,6 +6,9 @@ class User < ApplicationRecord
   # Skill levels to select from for users and search
   SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"].freeze
 
+  # validation 
+  validates :first_name, length: { minimum: 2, maximum: 15 }, format: { with: /\A[a-zA-Z\s']+\z/, message: "only allows letters, spaces, and common punctuation" }
+  validates :last_name, length: { minimum: 2, maximum: 15 }, format: { with: /\A[a-zA-Z\s']+\z/, message: "only allows letters, spaces, and common punctuation" }
 
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
