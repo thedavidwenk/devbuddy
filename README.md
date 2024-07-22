@@ -10,7 +10,6 @@ This platform is the final project of Le Wagon Web Development Bootcamp batch #1
 - [Technologies](#technologies)
 - [Setup](#setup)
 - [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
@@ -91,5 +90,5 @@ Usage
 
 ## License
 
-TBD 
+MIT  
 
