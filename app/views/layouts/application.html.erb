@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Devbuddy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+
+    <div class="wrapper">
+      <%= render "shared/navbar" %>
+      <%= yield %>
+      <%= render 'shared/footer' %>
+    </div>
+
+    <% if alert %>
+      <div class="alert alert-danger" data-controller="notification"><%= alert %></div>
+    <% end %>
+
+    <% if notice %>
+      <div class="alert alert-success" data-controller="notification"><%= notice %></div>
+    <% end %>
+
+    <% if flash[:warning] %>
+      <div class="alert alert-warning" data-controller="notification"><%= flash[:warning] %></div>
+    <% end %>
+  </body>
+</html>

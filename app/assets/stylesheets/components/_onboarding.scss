@@ -1,0 +1,189 @@
+#onboarding-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: auto;
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0;
+    z-index: 1;
+  }
+
+  .row {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    margin: 0;
+  }
+
+  .col {
+    flex: 1;
+    padding: 5px;
+    position: relative;
+  }
+
+  .btn-onboarding {
+    height: 50px;
+    border: 0;
+    width: 120px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: $dark-brand;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-onboarding:hover {
+    font-weight: bold;
+    color: $dark-brand;
+    background-color: white;
+    border: 2px solid $dark-brand;
+    border-radius: 50px;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-onboarding:hover {
+    font-weight: bold;
+    color: $dark-brand;
+    background-color: white;
+    border: 2px solid $dark-brand;
+    border-radius: 50px;
+  }
+
+  .yellow-bg-onboarding {
+    background-color: $yellow-brand;
+    z-index: 1;
+    position: relative;
+    background-size: 100%;
+    background-position: auto;
+    background-repeat: no-repeat;
+  }
+
+  .white-bg-onboarding {
+    display: block;
+    background-image: url("onboarding-img1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 0;
+  }
+
+  .onboarding-form {
+    z-index: 2;
+    position: relative;
+  }
+
+  #onboarding-headline {
+    // max-width: 100%;
+    margin: 7% 20%;
+    flex-grow: 1;
+
+    h1,
+    p {
+      color: $dark-brand;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 75px;
+      text-align: left;
+      font-family: $headers-font;
+      line-height: 1;
+    }
+
+    p {
+      margin-top: 10px;
+      text-align: left;
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+
+    .form-control,
+    .form-select {
+      border: 0;
+      height: 50px;
+      border-radius: 100px;
+      padding-left: 20px;
+    }
+
+    .form-control::placeholder,
+    .form-select::placeholder {
+      padding-left: 20px;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1280px) {
+    #onboarding-headline {
+      h1 {
+        font-size: 60px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+
+    .yellow-container,
+    .white-container {
+      margin: 20px;
+    }
+
+    .headline button {
+      float: none;
+      display: block;
+      margin: 30px auto 0 auto;
+    }
+
+    .girl-vector {
+      display: none;
+    }
+
+    .white-bg-onboarding {
+      display: none;
+    }
+
+    #onboarding-headline {
+      h1 {
+        font-size: 50px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+.btn-onboarding {
+  text-decoration: none;
+  height: 50px;
+  border: 0;
+  width: 170px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: $dark-brand;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-onboarding:hover {
+  font-weight: bold;
+  color: $dark-brand;
+  background-color: white;
+  border: 2px solid $dark-brand;
+  border-radius: 50px;
+}
+
+.form {
+  font-size: 18px;
+}

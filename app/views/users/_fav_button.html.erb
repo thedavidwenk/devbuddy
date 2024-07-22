@@ -1,0 +1,17 @@
+<div data-controller="favorite">
+  <% if current_user.present? %>    
+    <% if current_user.favorited?(user) %>
+      <%= link_to toggle_favorite_user_path(user), method: :post, remote: true, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
+        <i class="fas fa-heart" data-favorite-target="heart"></i> <!-- Filled heart when favorited -->
+      <% end %>
+    <% else %>
+      <%= link_to toggle_favorite_user_path(user), method: :post, remote: true, class: 'toggle-favorite-link', data: { action: 'click->favorite#toggleFavorite' } do %>
+        <i class="far fa-heart" data-favorite-target="heart"></i> <!-- Unfilled heart when not favorited -->
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= link_to profile_user_path(user), class: 'toggle-favorite-link' do %>
+      <i class="far fa-heart" data-favorite-target="heart"></i> 
+    <% end %>
+  <% end %>     
+</div>

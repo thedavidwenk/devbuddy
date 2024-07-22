@@ -1,0 +1,29 @@
+<div id="landing-page" class="main-content">
+  <div class="split-screen">
+    <div class="girl-vector">
+      <%= image_tag 'landing_page_girl.svg', alt: 'Landing Page Girl', class: 'landing-girl' %>
+    </div>
+    <div class="row" style="width: 100%;">
+      <!-- Yellow background part -->
+      <div class="col yellow-bg" style="background-image: url(<%= asset_path('landing_page_white_dotted_line.svg') %>);">
+        <div class="">
+          <div id="landing-headline">
+            <p class="first-line">Hi there,</p>
+            <p class="code-solo">done <br> struggling <br> to code <br><strong>solo?</strong></p>
+            <p>We don't make it easier <br> to become a Software Developer, <br> but you don't have to be alone while doing so.</p>
+            <!-- Button -->
+            <%= link_to getstarted_path, class: 'find-buddy-button' do %>
+              <span>find a buddy </span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <!-- White background part -->
+      <div class="col white-bg" style="background-image: url(<%= asset_path('landing_page_bees.svg') %>);">
+        <div class="">
+          <!-- Content for the white background part -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

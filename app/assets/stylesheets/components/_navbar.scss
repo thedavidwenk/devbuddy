@@ -1,0 +1,33 @@
+.navbar-lewagon {
+  justify-content: space-between;
+  background: white;
+  height: 75px;
+  border-bottom: 2px solid black;
+
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  .navbar-brand img {
+    width: auto;
+  }
+
+  .nav-link {
+    color: $dark-brand;
+    font-weight: bold;
+
+    &:hover {
+      color: $dark-brand;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+    }
+
+    &.active {
+      color: $dark-brand !important;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 6px;
+    }
+  }
+}

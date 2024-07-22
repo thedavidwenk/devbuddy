@@ -1,0 +1,314 @@
+<div class="custom-margin-top">
+
+  <%# appointment requests ------------------------ %>
+
+  <p class="overview-subtitle">Appointment Requests</p>
+  <div class="section-container">
+    <div class="custom-appointments-table">
+
+
+      <%# empty pending requests --------------------------------- %>
+
+      <% if @pending_requests.empty? %>
+        <div class="custom-appointments-cell
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    flex-column gap-3">
+          <h5 class="custom-appointments-cell-negative-message">
+            You haven't got any pending meeting requests
+          </h5>
+        </div>
+
+      <%# list of pending requests --------------------------------------- %>
+
+      <% else %>
+
+        <div class="custom-appointments-header">
+          <div class="custom-appointments-cell date">
+            <strong>when?</strong>
+          </div>
+
+          <div class="custom-appointments-cell time">
+            <strong>at what time?</strong>
+          </div>
+
+          <div class="custom-appointments-cell message">
+            <strong>message...</strong>
+          </div>
+
+          <div class="custom-appointments-cell">
+            <strong>from...</strong>
+          </div>
+
+          <div class="custom-appointments-cell">
+            <strong></strong>
+          </div>
+        </div>
+
+
+        <% @pending_requests.each do |booking| %>
+          <div class="custom-appointment-row">
+
+            <div class="custom-appointments-cell date">
+                on the
+                <strong>
+                  <%= booking.time_slot.date.strftime("%d/%m/%Y") %>
+                </strong>
+            </div>
+
+            <div class="custom-appointments-cell time">
+               from
+                <strong>
+                  <%= booking.time_slot.start_time.strftime("%I:%M %p") %>
+                </strong>
+                to
+                <strong>
+                  <%= booking.time_slot.end_time.strftime("%I:%M %p") %>
+                </strong>
+            </div>
+
+            <div class="custom-appointments-cell message">
+              "<%= booking.note %>"
+            </div>
+
+            <div class="custom-appointments-cell">
+              <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+              <img src="<%= buddy.avatar %>"
+                   class="custom-avatar"
+                   alt="<%= buddy.username %>">
+              <strong>
+                <%= buddy.username %>
+              </strong>
+            </div>
+
+            <div class="custom-appointments-cell
+                        custom-icons
+                        icons-position">
+              <%= link_to accept_booking_path(booking),
+                  method: :patch,
+                  class: 'custom-button-icon' do  %>
+                <i class="fa-regular fa-circle-check"></i>
+              <% end  %>
+
+              <%= link_to reject_booking_path(booking),
+                  method: :patch,
+                  class: 'custom-button-icon',
+                  data: { turbo_confirm: 'Are you sure?' } do  %>
+                <i class="fa-regular fa-circle-xmark"></i>
+              <% end  %>
+
+            </div>
+
+          </div>
+        <% end %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%# Upcoming Appointments --------------------- %>
+
+<div class="custom-margin-top">
+  <p class="overview-subtitle">Upcoming Appointments</p>
+  <div class="section-container">
+    <div class="custom-appointments-table">
+
+      <% if @upcoming_bookings.empty? %>
+        <div class="custom-appointments-cell
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    flex-column
+                    gap-3">
+          <h5 class="custom-appointments-cell-negative-message">
+            You haven't got any upcoming appointments
+          </h5>
+
+          <%= link_to users_path,
+              class: 'save-timeslot-button' do %>
+            <strong>find a buddy</strong>
+            <i class="fa-fw fa-solid fa-arrow-right"></i>
+          <% end %>
+
+        </div>
+
+      <% else %>
+
+      <%# list of upcoming appointments ----------------------------------- %>
+
+      <div class="custom-appointments-header">
+        <div class="custom-appointments-cell date">
+          <strong>when?</strong>
+        </div>
+
+        <div class="custom-appointments-cell time">
+          <strong>at what time?</strong>
+        </div>
+
+        <div class="custom-appointments-cell message">
+          <strong>message...</strong>
+        </div>
+
+        <div class="custom-appointments-cell status">
+          <strong>status</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>from...</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong></strong>
+        </div>
+      </div>
+
+
+        <% @upcoming_bookings.each do |booking| %>
+
+          <div class="custom-appointment-row">
+            <div class="custom-appointments-cell date">
+            on the
+            <strong>
+              <%= booking.time_slot.date.strftime("%d/%m/%Y") %>
+            </strong>
+            </div>
+
+            <div class="custom-appointments-cell time">
+            from
+            <strong>
+              <%= booking.time_slot.start_time.strftime("%I:%M %p") %>
+            </strong>
+            to
+            <strong>
+              <%= booking.time_slot.end_time.strftime("%I:%M %p") %>
+            </strong>
+            </div>
+
+            <div class="custom-appointments-cell message">
+            "<%= booking.note %>"
+            </div>
+
+            <div class="custom-appointments-cell status">
+              <% if booking.status == 'open' %>
+                <i class="fa-solid fa-hourglass"></i> pending
+              <% elsif booking.status == 'approved' %>
+                <i class="fa-solid fa-check"></i> <%= booking.status %>
+              <% elsif booking.status == 'rejected' %>
+                <i class="fa-solid fa-x"></i> <%= booking.status %>
+              <% end %>
+            </div>
+
+            <div class="custom-appointments-cell">
+              <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+              <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+              <strong>
+                <%= buddy.username %>
+              </strong>
+            </div>
+
+            <div class="custom-appointments-cell custom-icons">
+              <%= link_to user_booking_path(current_user, booking), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: "custom-button-icon" do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%# Past Appointments ------------------------- %>
+
+<div class="custom-margin-top">
+  <p class="overview-subtitle">Past Appointments</p>
+  <div class="section-container">
+    <div class="custom-appointments-table">
+
+      <% if @past_bookings.empty? %>
+        <div class="custom-appointments-cell
+                    d-flex
+                    justify-content-center
+                    align-items-center
+                    flex-column
+                    gap-3">
+          <h5 class="custom-appointments-cell-negative-message">
+            You haven't got any past appointments
+          </h5>
+        </div>
+
+      <% else %>
+
+      <div class="custom-appointments-header">
+        <div class="custom-appointments-cell date">
+          <strong>when?</strong>
+        </div>
+
+        <div class="custom-appointments-cell time">
+          <strong>at what time?</strong>
+        </div>
+
+        <div class="custom-appointments-cell message">
+          <strong>message...</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong>from...</strong>
+        </div>
+
+        <div class="custom-appointments-cell">
+          <strong></strong>
+        </div>
+      </div>
+
+        <% @past_bookings.each do |booking| %>
+          <div class="custom-appointment-row">
+            <div class="custom-appointments-cell date">
+            on the
+            <strong>
+              <%= booking.time_slot.date.strftime("%d/%m/%Y") %>
+            </strong>
+            </div>
+
+            <div class="custom-appointments-cell time">
+            from
+            <strong>
+              <%= booking.time_slot.start_time.strftime("%I:%M %p") %>
+            </strong>
+            to
+            <strong>
+              <%= booking.time_slot.end_time.strftime("%I:%M %p") %>
+            </strong>
+            </div>
+
+            <div class="custom-appointments-cell message">
+            "<%= booking.note %>"
+            </div>
+
+            <div class="custom-appointments-cell">
+              <% buddy = booking.user == current_user ? booking.booker : booking.user %>
+              <img src="<%= buddy.avatar %>" class="custom-avatar" alt="<%= buddy.username %>">
+              <strong>
+                <%= buddy.username %>
+              </strong>
+            </div>
+
+            <div class="custom-appointments-cell custom-icons">
+              <%= link_to user_booking_path(current_user, booking),
+              data: {turbo_method: :delete,
+              turbo_confirm: 'Are you sure?'},
+              class: "custom-button-icon" do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </div>
+
+          </div>
+
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

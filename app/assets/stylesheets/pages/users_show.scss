@@ -1,0 +1,59 @@
+#users-show {
+  height: 100vh;
+
+  .profile-image {
+    object-fit: cover;
+    width: 400px;
+    height: 300px;
+  }
+
+  .text-gray {
+    color: $mid-gray;
+  }
+
+  .time-slot-button {
+    height: 60px;
+    min-width: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-brand;
+    color: white;
+    border-radius: 50px;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(-3px);
+    }
+  }
+
+  .time-slot-button-disabled {
+    background-color: #f2f2f2;
+    width: 130px;
+    height: 130px;
+    box-shadow: none;
+    color: #959595;
+
+    &:hover {
+      cursor: not-allowed;
+      background-color: #f2f2f2;
+    }
+  }
+}
+
+  /* Responsive adjustments */
+  @media (max-width: 480px) {
+    .row {
+      flex-direction: column;
+    }
+    .yellow-container,
+    .white-container {
+      margin: 20px;
+    }
+    .headline button, .white-container button {
+      float: none;
+      display: block;
+      margin: 30px auto 0 auto;
+    }
+  }

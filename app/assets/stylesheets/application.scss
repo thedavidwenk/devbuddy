@@ -1,0 +1,50 @@
+// Graphical variables
+@import "config/fonts";
+@import "config/colors";
+@import "config/bootstrap_variables";
+
+// External libraries
+@import "bootstrap";
+@import "font-awesome";
+
+// Import components
+@import "components/index";
+@import "components/avatar";
+@import "components/alert";
+@import "components/navbar";
+@import "components/notifications";
+@import "components/button";
+
+// Import custom fonts
+@import "custom_fonts";
+
+// Import pages
+@import 'pages/users_index';
+@import "pages/users_show";
+@import "pages/account_overview";
+@import "pages/users_home";
+
+// Your CSS partials
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.badge-danger {
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  left: 15px;
+  font-size: 10px;
+  border-radius: 50px;
+}
+
+body {
+  height: 100vh;
+}
