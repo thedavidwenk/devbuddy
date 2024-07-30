@@ -7,7 +7,7 @@ User.destroy_all
 # Users creation -----------------------------
 puts "Creating new entries"
 
-User.create!([
+users = [
   {
     email: "rihanna@music.com",
     password: "securepassword3",
@@ -229,7 +229,7 @@ User.create!([
     password: "securepassword16",
     password_confirmation: "securepassword16",
     first_name: "Cardi",
-    last_name: "B",
+    last_name: "Bee",
     username: "iamcardib",
     avatar: "https://lifestyle.si.com/.image/t_share/MjAyODYxOTY3Mzc3OTY2MDky/cardib.jpg",
     experience_level: "Beginner",
@@ -260,156 +260,46 @@ User.create!([
     about_me: "Just caught the coding bug! Rocking the basics of web development with Ruby and Javascript. Can't wait to see the gnarly creations I come up with! Watch out.",
     programming_languages: "Ruby, HTML, CSS, Javascript, Rails, Stimulus"
   }
-])
+]
 
-users = User.all
+puts "creating recurring timeslots for all users"
 
-user1 = User.first
-user2 = User.last
-user3 = users[1]
-user4 = users[2]
-user5 = users[3]
+start_date = Date.new(2024, 7, 15)
+end_date = Date.new(2025, 12, 31)
+start_time = Time.new(2024, 6, 21, 18, 0, 0)
+
+users.each do |user_attributes|
+  user = User.create!(user_attributes)
+
+  # Generate time slots for each user
+  current_date = start_date
+  rand_weekday_1 = rand(1..7)
+  rand_weekday_2 = rand(1..7)
+
+  while current_date <= end_date
+    TimeSlot.create!(
+      user_id: user.id,
+      date: current_date + rand_weekday_1,
+      start_time: start_time - rand(0..12).hours,
+      end_time: start_time + rand(1..2).hours,
+      reserved: false
+    )
+
+    TimeSlot.create!(
+      user_id: user.id,
+      date: current_date + rand_weekday_2,
+      start_time: start_time - rand(0..12).hours,
+      end_time: start_time + rand(1..2).hours,
+      reserved: false
+    )
+
+    current_date = current_date.next_week
+  end
+end
+
 
 puts "Creating Users, Timeslots and Bookings..."
 
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 15),
-  start_time: Time.new(2024, 6, 21, 10, 0, 0),
-  end_time: Time.new(2024, 6, 21, 12, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 15),
-  start_time: Time.new(2024, 8, 24, 6, 0, 0),
-  end_time: Time.new(2024, 8, 24, 7, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 22),
-  start_time: Time.new(2024, 7, 28, 8, 0, 0),
-  end_time: Time.new(2024, 7, 28, 9, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 29),
-  start_time: Time.new(2024, 6, 23, 13, 0, 0),
-  end_time: Time.new(2024, 6, 23, 14, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 17),
-  start_time: Time.new(2024, 8, 24, 20, 0, 0),
-  end_time: Time.new(2024, 8, 24, 21, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 17),
-  start_time: Time.new(2024, 8, 24, 3, 0, 0),
-  end_time: Time.new(2024, 8, 24, 4, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 17),
-  start_time: Time.new(2024, 8, 24, 18, 0, 0),
-  end_time: Time.new(2024, 8, 24, 19, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 24),
-  start_time: Time.new(2024, 8, 24, 18, 0, 0),
-  end_time: Time.new(2024, 8, 24, 19, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 31),
-  start_time: Time.new(2024, 8, 24, 10, 0, 0),
-  end_time: Time.new(2024, 8, 24, 11, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 19),
-  start_time: Time.new(2024, 8, 24, 1, 0, 0),
-  end_time: Time.new(2024, 8, 24, 2, 0, 0),
-  reserved: false
-)
-
-TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 27),
-  start_time: Time.new(2024, 8, 24, 1, 0, 0),
-  end_time: Time.new(2024, 8, 24, 2, 0, 0),
-  reserved: false
-)
-
-timeslot9 = TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 12),
-  start_time: Time.new(2024, 8, 24, 1, 0, 0),
-  end_time: Time.new(2024, 8, 24, 2, 0, 0),
-  reserved: false
-)
-
-timeslot10 = TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 10),
-  start_time: Time.new(2024, 8, 24, 1, 0, 0),
-  end_time: Time.new(2024, 8, 24, 2, 0, 0),
-  reserved: false
-)
-
-timeslot11 = TimeSlot.create!(
-  user_id: user1.id,
-  date: Date.new(2024, 7, 02),
-  start_time: Time.new(2024, 8, 24, 1, 0, 0),
-  end_time: Time.new(2024, 8, 24, 2, 0, 0),
-  reserved: false
-)
-
-Booking.create!(
-  note: "Meeting for Ruby Basics",
-  user_id: user3.id,
-  booker_id: user2.id,
-  time_slot_id: timeslot9.id,
-  booking_date: Date.new(2024, 7, 12),
-  status: "approved"
-)
-
-Booking.create!(
-  note: "Learn about AJAX Requests",
-  user_id: user4.id,
-  booker_id: user2.id,
-  time_slot_id: timeslot10.id,
-  booking_date: Date.new(2024, 7, 10),
-  status: "approved"
-)
-
-Booking.create!(
-  note: "Learn about AJAX Requests",
-  user_id: user5.id,
-  booker_id: user2.id,
-  time_slot_id: timeslot11.id,
-  booking_date: Date.new(2024, 7, 02),
-  status: "approved"
-)
 
 # Ensure Lady Gaga and Beyonce are retrieved properly
 lady_gaga = User.find_by!(email: "ladygaga@ladygaga.com")
@@ -433,5 +323,7 @@ Booking.create!(
   booking_date: Date.today,
   status: "open"
 )
+
+
 
 puts "All done!"
