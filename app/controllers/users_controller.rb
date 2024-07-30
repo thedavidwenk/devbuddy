@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :account_overview, :toggle_favorite]
+  before_action :authenticate_user!, only: [:account_overview, :toggle_favorite]
   before_action :set_user, only: [:show, :toggle_favorite]
 
   def home
