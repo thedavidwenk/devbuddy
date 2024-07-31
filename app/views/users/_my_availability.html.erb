@@ -108,61 +108,75 @@
     </div>
   <% end %>
 
-  <%# form to crate a new time slot ------------------- %>
+<%# form to create a new time slot ------------------- %>
 
-  <div class="section-container-availability"
-    data-availability-target="form"
-    style="display: none;">
+<div class="section-container-availability"
+  data-availability-target="form"
+  style="display: none;">
 
-    <p class="custom-form-title-slots">Create a new timeslot</p>
+  <p class="custom-form-title-slots">Create a new timeslot</p>
 
-    <%= form_with(model: @time_slot,
-      url: time_slots_path, local: true) do |f| %>
+  <%= form_with(model: @time_slot,
+    url: time_slots_path, local: true) do |f| %>
 
-      <div class="custom-availability-row-form">
+    <div class="custom-availability-row-form my-5">
 
-        <div class="custom-availability-cell-input-date">
-          <div class="input-icon-wrapper">
-            <%= f.date_field :date,
-              class: "styled-input",
-              data: { availability_target: "dateField", action: "change->availability#setDate" },
-              placeholder: "select a date" %>
-              <i class="fa-regular fa-calendar-days input-icon"></i>
-          </div>
+    <div>
+      <div class="ms-3">
+        <%= f.label :date, "Availability Date", for: "time_slot_date" %>
+      </div>
+      <div class="custom-availability-cell-input-date">
+        <div class="input-icon-wrapper" style="position: relative;">
+          <%= f.date_field :date,
+            class: "styled-input",
+            placeholder: "Select Date",
+            id: "time_slot_date",
+            data: { availability_target: "dateField", action: "change->availability#setDate" } %>
+          <i class="fa-regular fa-calendar-days input-icon"></i>
         </div>
+      </div>
+    </div>
 
-        <div class="custom-availability-cell-input-time">
-          <%= f.time_field :start_time,
-          label: 'Select Start Time',
-          class: "styled-input",
-          format: "%H:%M",
-          placeholder: "select a start time" %>
-        </div>
+    <div>
+      <div class="ms-3">
+        <%= f.label :start_time, "Start Time", for: "time_slot_start_time" %>
+      </div>
+      <div class="custom-availability-cell-input-time">
+        <%= f.time_field :start_time,
+        class: "styled-input",
+        id: "time_slot_start_time", 
+        format: "%H:%M" %>
+      </div>
+    </div>
 
-        <div class="custom-availability-cell-input-time">
-          <%= f.time_field :end_time,
-          label: 'Select End Time',
-          class: "styled-input",
-          format: "%H:%M",
-          placeholder: "select an end time" %>
-        </div>
+    <div>
+      <div class="ms-3">
+        <%= f.label :end_time, "End Time", for: "time_slot_end_time" %>
+      </div>
+      <div class="custom-availability-cell-input-time">
+        <%= f.time_field :end_time,
+        class: "styled-input",
+        id: "time_slot_end_time",
+        format: "%H:%M" %>
+      </div>
+    </div>
 
-        <div>
-          <%= f.hidden_field :day,
-          data: { availability_target: "dayField" } %>
-        </div>
-
+      <div>
+        <%= f.hidden_field :day,
+        data: { availability_target: "dayField" } %>
       </div>
 
-      <div class="custom-availability-cell-form-submit-button">
-        <%= button_tag(type: 'submit',
-        class: 'save-timeslot-button') do %>
-          <strong>save this timeslot</strong>
-          <i class="fa-fw fa-solid fa-arrow-right"></i>
-        <% end %>
-      </div>
-    <% end %>
+    </div>
 
-  </div>
+    <div class="custom-availability-cell-form-submit-button">
+      <%= button_tag(type: 'submit',
+      class: 'save-timeslot-button') do %>
+        <strong>save this timeslot </strong>
+        <i class="fa-fw fa-solid fa-arrow-right"></i>
+      <% end %>
+    </div>
+  <% end %>
+
+</div>
 
 </div>
