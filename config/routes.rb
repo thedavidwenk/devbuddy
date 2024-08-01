@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   get 'time_slots/edit'
   get 'time_slots/delete'
 
-  devise_for :users
+
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  
+  # devise_for :users
 
   # Custom route for getstarted
   get 'getstarted', to: 'users#getstarted'
