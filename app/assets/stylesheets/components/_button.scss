@@ -92,3 +92,29 @@
     border-radius: 50px;
   }
 }
+
+
+.signup-button {
+  text-decoration: none;
+  height: 50px;
+  border: 0;
+  width: 170px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+  background-color: $dark-brand;
+  font-family: $body-font;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  width: 120px;
+
+  &:hover {
+    font-weight: bold;
+    color: $dark-brand !important;
+    background-color: white;
+    border: 2px solid $dark-brand;
+    border-radius: 50px;
+  }
+}
