@@ -9,7 +9,7 @@
         <div class="form-inputs">
           <%= f.input :first_name %>
           <%= f.input :last_name %>
-          <%= f.input :experience_level, 
+          <%# f.input :experience_level, 
             collection: User::SKILL_LEVELS, 
             prompt: "Select your experience level", 
             input_html: { name: "experience_level" }, 
