@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  validates :email, presence: true, uniqueness: true
+
   # acts_as_favoritor gem setup
   acts_as_favoritor
   acts_as_favoritable

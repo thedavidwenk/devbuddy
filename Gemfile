@@ -53,6 +53,9 @@ gem "pg_search"
 # add a favorite buddy
 gem 'acts_as_favoritor', path: 'vendor/gems/acts_as_favoritor'
 
+# adds recaptcha functionallity for signup
+gem 'recaptcha', require: 'recaptcha/rails'
+
 gem "bootstrap", "~> 5.2"
 gem "autoprefixer-rails"
 gem "simple_form"

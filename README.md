@@ -2,6 +2,8 @@
 
 DevBuddy is a platform designed for junior software engineers seeking to connect with fellow developers to find an accountability buddy. Our motto is: ‘We don’t make it easier to become a software developer, but you don’t have to be alone while becoming one.’
 
+Visit the platform here: [DevBuddy Website](https://www.devbuddy.co/)
+
 This platform is the final project of Le Wagon Web Development Bootcamp batch #1576.
 
 ## Table of Contents

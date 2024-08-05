@@ -13,7 +13,7 @@
         <div class="row mb-3">
           <div class="col">
             <% if @user.avatar.present? %>
-              <%= image_tag(@user.avatar, class:"profile-image") %>
+              <%= image_tag(@user.avatar, class:"profile-image rounded-4") %>
             <% end %>
           </div>
           <div class="col">
@@ -25,7 +25,7 @@
           </div>
         </div>
 
-        <div class="mb-3">
+        <div class="my-3">
           <h3>Currently using...</h3>
           <% @user.programming_languages.split(', ').each do |language| %>
             <span class="badge rounded-pill badge-custom text-dark mb-3 mt-2 fs-6"><%= language %></span>
