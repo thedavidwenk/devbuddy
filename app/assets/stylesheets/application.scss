@@ -48,3 +48,8 @@
 body {
   height: 100vh;
 }
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
