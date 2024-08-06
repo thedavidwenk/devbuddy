@@ -20,15 +20,15 @@
     </div>
 
     <% if alert %>
-      <div data-controller="flash" class="alert alert-danger" data-flash-target="message"><%= alert %></div>
+      <div data-controller="flash" class="alert alert-danger"><%= alert %></div>
     <% end %>
 
     <% if notice %>
-      <div data-controller="flash" class="alert alert-success" data-flash-target="message"><%= notice %></div>
+      <div data-controller="flash" class="alert alert-success"><%= notice %></div>
     <% end %>
 
     <% if flash[:warning] %>
-      <div data-controller="flash" class="alert alert-warning" data-flash-target="message"><%= flash[:warning] %></div>
+      <div data-controller="flash" class="alert alert-warning"><%= flash[:warning] %></div>
     <% end %>
   </body>
 </html>
