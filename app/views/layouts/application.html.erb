@@ -20,15 +20,15 @@
     </div>
 
     <% if alert %>
-      <div class="alert alert-danger" data-controller="notification"><%= alert %></div>
+      <div data-controller="flash" class="alert alert-danger"><%= alert %></div>
     <% end %>
 
     <% if notice %>
-      <div class="alert alert-success" data-controller="notification"><%= notice %></div>
+      <div data-controller="flash" class="alert alert-success"><%= notice %></div>
     <% end %>
 
     <% if flash[:warning] %>
-      <div class="alert alert-warning" data-controller="notification"><%= flash[:warning] %></div>
+      <div data-controller="flash" class="alert alert-warning"><%= flash[:warning] %></div>
     <% end %>
   </body>
 </html>
