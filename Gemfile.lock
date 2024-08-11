@@ -125,7 +125,6 @@ GEM
       dotenv (= 3.1.2)
       railties (>= 6.1)
     drb (2.2.1)
-    error_highlight (0.6.0)
     erubi (1.13.0)
     execjs (2.9.1)
     faraday (2.9.2)
@@ -329,7 +328,6 @@ DEPENDENCIES
   debug
   devise
   dotenv-rails
-  error_highlight (>= 0.4.0)
   flatpickr
   font-awesome-sass (~> 6.1)
   importmap-rails

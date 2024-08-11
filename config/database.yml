@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
-  database: devbuddy_production
+  adapter: postgresql
+  database: <%= ENV['DATABASE_URL'] %>
   username: devbuddy
   password: <%= ENV["DEVBUDDY_DATABASE_PASSWORD"] %>

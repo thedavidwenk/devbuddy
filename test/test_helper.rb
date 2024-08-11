@@ -12,4 +12,14 @@ module ActiveSupport
 
     # Add more helper methods to be used by all tests here...
   end
+
+  # Devise test helpers
+  include Warden::Test::Helpers
+  Warden.test_mode!
+end
+
+Capybara.save_path = Rails.root.join("tmp/capybara")
+
+class ActiveSupport::TestCase
+  include Devise::Test::IntegrationHelpers
 end
