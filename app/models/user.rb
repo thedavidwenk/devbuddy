@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  validates :email, presence: true, uniqueness: true
-
   # acts_as_favoritor gem setup
   acts_as_favoritor
   acts_as_favoritable
@@ -8,7 +6,8 @@ class User < ApplicationRecord
   # Skill levels to select from for users and search
   SKILL_LEVELS = ["Beginner", "Intermediate", "Advanced", "Expert"].freeze
 
-  # validation 
+  # validation
+  validates :email, presence: true, uniqueness: true
   validates :first_name, length: { minimum: 2, maximum: 15 }, format: { with: /\A[a-zA-Z\s']+\z/, message: "only allows letters, spaces, and common punctuation" }
   validates :last_name, length: { minimum: 2, maximum: 15 }, format: { with: /\A[a-zA-Z\s']+\z/, message: "only allows letters, spaces, and common punctuation" }
 

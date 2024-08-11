@@ -1,15 +1,1 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  user_id: one
-  day: 1
-  start_time: 2024-06-21
-  end_time: 2024-06-21
-  reserved: false
-
-two:
-  user_id: two
-  day: 1
-  start_time: 2024-06-21
-  end_time: 2024-06-21
-  reserved: false
